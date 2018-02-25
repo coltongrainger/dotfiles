@@ -218,3 +218,13 @@ else
   highlight SpellBad ctermfg=Red ctermbg=Gray
 endif
 
+set linebreak
+
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap gj j
+nnoremap gk k
+vnoremap gj j
+vnoremap gk k
