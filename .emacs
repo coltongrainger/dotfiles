@@ -1,69 +1,73 @@
-;; Disable the splash screen (to enable it agin, replace the t with 0)
+;; no start up screens
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
-;; Enable transient mark mode
-(transient-mark-mode 1)
-
-;; org mode time stamps
-(setq org-log-done t)
-(custom-set-variables '(org-log-done (quote time)))
-(custom-set-faces)
-
-;; I like Emacs to take up about half of the screen, but this depends
-;; on the screen in use so might need to be adjusted depending on the
-;; computer.
+;; screen size
 (setq initial-frame-alist
-          '((width . 84) (height . 40)))
+          '((width . 80) (height . 24)))
 
-;; For installing packages
+;; install packages (esp magit)
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+ '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; Override some colors that the MATE theme sets
-(set-face-attribute 'region nil :background "#eeeeee")
-(set-face-attribute 'default nil
-                    :height 110
-                    :background "#ffffff"
-                    :foreground "#333333")
-
+;; only one instance of custom-set-variables please
+;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(indent-tabs-mode nil)
- '(magit-diff-refine-hunk (quote all))
- '(make-backup-files nil)
+
+ ;; matching parens
+ '(show-paren-mode t)
+ ;; hide clickable toolbar
+ '(tool-bar-mode nil)
+ ;; moving around
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
- '(org-agenda-files (quote ("~/org/todo.org")))
+ '(scroll-conservatively 1000)
+ ;; prevent extraneous tabs
+ '(indent-tabs-mode nil)
+ ;; add newline to files before saving
+ '(require-final-newline t)
+ ;; keep clipboard when copying from outside
+ '(save-interprogram-paste-before-kill t)
+ ;; don't double space
+ '(sentence-end-double-space nil)
+
+ ;; magit (for git)
+ '(package-selected-packages (quote (magit)))
+ '(magit-diff-refine-hink (quote all))
+ ;; no back ups 
+ '(make-backup-files nil)
+ ;; go to the most recent file under vc 
+ '(vc-follow-symlinks t)
+
+ ;; wrap lines in org mode 
+ '(org-startup-truncated nil)
+ ;; time stamp
+ '(org-log-done (quote time))
+ ;; where's the agenda?
+ '(org-agenda-files (quote ("~/todo.org")))
+ '(org-default-notes-file (quote ("~/todo.org")))
+ ;; adding items
  '(org-capture-templates
    (quote
     (("t" "TODO item" entry
-      (file+headline "~/org/todo.org" "Tasks")
+      (file+headline "~/todo.org" "Tasks")
       "* TODO %?
   %i"))))
- '(org-startup-truncated nil)
+ ;; cycling options
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "DONE(d)"))))
- '(package-selected-packages (quote (intero magit)))
- '(require-final-newline t)
- '(save-interprogram-paste-before-kill t)
- '(scroll-conservatively 1000)
- '(sentence-end-double-space nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil)
- '(vc-follow-symlinks t))
+)
 
-(setq org-default-notes-file "~/org/todo.org")
+;; org key maps
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
+;; git interactions
 (defun stage-and-commit-snapshot ()
   "Use Git to stage and commit the current file"
   (interactive)
@@ -87,4 +91,3 @@
                   '(lambda () (interactive)
                      (magit-stage-file buffer-file-name)
                      (magit-commit))))
-
