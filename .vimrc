@@ -10,9 +10,9 @@ set nocompatible
 " Once all Vim config files are in the right places, just do :PlugInstall in
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
-if has('gui_running')
+" if has('gui_running')
   Plug 'romainl/flattened'
-endif
+" endif
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -68,21 +68,13 @@ if !has('nvim')
   set ttimeoutlen=50
 endif
 
-<<<<<<< HEAD
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces linebreak
-=======
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
->>>>>>> use more of issa's dotfiles and look at Steve Losh's vim script book
+
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 if has('mouse')
   set mouse=nv
 endif
-<<<<<<< HEAD
-=======
-if !has('nvim')
-  runtime! ftplugin/man.vim
-  setglobal keywordprg=:Man
-endif
+
 if exists('&inccommand')
   set inccommand=split
 endif
@@ -125,18 +117,12 @@ if has('autocmd')
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType matlab setlocal commentstring=%%s
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell
-<<<<<<< HEAD
     autocmd BufNewFile,BufRead */.mutt/temp/* setlocal spell
-=======
->>>>>>> use more of issa's dotfiles and look at Steve Losh's vim script book
     autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
     autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
     autocmd FileType mediawiki setlocal includeexpr=substitute(toupper(v:fname[0]).v:fname[1:],'\ ','_','g')
     autocmd FileType mediawiki setlocal suffixesadd=.mediawiki
-<<<<<<< HEAD
-=======
     autocmd FileType mediawiki setlocal linebreak
->>>>>>> use more of issa's dotfiles and look at Steve Losh's vim script book
     autocmd FileType php setlocal commentstring=//%s
     autocmd FileType help,man setlocal nolist nospell
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
@@ -155,13 +141,9 @@ if has('autocmd')
     " autocmd would run again.
     autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     " Allow opening of locally linked pages with gf
-<<<<<<< HEAD
     autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
     autocmd BufNewFile,BufRead */coltongrainger.github.io/_posts/*.md setlocal includeexpr=substitute(v:fname,'$','.md','')
-=======
-    autocmd BufNewFile,BufRead */issarice.com/wiki/*.md setlocal includeexpr=substitute(v:fname,'$','.md','')
     autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
->>>>>>> use more of issa's dotfiles and look at Steve Losh's vim script book
     " In some versions, when Vim is compiled with python3 support but not
     " python support, the omnifunc check above tries to use
     " pythoncomplete#Complete, which doesn't exist since there is no python
@@ -240,8 +222,6 @@ else
   highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
   highlight SpellBad ctermfg=Red ctermbg=Gray
 endif
-
-set linebreak
 
 nnoremap j gj
 nnoremap k gk
