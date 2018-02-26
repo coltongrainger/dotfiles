@@ -47,12 +47,20 @@ https://github.com/insanum/nostalgic
 ** events
 *** Dave Gardner
 *** flyers
-**** librarian
-**** OLF play
+**** DONE librarian
+     CLOSED: [2018-02-26 Mon 11:20]
+**** TODO OLF play
+create sign up sheets for dates
+  Friday,  March 16 at 7pm
+  Saturday,  March 17 at 2pm
+  Sunday,  March 18 at 2pm
+  Thursday,  March 22 at 7pm
+**** request tickets for OLF play
+https://docs.google.com/a/olyft.org/forms/d/1EbRT6k21BDrJPT0aXHilXoI0UEwTA5J5qvw7f7wouug/edit?usp=drivesdk
 *** UWTC day of service
   - what does Jeff need?
 *** board member church day of service
-
+    
 ** safety comm
 *** complete incident report
 **** add sheriff's office forms
@@ -70,7 +78,7 @@ https://github.com/insanum/nostalgic
 *** Connie
 **** read American Homelessness 
 
-** best practices
+** thurston thrives
 *** collect bibliography
   - BRIDGES, UW, email, etc
   - [[https://washingtonstem.box.com/s/hxazw99jqctzvmyo97k82yjlaoxjgerj][WA state]]
@@ -97,7 +105,7 @@ https://github.com/insanum/nostalgic
 *** CE one pager
 *** volunteer responsibilities
 
-** interviews
+** interviews with staffw 
 *** Trish
 *** Natalie
 *** Irene
@@ -107,6 +115,9 @@ https://github.com/insanum/nostalgic
 
 ** appreciation
 *** TODO alyssa rec letter
+** technical
+*** automatic schedule redraw
+probably need greasemonkey to do this.
 * recreation
 ** learn media wiki
 ** yoga
