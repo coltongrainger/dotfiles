@@ -7,9 +7,9 @@ set nocompatible
 " Once all Vim config files are in the right places, just do :PlugInstall in
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
-if has('gui_running')
+" if has('gui_running')
   Plug 'romainl/flattened'
-endif
+" endif
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -63,14 +63,10 @@ if !has('nvim')
   set ttimeoutlen=50
 endif
 
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces linebreak
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 if has('mouse')
   set mouse=nv
-endif
-if !has('nvim')
-  runtime! ftplugin/man.vim
-  setglobal keywordprg=:Man
 endif
 if exists('&inccommand')
   set inccommand=split
