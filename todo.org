@@ -1,0 +1,114 @@
+* org mode
+** DONE start todo listcl on emacs (duh)
+   CLOSED: [2018-02-20 Tue 20:26]
+** DONE pull org files to work computer
+** DONE learn emacs commands
+is emacs installed? what about references to the file system? 
+will those make sense?
+
+** DONE transfer reminders from google calendar
+** TODO transfer todo from website
+
+* computer setup 
+** calendar
+*** [[https://orgmode.org/worg/org-tutorials/org-google-sync.html][sync org mode and google calendar]]
+
+** scheduling
+*** TODO pay for scheduleonce
+*** TODO get off of youcanbookme
+
+** personal cloud
+*** get off of evernote (yuck!)
+*** get personal files off of github
+*** TODO personal cloud https://github.com/mattmight/uiki
+  - could also use dropbox...
+
+** email
+*** install mutt 
+https://stevelosh.com/blog/2012/10/the-homely-mutt/
+
+** dotfiles
+https://github.com/insanum/nostalgic
+
+* grad school
+** TODO write statement on teaching/learning
+*** collect bibliography
+- Paul Hand [[http://math.mit.edu/~hand/docs/statement_teaching_learning_2007.pdf][2007]], [[http://math.mit.edu/~hand/docs/statement_teaching_learning_2013.pdf][2013]]
+- Jean Yang [[https://people.csail.mit.edu/jeanyang/application/][2014]]
+- Philip Guo [[http://www.pgbovine.net/apps/faculty-2012/pguo-teaching-statement_2012.pdf][2012]]
+- P Allman
+- G Polya
+- Moore
+*** create bibtex files
+*** publish to web
+*** TeX and send to CU Boulder
+
+* family support center
+** events
+*** Dave Gardner
+*** flyers
+**** librarian
+**** OLF play
+*** UWTC day of service
+  - what does Jeff need?
+*** board member church day of service
+
+** safety comm
+*** complete incident report
+**** add sheriff's office forms
+**** disasters?
+**** police encounter?
+**** other?
+
+** interns
+*** apply for intern from workforce dev?
+*** Kaylee
+  - WSU learning plan
+  - check in on hours
+*** Alohi
+  - f/u for summer internship
+*** Connie
+**** read American Homelessness 
+
+** best practices
+*** collect bibliography
+  - BRIDGES, UW, email, etc
+  - [[https://washingtonstem.box.com/s/hxazw99jqctzvmyo97k82yjlaoxjgerj][WA state]]
+*** check in with Brad Hooper
+*** 1st draft for thurston thrives
+*** camera ready copy by July?
+
+** reporting
+*** Jan Month report
+  - VISTA stats
+  - web stats
+*** Feb report
+  - volunteer of the month
+  - VISTA stats
+  - web stats
+
+** training material
+*** setup academic reading list
+  - foucault
+  - post traumatic growth
+  - zines
+*** de-escalation handout
+  - include trauma informed care fact sheet
+*** CE one pager
+*** volunteer responsibilities
+
+** interviews
+*** Trish
+*** Natalie
+*** Irene
+*** AJ
+*** Eileen
+*** Keiya
+
+** appreciation
+*** TODO alyssa rec letter
+* recreation
+** learn media wiki
+** yoga
+** choir
+** coltongrainger.com
