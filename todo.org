@@ -14,7 +14,8 @@ will those make sense?
 *** [[https://orgmode.org/worg/org-tutorials/org-google-sync.html][sync org mode and google calendar]]
 
 ** scheduling
-*** TODO pay for scheduleonce
+*** DONE pay for scheduleonce
+    CLOSED: [2018-02-26 Mon 14:11]
 *** TODO get off of youcanbookme
 
 ** personal cloud
@@ -29,9 +30,9 @@ https://stevelosh.com/blog/2012/10/the-homely-mutt/
 
 ** dotfiles
 https://github.com/insanum/nostalgic
-
+*** sync up programs on linux and macbook?
 * grad school
-** TODO write statement on teaching/learning
+** SOMEDAY write statement on teaching/learning
 *** collect bibliography
 - Paul Hand [[http://math.mit.edu/~hand/docs/statement_teaching_learning_2007.pdf][2007]], [[http://math.mit.edu/~hand/docs/statement_teaching_learning_2013.pdf][2013]]
 - Jean Yang [[https://people.csail.mit.edu/jeanyang/application/][2014]]
@@ -44,6 +45,9 @@ https://github.com/insanum/nostalgic
 *** TeX and send to CU Boulder
 
 * family support center
+** budgeting
+*** pay 7.50 to fsc
+*** get 30 for gallery boom
 ** events
 *** Dave Gardner
 *** flyers
@@ -105,7 +109,7 @@ https://docs.google.com/a/olyft.org/forms/d/1EbRT6k21BDrJPT0aXHilXoI0UEwTA5J5qvw
 *** CE one pager
 *** volunteer responsibilities
 
-** interviews with staffw 
+** interviews with staff
 *** Trish
 *** Natalie
 *** Irene
@@ -115,11 +119,30 @@ https://docs.google.com/a/olyft.org/forms/d/1EbRT6k21BDrJPT0aXHilXoI0UEwTA5J5qvw
 
 ** appreciation
 *** TODO alyssa rec letter
-** technical
-*** automatic schedule redraw
-probably need greasemonkey to do this.
+*** DONE set up lunch
+    CLOSED: [2018-02-26 Mon 14:11]
+    10 plates (small)
+    20 forks
+    big knife & serving spoon
+    15 mugs
+    hot water heater
+    plastic bin
+    tea bags
+    napkins
+** outreach
+*** churches
+*** DONE calls in
+    CLOSpED: [2018-02-26 Mon 14:04]
+Germine germinematautia83@gmail.com
 * recreation
 ** learn media wiki
 ** yoga
 ** choir
 ** coltongrainger.com
+* BDS committee
+[[https://drive.google.com/drive/u/0/folders/0AAKNC7u86OGqUk9PVA][team drive]]
+[[https://docs.google.com/spreadsheets/d/13S1wsihnI4q18GExT0fVtFbI4UhCKE_RbeQYrEWwyKk/edit#gid=1155374232][task list]]
+** oly coop
+*** draft email announcement
+*** support on March 9
+*** write after trial opinion

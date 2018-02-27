@@ -1,0 +1,20 @@
+[user]
+	name = coltongrainger
+	email = coltongrainger@gmail.com
+[color]
+	ui = auto
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = ~/.cvsignore
+[alias]
+	co = checkout
+	br = branch
+	cm = commit -m
+[push]
+	default = simple
