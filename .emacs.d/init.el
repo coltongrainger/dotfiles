@@ -67,14 +67,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
-;; git interactions
-(defun stage-and-commit-snapshot ()
-  "Use Git to stage and commit the current file"
-  (interactive)
-  (shell-command
-    (concat "git add "
-            buffer-file-name
-            "&& git commit -m 'snapshot'")))
+(when (fboundp 'magit-status)
+  (global-set-key (kbd "C-x g") 'magit-status))
 
 (when (fboundp 'magit-diff-buffer-file)
   ;; This is like ":Git diff %" in fugitive.vim
