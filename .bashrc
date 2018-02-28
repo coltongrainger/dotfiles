@@ -1,5 +1,5 @@
 # trying to setup dotfiles on github
-alias config='/usr/bin/git --git-dir=/Users/colton/.cfg/ --work-tree=/Users/colton'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Modified from <https://www.jefftk.com/p/you-should-be-logging-shell-history>
 promptFunc() {
