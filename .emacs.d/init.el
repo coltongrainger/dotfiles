@@ -33,9 +33,7 @@
  ;; don't double space
  '(sentence-end-double-space nil)
 
- ;; magit (for git)
- '(package-selected-packages (quote (magit)))
- '(magit-diff-refine-hink (quote all))
+
  ;; no back ups 
  '(make-backup-files nil)
  ;; go to the most recent file under vc 
@@ -48,7 +46,13 @@
  ;; where's the agenda?
  '(org-agenda-files (quote ("~/todo.org")))
  '(org-default-notes-file (quote ("~/todo.org")))
- ;; adding items
+ '(org-agenda-custom-commands
+    (quote
+     (("c" "Simple agenda view"
+       ((agenda "")
+        (alltodo ""))))))
+
+;; adding items
  '(org-capture-templates
    (quote
     (("t" "TODO item" entry
@@ -67,6 +71,11 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
+;; magit (for git)
+'(package-selected-packages (quote (magit)))
+'(magit-diff-refine-hink (quote all))
+
+;; magit commands
 (when (fboundp 'magit-status)
   (global-set-key (kbd "C-x g") 'magit-status))
 
