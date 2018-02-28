@@ -44,6 +44,10 @@
  ;; go to the most recent file under vc 
  '(vc-follow-symlinks t)
 
+ ;; magit (for git)
+ '(package-selected-packages (quote (magit)))
+ '(magit-diff-refine-hink (quote all))
+
  ;; wrap lines in org mode 
  '(org-startup-truncated nil)
  ;; time stamp
@@ -77,11 +81,11 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
-;; magit (for git)
-'(package-selected-packages (quote (magit)))
-'(magit-diff-refine-hink (quote all))
+<<<<<<< HEAD
 
 ;; magit commands
+=======
+>>>>>>> prep for macOS trial, leaving work
 (when (fboundp 'magit-status)
   (global-set-key (kbd "C-x g") 'magit-status))
 
