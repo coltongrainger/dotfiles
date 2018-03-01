@@ -11,7 +11,7 @@ postsynchook = notmuch new
 
 [Repository coltongrainger-local]
 type = Maildir
-localfolders = ~/.mail/coltongrainger-gmail.com
+localfolders = ~/.mail
 nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
                             'flagged': '[Gmail]/Starred',
