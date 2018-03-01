@@ -47,11 +47,6 @@ hdr_order from: to: cc: date: subject:  # and in this order
 # Default inbox.
 set spoolfile = "+INBOX"
 
-# Alternate email addresses.
-alternates coltong@fscss.org
-# so that I respond correctly
-set reverse_name=yes
-
 # Mailboxes to show in the sidebar.
 mailboxes +INBOX \
           +archive \
@@ -62,8 +57,13 @@ mailboxes +INBOX \
 set mbox      = "+archive"
 set postponed = "+drafts"
 
-# Gmail-style keyboard shortcuts
+# Alternate email addresses.
+alternates ^coltong@fscss.org
 
+send-hook . 'set realname="Colton Grainger"'
+send-hook "~f ^coltong@fscss.org$" 'set realname="Johnny"'
+
+# Gmail-style keyboard shortcuts
 macro index,pager d "<save-message>=trash<enter><enter>" "Trash"
 macro index,pager y "<save-message>=archive<enter><enter>" "Archive"
 

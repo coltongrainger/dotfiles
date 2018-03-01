@@ -1,3 +1,6 @@
+" Please see https://github.com/riceissa/dotfiles for further explanation.
+" I began using vim 2017-10-01. This config is tentative.
+
 scriptencoding utf-8
 set nocompatible
 
