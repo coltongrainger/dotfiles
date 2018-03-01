@@ -113,11 +113,11 @@ if has('autocmd')
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType matlab setlocal commentstring=%%s
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell
+    autocmd BufNewFile,BufRead */.mutt/temp/* setlocal spell
     autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
     autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
     autocmd FileType mediawiki setlocal includeexpr=substitute(toupper(v:fname[0]).v:fname[1:],'\ ','_','g')
     autocmd FileType mediawiki setlocal suffixesadd=.mediawiki
-    autocmd FileType mediawiki setlocal linebreak
     autocmd FileType php setlocal commentstring=//%s
     autocmd FileType help,man setlocal nolist nospell
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
@@ -136,8 +136,8 @@ if has('autocmd')
     " autocmd would run again.
     autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     " Allow opening of locally linked pages with gf
-    autocmd BufNewFile,BufRead */issarice.com/wiki/*.md setlocal includeexpr=substitute(v:fname,'$','.md','')
     autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
+    autocmd BufNewFile,BufRead */coltongrainger.github.io/_posts/*.md setlocal includeexpr=substitute(v:fname,'$','.md','')
     " In some versions, when Vim is compiled with python3 support but not
     " python support, the omnifunc check above tries to use
     " pythoncomplete#Complete, which doesn't exist since there is no python
