@@ -52,11 +52,11 @@
        ((agenda "")
         (alltodo ""))))))
 
-;; adding items
+ ;; adding items
  '(org-capture-templates
    (quote
     (("t" "TODO item" entry
-      (file+headline "~/todo.org" "Tasks")
+      (file+headline "~/todo.org" "unsorted tasks")
       "* TODO %?
   %i"))))
  ;; cycling options
