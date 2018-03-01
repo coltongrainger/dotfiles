@@ -3,13 +3,11 @@
 # Paths ----------------------------------------------
 set folder           = ~/.mail               # mailbox location
 set alias_file       = ~/.mutt/aliases       # where to store aliases
-set display_filter   = ~/.mutt/aliases.sh    # for auto-complete of emails
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
-set signature        = ~/.mutt/sig           # my signature file
 
 # Basic Options --------------------------------------
 set wait_key = no        # shut up, mutt
@@ -57,15 +55,9 @@ mailboxes +INBOX \
 set mbox      = "+archive"
 set postponed = "+drafts"
 
-# Alternate email addresses.
-alternates ^coltong@fscss.org
-
-send-hook . 'set realname="Colton Grainger"'
-send-hook "~f ^coltong@fscss.org$" 'set realname="Johnny"'
-
 # Gmail-style keyboard shortcuts
-macro index,pager d "<save-message>=trash<enter><enter>" "Trash"
-macro index,pager y "<save-message>=archive<enter><enter>" "Archive"
+macro index,pager x "<save-message>=trash<enter><enter>" "Trash"
+macro index,pager e "<save-message>=archive<enter><enter>" "Archive"
 
 # Index View Options ---------------------------------
 set date_format = "%m/%d"
@@ -122,6 +114,7 @@ bind attach <return> view-mailcap
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # Compose View Options -------------------------------
+set editor = vim
 set realname = "Colton Grainger"     # who am i?
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
@@ -138,11 +131,13 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
-set editor = "vim +/^$ ++1"
+# alternate email addresses
+alternates ^coltong@fscss.org$
+send-hook . 'set signature = ~/.mutt/sig/personal'
+send-hook "~f ^coltong@fscss.org$" 'set signature = ~/.mutt/sig/fscss'
 
+# msmtp to send mail
 set from     = "coltongrainger@gmail.com"
 set sendmail = "/usr/local/bin/msmtp -a coltongrainger"
 set sendmail_wait = 0
 unset record
-
-
