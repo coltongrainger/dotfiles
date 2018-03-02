@@ -2,11 +2,6 @@
 
 # Paths ----------------------------------------------
 set folder           = ~/.mail               # mailbox location
-<<<<<<< HEAD
-=======
-set alias_file       = ~/.mutt/aliases       # where to store aliases
-set display_filter   = ~/.mutt/aliases.sh    # for auto-complete of emails
->>>>>>> start 2 accts
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
@@ -37,7 +32,6 @@ set thorough_search      # strip headers and eval mimes before searching
 # Sidebar Patch --------------------------------------
 set sidebar_visible = yes
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-<<<<<<< HEAD
 set sidebar_width   = 8
 
 # colors
@@ -58,11 +52,6 @@ color body brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 # Sidebar Navigation ---------------------------------
 bind index,pager <left>   sidebar-toggle-visible
-=======
-set sidebar_width   = 24
-color sidebar_new color221 color233
-
-# Sidebar Navigation ---------------------------------
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
@@ -77,9 +66,6 @@ hdr_order from: to: cc: date: subject:  # and in this order
 
 # Default inbox.
 set spoolfile = "+INBOX"
-
-# so that I respond correctly
-set reverse_name=yes
 
 # Mailboxes to show in the sidebar.
 mailboxes +INBOX \
@@ -120,10 +106,6 @@ macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to s
 macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
 
 # Saner copy/move dialogs
-macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
-macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-
-# Pager View Options ---------------------------------
 set pager_index_lines = 10 # number of index lines to show
 set pager_context = 3      # number of context lines to show
 set pager_stop             # don't go to next message automatically
@@ -163,7 +145,6 @@ set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
-<<<<<<< HEAD
 set reverse_name = yes               # reply as whomever it was to
 set reverse_realname = no            # but use my own name
 set reverse_alias                    # find folks in the reply
@@ -187,17 +168,3 @@ macro index M "<enter-command>set from='coltong@fscss.org'<enter><mail>" "from: 
 set sendmail = "/usr/bin/msmtp -a coltongrainger"
 set sendmail_wait = 0
 unset record
-=======
-set reverse_name                     # reply as whomever it was to
-set include                          # include message in replies
-set forward_quote                    # include message in forwards
-
-set editor = "vim +/^$ ++1"
-
-set from     = "coltongrainger@gmail.com"
-set sendmail = "/usr/local/bin/msmtp -a coltongrainger"
-set sendmail_wait = 0
-unset record
-
-
->>>>>>> config neomutt
