@@ -1,6 +1,20 @@
 # MS Word documents
 application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
 
+# this will use the default xls spreadsheet handler from open
+application/x-msexcel; ~/.mutt/view_attachment.sh %s doc
+application/ms-exc; ~/.mutt/view_attachment.sh %s doc
+application/excel; ~/.mutt/view_attachment.sh %s doc
+application/msexcel; ~/.mutt/view_attachment.sh %s doc
+application/vnd.ms-exc; ~/.mutt/view_attachment.sh %s doc
+application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s doc
+
+# docx
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/view_attachment.sh %s doc
+
+# xlsx
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_attachment.sh %s doc
+
 # Images
 image/jpg; ~/.mutt/view_attachment.sh %s jpg
 image/jpeg; ~/.mutt/view_attachment.sh %s jpg
