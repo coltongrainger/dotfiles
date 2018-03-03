@@ -10,9 +10,14 @@
 # Notmuch will store its database within a sub-directory of the path
 # configured here named ".notmuch".
 #
+<<<<<<< HEAD
 
 [database]
 path= /home/colton/.mail
+=======
+[database]
+path=/Users/colton/mail
+>>>>>>> more email config
 
 # User configuration
 #
@@ -29,7 +34,10 @@ path= /home/colton/.mail
 # recipient list of replies, and will set the From address based on the
 # address to which the original email was addressed.
 #
+<<<<<<< HEAD
 
+=======
+>>>>>>> more email config
 [user]
 name=Colton Grainger
 primary_email=coltongrainger@gmail.com
@@ -49,7 +57,10 @@ other_email=coltong@fscss.org;
 #		names will be ignored, independent of its depth/location
 #		in the mail store.
 #
+<<<<<<< HEAD
 
+=======
+>>>>>>> more email config
 [new]
 tags=unread;inbox;
 ignore=
@@ -63,7 +74,10 @@ ignore=
 #		search results by default.  Using an excluded tag in a
 #		query will override that exclusion.
 #
+<<<<<<< HEAD
 
+=======
+>>>>>>> more email config
 [search]
 exclude_tags=deleted;spam;
 
