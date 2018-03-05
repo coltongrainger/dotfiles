@@ -2,13 +2,14 @@
 	name = Colton Grainger
 	email = coltongrainger@gmail.com
 [core]
+	editor = vim
 	pager = less -+S
 	excludesfile = ~/.cvsignore
-	editor = vim
+	attributesfile = ~/.gitattributes_global
 [pager]
-	log = perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -+S
-	show = perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -+S
-	diff = perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -+S
+	log = perl /usr/local/Cellar/git/2.16.2/share/git-core/contrib/diff-highlight/diff-highlight | less -+S
+	show = perl /usr/local/Cellar/git/2.16.2/share/git-core/contrib/diff-highlight/diff-highlight | less -+S
+	diff = perl /usr/local/Cellar/git/2.16.2/share/git-core/contrib/diff-highlight/diff-highlight | less -+S
 [color]
 	ui = auto
 [alias]# From https://git.wiki.kernel.org/index.php/Aliases#What.27s_new.3F
@@ -44,3 +45,11 @@
 	default = simple
 [status]
 	showUntrackedFiles = no
+[filter "nbstrip_full"]
+clean = "jq --indent 1 \
+        '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+        | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+        | .cells[].metadata = {} \
+        '"
+smudge = cat
+required = true
