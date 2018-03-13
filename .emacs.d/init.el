@@ -33,7 +33,6 @@
  ;; don't double space
  '(sentence-end-double-space nil)
 
-
  ;; no back ups 
  '(make-backup-files nil)
  ;; go to the most recent file under vc 
