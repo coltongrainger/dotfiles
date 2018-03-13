@@ -15,6 +15,9 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt
 # xlsx
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_attachment.sh %s doc
 
+# presentations
+application/vnd.openxmlformats-officedocument.presentationml.presentation; ~/.mutt/view_attachment.sh %s pptx
+
 # Images
 image/jpg; ~/.mutt/view_attachment.sh %s jpg
 image/jpeg; ~/.mutt/view_attachment.sh %s jpg

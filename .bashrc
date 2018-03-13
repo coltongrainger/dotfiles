@@ -10,11 +10,19 @@ promptFunc() {
 }
 PROMPT_COMMAND=promptFunc
 
+# most applications
+export PATH=$PATH:$HOME/bin
+
 # TeX
 export PATH="/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias nbstrip_jq="jq --indent 1 \
+    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+    | .cells[].metadata = {} \
+    '"

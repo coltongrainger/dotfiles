@@ -4,3 +4,6 @@
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+# added by Anaconda3 5.1.0 installer
+export PATH="/Users/colton/anaconda3/bin:$PATH"
