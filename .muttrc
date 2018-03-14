@@ -32,10 +32,26 @@ set thorough_search      # strip headers and eval mimes before searching
 # Sidebar Patch --------------------------------------
 set sidebar_visible = yes
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-set sidebar_width   = 24
-color sidebar_new color221 color233
+set sidebar_width   = 8
+
+# colors
+color normal white black
+color attachment brightyellow black
+color hdrdefault cyan black
+color indicator black cyan
+color markers brightred black
+color quoted green black
+color signature cyan black
+color status brightgreen blue
+color tilde blue black
+color tree red black
+color index red black ~D
+color index magenta black ~T
+color body brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 # Sidebar Navigation ---------------------------------
+bind index,pager <left>   sidebar-toggle-visible
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
@@ -140,7 +156,8 @@ set forward_quote                    # include message in forwards
 set text_flowed # see http://wcm1.web.rice.edu/mutt-tips.html
 
 # alternate email addresses
-alternates ^coltong@fscss.org$ ^coltoncgrainger@gmail.com$
+alternates ^coltong@fscss.org$ ^coltoncgrainger@gmail.com$ ^colton.grainger@gmail.com$
+send-hook "~f ^colton.grainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltongrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltoncgrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltong@fscss.org$" 'set signature = ~/.mutt/sig/fscss'
