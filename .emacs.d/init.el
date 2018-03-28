@@ -61,6 +61,7 @@
        ((agenda "")
         (alltodo ""))))))
  '(org-agenda-start-on-weekday nil)
+ ;; adding items
  '(org-capture-templates
    (quote
     (("t" "TODO item" entry
