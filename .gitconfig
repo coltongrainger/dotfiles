@@ -7,9 +7,7 @@
 	excludesfile = ~/.cvsignore
 	attributesfile = ~/.gitattributes_global
 [pager]
-	log = perl /usr/local/Cellar/git/2.16.2/share/git-core/contrib/diff-highlight/diff-highlight | less -+S
-	show = perl /usr/local/Cellar/git/2.16.2/share/git-core/contrib/diff-highlight/diff-highlight | less -+S
-	diff = perl /usr/local/Cellar/git/2.16.2/share/git-core/contrib/diff-highlight/diff-highlight | less -+S
+	# https://github.com/git/git/tree/master/contrib/diff-highlight
 [color]
 	ui = auto
 [alias]# From https://git.wiki.kernel.org/index.php/Aliases#What.27s_new.3F
