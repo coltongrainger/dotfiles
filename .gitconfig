@@ -1,53 +1,54 @@
 [user]
-	name = Colton Grainger
-	email = coltongrainger@gmail.com
+name = Colton Grainger
+email = coltongrainger@gmail.com
 [core]
-	editor = vim
-	pager = less -+S
-	excludesfile = ~/.cvsignore
-	attributesfile = ~/.gitattributes_global
+editor = vim
+pager = less -+S
+excludesfile = ~/.cvsignore
+attributesfile = ~/.gitattributes_global
 [pager]
-	# https://github.com/git/git/tree/master/contrib/diff-highlight
+# needs https://github.com/git/git/tree/master/contrib/diff-highlight
 [color]
-	ui = auto
-[alias]# From https://git.wiki.kernel.org/index.php/Aliases#What.27s_new.3F
-	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	# See https://gist.github.com/mwhite/6887990 for where a lot of
-	# these came from
-	a = add
-	# list branches sorted by last modified
-	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-	br = branch
-	cm = commit -m
-	co = checkout
-	diff = diff --color
-	d = diff
-	d1 = diff HEAD~1 HEAD
-	d2 = diff HEAD~2 HEAD
-	d21 = diff HEAD~2 HEAD~1
-	dc = diff --cached
-	ds = diff --stat
-	# list aliases
-	la = "!git config -l | grep alias | cut -c 7-"
-	ln = log --name-only
-	logn = log --name-only
-	st = status
-	wd = diff --color-words
-	wdiff = diff --color-words
-	wd1 = diff --color-words HEAD~1 HEAD
-	wd2 = diff --color-words HEAD~2 HEAD
-	wd21 = diff --color-words HEAD~2 HEAD~1
-	# From http://stackoverflow.com/a/15316602
-	up = "!git remote update -p; git merge --ff-only @{u}"
+ui = auto
+[alias]
+# From https://git.wiki.kernel.org/index.php/Aliases#What.27s_new.3F
+new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+# See https://gist.github.com/mwhite/6887990 for where a lot of
+# these came from
+a = add
+# list branches sorted by last modified
+b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+br = branch
+cm = commit -m
+co = checkout
+diff = diff --color
+d = diff
+d1 = diff HEAD~1 HEAD
+d2 = diff HEAD~2 HEAD
+d21 = diff HEAD~2 HEAD~1
+dc = diff --cached
+ds = diff --stat
+# list aliases
+la = "!git config -l | grep alias | cut -c 7-"
+ln = log --name-only
+logn = log --name-only
+st = status
+wd = diff --color-words
+wdiff = diff --color-words
+wd1 = diff --color-words HEAD~1 HEAD
+wd2 = diff --color-words HEAD~2 HEAD
+wd21 = diff --color-words HEAD~2 HEAD~1
+# From http://stackoverflow.com/a/15316602
+up = "!git remote update -p; git merge --ff-only @{u}"
 [push]
-	default = simple
+default = simple
 [status]
-	showUntrackedFiles = no
+showUntrackedFiles = no
 [filter "nbstrip_full"]
 clean = "jq --indent 1 \
-        '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
-        | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
-        | .cells[].metadata = {} \
-        '"
+'(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+| (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+| .cells[].metadata = {} \
+'"
 smudge = cat
 required = true

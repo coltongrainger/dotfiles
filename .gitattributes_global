@@ -1,3 +1,2 @@
 *.ipynb filter=nbstrip_full
-
 */old/*.ipynb -filter

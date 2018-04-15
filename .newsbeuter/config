@@ -1,0 +1,28 @@
+# sourced from Issa Rice's dotfiles
+# https://github.com/riceissa/dotfiles/blob/master/.newsbeuter/config
+# browser firefox
+# auto-reload yes
+suppress-first-reload yes
+#max-items 20
+bind-key ^R reload-all
+
+# use J and K for inter-feed navigation and j and k for smaller
+# movements
+unbind-key J
+unbind-key K
+bind-key J next-feed
+bind-key K prev-feed
+
+unbind-key j
+unbind-key k
+bind-key j down "all"
+bind-key k up "all"
+
+# quitting is like moving left and viewing items is like moving right.
+# I like this arrangement because I can mostly navigate my newsfeed
+# with just my right hand.
+unbind-key l
+bind-key l open
+unbind-key h
+bind-key h quit
+

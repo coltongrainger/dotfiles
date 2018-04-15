@@ -10,8 +10,8 @@ set tmpdir           = ~/.mutt/temp          # where to keep temp files
 
 # aliases
 set alias_file       = ~/.mutt/aliases.txt   # where to store aliases
-set display_filter   = '$HOME/.mutt/display_filter.sh'
-set sort_alias= alias
+set display_filter   = ~/.mutt/display_filter.sh
+set sort_alias=alias
 set reverse_alias=yes
 source $alias_file
 
@@ -169,6 +169,6 @@ macro index M "<enter-command>set from='coltong@fscss.org'<enter><mail>" "from: 
 
 # msmtp to send mail
 # set from     = "coltongrainger@gmail.com"
-set sendmail = "/usr/local/bin/msmtp -a coltongrainger"
+set sendmail = "/usr/bin/msmtp -a coltongrainger"
 set sendmail_wait = 0
 unset record
