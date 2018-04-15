@@ -215,4 +215,6 @@ if has('gui_running')
 else
   highlight Visual ctermfg=White ctermbg=Gray
   highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
+  highlight SpellBad ctermfg=Red ctermbg=Gray
 endif
+

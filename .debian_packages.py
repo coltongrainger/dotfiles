@@ -41,6 +41,7 @@ PROGRAMS = [
     "mutt",
     "offlineimap",
     "notmuch",
+    "msmtp",
 
     # news
     "newsbeuter",
