@@ -1,9 +1,6 @@
 # dotfiles
 
-These are configuration files for [software I use](http://coltongrainger.com/software). 
-
-- the `master` branch is setup for macOS
-- the `debian` branch is setup for debian
+These are configuration files for [software I use](http://coltongrainger.com/software). Most of the file paths assume installation on a UNIX-like OS, though I have included an unmaintained macOS branch.
 
 My setup is highly derivative, please see also
 
