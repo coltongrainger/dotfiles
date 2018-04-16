@@ -11,6 +11,7 @@
 # configured here named ".notmuch".
 #
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 [database]
 path= /home/colton/.mail
@@ -18,6 +19,11 @@ path= /home/colton/.mail
 [database]
 path=/Users/colton/mail
 >>>>>>> more email config
+=======
+
+[database]
+path= /home/colton/.mail
+>>>>>>> script git add for dotfiles, should be secure
 
 # User configuration
 #
@@ -35,9 +41,13 @@ path=/Users/colton/mail
 # address to which the original email was addressed.
 #
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> more email config
+=======
+
+>>>>>>> script git add for dotfiles, should be secure
 [user]
 name=Colton Grainger
 primary_email=coltongrainger@gmail.com
@@ -58,9 +68,13 @@ other_email=coltong@fscss.org;
 #		in the mail store.
 #
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> more email config
+=======
+
+>>>>>>> script git add for dotfiles, should be secure
 [new]
 tags=unread;inbox;
 ignore=
@@ -74,10 +88,6 @@ ignore=
 #		search results by default.  Using an excluded tag in a
 #		query will override that exclusion.
 #
-<<<<<<< HEAD
-
-=======
->>>>>>> more email config
 [search]
 exclude_tags=deleted;spam;
 
