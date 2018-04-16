@@ -1,6 +1,11 @@
 *.swp
+
 *.aux
 *.log
 *.out
 *.bbl
+
+tags
+__pycache__
 *.pyc
+.gutctags

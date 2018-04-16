@@ -4,7 +4,13 @@
 
 ;; screen size
 (setq initial-frame-alist
-          '((width . 80) (height . 24)))
+      '((width . 80) (height . 24)))
+;; font size
+(set-face-attribute 'default nil :height 90)
+
+;; default split behavior, show more lines
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
 
 ;; install packages (esp magit)
 (require 'package)
