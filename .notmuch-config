@@ -10,8 +10,9 @@
 # Notmuch will store its database within a sub-directory of the path
 # configured here named ".notmuch".
 #
+
 [database]
-path=/Users/colton/.mail
+path= /home/colton/.mail
 
 # User configuration
 #
@@ -28,6 +29,7 @@ path=/Users/colton/.mail
 # recipient list of replies, and will set the From address based on the
 # address to which the original email was addressed.
 #
+
 [user]
 name=Colton Grainger
 primary_email=coltongrainger@gmail.com
@@ -47,6 +49,7 @@ other_email=coltong@fscss.org;
 #		names will be ignored, independent of its depth/location
 #		in the mail store.
 #
+
 [new]
 tags=unread;inbox;
 ignore=
@@ -60,6 +63,7 @@ ignore=
 #		search results by default.  Using an excluded tag in a
 #		query will override that exclusion.
 #
+
 [search]
 exclude_tags=deleted;spam;
 
@@ -84,5 +88,16 @@ exclude_tags=deleted;spam;
 #	and update tags, while the "notmuch tag" and "notmuch restore"
 #	commands will notice tag changes and update flags in filenames
 #
+
 [maildir]
 synchronize_flags=true
+
+# Cryptography related configuration
+#
+# The following option is supported here:
+#
+#	gpg_path
+#		binary name or full path to invoke gpg.
+#
+[crypto]
+gpg_path=gpg

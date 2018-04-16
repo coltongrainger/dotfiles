@@ -1,5 +1,5 @@
-# trying to setup dotfiles on github
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# for dotfiles on github
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
 # Modified from <https://www.jefftk.com/p/you-should-be-logging-shell-history>
 promptFunc() {
@@ -12,9 +12,6 @@ PROMPT_COMMAND=promptFunc
 
 # most applications
 export PATH=$PATH:$HOME/bin
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
