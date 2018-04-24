@@ -18,6 +18,14 @@
  '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; Evil mode as defuault
+(require 'evil)
+(evil-mode 1)
+
+;; Treat wrapped line scrolling as single lines
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
 ;; only one instance of custom-set-variables please
 ;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
@@ -80,6 +88,11 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
+(eval-after-load 'org-agenda
+ '(progn
+    (define-key org-agenda-mode-map "j" 'org-agenda-next-line)
+    (define-key org-agenda-mode-map "k" 'org-agenda-previous-line
+)))
 
 ;; magit commands
 (when (fboundp 'magit-status)
