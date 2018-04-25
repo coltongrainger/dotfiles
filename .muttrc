@@ -158,10 +158,10 @@ send-hook "~f ^coltongrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltoncgrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltong@fscss.org$" 'set signature = ~/.mutt/sig/fscss'
 
-bind  index m        noop
-macro index m "<enter-command>set from='coltongrainger@gmail.com'<enter><mail>" "from: personal"
-bind  index M        noop
-macro index M "<enter-command>set from='coltong@fscss.org'<enter><mail>" "from: work"
+bind  index,pager m        noop
+macro index,pager m "<enter-command>set from='coltongrainger@gmail.com'<enter><mail>" "from: personal"
+bind  index,pager M        noop
+macro index,pager M "<enter-command>set from='coltong@fscss.org'<enter><mail>" "from: work"
 
 # msmtp to send mail
 # set from     = "coltongrainger@gmail.com"

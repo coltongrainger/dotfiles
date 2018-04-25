@@ -23,8 +23,8 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'riceissa/vim-dualist'
 Plug 'riceissa/vim-inclusivespace'
 Plug 'riceissa/vim-longmove'
-Plug 'riceissa/vim-markdown'
-Plug 'riceissa/vim-markdownlint'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'riceissa/vim-mediawiki'
 Plug 'riceissa/vim-more-toggling'
 Plug 'riceissa/vim-pasteurize'
@@ -130,7 +130,9 @@ if has('autocmd')
       autocmd FileType * if &omnifunc == '' | setlocal omnifunc=syntaxcomplete#Complete | endif
     endif
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
+    autocmd FileType mail setlocal formatoptions+=w
     autocmd FileType make setlocal noexpandtab
+    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
     " the Markdown is written. As for 'textwidth', I like 79 on most Markdown
     " files, but on *some* Markdown files (such as ones where I am editing
@@ -194,6 +196,7 @@ let g:surround_{char2nr('q')} = "“\r”"
 let g:surround_{char2nr('Q')} = "‘\r’"
 let g:dualist_color_listchars = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:vim_markdown_folding_disabled = 1
 
 if has('clipboard')
   let g:pasteurize_no_mappings = 1
