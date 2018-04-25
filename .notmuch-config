@@ -10,20 +10,8 @@
 # Notmuch will store its database within a sub-directory of the path
 # configured here named ".notmuch".
 #
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 [database]
 path= /home/colton/.mail
-=======
-[database]
-path=/Users/colton/mail
->>>>>>> more email config
-=======
-
-[database]
-path= /home/colton/.mail
->>>>>>> script git add for dotfiles, should be secure
 
 # User configuration
 #
@@ -40,14 +28,7 @@ path= /home/colton/.mail
 # recipient list of replies, and will set the From address based on the
 # address to which the original email was addressed.
 #
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> more email config
-=======
-
->>>>>>> script git add for dotfiles, should be secure
+#
 [user]
 name=Colton Grainger
 primary_email=coltongrainger@gmail.com
@@ -67,14 +48,6 @@ other_email=coltong@fscss.org;
 #		names will be ignored, independent of its depth/location
 #		in the mail store.
 #
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> more email config
-=======
-
->>>>>>> script git add for dotfiles, should be secure
 [new]
 tags=unread;inbox;
 ignore=

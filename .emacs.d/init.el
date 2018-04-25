@@ -82,6 +82,9 @@
     ((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "DONE(d)"))))
 )
 
+;; archive file
+(setq org-archive-location "~/archive.org::")
+
 ;; org key maps
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
