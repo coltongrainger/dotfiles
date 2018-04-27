@@ -4,9 +4,6 @@
 xmodmap ~/.xmodmap
 xrdb -merge .Xresources
 
-# Set up an icon tray
-stalonetray &
-
 # Fire up apps
 xscreensaver -no-splash &
 
