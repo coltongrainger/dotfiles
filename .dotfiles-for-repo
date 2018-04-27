@@ -19,5 +19,5 @@ README.md
 .offlineimaprc
 .xmonad/xmonad.hs
 .xmobarrc
-.stalonetrayrc
 .xsessionrc
+.xmodmap
