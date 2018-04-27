@@ -17,3 +17,7 @@ README.md
 .msmtprc
 .notmuch-config
 .offlineimaprc
+.xmonad/xmonad.hs
+.xmobarrc
+.stalonetrayrc
+.xsessionrc
