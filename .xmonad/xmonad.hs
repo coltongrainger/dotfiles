@@ -10,8 +10,15 @@ main = do
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , keys = keys defaultConfig `mappend`
+          \c -> fromList [
+              ((0, xK_F6), lowerVolume 4 >> return ()),
+              ((0, xK_F7), raiseVolume 4 >> return ()) ]
+        , handleEventHook = mconcat [ 
+              docksEventHook, 
+              handleEventHook defaultConfig ]
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
-                        }
-        } 
+                        =}=
+        }

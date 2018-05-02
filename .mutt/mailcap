@@ -26,10 +26,10 @@ image/png; ~/.mutt/view_attachment.sh %s png
 image/gif; ~/.mutt/view_attachment.sh %s gif
 
 # PDFs
-application/pdf; ~/.mutt/view_attachment.sh %s pdf
+application/pdf; evince %s
 
 # HTML
-text/html; firefox %s
+text/html; chromium %s
 text/plain; vim %s
 
 # Unidentified files

@@ -67,7 +67,7 @@ if !has('nvim')
   set ttimeoutlen=50
 endif
 
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces linebreak
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
 
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 if has('mouse')
@@ -106,6 +106,36 @@ function! s:DiffOrig()
   wincmd p
   nnoremap <buffer><silent> q :diffoff!<Bar>quit<CR>
 endfunction
+  " http://www.mdlerch.com/emailing-mutt-and-vim-advanced-config.html
+  " modified to conform to 
+
+"Delete quoted Signature
+function! DeleteQuotedSig()"{{{
+    if search('^[|> ]\+-- $') != 0
+	g/^[|> ]\+-- $/normal d}
+    endif
+    if search('^[|> ]\+--$')!=0
+	g/^[|> ]\+--$/normal d}
+    endif
+endfunc"}}}
+
+function IsReply()
+    if getline(1) != ''
+        " delete signatures
+        :call DeleteQuotedSig()
+        " http://vimcasts.org/episodes/formatting-text-with-par/
+        :%!par w72q
+        " rehab format=flowed
+        :%s/^.\+\ze\n\(>*$\)\@!/\0 /e
+        :%s/^>*\zs\s\+$//e
+        " rehab signature
+        :%s/^-- /-- \r/g
+        " add whitespace at top
+        :1
+        :put! =\"\n\n\"
+        :1
+    endif
+endfunction
 
 if has('autocmd')
   augroup vimrc
@@ -116,7 +146,6 @@ if has('autocmd')
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType matlab setlocal commentstring=%%s
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell
-    autocmd BufNewFile,BufRead */.mutt/temp/* setlocal spell
     autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
     autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
     autocmd FileType mediawiki setlocal includeexpr=substitute(toupper(v:fname[0]).v:fname[1:],'\ ','_','g')
@@ -130,7 +159,9 @@ if has('autocmd')
       autocmd FileType * if &omnifunc == '' | setlocal omnifunc=syntaxcomplete#Complete | endif
     endif
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
-    autocmd FileType mail setlocal formatoptions+=w
+    autocmd FileType mail :call IsReply()
+    autocmd FileType mail setlocal fo+=wj
+    autocmd FileType mail setlocal tw=72
     autocmd FileType make setlocal noexpandtab
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
