@@ -82,7 +82,7 @@ macro index,pager x "<save-message>=trash<enter><enter>" "Trash"
 macro index,pager e "<save-message>=archive<enter><enter>" "Archive"
 
 # Index View Options ---------------------------------
-set date_format = "%m/%d"
+set date_format = "%Y-%m-%d"
 set index_format = "[%Z]  %D  %-20.20F  %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
@@ -142,7 +142,7 @@ set fcc_attach                       # save attachments with the body
 unset mime_forward                   # forward attachments as part of body
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
-set attribution = "On %d, %n wrote:" # format of quoting header
+set attribution = "On %d, %f wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
 set reverse_name = yes               # reply as whomever it was to
 set reverse_realname = no            # but use my own name

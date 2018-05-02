@@ -121,15 +121,15 @@ endfunc"}}}
 
 function IsReply()
     if getline(1) != ''
-        " delete signatures
-        :call DeleteQuotedSig()
-        " http://vimcasts.org/episodes/formatting-text-with-par/
-        :%!par w72q
-        " rehab format=flowed
-        :%s/^.\+\ze\n\(>*$\)\@!/\0 /e
-        :%s/^>*\zs\s\+$//e
-        " rehab signature
-        :%s/^-- /-- \r/g
+        " " delete signatures
+        " :call DeleteQuotedSig()
+        " " http://vimcasts.org/episodes/formatting-text-with-par/
+        " :%!par w72q
+        " " rehab format=flowed
+        " :%s/^.\+\ze\n\(>*$\)\@!/\0 /e
+        " :%s/^>*\zs\s\+$//e
+        " " rehab signature
+        " :%s/^-- /-- \r/g
         " add whitespace at top
         :1
         :put! =\"\n\n\"
