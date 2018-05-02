@@ -1,11 +1,17 @@
 #!/bin/bash
 
 # Load resources
-xmodmap ~/.xmodmap
 xrdb -merge .Xresources
+xmodmap ~/.xmodmap
+
+# icon tray
+stalonetray &
 
 # Fire up apps
 xscreensaver -no-splash &
+
+# Set background image with feh
+feh --bg-scale ~/Downloads/meowzer.jpg &
 
 if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
