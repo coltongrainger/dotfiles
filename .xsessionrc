@@ -7,14 +7,15 @@ xmodmap ~/.xmodmap
 # icon tray
 stalonetray &
 
-# bluetooth?
-bluetooth-applet &
-
 # Fire up apps
 xscreensaver -no-splash &
 
 # Set background image with feh
 feh --bg-scale ~/Downloads/meowzer.jpg &
+
+if [ -x /usr/bin/blueman-applet ] ; then
+      /usr/bin/blueman-applet &
+fi
 
 if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
