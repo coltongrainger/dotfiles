@@ -7,6 +7,9 @@ xmodmap ~/.xmodmap
 # icon tray
 stalonetray &
 
+# bluetooth?
+bluetooth-applet &
+
 # Fire up apps
 xscreensaver -no-splash &
 
