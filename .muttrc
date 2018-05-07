@@ -16,6 +16,7 @@ set reverse_alias=yes
 source $alias_file
 
 # Basic Options --------------------------------------
+set edit_headers = yes
 set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
 set timeout = 3          # idle time before scanning
@@ -151,16 +152,16 @@ set forward_quote                    # include message in forwards
 set text_flowed # see http://wcm1.web.rice.edu/mutt-tips.html
 
 # alternate email addresses
-alternates ^coltong@fscss.org$ ^coltoncgrainger@gmail.com$ ^colton.grainger@gmail.com$
+alternates ^coltoncgrainger@gmail.com$ ^colton.grainger@gmail.com$ ^colton.grainger@colorado.edu
 send-hook "~f ^colton.grainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltongrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltoncgrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
-send-hook "~f ^coltong@fscss.org$" 'set signature = ~/.mutt/sig/fscss'
+send-hook "~f ^colton.grainger@colorado.edu$" 'set signature = ~/.mutt/sig/colorado'
 
 bind  index,pager m        noop
-macro index,pager m "<enter-command>set from='coltongrainger@gmail.com'<enter><mail>" "from: personal"
+macro index,pager m "<enter-command>set from='colton.grainger@gmail.com'<enter><mail>" "from: personal"
 bind  index,pager M        noop
-macro index,pager M "<enter-command>set from='coltong@fscss.org'<enter><mail>" "from: work"
+macro index,pager M "<enter-command>set from='colton.grainger@colorado.edu'<enter><mail>" "from: school"
 
 # msmtp to send mail
 # set from     = "coltongrainger@gmail.com"
