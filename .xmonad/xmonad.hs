@@ -7,18 +7,13 @@ import System.IO
 
 main = do
     xmproc <- spawnPipe "xmobar"
+
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        , keys = keys defaultConfig `mappend`
-          \c -> fromList [
-              ((0, xK_F6), lowerVolume 4 >> return ()),
-              ((0, xK_F7), raiseVolume 4 >> return ()) ]
-        , handleEventHook = mconcat [ 
-              docksEventHook, 
-              handleEventHook defaultConfig ]
+        , layoutHook = avoidStruts (Tall 1 (3/100) (1/2) ||| Tall 1 (3/100) (1/2))
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
-                        =}=
-        }
+                        }
+        , modMask = mod4Mask     -- Rebind Mod to the Windows key
+        } 
