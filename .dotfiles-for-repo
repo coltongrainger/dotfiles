@@ -20,5 +20,6 @@ README.md
 .xmonad/xmonad.hs
 .xmobarrc
 .xsessionrc
+.stalonetrayrc
 .xmodmap
 .pandoc
