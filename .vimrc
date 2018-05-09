@@ -109,34 +109,6 @@ endfunction
   " http://www.mdlerch.com/emailing-mutt-and-vim-advanced-config.html
   " modified to conform to 
 
-"Delete quoted Signature
-function! DeleteQuotedSig()"{{{
-    if search('^[|> ]\+-- $') != 0
-	g/^[|> ]\+-- $/normal d}
-    endif
-    if search('^[|> ]\+--$')!=0
-	g/^[|> ]\+--$/normal d}
-    endif
-endfunc"}}}
-
-function IsReply()
-    if getline(1) != ''
-        " " delete signatures
-        " :call DeleteQuotedSig()
-        " " http://vimcasts.org/episodes/formatting-text-with-par/
-        " :%!par w72q
-        " " rehab format=flowed
-        " :%s/^.\+\ze\n\(>*$\)\@!/\0 /e
-        " :%s/^>*\zs\s\+$//e
-        " " rehab signature
-        " :%s/^-- /-- \r/g
-        " add whitespace at top
-        :1
-        :put! =\"\n\n\"
-        :1
-    endif
-endfunction
-
 if has('autocmd')
   augroup vimrc
     autocmd!
@@ -159,7 +131,6 @@ if has('autocmd')
       autocmd FileType * if &omnifunc == '' | setlocal omnifunc=syntaxcomplete#Complete | endif
     endif
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
-    autocmd FileType mail :call IsReply()
     autocmd FileType mail setlocal fo+=wj
     autocmd FileType mail setlocal tw=72
     autocmd FileType make setlocal noexpandtab
