@@ -1,4 +1,4 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=9:antialias=true" 
+Config { font = "xft:monospace:size=9"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
@@ -14,7 +14,9 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=9:antialias=true"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "KOLM" ["-t","<station>: <tempC>C",
+       , commands = [ Run XMonadLog
+                    , Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume.sh"]  "myvolume" 1 
+                    , Run Weather "KOLM" ["-t","<station>: <tempC>C",
                                           "-L","18","-H","25",
                                           "--normal","green",
                                           "--high","red",
@@ -48,5 +50,5 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=9:antialias=true"
 		    ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%battery% | %cpu% | %memory% | %dynnetwork% }{ <fc=#ee9a00>%date%</fc>| %KOLM%"
+       , template = "%XMonadLog% } %battery% | %cpu% | %memory% | %dynnetwork% { <fc=#ee9a00>%date%</fc>| %KOLM%"
        }

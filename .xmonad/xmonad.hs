@@ -30,14 +30,25 @@ main = do
     { modMask    = mod4Mask -- Use the "Win" key for the mod key
     , manageHook = myManageHook <+> manageHook desktopConfig
     , layoutHook = desktopLayoutModifiers $ myLayouts
-    , logHook    = dynamicLogString def >>= xmonadPropLog
+    , logHook    = dynamicLogString coltongraingerPP >>= xmonadPropLog
     }
 
     `additionalKeysP` -- Add some extra key bindings:
       [ ("M-S-q",   confirmPrompt myXPConfig "exit" (io exitSuccess))
       , ("M-p",     shellPrompt myXPConfig)
       , ("M-<Esc>", sendMessage (Toggle "Full"))
+      , ("XF86AudioRaiseVolume", spawn "amixer set Master 3%+")
+      , ("XF86AudioLowerVolume", spawn "amixer set Master 3%-")
+      , ("XF86AudioMute", spawn "amixer set Master toggle")
       ]
+
+-- customLogHook to show windows in xmobar
+
+coltongraingerPP :: PP
+coltongraingerPP = def { ppCurrent = xmobarColor "white" "black"
+                 , ppTitle = xmobarColor "#00ee00" "" . shorten 60
+                 , ppLayout = const "" -- to disable the layout info on xmobar
+                 }
 
 --------------------------------------------------------------------------------
 -- | Customize layouts.
