@@ -37,9 +37,9 @@ main = do
       [ ("M-S-q",   confirmPrompt myXPConfig "exit" (io exitSuccess))
       , ("M-p",     shellPrompt myXPConfig)
       , ("M-<Esc>", sendMessage (Toggle "Full"))
-      , ("XF86AudioRaiseVolume", spawn "amixer set Master 3%+")
-      , ("XF86AudioLowerVolume", spawn "amixer set Master 3%-")
-      , ("XF86AudioMute", spawn "amixer set Master toggle")
+      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
+      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
+      , ("<XF86AudioMute>", spawn "amixer set Master toggle")
       ]
 
 -- customLogHook to show windows in xmobar

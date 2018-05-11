@@ -16,7 +16,7 @@ Config { font = "xft:monospace:size=9"
        , overrideRedirect = True
        , commands = [ Run XMonadLog
                     , Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume.sh"]  "myvolume" 1 
-                    , Run Weather "KOLM" ["-t","<station>: <tempC>C",
+                    , Run Weather "KOLM" ["-t","<tempC>C",
                                           "-L","18","-H","25",
                                           "--normal","green",
                                           "--high","red",
@@ -39,16 +39,14 @@ Config { font = "xft:monospace:size=9"
                              , "--high"     , "darkgreen"
 
                              , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
                                        , "-O"	, "<fc=#dAA520>Charging</fc>"
                                        -- charged status
                                        , "-i"	, "<fc=#006000>Charged</fc>"
                              ] 50
-                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Date "%F (%a) %H:%M" "date" 10
 		    ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% } %battery% | %cpu% | %memory% | %dynnetwork% { <fc=#ee9a00>%date%</fc>| %KOLM%"
+       , template = "%XMonadLog% } %myvolume% | %battery% | %cpu% | %memory% | %dynnetwork% { <fc=#ee9a00>%date%</fc> | %KOLM%"
        }
