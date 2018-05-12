@@ -19,7 +19,7 @@ README.md
 .offlineimaprc
 .xmonad/xmonad.hs
 .xmobarrc
-.xsessionrc
+.Xsession
 .stalonetrayrc
 .xmodmap
 .pandoc
