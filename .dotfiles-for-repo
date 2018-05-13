@@ -17,10 +17,12 @@ README.md
 .msmtprc
 .notmuch-config
 .offlineimaprc
-.xmonad/xmonad.hs
+.xmonad/
 .xmobarrc
 .Xsession
 .Xresources
+.xscreensaver
 .stalonetrayrc
 .xmodmap
 .pandoc
+.tmux.conf
