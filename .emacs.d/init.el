@@ -2,7 +2,6 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
-
 ;; default split behavior, show more lines
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
@@ -25,8 +24,6 @@
 ;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
 
- ;; font size
- '(set-default-font -*-*-medium-*-*-*-14-*-*-*-*-*-*-*)
  ;; matching parens
  '(show-paren-mode t)
  ;; hide clickable toolbar
