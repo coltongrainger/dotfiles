@@ -3,7 +3,6 @@ README.md
 .dotfiles-for-repo
 .debian_packages.py
 .cvsignore
-.config
 .emacs.d/init.el
 .gitconfig
 .gitignore
