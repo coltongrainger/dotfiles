@@ -1,7 +1,15 @@
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin
+
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # for dotfiles on github
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
-# Modified from <https://www.jefftk.com/p/you-should-be-logging-shell-history>
+# <https://www.jefftk.com/p/you-should-be-logging-shell-history>
 promptFunc() {
     # right before prompting for the next command, save the previous
     # command in a file. see <https://stackoverflow.com/questions/7216358>
@@ -43,8 +51,8 @@ cb() {
     fi
   fi
 }
+
 # Aliases / functions leveraging the cb() function
-# ------------------------------------------------
 # Copy contents of a file
 function cbf() { cat "$1" | cb; }
 # Copy SSH public key
@@ -54,16 +62,7 @@ alias cbwd="pwd | cb"
 # Copy most recent command in bash history
 alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 
-# most applications
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-alias nbstrip_jq="jq --indent 1 \
-    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
-    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
-    | .cells[].metadata = {} \
-    '"
 
 # https://github.com/rpellerin/dotfiles/blob/master/.aliases
 # Extract any archive
@@ -151,12 +150,3 @@ function githelp {
     echo "git fetch origin ; git remote prune origin"
     echo "-------------------------------------------------------------------------------"
 }
-
-
-# Alias
-alias ls='ls --color=auto'
-alias l="ls  --color=auto -la"
-alias grep='grep -i --color=auto'
-alias rm='rm --interactive --verbose'
-alias mv='mv --interactive --verbose'
-alias cp='cp --verbose'
