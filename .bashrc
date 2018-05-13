@@ -59,12 +59,6 @@ export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-alias nbstrip_jq="jq --indent 1 \
-    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
-    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
-    | .cells[].metadata = {} \
-    '"
-
 # https://github.com/rpellerin/dotfiles/blob/master/.aliases
 # Extract any archive
 function extract() {
@@ -151,12 +145,3 @@ function githelp {
     echo "git fetch origin ; git remote prune origin"
     echo "-------------------------------------------------------------------------------"
 }
-
-
-# Alias
-alias ls='ls --color=auto'
-alias l="ls  --color=auto -la"
-alias grep='grep -i --color=auto'
-alias rm='rm --interactive --verbose'
-alias mv='mv --interactive --verbose'
-alias cp='cp --verbose'

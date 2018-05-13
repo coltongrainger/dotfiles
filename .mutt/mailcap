@@ -29,7 +29,7 @@ image/gif; ~/.mutt/view_attachment.sh %s gif
 application/pdf; evince %s
 
 # HTML
-text/html; chromium %s
+text/html; ~/.mutt/view_attachment.sh %s html
 text/plain; vim %s
 
 # Unidentified files

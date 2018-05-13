@@ -2,11 +2,6 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
-;; screen size
-(setq initial-frame-alist
-      '((width . 80) (height . 24)))
-;; font size
-(set-face-attribute 'default nil :height 90)
 
 ;; default split behavior, show more lines
 (setq split-height-threshold nil)
@@ -30,6 +25,8 @@
 ;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
 
+ ;; font size
+ '(set-default-font -*-*-medium-*-*-*-14-*-*-*-*-*-*-*)
  ;; matching parens
  '(show-paren-mode t)
  ;; hide clickable toolbar
