@@ -63,10 +63,6 @@ alias cbwd="pwd | cb"
 alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e4f7965d975e5e1dd30b1d7a89c87d57c78f51d3
 # https://github.com/rpellerin/dotfiles/blob/master/.aliases
 # Extract any archive
 function extract() {
