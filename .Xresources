@@ -1,11 +1,3 @@
 ! Font settings
 Emacs.FontBackend: xft,x
-<<<<<<< HEAD
-<<<<<<< HEAD
-Emacs.font: monospace:size=10
-=======
 Emacs.font: monospace:size=12
->>>>>>> e4f7965d975e5e1dd30b1d7a89c87d57c78f51d3
-=======
-Emacs.font: monospace:size=12
->>>>>>> no-newsboat
