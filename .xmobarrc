@@ -1,4 +1,4 @@
-Config { font = "xft:monospace:size=9"
+Config { font = "-*-*-medium-r-*-*-13-*-*-*-*-*-*-*"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
@@ -51,5 +51,5 @@ Config { font = "xft:monospace:size=9"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% } %myvolume% | %battery% | %cpu% | %memory% | %dynnetwork% { <fc=#ee9a00>%date%</fc> | %KOLM%"
+        template = "%XMonadLog% } %battery%   %cpu%   %memory%   %dynnetwork%   %myvolume% { <fc=#ee9a00>%date%</fc> %KOLM%"
        }

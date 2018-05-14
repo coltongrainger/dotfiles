@@ -1,15 +1,18 @@
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# for dotfiles on github
+# https://unix.stackexchange.com/questions/43601/
+if command -v tmux>/dev/null; then
+  if [ ! -z "$PS1" ]; then
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux new-session -t main
+  fi
+fi
+
+# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
-# <https://www.jefftk.com/p/you-should-be-logging-shell-history>
+# https://www.jefftk.com/p/you-should-be-logging-shell-history
 promptFunc() {
     # right before prompting for the next command, save the previous
     # command in a file. see <https://stackoverflow.com/questions/7216358>

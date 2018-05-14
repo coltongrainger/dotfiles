@@ -68,7 +68,7 @@ myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
   , promptBorderWidth = 0
-  , font              = "xft:monospace:size=9"
+  , font              = "-*-*-medium-r-*-*-13-*-*-*-*-*-*-*"
   }
 
 --------------------------------------------------------------------------------
