@@ -1,13 +1,11 @@
 Emacs.FontBackend: xft,x
-Emacs.font: monospace:size=12
+Emacs.font: Ubuntu Mono:size=14
 
 /* https://github.com/riceissa/dotfiles/blob/master/.Xresources */
 
-URxvt.font: xft:Noto Mono:style=Regular:size=11
-URxvt.boldFont: xft:Noto Mono:bold:size=11
-URxvt.italicFont: xft:Noto Mono:italic:size=11
-
-URxvt.geometry: 88x43
+URxvt.font: xft:Ubuntu Mono:style=Regular:size=11
+URxvt.boldFont: xft:Ubuntu Mono:bold:size=11
+URxvt.italicFont: xft:Ubuntu Mono:italic:size=11
 
 /* Xft.dpi: 94 */
 URxvt.letterSpace: -1
