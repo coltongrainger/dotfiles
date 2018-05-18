@@ -23,61 +23,68 @@
 ;; only one instance of custom-set-variables please
 ;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
-
- ;; matching parens
- '(show-paren-mode t)
- ;; hide clickable toolbar
- '(tool-bar-mode nil)
- ;; moving around
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(indent-tabs-mode nil)
+ '(magit-diff-refine-hink (quote all))
+ '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
- '(scroll-conservatively 1000)
- ;; prevent extraneous tabs
- '(indent-tabs-mode nil)
- ;; add newline to files before saving
- '(require-final-newline t)
- ;; keep clipboard when copying from outside
- '(save-interprogram-paste-before-kill t)
- ;; don't double space
- '(sentence-end-double-space nil)
-
- ;; no back ups 
- '(make-backup-files nil)
- ;; go to the most recent file under vc 
- '(vc-follow-symlinks t)
-
- ;; magit (for git)
- '(package-selected-packages (quote (magit)))
- '(magit-diff-refine-hink (quote all))
-
- ;; wrap lines in org mode 
- '(org-startup-truncated nil)
- ;; time stamp
- '(org-log-done (quote time))
- ;; where's the agenda?
- '(org-agenda-files (quote ("~/todo.org")))
- '(org-default-notes-file (quote ("~/todo.org")))
+ '(org-agenda-exporter-settings
+  '((ps-print-header nil)
+    (ps-landscape-mode t)
+    (ps-number-of-columns 1)
+    (ps-font-size 8)
+    (ps-font-family 'Helvetica)
+    (ps-print-color-p 'black-white)
+    (org-agenda-add-entry-text-maxlines 1)
+    (htmlize-output-type 'css)))
  '(org-agenda-custom-commands
-    (quote
-     (("c" "Simple agenda view"
-       ((agenda "")
-        (alltodo ""))))))
+   (quote
+    (("c" "Simple agenda view"
+      ((agenda "")
+       (alltodo ""))))))
+ '(org-agenda-files (quote ("~/todo.org")))
  '(org-agenda-start-on-weekday nil)
- ;; adding items
  '(org-capture-templates
    (quote
     (("t" "TODO item" entry
       (file+headline "~/todo.org" "unsorted tasks")
       "* TODO %?
   %i"))))
- ;; cycling options
+ '(org-default-notes-file (quote ("~/todo.org")))
+ '(org-log-done (quote time))
+ '(org-startup-truncated nil)
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "DONE(d)"))))
-)
+ '(package-selected-packages (quote (htmlize magit)))
+ '(require-final-newline t)
+ '(save-interprogram-paste-before-kill t)
+ '(scroll-conservatively 1000)
+ '(sentence-end-double-space nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
+ '(vc-follow-symlinks t))
 
 ;; archive file
 (setq org-archive-location "~/archive.org::")
+
+;; printing fonts
+(setq ps-font-info-database
+ (append
+ '((Helvetica			; the family key
+     (fonts (normal      . "Helvetica")
+            (bold        . "Helvetica-Bold")
+            (italic      . "Helvetica-Oblique")
+            (bold-italic . "Helvetica-BoldOblique"))
+     (size . 10.0)
+     (line-height . 23.12)
+     (space-width . 2.78)
+     (avg-char-width . 5.09243)))
+ ps-font-info-database))
 
 ;; org key maps
 (global-set-key (kbd "C-c l") 'org-store-link)
