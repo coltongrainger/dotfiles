@@ -32,20 +32,15 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
- '(org-agenda-exporter-settings
-  '((ps-print-header nil)
-    (ps-landscape-mode t)
-    (ps-number-of-columns 1)
-    (ps-font-size 8)
-    (ps-font-family 'Helvetica)
-    (ps-print-color-p 'black-white)
-    (org-agenda-add-entry-text-maxlines 1)
-    (htmlize-output-type 'css)))
  '(org-agenda-custom-commands
-   (quote
-    (("c" "Simple agenda view"
-      ((agenda "")
-       (alltodo ""))))))
+   '(("c" "agenda/todo" ((agenda "") (alltodo "")) ""
+      ("~/pprints/agenda.html"))
+     ("X" "hard-copy" ((agenda "") (alltodo ""))
+      ((org-agenda-add-entry-text-maxlines 5)
+       (org-agenda-prefix-format " ")
+       (org-agenda-with-colors nil)
+       (org-agenda-remove-tags t))
+      ("~/pprints/agenda.pdf"))))
  '(org-agenda-files (quote ("~/todo.org")))
  '(org-agenda-start-on-weekday nil)
  '(org-capture-templates
@@ -60,6 +55,7 @@
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "DONE(d)"))))
+ '(org-archive-location "~/archive.org::")
  '(package-selected-packages (quote (htmlize magit)))
  '(require-final-newline t)
  '(save-interprogram-paste-before-kill t)
@@ -67,24 +63,30 @@
  '(sentence-end-double-space nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
- '(vc-follow-symlinks t))
-
-;; archive file
-(setq org-archive-location "~/archive.org::")
-
-;; printing fonts
-(setq ps-font-info-database
- (append
- '((Helvetica			; the family key
-     (fonts (normal      . "Helvetica")
-            (bold        . "Helvetica-Bold")
-            (italic      . "Helvetica-Oblique")
-            (bold-italic . "Helvetica-BoldOblique"))
-     (size . 10.0)
-     (line-height . 23.12)
-     (space-width . 2.78)
-     (avg-char-width . 5.09243)))
- ps-font-info-database))
+ '(vc-follow-symlinks t)
+ '(ps-header-lines 2)
+ '(ps-header-font-size 11)
+ '(ps-header-title-font-size 11)
+ '(ps-header-font-family 'Courier)
+ '(ps-right-header
+   (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
+ '(ps-print-header-frame nil)
+ ;;'(ps-footer-lines 1)
+ ;;'(ps-footer-font-size 11)
+ ;;'(ps-footer-font-family 'Courier)
+ '(ps-print-footer nil)
+ ;;'(ps-left-footer nil)
+ ;;'(ps-right-footer (list "/pagenumberstring load"))
+ ;;'(ps-footer-offset .50)
+ ;;'(ps-footer-line-pad .50)
+ ;;'(ps-print-footer-frame nil)        ; no box bottom
+ '(ps-left-margin 10)
+ '(ps-right-margin 10)
+ '(ps-number-of-columns 1)
+ '(ps-inter-column 0)
+ '(ps-landscape-mode nil)
+ '(ps-font-family 'Courier)
+ '(ps-font-size 7))
 
 ;; org key maps
 (global-set-key (kbd "C-c l") 'org-store-link)
