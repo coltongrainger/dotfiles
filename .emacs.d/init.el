@@ -33,10 +33,15 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
  '(org-agenda-custom-commands
-   '(("c" "agenda/todo" ((agenda "") (alltodo "")) ""
+   '(("c" "agenda/todo" ((agenda "") (alltodo ""))
+      ((org-agenda-add-entry-text-maxlines 5)
+       (org-agenda-prefix-format " ")
+       (htmlize-output-type 'font))
       ("~/pprints/agenda.html"))
      ("X" "hard-copy" ((agenda "") (alltodo ""))
-      ((org-agenda-add-entry-text-maxlines 5)
+      ((ps-left-header
+        (list "(goals shit yeah)" "(Colton Grainger)"))
+       (org-agenda-add-entry-text-maxlines 5)
        (org-agenda-prefix-format " ")
        (org-agenda-with-colors nil)
        (org-agenda-remove-tags t))
@@ -65,12 +70,13 @@
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t)
  '(ps-header-lines 2)
- '(ps-header-font-size 11)
+ '(ps-header-font-size 9)
  '(ps-header-title-font-size 11)
  '(ps-header-font-family 'Courier)
  '(ps-right-header
    (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
  '(ps-print-header-frame nil)
+ '(ps-header-line-pad 0)
  ;;'(ps-footer-lines 1)
  ;;'(ps-footer-font-size 11)
  ;;'(ps-footer-font-family 'Courier)
@@ -82,6 +88,8 @@
  ;;'(ps-print-footer-frame nil)        ; no box bottom
  '(ps-left-margin 10)
  '(ps-right-margin 10)
+ '(ps-top-margin 20)
+ '(ps-bottom-margin 20)
  '(ps-number-of-columns 1)
  '(ps-inter-column 0)
  '(ps-landscape-mode nil)
