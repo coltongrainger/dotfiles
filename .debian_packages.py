@@ -29,6 +29,7 @@ PROGRAMS = [
     "git",
     "htop",
     "elinks",
+    "dnsutils",
 
     "python3",
     "python-pip",

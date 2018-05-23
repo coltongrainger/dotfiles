@@ -20,6 +20,17 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
+(defun air-org-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil)))
+
 ;; only one instance of custom-set-variables please
 ;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
@@ -33,19 +44,33 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
  '(org-agenda-custom-commands
-   '(("c" "agenda/todo" ((agenda "") (alltodo ""))
-      ((org-agenda-add-entry-text-maxlines 5)
-       (org-agenda-prefix-format " ")
-       (htmlize-output-type 'font))
-      ("~/pprints/agenda.html"))
-     ("X" "hard-copy" ((agenda "") (alltodo ""))
-      ((ps-left-header
-        (list "(goals shit yeah)" "(Colton Grainger)"))
+   '(("c" "agenda/todo"
+      ((tags "PRIORITY=\"A\""
+        ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+         (org-agenda-overriding-header "High-priority unfinished tasks:")))
+       (agenda "" ((org-agenda-span 3)))
+       (alltodo ""
+        ((org-agenda-skip-function
+          '(or (air-org-skip-subtree-if-priority ?A)
+               (org-agenda-skip-if nil '(scheduled deadline)))))))
+      ((org-agenda-compact-blocks t)))
+     ("X" "hard-copy"
+      ((tags "PRIORITY=\"A\""
+        ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+         (org-agenda-overriding-header "High-priority unfinished tasks:")))
+       (agenda "" ((org-agenda-span 3)))
+       (alltodo ""
+        ((org-agenda-skip-function
+          '(or (air-org-skip-subtree-if-priority ?A)
+               (org-agenda-skip-if nil '(scheduled deadline)))))))
+      ((org-agenda-compact-blocks t)
        (org-agenda-add-entry-text-maxlines 5)
-       (org-agenda-prefix-format " ")
+       (org-agenda-prefix-format "  ")
        (org-agenda-with-colors nil)
-       (org-agenda-remove-tags t))
-      ("~/pprints/agenda.pdf"))))
+       (ps-left-header
+        (list "(goals shit yeah)" "(Colton Grainger)"))
+       (htmlize-output-type 'font))
+      ("~/pprints/agenda.html" "~/pprints/agenda.pdf"))))
  '(org-agenda-files (quote ("~/todo.org")))
  '(org-agenda-start-on-weekday nil)
  '(org-capture-templates

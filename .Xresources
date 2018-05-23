@@ -2,7 +2,6 @@ Emacs.FontBackend: xft,x
 Emacs.font: Ubuntu Mono:size=14
 
 /* https://github.com/riceissa/dotfiles/blob/master/.Xresources */
-
 URxvt.font: xft:Ubuntu Mono:style=Regular:size=11
 URxvt.boldFont: xft:Ubuntu Mono:bold:size=11
 URxvt.italicFont: xft:Ubuntu Mono:italic:size=11
@@ -15,12 +14,17 @@ URxvt.cursorBlink: false
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 ! Hide mouse pointer
-URxvt.pointerBlank: true
-URxvt.pointerBlankDelay: 987654321
+! URxvt.pointerBlank: true
+! URxvt.pointerBlankDelay: 987654321
+
+URxvt.perl-ext-common: default,clipboard,matcher
+
+! to launch urls
+URxvt.url-launcher:   /snap/bin/firefox
+URxvt.matcher.button: 1
 
 ! Allow copying to and pasting from the clipboard with Ctrl-Shift-c and
 ! Ctrl-Shift-v. This requires installing the clipboard extension.
-URxvt.perl-ext-common: default,clipboard
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 
@@ -37,6 +41,7 @@ URxvt.keysym.S-Up:    string:\033[1;2A
 URxvt.keysym.S-Down:  string:\033[1;2B
 URxvt.keysym.S-Right: string:\033[1;2C
 URxvt.keysym.S-Left:  string:\033[1;2D
+
 
 ! Solarized light from
 ! https://github.com/solarized/xresources/blob/master/Xresources.light
