@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
-# This script installs some common tools used on a Debian-type systems.
-# Comment or uncomment to select the programs that you want to install.
-# Since this script needs Python to run, it might be necessary to do
-# (assuming you have sudo) `sudo aptitude install python` or `sudo
-# apt-get install python` first.
+# sourced from Issa Rice
+# https://github.com/riceissa/dotfiles/blob/master/debian_packages.py
+
+# This script installs some common tools used on a Debian-type systems. I
+# comment or uncomment to select the programs I want to install. Since this
+# script needs Python to run, I might necessarily `sudo aptitude
+# install python` or `sudo apt-get install python` first.
 
 from subprocess import call
 
@@ -24,74 +26,16 @@ APT_PROG = "apt-get"
 PROGRAMS = [
     # utilities
     "vim",
-    "emacs",
-    "pandoc",
     "git",
     "htop",
-    "elinks",
-    "dnsutils",
-
-    "python3",
-    "python-pip",
-    "python3-pip",
-    "python-dev", # headers for compiling python extensions 
-    "python-gpgme", # maybe to encrypt emails?
-    "gnupg",
-
-    # email
-    "mutt",
-    "offlineimap",
-    "notmuch",
-    "msmtp",
-
-    # news
-    "newsbeuter",
-
-    # website
-    "ruby-sass", 
 
     # advanced utilities
-    "surfraw", # for elinks
     "par", # alternative to fmt
-    "detox", # for gross filenames
-    "xclip",  
     "gparted",
-    "moreutils", # contains sponge
     "tree",
-    "lm-sensors", # check temperature
-    "keepassx",
-    "duplicity",
 
     # tmux and tiling windows
     "tmux",
-    "xmonad",
-
-    # programming-related
-    "build-essential",
-    "exuberant-ctags",
-    "gcc",
-    "cmake",
-    r"g\+\+",
-    "ruby-full",
-
-    # see issarice.com/installing-haskell
-    "ghc",
-    "ghc-prof",
-    "libghc-zlib-dev",
-
-    # music on console 
-    "moc",                 # Run using 'mocp'.
-    "moc-ffmpeg-plugin",   # Extra plugins.
-
-    # LaTeX (warning: large download)
-    "texlive-full",
-    "fonts-linuxlibertine",
-    "fonts-lato",
-
-    # media related tools
-    "flac",
-    "vlc",
-    "vorbis-tools",
 ]
 
 if __name__ == "__main__":
