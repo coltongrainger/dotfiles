@@ -2,15 +2,6 @@ export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# https://unix.stackexchange.com/questions/43601/
-# I couldn't determine between -bash and bash, so comment out
-# Here's a workaround: https://gist.github.com/chakrit/5004006
-# if command -v tmux>/dev/null; then
-#   if [ ! -z "$PS1" ]; then
-#     [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec "/usr/local/bin/tmux new-session -t main"
-#   fi
-# fi
-
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 

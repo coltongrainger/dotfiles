@@ -68,6 +68,7 @@ PROGRAMS = [
 
     # programming-related
     "build-essential",
+    "libgtk-3-dev",
     "exuberant-ctags",
     "gcc",
     "cmake",
