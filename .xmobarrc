@@ -16,11 +16,6 @@ Config { font = "xft:Ubuntu Mono:size=10"
        , overrideRedirect = True
        , commands = [ Run XMonadLog
                     , Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume.sh"]  "myvolume" 1 
-                    , Run Weather "KOLM" ["-t","<tempC>C",
-                                          "-L","18","-H","25",
-                                          "--normal","green",
-                                          "--high","red",
-                                          "--low","lightblue"] 36000
                     , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
                                          , "--Low"      , "1000"       -- units: B/s
                                          , "--High"     , "5000"       -- units: B/s
@@ -31,25 +26,9 @@ Config { font = "xft:Ubuntu Mono:size=10"
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
-                     -- battery monitor
-                    , Run Battery        [ "--template" , "Batt: <acstatus>"
-                                         , "--Low"      , "10"        -- units: %
-                                         , "--High"     , "80"        -- units: %
-                                         , "--low"      , "red"
-                                         , "--normal"   , "orange"
-                                         , "--high"     , "green"
-
-                                         , "--" -- battery specific options
-                                                   -- discharging status
-                                                   , "-o"   , "<left>% (<timeleft>)"
-                                                   -- AC "on" status
-                                                   , "-O"   , "<fc=#ee9a00>Charging</fc>"
-                                                   -- charged status
-                                                   , "-i"   , "<fc=#ee9a00>Charged</fc>"
-                                         ] 50
-                    , Run Date "%F (%a) %H:%M" "date" 10
+                    , Run Date "%F %a %H:%M" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-        template = "%XMonadLog% } %battery%   %cpu%   %memory%   %dynnetwork%   %myvolume% { <fc=#ee9a00>%date%</fc> %KOLM%"
+        template = "%XMonadLog% } %cpu%   %memory%   %dynnetwork% { %myvolume%   <fc=#ee9a00>%date%</fc>"
        }
