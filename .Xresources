@@ -19,8 +19,8 @@ URxvt.iso14755_52: false
 
 URxvt.perl-ext-common: default,clipboard,matcher
 
-! to launch urls
-URxvt.url-launcher:   /snap/bin/firefox
+! For clickable urls (RMB), not an exact match to gnome-shell.
+URxvt.url-launcher: xdg-open
 URxvt.matcher.button: 1
 
 ! Allow copying to and pasting from the clipboard with Ctrl-Shift-c and
@@ -42,6 +42,13 @@ URxvt.keysym.S-Down:  string:\033[1;2B
 URxvt.keysym.S-Right: string:\033[1;2C
 URxvt.keysym.S-Left:  string:\033[1;2D
 
+! scale fonts
+URxvt.keysym.C-S-plus: font-size:increase
+URxvt.keysym.C-KP_Add: font-size:increase
+URxvt.keysym.C-S-underscore: font-size:decrease
+URxvt.keysym.C-KP_Subtract: font-size:decrease
+URxvt.keysym.C-0: font-size:reset
+URxvt.keysym.C-KP_0: font-size:reset
 
 ! Solarized light from
 ! https://github.com/solarized/xresources/blob/master/Xresources.light
