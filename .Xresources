@@ -1,38 +1,23 @@
-Emacs.FontBackend: xft,x
-Emacs.font: Ubuntu Mono:size=14
-
-/* https://github.com/riceissa/dotfiles/blob/master/.Xresources */
-URxvt.font: xft:Ubuntu Mono:style=Regular:size=11
-URxvt.boldFont: xft:Ubuntu Mono:bold:size=11
-URxvt.italicFont: xft:Ubuntu Mono:italic:size=11
-
-/* Xft.dpi: 94 */
-URxvt.letterSpace: -1
-Xft.hinting: true
-URxvt*scrollBar: false
-URxvt.cursorBlink: false
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-! Hide mouse pointer
-! URxvt.pointerBlank: true
-! URxvt.pointerBlankDelay: 987654321
+! utilities
 
 URxvt.perl-ext-common: default,clipboard,matcher
 
-! For clickable urls (RMB), not an exact match to gnome-shell.
 URxvt.url-launcher: xdg-open
 URxvt.matcher.button: 1
 
-! Allow copying to and pasting from the clipboard with Ctrl-Shift-c and
-! Ctrl-Shift-v. This requires installing the clipboard extension.
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 
-! overwrite the system commands to use for copying/pasting
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
-! Disable some mappings that urxvt includes by default
+URxvt.keysym.C-S-plus: font-size:increase
+URxvt.keysym.C-KP_Add: font-size:increase
+URxvt.keysym.C-S-underscore: font-size:decrease
+URxvt.keysym.C-KP_Subtract: font-size:decrease
+URxvt.keysym.C-0: font-size:reset
+URxvt.keysym.C-KP_0: font-size:reset
+
 URxvt.keysym.C-M-c: builtin-string:
 URxvt.keysym.C-M-v: builtin-string:
 URxvt.keysym.M-s: builtin-string:
@@ -42,16 +27,26 @@ URxvt.keysym.S-Down:  string:\033[1;2B
 URxvt.keysym.S-Right: string:\033[1;2C
 URxvt.keysym.S-Left:  string:\033[1;2D
 
-! scale fonts
-URxvt.keysym.C-S-plus: font-size:increase
-URxvt.keysym.C-KP_Add: font-size:increase
-URxvt.keysym.C-S-underscore: font-size:decrease
-URxvt.keysym.C-KP_Subtract: font-size:decrease
-URxvt.keysym.C-0: font-size:reset
-URxvt.keysym.C-KP_0: font-size:reset
+! beautification
 
-! Solarized light from
+Emacs.FontBackend: xft,x
+Emacs.font: Ubuntu Mono:size=14
+
+URxvt.font: xft:Ubuntu Mono:style=Regular:size=11
+URxvt.boldFont: xft:Ubuntu Mono:bold:size=11
+URxvt.italicFont: xft:Ubuntu Mono:italic:size=11
+
+URxvt.letterSpace: -1
+Xft.hinting: true
+
+URxvt*scrollBar: false
+URxvt.cursorBlink: false
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! solarized color scheme
 ! https://github.com/solarized/xresources/blob/master/Xresources.light
+
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
@@ -78,7 +73,7 @@ URxvt.keysym.C-KP_0: font-size:reset
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-! The following colors are from Tango
+! Tango
 #define T_yellow        #fce94f
 #define T_cyan          #34e2e2
 #define T_blue          #729fcf
@@ -95,17 +90,14 @@ URxvt.keysym.C-KP_0: font-size:reset
 ! green dark/light
 *color2:                S_green
 *color10:               T_green
-/* *color10:		S_base01 */
 
 ! yellow dark/light
 *color3:                S_yellow
 *color11:               T_yellow
-/* *color11:		S_base00 */
 
 ! blue dark/light
 *color4:                S_blue
 *color12:               T_blue
-/* *color12:		S_base0 */
 
 ! magenta dark/light
 *color5:                S_magenta
@@ -114,9 +106,7 @@ URxvt.keysym.C-KP_0: font-size:reset
 ! cyan dark/light
 *color6:                S_cyan
 *color14:               T_cyan
-/* *color14:		S_base1 */
 
 ! white dark/light
 *color7:                S_base2
 *color15:               S_base3
-
