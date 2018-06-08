@@ -70,7 +70,7 @@ endif
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
 
 " https://stackoverflow.com/a/10979533/8475967
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 if has('mouse')

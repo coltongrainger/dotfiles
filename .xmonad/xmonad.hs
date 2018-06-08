@@ -1,6 +1,5 @@
 module Main (main) where
 
---------------------------------------------------------------------------------
 import System.Exit
 import XMonad
 
@@ -43,7 +42,10 @@ main = do
     , logHook     = dynamicLogString quamashPP >>= xmonadPropLog
     }
 
-    `additionalKeysP` 
+    `removeKeysP`
+      [ "M-S-c" ]
+
+    `additionalKeysP`
       [ ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
       , ("M-S-a", kill)
       , ("M-S-C-a", killAll)                                      -- (22)
@@ -51,37 +53,30 @@ main = do
       , ("M-<Esc>", sendMessage (Toggle "Full"))
       -- start programs
       , ("M-o", spawn "wine start /unix '/opt/oed/swhx.exe'")
+      , ("M-m", spawn "urxvt -e mutt")
+      , ("M-<Delete>", spawn "urxvt -e htop")
       -- prompts
       , ("M-p", shellPrompt myXPConfig)
-      , ("M-S-p", prompt ("urxvt -hold -e bash -i -c") myamberXPConfig)
-      , ("M-m", manPrompt myXPConfig)                           -- (24)
-      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
-      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
-      , ("<XF86AudioMute>", spawn "amixer set Master toggle")
+      , ("M-h", manPrompt myXPConfig)                           -- (24)
+      -- searches
+      , ("M-/", promptSearch myXPConfig duckduckgo)
+      , ("M-S-/", selectSearch duckduckgo)
       -- lock the screen with xscreensaver
       , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
       -- bainsh the pointer
       , ("M-'", banishScreen LowerRight)                          -- (18)
-      -- searches
-      , ("M-/", promptSearch myXPConfig duckduckgo)
-      , ("M-C-/", selectSearch duckduckgo)
+      -- audio
+      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
+      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
+      , ("<XF86AudioMute>", spawn "amixer set Master toggle")
       ]
 
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
                  , promptBorderWidth = 0
                  , font              = "xft:Ubuntu Mono:size=11"
-                 , fgColor = "#00ee00"
+                 , fgColor = "white"
                  , bgColor = "black"
-                 }
-
-myamberXPConfig = myXPConfig { fgColor = "#ca8f2d", bgColor = "black", historySize = 0 }
-
--- customLogHook to show windows in xmobar
-quamashPP :: PP
-quamashPP = def { ppCurrent = xmobarColor "white" "black"
-                 , ppTitle = xmobarColor "#00ee00" "" . shorten 60
-                 , ppLayout = const "" -- to disable the layout info on xmobar
                  }
 
 myLayouts = toggleLayouts (noBorders Full) others
@@ -92,3 +87,10 @@ myManageHook = composeOne
   [ isDialog              -?> doCenterFloat
   , transience
   ]
+
+-- customLogHook to show windows in xmobar
+quamashPP :: PP
+quamashPP = def { ppCurrent = xmobarColor "white" "black"
+                 , ppTitle = xmobarColor "yellow" "" . shorten 60
+                 , ppLayout = const "" -- to disable the layout info on xmobar
+                 }
