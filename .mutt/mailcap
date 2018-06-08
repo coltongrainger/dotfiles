@@ -35,4 +35,5 @@ text/plain; vim %s
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
 
-
+# video
+video/quicktime; vlc %s

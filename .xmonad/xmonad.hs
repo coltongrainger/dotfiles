@@ -43,40 +43,47 @@ main = do
       [ "M-S-c" ]
 
     `additionalKeysP`
-      [ ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
-      , ("M-S-a", kill)
-      , ("M-S-C-a", killAll)                                      -- (22)
-      -- layout
-      , ("M-<Esc>", sendMessage (Toggle "Full"))
-      -- start programs
-      , ("M-o", runOrRaise "wine start /unix '/opt/oed/swhx.exe'" (className =? "Oxford English Dictionary"))
-      , ("M-m", runOrRaise "mutt" (className =? "mutt"))
-      , ("M-<Delete>", runOrRaise "htop" (className =? "htop"))
-      -- text editors
-      , ("M-e", runOrRaise "emacs" (className =? "Emacs"))
-      , ("M-S-e", prompt "emacs" myXPConfig)
-      , ("M-v", runOrRaise "urxvt -e vim" (className =? "vim"))
-      , ("M-S-v", prompt "urxvt -e vim" myXPConfig)
-      -- browsing 
-      , ("M-w", runOrRaise "firefox" (className =? "Firefox"))
-      , ("M-S-w", selectSearch duckduckgo)
-      , ("M-/", promptSearch myXPConfig duckduckgo)
-      -- edit config
-      , ("M-c e", spawn "emacs ~/.emacs.d/init.el")
-      , ("M-c v", spawn "urxvt -e vim $HOME/.vimrc")
-      , ("M-c m", spawn "urxvt -e vim $HOME/.mutt")
-      , ("M-c x", spawn "urxvt -e vim $HOME/.xmonad/xmonad.hs")
-      -- prompts
-      , ("M-p", shellPrompt myXPConfig)
-      , ("M-h", manPrompt myXPConfig)                           -- (24)
-      -- lock the screen with xscreensaver
-      , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
-      -- bainsh the pointer
+      [ ("M-p", shellPrompt myXPConfig)
+      , ("M-S-p", manPrompt myXPConfig)                           -- (24)
+      -- htop
+      , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
+      -- banish the pointer
       , ("M-'", banishScreen LowerRight)                          -- (18)
       -- audio
       , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
       , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
       , ("<XF86AudioMute>", spawn "amixer set Master toggle")
+      -- (o)ed
+      , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary"))
+      -- (m)utt
+      , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt"))
+      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.muttrc'") (title =? ".muttrc"))
+      , ("M-c a", raiseMaybe (runInTerm "-title aliases.txt" "bash -c 'vim $HOME/.mutt/aliases.txt'") (title =? "aliases.txt"))
+      -- (v)im
+      , ("M-v", raiseMaybe (runInTerm "-title vim" "bash -c vim") (title =? "vim"))
+      , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
+      , ("M-c v", raiseMaybe (runInTerm "-title .vimrc" "bash -c 'vim $HOME/.vimrc'") (title =? ".vimrc"))
+      -- (e)macs
+      , ("M-e", runOrRaise "emacs" (className =? "Emacs"))
+      , ("M-S-e", prompt "emacs" myXPConfig)
+      , ("M-c e", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
+      -- f(i)refox
+      , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
+      , ("M-S-i", promptSearch myXPConfig duckduckgo)
+      , ("M-/", promptSearch myXPConfig duckduckgo)
+      , ("C-S-/", selectSearch duckduckgo)
+      -- (x)monad config
+      , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
+      -- (b)ash config
+      , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
+      -- window manipulation
+      , ("M-<Esc>", sendMessage (Toggle "Full"))
+      -- (l)ock-screen
+      , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
+      -- get me outta here!
+      , ("M-S-a", kill)
+      , ("M-S-C-a", killAll)                                      -- (22)
+      , ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
       ]
 
 myXPConfig = def { position          = Top
@@ -89,7 +96,7 @@ myXPConfig = def { position          = Top
 
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = ResizableTall 1 (1.5/100) (3/5) [] ||| emptyBSP
+    others = ResizableTall 1 (1.5/100) (5/8) [] ||| emptyBSP
 
 myManageHook = composeOne
   [ isDialog              -?> doCenterFloat

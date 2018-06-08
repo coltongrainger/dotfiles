@@ -5,6 +5,9 @@ export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
+# open the OED with Wine
+alias oed="wine start /unix '/opt/oed/swhx.exe'"
+
 # https://www.jefftk.com/p/you-should-be-logging-shell-history
 promptFunc() {
     # right before prompting for the next command, save the previous
@@ -14,53 +17,7 @@ promptFunc() {
 }
 PROMPT_COMMAND=promptFunc
 
-# A shortcut function that simplifies usage of xclip.
-# - Accepts input from either stdin (pipe), or params.
-# ------------------------------------------------
-cb() {
-  local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
-  # Check that xclip is installed.
-  if ! type xclip > /dev/null 2>&1; then
-    echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
-  # Check user is not root (root doesn't have access to user xorg server)
-  elif [[ "$USER" == "root" ]]; then
-    echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
-  else
-    # If no tty, data should be available on stdin
-    if ! [[ "$( tty )" == /dev/* ]]; then
-      input="$(< /dev/stdin)"
-    # Else, fetch input from params
-    else
-      input="$*"
-    fi
-    if [ -z "$input" ]; then  # If no input, print usage message.
-      echo "Copies a string to the clipboard."
-      echo "Usage: cb <string>"
-      echo "       echo <string> | cb"
-    else
-      # Copy input to clipboard
-      echo -n "$input" | xclip -selection c
-      # Truncate text for status
-      if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
-      # Print status.
-      echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
-    fi
-  fi
-}
-
-# Aliases / functions leveraging the cb() function
-# Copy contents of a file
-function cbf() { cat "$1" | cb; }
-# Copy SSH public key
-alias cbssh="cbf ~/.ssh/id_rsa.pub"
-# Copy current working directory
-alias cbwd="pwd | cb"
-# Copy most recent command in bash history
-alias cbhs="cat $HISTFILE | tail -n 1 | cb"
-
-
 # https://github.com/rpellerin/dotfiles/blob/master/.aliases
-# Extract any archive
 function extract() {
     if [ -f $1 ] ; then
         case $1 in
@@ -82,7 +39,6 @@ function extract() {
 }
 
 # https://gist.github.com/Dnomyar/9c289fcc2668b59e1ffb
-# Open a file with the appropriate application
 function open {
     while [ "$1" ] ; do
         xdg-open $1 &> /dev/null
@@ -91,7 +47,6 @@ function open {
 }
 
 # https://gist.github.com/Dnomyar/9c289fcc2668b59e1ffb
-# A reminder
 function githelp {
     echo "-------------------------------------------------------------------------------"
     echo "git clone http://... [repo-name]"
@@ -145,6 +100,3 @@ function githelp {
     echo "git fetch origin ; git remote prune origin"
     echo "-------------------------------------------------------------------------------"
 }
-
-# open the OED with Wine
-alias oed="wine start /unix '/opt/oed/swhx.exe'"

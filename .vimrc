@@ -101,6 +101,7 @@ endif
 if !exists(':DiffOrig')
   command DiffOrig call <SID>DiffOrig()
 endif
+
 function! s:DiffOrig()
   " Original DiffOrig; see :help :DiffOrig
   vert new | set buftype=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
@@ -109,8 +110,7 @@ function! s:DiffOrig()
   wincmd p
   nnoremap <buffer><silent> q :diffoff!<Bar>quit<CR>
 endfunction
-  " http://www.mdlerch.com/emailing-mutt-and-vim-advanced-config.html
-  " modified to conform to 
+  "
 
 if has('autocmd')
   augroup vimrc
@@ -227,7 +227,7 @@ if has('gui_running')
 else
   highlight Visual ctermfg=White ctermbg=Gray
   highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
-  highlight SpellBad ctermfg=Red ctermbg=Gray
+  highlight SpellBad ctermfg=White ctermbg=Red
 endif
 
 nnoremap j gj

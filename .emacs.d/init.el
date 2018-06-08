@@ -1,4 +1,4 @@
-;; no start up screens
+;; see also <https://github.com/riceissa/dotfiles>
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
@@ -12,11 +12,11 @@
  '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; Evil mode as defuault
+;; evil mode as defuault
 (require 'evil)
 (evil-mode 1)
 
-;; Treat wrapped line scrolling as single lines
+;; treat wrapped line scrolling as single lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
@@ -32,7 +32,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       nil)))
 
 ;; only one instance of custom-set-variables please
-;; sourced from <https://github.com/riceissa/dotfiles>
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
