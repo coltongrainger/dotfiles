@@ -67,7 +67,7 @@ function extract() {
             *.tar.bz2) tar xjf $1 ;;
             *.tar.gz) tar xzf $1 ;;
             *.bz2) bunzip2 $1 ;;
-            *.rar) rar x $1 ;;
+            *.rar) unrar x $1 ;;
             *.gz) gunzip $1 ;;
             *.tar) tar xf $1 ;;
             *.tbz2) tar xjf $1 ;;
@@ -145,3 +145,6 @@ function githelp {
     echo "git fetch origin ; git remote prune origin"
     echo "-------------------------------------------------------------------------------"
 }
+
+# open the OED with Wine
+alias oed="wine start /unix '/opt/oed/swhx.exe'"

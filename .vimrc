@@ -1,5 +1,5 @@
-" Please see https://github.com/riceissa/dotfiles for further explanation.
-" I began using vim 2017-10-01. This config is tentative.
+" I borrowed most of this config on 2017-10-01 from
+" https://github.com/riceissa/dotfiles
 
 scriptencoding utf-8
 set nocompatible
@@ -68,6 +68,9 @@ if !has('nvim')
 endif
 
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
+
+" https://stackoverflow.com/a/10979533/8475967
+set clipboard=unnamedplus
 
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 if has('mouse')

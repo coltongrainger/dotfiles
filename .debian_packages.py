@@ -61,6 +61,7 @@ PROGRAMS = [
     "lm-sensors", # check temperature
     "keepassx",
     "duplicity",
+    "mupdf",
 
     # tmux and tiling windows
     "tmux",

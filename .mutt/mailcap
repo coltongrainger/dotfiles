@@ -19,11 +19,11 @@ application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_
 application/vnd.openxmlformats-officedocument.presentationml.presentation; ~/.mutt/view_attachment.sh %s pptx
 
 # Images
-image/jpg; ~/.mutt/view_attachment.sh %s jpg
-image/jpeg; ~/.mutt/view_attachment.sh %s jpg
-image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
-image/png; ~/.mutt/view_attachment.sh %s png
-image/gif; ~/.mutt/view_attachment.sh %s gif
+image/jpg; feh %s 
+image/jpeg; feh %s 
+image/pjpeg; feh %s
+image/png; feh %s
+image/gif; feh %s
 
 # PDFs
 application/pdf; evince %s

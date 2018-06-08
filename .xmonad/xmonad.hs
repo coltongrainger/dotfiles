@@ -50,7 +50,7 @@ main = do
       -- layout
       , ("M-<Esc>", sendMessage (Toggle "Full"))
       -- start programs
-      , ("M-S-o", spawn "wine start /unix '/opt/oed/swhx.exe'")
+      , ("M-o", spawn "wine start /unix '/opt/oed/swhx.exe'")
       -- prompts
       , ("M-p", shellPrompt myXPConfig)
       , ("M-S-p", prompt ("urxvt -hold -e bash -i -c") myamberXPConfig)
@@ -75,7 +75,7 @@ myXPConfig = def { position          = Top
                  , bgColor = "black"
                  }
 
-myamberXPConfig = myXPConfig { fgColor = "#ca8f2d", bgColor = "black" }
+myamberXPConfig = myXPConfig { fgColor = "#ca8f2d", bgColor = "black", historySize = 0 }
 
 -- customLogHook to show windows in xmobar
 quamashPP :: PP
