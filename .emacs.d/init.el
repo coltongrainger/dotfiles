@@ -82,10 +82,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
  '(org-log-done (quote time))
  '(org-startup-truncated nil)
  '(org-todo-keywords
-   (quote
-    ((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "DONE(d)"))))
- '(org-archive-location "~/archive.org::")
- '(package-selected-packages (quote (htmlize magit)))
+  '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)")
+    (sequence "|" "NOPE(n)")))
+ '(org-archive-location "~/rec/archive.org::")
  '(require-final-newline t)
  '(save-interprogram-paste-before-kill t)
  '(scroll-conservatively 1000)
@@ -124,7 +123,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c b") 'org-iswitchb)
 
 (eval-after-load 'org-agenda
  '(progn

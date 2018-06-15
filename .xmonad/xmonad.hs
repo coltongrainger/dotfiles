@@ -28,6 +28,7 @@ import XMonad.Prompt.Shell
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
+-- import XMonad.Util.WorkspaceScreenshot
 
 main = do
 
@@ -78,6 +79,8 @@ main = do
       , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
       -- window manipulation
       , ("M-<Esc>", sendMessage (Toggle "Full"))
+      -- print screen
+      -- , ("M-S-<Print>", captureWorkspacesWhen defaultPredicate defaultHook horizontally)
       -- (l)ock-screen
       , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
       -- get me outta here!
