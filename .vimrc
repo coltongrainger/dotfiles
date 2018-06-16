@@ -11,6 +11,7 @@ set nocompatible
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'coltongrainger/vim-markdown'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -39,7 +40,9 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'dbeniamine/vim-mail'
 call plug#end()
+
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29 to override
 " sleuth.vim for some filetypes.
 runtime! plugin/sleuth.vim
@@ -47,66 +50,30 @@ runtime! plugin/sleuth.vim
 " Override ttimeoutlen later
 runtime! plugin/sensible.vim
 
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces linebreak
-
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
+set fo+=aj
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
-if has('mouse')
-  set mouse=nv
-endif
-
-if exists('&inccommand')
-  set inccommand=split
-endif
 
 nnoremap Y y$
-
-" Quickly find potentially problematic characters (things like non-printing
-" ASCII, exotic whitespace, and lookalike Unicode letters).
-nnoremap g/ /[^\d32-\d126“”‘’–—§]<CR>
-
-" First seen at http://vimcasts.org/episodes/the-edit-command/ but this
-" particular version is modified from
-" https://github.com/nelstrom/dotfiles/blob/448f710b855970a8565388c6665a96ddf4976f9f/vimrc#L80
-cnoremap %% <C-R><C-R>=getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'<CR>
-
-" From Tim Pope
-" https://github.com/tpope/tpope/blob/c743f64380910041de605546149b0575ed0538ce/.vimrc#L284
-if exists('*strftime')
-  inoremap <silent> <C-G><C-T> <C-R>=repeat(complete(col('.'),map(['%F','%B %-d, %Y','%B %Y','%F %a','%F %a %H:%M','%-d %B %Y','%Y-%m-%d %H:%M:%S','%a, %d %b %Y %H:%M:%S %z','%Y %b %d','%d-%b-%y','%a %b %d %T %Z %Y'],'strftime(v:val)')+[localtime()]),0)<CR>
-endif
-
-if !exists(':DiffOrig')
-  command DiffOrig call <SID>DiffOrig()
-endif
-
-function! s:DiffOrig()
-  " Original DiffOrig; see :help :DiffOrig
-  vert new | set buftype=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
-  " Add a buffer-local mapping to the scratch buffer so that it is easier to
-  " exit the diffing session
-  wincmd p
-  nnoremap <buffer><silent> q :diffoff!<Bar>quit<CR>
-endfunction
-  "
 
 if has('autocmd')
   augroup vimrc
     autocmd!
     autocmd BufNewFile,BufRead *.arbtt/categorize.cfg setlocal syntax=haskell
-    autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
     autocmd FileType crontab setlocal commentstring=#%s
-    autocmd FileType gitconfig setlocal commentstring=#%s
-    autocmd FileType matlab setlocal commentstring=%%s
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell
-    autocmd FileType php setlocal commentstring=//%s
-    autocmd FileType help,man setlocal nolist nospell
+    autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
-    autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
-    autocmd FileType mail setlocal fo+=wj
-    autocmd FileType mail setlocal formatprg=par\ -w79qe
+    autocmd FileType help,man setlocal nolist nospell
+    autocmd FileType mail setlocal fo+=w
     autocmd FileType mail setlocal tw=79
+    autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
     autocmd FileType make setlocal noexpandtab
+    autocmd FileType markdown,text,mail setlocal formatprg=par\ -w79qe
+    autocmd FileType matlab setlocal commentstring=%%s
+    autocmd FileType php setlocal commentstring=//%s
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+    autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
     " the Markdown is written. As for 'textwidth', I like 79 on most Markdown
     " files, but on *some* Markdown files (such as ones where I am editing
