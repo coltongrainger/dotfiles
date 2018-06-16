@@ -10,7 +10,9 @@ set tmpdir           = ~/.mutt/temp          # where to keep temp files
 
 # aliases
 set alias_file       = ~/.mutt/aliases.txt   # where to store aliases
-set display_filter   = ~/.mutt/display_filter.sh
+# don't want all these contacts right now
+# TODO improve display_filter
+# set display_filter   = ~/.mutt/display_filter.sh
 set sort_alias=alias
 set reverse_alias=yes
 source $alias_file
@@ -81,7 +83,6 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 bind index g        noop
 bind index gg       first-entry
 bind index G        last-entry
-
 bind index R        group-reply
 bind index <space>  collapse-thread
 
@@ -119,6 +120,7 @@ bind attach <return> view-mailcap
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # Compose View Options -------------------------------
+
 set editor = vim
 set realname = "Colton Grainger"     # who am i?
 set sig_dashes
@@ -135,7 +137,7 @@ set reverse_name = yes               # reply as whomever it was to
 set reverse_realname = no            # but use my own name
 set reverse_alias                    # find folks in the reply
 set forward_quote                    # include message in forwards
-set text_flowed # see http://wcm1.web.rice.edu/mutt-tips.html
+set text_flowed                      # see http://wcm1.web.rice.edu/mutt-tips.html
 
 # alternate email addresses
 alternates ^coltoncgrainger@gmail.com$ ^colton.grainger@gmail.com$ ^colton.grainger@colorado.edu
@@ -143,6 +145,7 @@ send-hook "~f ^colton.grainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltongrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^coltoncgrainger@gmail.com" 'set signature = ~/.mutt/sig/personal'
 send-hook "~f ^colton.grainger@colorado.edu$" 'set signature = ~/.mutt/sig/colorado'
+send-hook "~f ^coltongrainger@colorado.edu$" 'set signature = ~/.mutt/sig/colorado'
 
 bind  index,pager m        noop
 macro index,pager m "<enter-command>set from='colton.grainger@gmail.com'<enter><mail>" "from: personal"
@@ -150,7 +153,7 @@ bind  index,pager M        noop
 macro index,pager M "<enter-command>set from='colton.grainger@colorado.edu'<enter><mail>" "from: school"
 
 # msmtp to send mail
-# set from     = "coltongrainger@gmail.com"
+# set from     = "colton.grainger@gmail.com"
 set sendmail = "/usr/bin/msmtp -a coltongrainger"
 set sendmail_wait = 0
 unset record

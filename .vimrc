@@ -12,6 +12,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'coltongrainger/vim-markdown'
+Plug 'dbeniamine/vim-mail'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -40,7 +41,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'dbeniamine/vim-mail'
 call plug#end()
 
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29 to override
@@ -51,8 +51,9 @@ runtime! plugin/sleuth.vim
 runtime! plugin/sensible.vim
 
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
-set fo+=aj
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
+
+set formatprg=par\ -w79qe
 
 nnoremap Y y$
 
@@ -61,19 +62,17 @@ if has('autocmd')
     autocmd!
     autocmd BufNewFile,BufRead *.arbtt/categorize.cfg setlocal syntax=haskell
     autocmd FileType crontab setlocal commentstring=#%s
-    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell
+    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
     autocmd FileType help,man setlocal nolist nospell
+    " Add spaces to continuing lines for text_flowed
     autocmd FileType mail setlocal fo+=w
     autocmd FileType mail setlocal tw=79
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
     autocmd FileType make setlocal noexpandtab
-    autocmd FileType markdown,text,mail setlocal formatprg=par\ -w79qe
     autocmd FileType matlab setlocal commentstring=%%s
     autocmd FileType php setlocal commentstring=//%s
-    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-    autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
     " the Markdown is written. As for 'textwidth', I like 79 on most Markdown
     " files, but on *some* Markdown files (such as ones where I am editing
@@ -81,7 +80,10 @@ if has('autocmd')
     " buffer-local variable to track if we have already run the autocmd so it
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
-    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    " vim-markdown does this
+    " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+    autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
     " Prevent overzealous autoindent in align environment
     autocmd FileType tex setlocal indentexpr=
     autocmd FileType tex let b:surround_{char2nr('m')} = "\\(\r\\)"
@@ -116,13 +118,17 @@ endif
 
 iabbrev ADd Add
 
-let g:tex_flavor = 'latex'
-let g:sql_type_default = 'mysql'
-let g:surround_{char2nr('q')} = "“\r”"
-let g:surround_{char2nr('Q')} = "‘\r’"
-let g:dualist_color_listchars = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:dualist_color_listchars = 1
+let g:sql_type_default = 'mysql'
+let g:surround_{char2nr('Q')} = "‘\r’"
+let g:surround_{char2nr('q')} = "“\r”"
+let g:tex_flavor = 'latex'
 let g:vim_markdown_folding_disabled = 1
+
+"let g:VimMailStartFlags="tori"
+"let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
+let g:VimMailDoNotFold
 
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> [w <Plug>(ale_previous)
@@ -131,9 +137,9 @@ nmap <silent> ]W <Plug>(ale_last)
 nnoremap [s [s<Space><BS>
 nnoremap ]s ]s<BS><Space>
 
-highlight Visual ctermfg=White ctermbg=Gray
-highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
-highlight SpellBad ctermfg=White ctermbg=Red
+"highlight Visual ctermfg=White ctermbg=Gray
+"highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
+"highlight SpellBad ctermfg=White ctermbg=Red
 
 nnoremap j gj
 nnoremap k gk
