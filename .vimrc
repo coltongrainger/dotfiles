@@ -10,11 +10,9 @@ set nocompatible
 " Once all Vim config files are in the right places, just do :PlugInstall in
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
-" if has('gui_running')
-  Plug 'romainl/flattened'
-" endif
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/gv.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
@@ -23,8 +21,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'riceissa/vim-dualist'
 Plug 'riceissa/vim-inclusivespace'
 Plug 'riceissa/vim-longmove'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'riceissa/vim-mediawiki'
 Plug 'riceissa/vim-more-toggling'
 Plug 'riceissa/vim-pasteurize'
@@ -37,12 +33,12 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-rsi'
 call plug#end()
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29 to override
 " sleuth.vim for some filetypes.
@@ -51,26 +47,7 @@ runtime! plugin/sleuth.vim
 " Override ttimeoutlen later
 runtime! plugin/sensible.vim
 
-" Resolve disputes between `vim -Nu sensible.vim` and `nvim -u sensible.vim`
-if &history < 10000
-  set history=10000
-endif
-set nohlsearch
-if has('langmap') && exists('+langnoremap')
-  set langnoremap
-endif
-if has('path_extra')
-  setglobal tags=./tags;,tags
-endif
-if !has('nvim')
-  set ttimeout
-  set ttimeoutlen=50
-endif
-
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
-
-" https://stackoverflow.com/a/10979533/8475967
-" set clipboard=unnamedplus
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces linebreak
 
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 if has('mouse')
@@ -121,21 +98,13 @@ if has('autocmd')
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType matlab setlocal commentstring=%%s
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell
-    autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
-    autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
-    autocmd FileType mediawiki setlocal includeexpr=substitute(toupper(v:fname[0]).v:fname[1:],'\ ','_','g')
-    autocmd FileType mediawiki setlocal suffixesadd=.mediawiki
-    autocmd FileType mediawiki setlocal linebreak
     autocmd FileType php setlocal commentstring=//%s
     autocmd FileType help,man setlocal nolist nospell
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
-    " Modified from :help ft-syntax-omni
-    if exists('+omnifunc')
-      autocmd FileType * if &omnifunc == '' | setlocal omnifunc=syntaxcomplete#Complete | endif
-    endif
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
     autocmd FileType mail setlocal fo+=wj
-    autocmd FileType mail setlocal tw=72
+    autocmd FileType mail setlocal formatprg=par\ -w79qe
+    autocmd FileType mail setlocal tw=79
     autocmd FileType make setlocal noexpandtab
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
@@ -145,18 +114,7 @@ if has('autocmd')
     " buffer-local variable to track if we have already run the autocmd so it
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
-    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
-    " Allow opening of locally linked pages with gf
-    autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
-    autocmd BufNewFile,BufRead */coltongrainger.github.io/_posts/*.md setlocal includeexpr=substitute(v:fname,'$','.md','')
-    autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
-    " In some versions, when Vim is compiled with python3 support but not
-    " python support, the omnifunc check above tries to use
-    " pythoncomplete#Complete, which doesn't exist since there is no python
-    " support. The solution is to force the python3 complete function.
-    if has('python3')
-      autocmd FileType python setlocal omnifunc=python3complete#Complete
-    endif
+    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     " Prevent overzealous autoindent in align environment
     autocmd FileType tex setlocal indentexpr=
     autocmd FileType tex let b:surround_{char2nr('m')} = "\\(\r\\)"
@@ -165,10 +123,6 @@ if has('autocmd')
     " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
     autocmd FileType tex syntax spell toplevel
     autocmd FileType vim setlocal keywordprg=:help
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !=# "gitcommit" |
-      \   exe "normal! g`\"" |
-      \ endif
   augroup END
 endif
 
@@ -203,16 +157,6 @@ let g:dualist_color_listchars = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:vim_markdown_folding_disabled = 1
 
-if has('clipboard')
-  let g:pasteurize_no_mappings = 1
-  xmap x <Plug>PasteurizeXCut
-  xmap <C-C> <Plug>PasteurizeXCopy
-  nmap <C-V> <Plug>PasteurizeNPaste
-  cmap <C-V> <Plug>PasteurizeCPaste
-  imap <C-V> <Plug>PasteurizeIPaste
-  xmap <C-V> <Plug>PasteurizeXPaste
-endif
-
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> [W <Plug>(ale_first)
@@ -220,15 +164,9 @@ nmap <silent> ]W <Plug>(ale_last)
 nnoremap [s [s<Space><BS>
 nnoremap ]s ]s<BS><Space>
 
-if has('gui_running')
-  silent! colorscheme flattened_light
-  set guioptions-=m
-  set guioptions-=T
-else
-  highlight Visual ctermfg=White ctermbg=Gray
-  highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
-  highlight SpellBad ctermfg=White ctermbg=Red
-endif
+highlight Visual ctermfg=White ctermbg=Gray
+highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
+highlight SpellBad ctermfg=White ctermbg=Red
 
 nnoremap j gj
 nnoremap k gk
