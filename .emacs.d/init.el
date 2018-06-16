@@ -6,42 +6,32 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
 
-;; install packages (esp magit)
+;; install packages
 (require 'package)
 (add-to-list 'package-archives
  '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; evil mode as defuault
-(require 'evil)
-(evil-mode 1)
-
-;; treat wrapped line scrolling as single lines
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
-(defun air-org-skip-subtree-if-priority (priority)
-  "Skip an agenda subtree if it has a priority of PRIORITY.
-
-PRIORITY may be one of the characters ?A, ?B, or ?C."
-  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
-        (pri-value (* 1000 (- org-lowest-priority priority)))
-        (pri-current (org-get-priority (thing-at-point 'line t))))
-    (if (= pri-value pri-current)
-        subtree-end
-      nil)))
-
 ;; only one instance of custom-set-variables please
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(indent-tabs-mode nil)
- '(magit-diff-refine-hink (quote all))
- '(make-backup-files nil)
- '(mouse-wheel-progressive-speed nil)
- '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
+ ;; org mode
+ '(package-selected-packages (quote (magit)))
+ '(org-agenda-files (quote ("~/todo.org" )))
+ '(org-archive-location "~/rec/archive.org::")
+ '(org-log-done (quote time))
+ '(org-startup-truncated nil)
+ '(org-agenda-start-on-weekday nil)
+ '(org-capture-templates
+   '(
+    ;; ("i" "idea" entry
+     ;;  (file+headline "~/todo.org" "ideas")
+     ;;  "* %T %?")
+     ("t" "TODO item" entry
+      (file+headline "~/todo.org" "tasks")
+      "* TODO %?
+  %i")))
+ '(org-todo-keywords
+  '((sequence "TODO(t)" "|" "DONE(d)" "NOPE(n)")))
  '(org-agenda-custom-commands
    '(("c" "agenda/todo"
       ((tags "PRIORITY=\"A\""
@@ -67,48 +57,21 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
        (org-agenda-prefix-format "  ")
        (org-agenda-with-colors nil)
        (ps-left-header
-        (list "(goals shit yeah)" "(Colton Grainger)"))
+        (list "Colton's TODO list" "/pagenumberstring load" ))
        (htmlize-output-type 'font))
-      ("~/pprints/agenda.html" "~/pprints/agenda.pdf"))))
- '(org-agenda-files (quote ("~/todo.org")))
- '(org-agenda-start-on-weekday nil)
- '(org-capture-templates
-   (quote
-    (("t" "TODO item" entry
-      (file+headline "~/todo.org" "unsorted tasks")
-      "* TODO %?
-  %i"))))
- '(org-default-notes-file (quote ("~/todo.org")))
- '(org-log-done (quote time))
- '(org-startup-truncated nil)
- '(org-todo-keywords
-  '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)")
-    (sequence "|" "NOPE(n)")))
- '(org-archive-location "~/rec/archive.org::")
- '(require-final-newline t)
- '(save-interprogram-paste-before-kill t)
- '(scroll-conservatively 1000)
- '(sentence-end-double-space nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil)
- '(vc-follow-symlinks t)
- '(ps-header-lines 2)
- '(ps-header-font-size 9)
- '(ps-header-title-font-size 11)
- '(ps-header-font-family 'Courier)
+      ("~/raw/agenda.html" "~/raw/agenda.pdf"))))
  '(ps-right-header
-   (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
+   (list 'ps-time-stamp-yyyy-mm-dd ))
+ ;; printing the agenda taco style
+ '(ps-header-font-family 'Courier)
+ '(ps-font-family 'Courier)
  '(ps-print-header-frame nil)
- '(ps-header-line-pad 0)
- ;;'(ps-footer-lines 1)
- ;;'(ps-footer-font-size 11)
- ;;'(ps-footer-font-family 'Courier)
  '(ps-print-footer nil)
- ;;'(ps-left-footer nil)
- ;;'(ps-right-footer (list "/pagenumberstring load"))
- ;;'(ps-footer-offset .50)
- ;;'(ps-footer-line-pad .50)
- ;;'(ps-print-footer-frame nil)        ; no box bottom
+ '(ps-header-title-font-size 11)
+ '(ps-header-font-size 9)
+ '(ps-font-size 7)
+ '(ps-header-lines 2)
+ '(ps-header-line-pad 0)
  '(ps-left-margin 10)
  '(ps-right-margin 10)
  '(ps-top-margin 20)
@@ -116,19 +79,37 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
  '(ps-number-of-columns 1)
  '(ps-inter-column 0)
  '(ps-landscape-mode nil)
- '(ps-font-family 'Courier)
- '(ps-font-size 7))
+ ;; usage
+ '(cursor-type (quote bar))
+ '(indent-tabs-mode nil)
+ '(magit-diff-refine-hink (quote all))
+ '(make-backup-files nil)
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
+ '(require-final-newline t)
+ '(save-interprogram-paste-before-kill t)
+ '(scroll-conservatively 1000)
+ '(sentence-end-double-space nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
+ '(vc-follow-symlinks t))
 
 ;; org key maps
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(eval-after-load 'org-agenda
- '(progn
-    (define-key org-agenda-mode-map "j" 'org-agenda-next-line)
-    (define-key org-agenda-mode-map "k" 'org-agenda-previous-line
-)))
+;; agenda pretty print
+(defun air-org-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil)))
 
 ;; magit commands
 (when (fboundp 'magit-status)
