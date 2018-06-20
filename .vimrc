@@ -128,7 +128,7 @@ let g:vim_markdown_folding_disabled = 1
 
 let g:VimMailStartFlags="to"
 " using sh since bash apparently won't open mutt twice
-let g:VimMailClient="urxvt -e 'sh -c mutt -R'
+let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
 let g:VimMailDoNotFold=1
 
 nmap <silent> ]w <Plug>(ale_next)
