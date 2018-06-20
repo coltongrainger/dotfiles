@@ -137,7 +137,9 @@ set reverse_name = yes               # reply as whomever it was to
 set reverse_realname = no            # but use my own name
 set reverse_alias                    # find folks in the reply
 set forward_quote                    # include message in forwards
-set text_flowed                      # see http://wcm1.web.rice.edu/mutt-tips.html
+
+# Phone email clients don't render text_flowed, so unset and avoid linebreaks.
+# set text_flowed             # see http://wcm1.web.rice.edu/mutt-tips.html
 
 # alternate email addresses
 alternates ^coltoncgrainger@gmail.com$ ^colton.grainger@gmail.com$ ^colton.grainger@colorado.edu

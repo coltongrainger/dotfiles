@@ -60,19 +60,11 @@ nnoremap Y y$
 if has('autocmd')
   augroup vimrc
     autocmd!
-    autocmd BufNewFile,BufRead *.arbtt/categorize.cfg setlocal syntax=haskell
-    autocmd FileType crontab setlocal commentstring=#%s
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
-    autocmd FileType gitconfig setlocal commentstring=#%s
-    autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
-    autocmd FileType help,man setlocal nolist nospell
-    " Add spaces to continuing lines for text_flowed
-    autocmd FileType mail setlocal fo+=w
-    autocmd FileType mail setlocal tw=79
+    " outgoing emails take no formatting
+    autocmd FileType mail setlocal tw=0
+    autocmd FileType mail setlocal formatprg=par\ -w1000qe
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
-    autocmd FileType make setlocal noexpandtab
-    autocmd FileType matlab setlocal commentstring=%%s
-    autocmd FileType php setlocal commentstring=//%s
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
     " the Markdown is written. As for 'textwidth', I like 79 on most Markdown
     " files, but on *some* Markdown files (such as ones where I am editing
@@ -84,6 +76,14 @@ if has('autocmd')
     " vim-markdown does this
     " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
+    autocmd BufNewFile,BufRead *.arbtt/categorize.cfg setlocal syntax=haskell
+    autocmd FileType crontab setlocal commentstring=#%s
+    autocmd FileType gitconfig setlocal commentstring=#%s
+    autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
+    autocmd FileType help,man setlocal nolist nospell
+    autocmd FileType make setlocal noexpandtab
+    autocmd FileType matlab setlocal commentstring=%%s
+    autocmd FileType php setlocal commentstring=//%s
     " Prevent overzealous autoindent in align environment
     autocmd FileType tex setlocal indentexpr=
     autocmd FileType tex let b:surround_{char2nr('m')} = "\\(\r\\)"
@@ -126,9 +126,10 @@ let g:surround_{char2nr('q')} = "“\r”"
 let g:tex_flavor = 'latex'
 let g:vim_markdown_folding_disabled = 1
 
-"let g:VimMailStartFlags="tori"
-"let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
-let g:VimMailDoNotFold
+let g:VimMailStartFlags="to"
+" using sh since bash apparently won't open mutt twice
+let g:VimMailClient="urxvt -e 'sh -c mutt -R'
+let g:VimMailDoNotFold=1
 
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> [w <Plug>(ale_previous)
@@ -138,7 +139,7 @@ nnoremap [s [s<Space><BS>
 nnoremap ]s ]s<BS><Space>
 
 "highlight Visual ctermfg=White ctermbg=Gray
-"highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
+highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
 "highlight SpellBad ctermfg=White ctermbg=Red
 
 nnoremap j gj
