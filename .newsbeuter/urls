@@ -1,23 +1,48 @@
-https://twitrss.me/twitter_user_to_rss/?user=daverosoff        "~tweets: Dave Rosoff"
-https://twitrss.me/twitter_user_to_rss/?user=jeanqasaur        "~tweets: Jean Yang"
-https://twitrss.me/twitter_user_to_rss/?user=mattmight         "~tweets: Matt Might"
-https://twitrss.me/twitter_user_to_rss/?user=nayafia           "~tweets: Nadia Eghbal"
-https://twitrss.me/twitter_user_to_rss/?user=polikarn          "~tweets: Nadia Polikarpova"
-https://twitrss.me/twitter_user_to_rss/?user=elizabethmatsui   "~tweets: Elizabeth Matsui"
-https://twitrss.me/twitter_user_to_rss/?user=fancytypes        "~tweets: Stephanie Weirich"
+# twitter
+https://twitrss.me/twitter_user_to_rss/?user=daverosoff        "~Dave Rosoff"
+https://twitrss.me/twitter_user_to_rss/?user=elizabethmatsui   "~Elizabeth Matsui"
+https://twitrss.me/twitter_user_to_rss/?user=mattmight         "~Matt Might"
+https://twitrss.me/twitter_user_to_rss/?user=jeanqasaur        "~Jean Yang"
+https://twitrss.me/twitter_user_to_rss/?user=fancytypes        "~Stephanie Weirich"
+https://twitrss.me/twitter_user_to_rss/?user=polikarn          "~Nadia Polikarpova"
+https://twitrss.me/twitter_user_to_rss/?user=nayafia           "~Nadia Eghbal"
 
-http://www.pgbovine.net/pgbovine-rss-feed.xml      "~podcast: Philip Guo"
-http://effortreport.libsyn.com/rss                 "~podcast: Roger Peng & Elizabeth Matsui"
-http://datastori.es/feed/                          "~podcast: Enrico Bertini & Moritz Stefaner"
-https://feeds.podtrac.com/IOJSwQcdEBcg             "~podcast: Ben Lorica"
+# writing
+https://simplystatistics.org/index.xml                         "~Rafa Irizarry, Roger Peng, Jeff Leek"
+http://www.aaronsw.com/2002/feeds/pgessays.rss                 "~Paul Graham"
+https://www.scottaaronson.com/blog/?feed=rss2                  "~Scott Aaronson"
+https://issarice.com/atom.xml                                  "~Issa Rice"
 
-http://chaosradio.ccc.de/chaosradio-latest.rss     "~deustch: Choas Radio"
-https://rss.dw.com/xml/DKpodcast_lgn_de            "~deustch: DW Nachrichten"
-https://rss.dw.com/xml/podcast_journal-interview   "~deustch: DW Interviews"
+# funding
+https://www.nsf.gov/rss/rss_www_news_mps.xml                   "~MPS news"
+https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_mps.xml   "~MPS funding"
+https://www.nsf.gov/rss/rss_www_news_cise.xml                  "~CISE news"
+https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_cise.xml  "~CISE funding"
 
-https://simplystatistics.org/index.xml           "~posts: Rafa Irizarry, Roger Peng, Jeff Leek"
-http://www.aaronsw.com/2002/feeds/pgessays.rss   "~posts: Paul Graham"
-https://www.scottaaronson.com/blog/?feed=rss2    "~posts: Scott Aaronson"
-https://medium.com/feed/@nayafia                 "~posts: Nadia Egbhal"
-https://issarice.com/atom.xml                    "~posts: Issa Rice"
+# arxiv
+# https://arxiv.org/rss/math.AG
+# https://arxiv.org/rss/math.GT
+# https://arxiv.org/rss/cs.CG
+# https://arxiv.org/rss/cs.CR
 
+# research
+https://londmathsoc.onlinelibrary.wiley.com/action/showFeed?jc=17538424&type=etoc&feed=rss "~J. Topol."
+https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=454&channel-name=Discrete+%26+Computational+Geometry "~Discrete Comput. Geom."
+https://projecteuclid.org/feeds/euclid.gt_article_rss.xml      "~Geom. Topol."
+https://rss.sciencedirect.com/research/science/09257721     "~Comput. Geom."
+https://projecteuclid.org/feeds/euclid.agt_article_rss.xml     "~Algebr. Geom. Topol."
+https://projecteuclid.org/feeds/euclid.hha_article_rss.xml     "~Homology Homotopy Appl."
+https://projecteuclid.org/feeds/euclid.akt_article_rss.xml     "~Ann. K-Theory"
+http://jocg.org/index.php/jocg/gateway/plugin/WebFeedGatewayPlugin/rss "~J. Comput. Geom."
+# https://en.wikipedia.org/wiki/List_of_mathematics_journals#By_impact_factor
+# Ann. Math., of course, refuses to curate an RSS
+pub:https://onlinelibrary.wiley.com/action/showFeed?jc=10970312&type=etoc&feed=rss "~Comm. Pure Appl. Math."
+https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=222&channel-name=Inventiones+mathematicae "~Invent. Math."
+https://projecteuclid.org/feeds/euclid.jdg_article_rss.xml "~J. Differential Geom."
+http://www.ams.org/rss/bull.rss "~Bull. Amer. Math. Soc."
+# Ann. Sci. Éc. Norm. Supér. also has no RSS
+http://www.ams.org/rss/jams.rss "~J. Amer. Math. Soc."
+https://www.siam.org/WS%20RSS/RSSFeed.asmx/GetCombinedFeed?slug=applied-geometry "~SIAM: Applied Geometry"
+https://www.siam.org/WS%20RSS/RSSFeed.asmx/GetCombinedFeed?slug=data-science "~SIAM: Data Science"
+https://projecteuclid.org/feeds/euclid.dmj_article_rss.xml "~Duke Math. J."
+# Amer. J. Math. also has no RSS
