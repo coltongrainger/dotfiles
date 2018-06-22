@@ -1,18 +1,12 @@
 # dotfiles
 
-These are configuration files for [software I
-use](http://coltongrainger.com/software). Most of the file paths assume
-installation on a UNIX-like OS, though I have included an unmaintained macOS
-branch.
+These are configuration files for [software I use](http://coltongrainger.com/software). 
 
-My setup is highly derivative, please see also
+The version control is per [Nicola Paolucci's instructions](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
-- [Nicola Paolucci's
-- setup](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
-- [Issa Rice's dotfiles](https://github.com/riceissa/dotfiles)
+Rather than starting with sane defaults, I adopted *en masse* [Issa Rice's dotfiles](https://github.com/riceissa/dotfiles). The creativity is theirs and the mistakes are my own.
 
-[![is it worth the
-time](https://imgs.xkcd.com/comics/is_it_worth_the_time.png)](https://xkcd.com/1205/)
+[![is it worth the time](https://imgs.xkcd.com/comics/is_it_worth_the_time.png)](https://xkcd.com/1205/)
 
 ## License
 
