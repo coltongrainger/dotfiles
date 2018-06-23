@@ -9,15 +9,14 @@ https://twitrss.me/twitter_user_to_rss/?user=nayafia           "~Nadia Eghbal"
 
 # writing
 https://simplystatistics.org/index.xml                         "~Rafa Irizarry, Roger Peng, Jeff Leek"
-http://www.aaronsw.com/2002/feeds/pgessays.rss                 "~Paul Graham"
 https://www.scottaaronson.com/blog/?feed=rss2                  "~Scott Aaronson"
 https://issarice.com/atom.xml                                  "~Issa Rice"
 
 # funding
-https://www.nsf.gov/rss/rss_www_news_mps.xml                   "~MPS news"
-https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_mps.xml   "~MPS funding"
-https://www.nsf.gov/rss/rss_www_news_cise.xml                  "~CISE news"
-https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_cise.xml  "~CISE funding"
+https://www.nsf.gov/rss/rss_www_news_mps.xml                   "~NSF MPS news"
+https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_mps.xml   "~NSF MPS funding"
+https://www.nsf.gov/rss/rss_www_news_cise.xml                  "~NSF CISE news"
+https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_cise.xml  "~NSF CISE funding"
 
 # arxiv
 # https://arxiv.org/rss/math.AG
@@ -26,23 +25,28 @@ https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_cise.xml  "~CISE funding"
 # https://arxiv.org/rss/cs.CR
 
 # research
-https://londmathsoc.onlinelibrary.wiley.com/action/showFeed?jc=17538424&type=etoc&feed=rss "~J. Topol."
+http://jocg.org/index.php/jocg/gateway/plugin/WebFeedGatewayPlugin/rss "~J. Comput. Geom."
+https://rss.sciencedirect.com/research/science/09257721     "~Comput. Geom."
+https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10208&channel-name=Foundations+of+Computational+Mathematics "~J. FoCM"
 https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=454&channel-name=Discrete+%26+Computational+Geometry "~Discrete Comput. Geom."
 https://projecteuclid.org/feeds/euclid.gt_article_rss.xml      "~Geom. Topol."
-https://rss.sciencedirect.com/research/science/09257721     "~Comput. Geom."
 https://projecteuclid.org/feeds/euclid.agt_article_rss.xml     "~Algebr. Geom. Topol."
+https://londmathsoc.onlinelibrary.wiley.com/action/showFeed?jc=17538424&type=etoc&feed=rss "~J. Topol."
 https://projecteuclid.org/feeds/euclid.hha_article_rss.xml     "~Homology Homotopy Appl."
 https://projecteuclid.org/feeds/euclid.akt_article_rss.xml     "~Ann. K-Theory"
-http://jocg.org/index.php/jocg/gateway/plugin/WebFeedGatewayPlugin/rss "~J. Comput. Geom."
+https://onlinelibrary.wiley.com/action/showFeed?jc=10991476&type=etoc&feed=rss "~Math. Meth. Appl. Sci."
+https://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=jmp "~J. Math. Phys."
+https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10817&channel-name=Journal+of+Automated+Reasoning "~J. Automated Reasoning"
 # https://en.wikipedia.org/wiki/List_of_mathematics_journals#By_impact_factor
-# Ann. Math., of course, refuses to curate an RSS
-pub:https://onlinelibrary.wiley.com/action/showFeed?jc=10970312&type=etoc&feed=rss "~Comm. Pure Appl. Math."
-https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=222&channel-name=Inventiones+mathematicae "~Invent. Math."
-https://projecteuclid.org/feeds/euclid.jdg_article_rss.xml "~J. Differential Geom."
-http://www.ams.org/rss/bull.rss "~Bull. Amer. Math. Soc."
-# Ann. Sci. Éc. Norm. Supér. also has no RSS
-http://www.ams.org/rss/jams.rss "~J. Amer. Math. Soc."
-https://www.siam.org/WS%20RSS/RSSFeed.asmx/GetCombinedFeed?slug=applied-geometry "~SIAM: Applied Geometry"
-https://www.siam.org/WS%20RSS/RSSFeed.asmx/GetCombinedFeed?slug=data-science "~SIAM: Data Science"
+# reversed order, just to stay abreast of potentially monumental developments
+# Amer. J. Math. has no RSS, rats!
 https://projecteuclid.org/feeds/euclid.dmj_article_rss.xml "~Duke Math. J."
-# Amer. J. Math. also has no RSS
+https://www.siam.org/WS%20RSS/RSSFeed.asmx/GetCombinedFeed?slug=data-science "~SIAM: Data Science"
+https://www.siam.org/WS%20RSS/RSSFeed.asmx/GetCombinedFeed?slug=applied-geometry "~SIAM: Applied Geometry"
+http://www.ams.org/rss/jams.rss "~J. Amer. Math. Soc."
+# Ann. Sci. Éc. Norm. Supér. also has no RSS
+http://www.ams.org/rss/bull.rss "~Bull. Amer. Math. Soc."
+https://projecteuclid.org/feeds/euclid.jdg_article_rss.xml "~J. Differential Geom."
+https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=222&channel-name=Inventiones+mathematicae "~Invent. Math."
+https://onlinelibrary.wiley.com/action/showFeed?jc=10970312&type=etoc&feed=rss "~Comm. Pure Appl. Math."
+# Ann. Math., of course, refuses to curate an RSS

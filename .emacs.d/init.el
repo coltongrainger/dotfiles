@@ -27,7 +27,7 @@
      ;;  (file+headline "~/todo.org" "ideas")
      ;;  "* %T %?")
      ("t" "TODO item" entry
-      (file+headline "~/todo.org" "tasks")
+      (file+headline "~/todo.org" "unsorted")
       "* TODO %?
   %i")))
  '(org-todo-keywords
