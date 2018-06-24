@@ -1,4 +1,4 @@
-Config { font = "xft:Ubuntu Mono:size=11"
+Config { font = "misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"

@@ -33,7 +33,8 @@ import XMonad.Util.Run
 main = do
 
   xmonad $ desktopConfig
-    { borderWidth = 2
+    { terminal    = "urxvt"
+    , borderWidth = 2
     , modMask     = mod4Mask -- Use the "Win" key for the mod key
     , manageHook  = myManageHook <+> manageHook desktopConfig
     , layoutHook  = desktopLayoutModifiers $ myLayouts
@@ -92,7 +93,6 @@ main = do
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
                  , promptBorderWidth = 0
-                 , font              = "xft:Ubuntu Mono:size=11"
                  , fgColor = "white"
                  , bgColor = "black"
                  }
