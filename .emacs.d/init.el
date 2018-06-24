@@ -23,7 +23,7 @@
  '(org-agenda-start-on-weekday nil)
  '(org-capture-templates
    '(
-    ;; ("i" "idea" entry
+     ;; ("i" "idea" entry
      ;;  (file+headline "~/todo.org" "ideas")
      ;;  "* %T %?")
      ("t" "TODO item" entry
@@ -32,39 +32,45 @@
   %i")))
  '(org-todo-keywords
   '((sequence "TODO(t)" "|" "DONE(d)" "NOPE(n)")))
+ '(org-agenda-block-separator "")
+ '(org-agenda-prefix-format "  %t%s")
  '(org-agenda-custom-commands
-   '(("c" "agenda/todo"
+   '(("c" "ccg-agenda"
       ((tags "PRIORITY=\"A\""
-        ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-         (org-agenda-overriding-header "High-priority unfinished tasks:")))
-       (agenda "" ((org-agenda-span 3)))
+        ((org-agenda-overriding-header "PRIORITIES")
+         (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
+       (agenda "" 
+        ((org-agenda-overriding-header "TIME-SENSITIVE")
+         (org-agenda-span 3)))
        (alltodo ""
-        ((org-agenda-skip-function
+        ((org-agenda-overriding-header "UNSCHEDULED")
+         (org-agenda-skip-function
+          '(or (air-org-skip-subtree-if-priority ?A)
+               (org-agenda-skip-if nil '(scheduled deadline))))))))
+     ("p" "printable-ccg-agenda"
+      ((tags "PRIORITY=\"A\""
+        ((org-agenda-overriding-header "PRIORITIES")
+         (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
+       (agenda "" 
+        ((org-agenda-overriding-header "TIME-SENSITIVE")
+         (org-agenda-span 3)))
+       (alltodo ""
+        ((org-agenda-overriding-header "UNSCHEDULED")
+         (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
                (org-agenda-skip-if nil '(scheduled deadline)))))))
-      ((org-agenda-compact-blocks t)))
-     ("X" "hard-copy"
-      ((tags "PRIORITY=\"A\""
-        ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-         (org-agenda-overriding-header "High-priority unfinished tasks:")))
-       (agenda "" ((org-agenda-span 3)))
-       (alltodo ""
-        ((org-agenda-skip-function
-          '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-if nil '(scheduled deadline)))))))
-      ((org-agenda-compact-blocks t)
+      ((ps-left-header (list "(emacs org-mode)" "(colton grainger)"))
        (org-agenda-add-entry-text-maxlines 5)
-       (org-agenda-prefix-format "  ")
        (org-agenda-with-colors nil)
-       (ps-left-header
-        (list "Colton's TODO list" "/pagenumberstring load" ))
-       (htmlize-output-type 'font))
-      ("~/raw/agenda.html" "~/raw/agenda.pdf"))))
+       (htmlize-output-type 'font)
+       )
+      ("~/raw/agenda.html" "~/raw/agenda.pdf"))
+     ))
  '(ps-right-header
-   (list 'ps-time-stamp-yyyy-mm-dd ))
- ;; printing the agenda taco style
- '(ps-header-font-family 'Courier)
- '(ps-font-family 'Courier)
+   (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
+ ;; portrait half-page agenda
+ '(ps-header-font-family 'Helvetica)
+ '(ps-font-family 'Helvetica)
  '(ps-print-header-frame nil)
  '(ps-print-footer nil)
  '(ps-header-title-font-size 11)
