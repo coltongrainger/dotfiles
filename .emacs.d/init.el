@@ -59,7 +59,7 @@
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
                (org-agenda-skip-if nil '(scheduled deadline)))))))
-      ((ps-left-header (list "(emacs org-mode)" "(colton grainger)"))
+      ((ps-left-header (list "(emacs org-mode)" "(Colton Grainger)"))
        (org-agenda-add-entry-text-maxlines 5)
        (org-agenda-with-colors nil)
        (htmlize-output-type 'font)
