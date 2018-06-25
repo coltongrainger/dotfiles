@@ -93,6 +93,7 @@ main = do
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
                  , promptBorderWidth = 0
+                 , font    = "-*-fixed-bold-*-*-*-15-*-*-*-*-*-*-*"
                  , fgColor = "white"
                  , bgColor = "black"
                  }

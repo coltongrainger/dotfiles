@@ -62,9 +62,10 @@
       ((ps-left-header (list "(emacs org-mode)" "(Colton Grainger)"))
        (org-agenda-add-entry-text-maxlines 5)
        (org-agenda-with-colors nil)
-       (htmlize-output-type 'font)
+       ;(htmlize-output-type 'font)
        )
-      ("~/raw/agenda.html" "~/raw/agenda.pdf"))
+      (;"~/temp/agenda.html" 
+       "~/temp/agenda.pdf"))
      ))
  '(ps-right-header
    (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
