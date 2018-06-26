@@ -64,8 +64,8 @@
        (org-agenda-with-colors nil)
        ;(htmlize-output-type 'font)
        )
-      (;"~/temp/agenda.html" 
-       "~/temp/agenda.pdf"))
+      (;"~/agenda.html" 
+       "~/agenda.pdf"))
      ))
  '(ps-right-header
    (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))

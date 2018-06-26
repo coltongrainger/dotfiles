@@ -74,6 +74,8 @@ main = do
       , ("M-S-i", promptSearch myXPConfig duckduckgo)
       , ("M-/", promptSearch myXPConfig duckduckgo)
       , ("C-S-/", selectSearch duckduckgo)
+      -- Q(t) console 
+      , ("M-t", raiseMaybe (spawn "jupyter qtconsole") (className =? "jupyter-qtconsole"))
       -- (x)monad config
       , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
       -- (b)ash config
@@ -93,7 +95,7 @@ main = do
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
                  , promptBorderWidth = 0
-                 , font    = "-*-fixed-bold-*-*-*-15-*-*-*-*-*-*-*"
+                 , font    = "-*-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
                  , fgColor = "white"
                  , bgColor = "black"
                  }

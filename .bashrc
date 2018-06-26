@@ -1,7 +1,7 @@
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin
 
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/TMSU
+export GOPATH=$HOME/.local/TMSU
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

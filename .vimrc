@@ -12,6 +12,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'coltongrainger/vim-markdown'
+Plug 'goerz/ipynb_notedown.vim'
 Plug 'dbeniamine/vim-mail'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
