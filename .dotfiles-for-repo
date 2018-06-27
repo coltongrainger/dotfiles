@@ -2,6 +2,7 @@ README.md
 .add.sh
 .dotfiles-for-repo
 .debian_packages.py
+.config/mnemosyne/config.py
 .cvsignore
 .gitattributes_global
 .gitconfig

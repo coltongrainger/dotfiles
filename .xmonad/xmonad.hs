@@ -74,8 +74,8 @@ main = do
       , ("M-S-i", promptSearch myXPConfig duckduckgo)
       , ("M-/", promptSearch myXPConfig duckduckgo)
       , ("C-S-/", selectSearch duckduckgo)
-      -- Q(t) console 
-      , ("M-S-t", raiseMaybe (spawn "jupyter qtconsole") (className =? "jupyter-qtconsole"))
+      -- J(u)ptyer QtConsole 
+      , ("M-u", raiseMaybe (spawn "jupyter qtconsole") (className =? "jupyter-qtconsole"))
       -- (x)monad config
       , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
       -- (b)ash config
