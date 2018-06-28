@@ -37,20 +37,16 @@ backup_before_sync = True
 # slashes instead of single slashes here, to have them escaped when Python
 # reads them in.
 latex_preamble = r"""
-\documentclass{article}
-\usepackage{amssymb,amsmath}
-\usepackage[textwidth=8cm]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[sfdefault,scaled=.85]{FiraSans}
-\usepackage{euler}
-\pagestyle{empty}
+\documentclass[12pt]{article}
 \setlength{\parindent}{0in}
+\pagestyle{empty}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,scaled=.85]{FiraSans}% sans
+\usepackage[small, euler-digits]{eulervm}% mathematical notation
+\usepackage{textcomp}
+\usepackage[varqu,varl]{zi4}% inconsolata typewriter
 \begin{document}
-\footnotesize
 """
-
-# \usepackage[sfdefault,scaled=.85]{FiraSans}
-# \usepackage{euler}
 
 # Latex postamble.
 latex_postamble = r"""\end{document}"""
