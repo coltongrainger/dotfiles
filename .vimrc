@@ -62,9 +62,8 @@ if has('autocmd')
   augroup vimrc
     autocmd!
     autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
-    " outgoing emails take no formatting
-    autocmd FileType mail setlocal tw=0
-    autocmd FileType mail setlocal formatprg=par\ -w1000qe
+    " outgoing emails hard wrap
+    autocmd FileType mail setlocal tw=79
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
     " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
     " the Markdown is written. As for 'textwidth', I like 79 on most Markdown
