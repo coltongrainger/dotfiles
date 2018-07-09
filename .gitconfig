@@ -13,6 +13,8 @@ ui = auto
 [alias]
 # From https://git.wiki.kernel.org/index.php/Aliases#What.27s_new.3F
 new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+pushall = "!for i in `git remote`; do git push $i; done;"
+pullall = "!for i in `git remote`; do git pull $i; done;"
 # See https://gist.github.com/mwhite/6887990 for where a lot of
 # these came from
 a = add

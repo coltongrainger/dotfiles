@@ -37,16 +37,42 @@ backup_before_sync = True
 # slashes instead of single slashes here, to have them escaped when Python
 # reads them in.
 latex_preamble = r"""
-\documentclass[12pt]{article}
-\setlength{\parindent}{0in}
-\pagestyle{empty}
+\documentclass{article}
+
+% margins
+\usepackage[textwidth=8cm]{geometry}
+
+% Fira Sans, Euler Math, Inconsolata
 \usepackage[T1]{fontenc}
-\usepackage[sfdefault,scaled=.85]{FiraSans}% sans
-\usepackage[small, euler-digits]{eulervm}% mathematical notation
+\usepackage[sfdefault,scaled=0.85]{FiraSans}
+\usepackage[small,euler-digits]{eulervm}
 \usepackage{textcomp}
 \usepackage[varqu,varl]{zi4}% inconsolata typewriter
+
+% mathematical notation
+\usepackage{amssymb,amsmath}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\II}{\mathbf{I}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\id}{\text{id}}
+\newcommand{\TOE}{\mathscr{T}}
+\newcommand{\Cl}{\overline}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
 \begin{document}
+\scriptsize
 """
+
+# \usepackage[sfdefault,scaled=.85]{FiraSans}
+# \usepackage{newtxsf} % or euler
+# \usepackage{fourier}
 
 # Latex postamble.
 latex_postamble = r"""\end{document}"""

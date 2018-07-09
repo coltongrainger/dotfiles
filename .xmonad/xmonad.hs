@@ -1,5 +1,3 @@
-module Main (main) where
-
 import System.Exit
 import XMonad
 
@@ -80,11 +78,10 @@ main = do
       , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
       -- f(i)refox
       , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
-      , ("M-S-i", promptSearch myXPConfig duckduckgo)
       , ("M-/", promptSearch myXPConfig duckduckgo)
-      , ("C-S-/", selectSearch duckduckgo)
+      , ("C-S-/", selectSearch google)
       -- J(u)ptyer QtConsole 
-      , ("M-u", raiseMaybe (spawn "jupyter qtconsole") (className =? "jupyter-qtconsole"))
+      , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne"))
       , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))

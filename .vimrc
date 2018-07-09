@@ -11,6 +11,7 @@ set nocompatible
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'aperezdc/vim-template'
 Plug 'coltongrainger/vim-markdown'
 Plug 'goerz/ipynb_notedown.vim'
 Plug 'dbeniamine/vim-mail'
@@ -72,7 +73,7 @@ if has('autocmd')
     " buffer-local variable to track if we have already run the autocmd so it
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
-    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     " vim-markdown does this
     " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
