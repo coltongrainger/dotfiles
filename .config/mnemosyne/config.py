@@ -38,18 +38,10 @@ backup_before_sync = True
 # reads them in.
 latex_preamble = r"""
 \documentclass{article}
-
-% margins
-\usepackage[textwidth=8cm]{geometry}
-
-% Fira Sans, Euler Math, Inconsolata
+\usepackage[textwidth=6cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[sfdefault,scaled=0.85]{FiraSans}
+\usepackage[sfdefault,scaled=0.7]{FiraSans}
 \usepackage[small,euler-digits]{eulervm}
-\usepackage{textcomp}
-\usepackage[varqu,varl]{zi4}% inconsolata typewriter
-
-% mathematical notation
 \usepackage{amssymb,amsmath}
 \newcommand{\NN}{\mathbf{N}}
 \newcommand{\ZZ}{\mathbf{Z}}
@@ -63,11 +55,10 @@ latex_preamble = r"""
 \newcommand{\Cl}{\overline}
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}
-
 \pagestyle{empty}
 \setlength{\parindent}{0in}
 \begin{document}
-\scriptsize
+\small
 """
 
 # \usepackage[sfdefault,scaled=.85]{FiraSans}

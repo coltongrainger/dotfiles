@@ -2,7 +2,7 @@
 " https://github.com/riceissa/dotfiles
 
 scriptencoding utf-8
-set nocompatible
+set nocompatible number
 
 " Use vim-plug to manage Vim plugins. Install with
 "     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -62,7 +62,7 @@ nnoremap Y y$
 if has('autocmd')
   augroup vimrc
     autocmd!
-    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
+    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak 
     " outgoing emails hard wrap
     autocmd FileType mail setlocal tw=79
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>

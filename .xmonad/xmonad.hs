@@ -78,7 +78,7 @@ main = do
       , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
       -- f(i)refox
       , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
-      , ("M-/", promptSearch myXPConfig duckduckgo)
+      , ("M-/", promptSearch myXPConfig google)
       , ("C-S-/", selectSearch google)
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))

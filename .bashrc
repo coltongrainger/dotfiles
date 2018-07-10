@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.cabal/bin
 export TEXINPUTS=".:~/texmf:"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/.local/TMSU
