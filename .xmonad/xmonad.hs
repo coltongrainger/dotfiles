@@ -20,6 +20,7 @@ import XMonad.Actions.WindowGo
 
 import XMonad.Prompt
 import XMonad.Prompt.Man
+import XMonad.Prompt.AppendFile     -- (25) append to text file
 import XMonad.Prompt.Input
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.Shell
@@ -84,6 +85,8 @@ main = do
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne"))
+      -- TODO create a hotkey for creating a front/back mnemosyne card
+      -- , ("M-S-n", appendFilePrompt myXPConfig "$HOME/rote/mnemosyne/what")
       , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))
       -- (x)monad config
       , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))

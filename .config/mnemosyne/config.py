@@ -38,10 +38,7 @@ backup_before_sync = True
 # reads them in.
 latex_preamble = r"""
 \documentclass{article}
-\usepackage[textwidth=6cm]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[sfdefault,scaled=0.7]{FiraSans}
-\usepackage[small,euler-digits]{eulervm}
+\usepackage[textwidth=4.5cm]{geometry}
 \usepackage{amssymb,amsmath}
 \newcommand{\NN}{\mathbf{N}}
 \newcommand{\ZZ}{\mathbf{Z}}

@@ -55,25 +55,20 @@ runtime! plugin/sensible.vim
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 
-set formatprg=par\ -w79qe
+set formatprg=par\ -w72qe
 
 nnoremap Y y$
 
 if has('autocmd')
   augroup vimrc
     autocmd!
-    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak 
+    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
     " outgoing emails hard wrap
-    autocmd FileType mail setlocal tw=79
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
-    " sleuth.vim usually detects 'shiftwidth' as 2, though this depends on how
-    " the Markdown is written. As for 'textwidth', I like 79 on most Markdown
-    " files, but on *some* Markdown files (such as ones where I am editing
-    " pipe tables with long lines) I want 'textwidth' to stay 0. So we set a
-    " buffer-local variable to track if we have already run the autocmd so it
+    " we set a buffer-local variable to track if we have already run the autocmd so it
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
-    autocmd FileType markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=79 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     " vim-markdown does this
     " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
