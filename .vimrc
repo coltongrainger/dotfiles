@@ -121,6 +121,8 @@ let g:surround_{char2nr('Q')} = "‘\r’"
 let g:surround_{char2nr('q')} = "“\r”"
 let g:tex_flavor = 'latex'
 let g:vim_markdown_folding_disabled = 1
+let g:markdown_fenced_languages = ['python', 'bash', 'haskell']
+let g:notedown_code_match='fenced'
 
 let g:VimMailStartFlags="to"
 " using sh since bash apparently won't open mutt twice
