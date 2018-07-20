@@ -62,7 +62,7 @@ nnoremap Y y$
 if has('autocmd')
   augroup vimrc
     autocmd!
-    autocmd FileType gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
+    autocmd FileType conf,gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
     " outgoing emails hard wrap
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
     " we set a buffer-local variable to track if we have already run the autocmd so it
@@ -121,9 +121,7 @@ let g:surround_{char2nr('Q')} = "‘\r’"
 let g:surround_{char2nr('q')} = "“\r”"
 let g:tex_flavor = 'latex'
 let g:vim_markdown_folding_disabled = 1
-let g:markdown_fenced_languages = ['python', 'bash', 'haskell']
-let g:notedown_code_match='fenced'
-
+let g:markdown_fenced_languages = ['python', 'haskell']
 let g:VimMailStartFlags="to"
 " using sh since bash apparently won't open mutt twice
 let g:VimMailClient="urxvt -e 'sh -c mutt -R'"

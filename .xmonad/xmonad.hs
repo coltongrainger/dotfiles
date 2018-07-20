@@ -80,7 +80,8 @@ main = do
       -- f(i)refox
       , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
       , ("M-/", promptSearch myXPConfig google)
-      , ("C-S-/", selectSearch google)
+      , ("M-S-/", promptSearch myXPConfig duckduckgo)
+      , ("S-C-/", selectSearch google)
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne

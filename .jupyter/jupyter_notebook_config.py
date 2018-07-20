@@ -478,7 +478,7 @@ c.LatexExporter.template_file = 'style_jupyter.tplx'
 ## A class for managing multiple kernels.
 
 ## The name of the default kernel to start
-#c.MultiKernelManager.default_kernel_name = 'python3'
+c.MultiKernelManager.default_kernel_name = 'python3'
 
 ## The kernel manager class.  This is configurable to allow subclassing of the
 #  KernelManager for customized behavior.
