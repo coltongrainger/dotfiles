@@ -11,7 +11,7 @@
 \RequirePackage[sfdefault,scaled=0.85]{FiraSans}
 \RequirePackage[small,euler-digits]{eulervm}
 \RequirePackage{textcomp}
-\RequirePackage[varqu,varl,scaled=0.9]{zi4}% inconsolata typewriter
+\RequirePackage[mono,varqu,varl,scaled=0.95]{zi4}
 
 % For metadata (date, filename, pages)
 \RequirePackage[english]{datetime2}
@@ -35,20 +35,19 @@
   \fancyhf{}
   \rhead{
     \vspace{-24pt}
-    \footnotesize{
-      \texttt{compiled:}\\
+      \texttt{generated:}\\
       \texttt{\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}\\
       \texttt{p.~\thepage/\pageref{LastPage}}
-    }
   }
   \ifnum\pdfstrcmp{\currfilename}{input.tex}=0
   \else
     \lhead{
-      \vspace{-24pt}\footnotesize\texttt{\currfilename}\\
+      \vspace{-24pt}\texttt{\currfilename}\\
     }
   \fi
 }
 
+% header now on title page
 \let\oldmake\maketitle
 \renewcommand{\maketitle}{\oldmake\thispagestyle{plain}}
 
@@ -63,8 +62,6 @@
 \fancyhf{}
   \rhead{
     \vspace{-24pt}
-    \footnotesize{
       \texttt{\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}\\
       \texttt{p.~\thepage/\pageref{LastPage}}
-    }
   }
