@@ -127,7 +127,7 @@
 #  prevent_list_blocks - strip_ansi - strip_dollars - strip_files_prefix -
 #  wrap_text
 
-c.LatexExporter.template_file = 'style_jupyter.tplx' 
+c.LatexExporter.template_file = 'ccg_classic.tplx' 
 
 ## This allows you to exclude code cells from all templates if set to True.
 #c.TemplateExporter.exclude_code_cell = False

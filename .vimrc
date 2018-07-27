@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'aperezdc/vim-template'
 Plug 'coltongrainger/vim-markdown'
-Plug 'dbeniamine/cheat.sh-vim'
 Plug 'goerz/ipynb_notedown.vim'
 Plug 'dbeniamine/vim-mail'
 Plug 'fatih/vim-go'
@@ -55,7 +54,8 @@ runtime! plugin/sensible.vim
 
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
-
+set tags=tags
+set path=.
 set formatprg=par\ -w72qe
 
 nnoremap Y y$
@@ -115,9 +115,6 @@ endif
 
 iabbrev ADd Add
 
-" pygmentize theme used for pager output, see :CheatPager :styles-demo
-let g:CheatSheetPagerStyle="trac"
-
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:dualist_color_listchars = 1
 let g:sql_type_default = 'mysql'
@@ -127,7 +124,6 @@ let g:tex_flavor = 'latex'
 let g:vim_markdown_folding_disabled = 1
 let g:markdown_fenced_languages = ['python', 'haskell']
 let g:VimMailStartFlags="to"
-" using sh since bash apparently won't open mutt twice
 let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
 let g:VimMailDoNotFold=1
 

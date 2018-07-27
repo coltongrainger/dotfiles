@@ -11,6 +11,7 @@
 .gitconfig
 .gitignore
 .jupyter/
+.local/lib/python2.7/site-packages/nbconvert/templates/latex/
 .local/bin/scripts
 .msmtprc
 .mutt/

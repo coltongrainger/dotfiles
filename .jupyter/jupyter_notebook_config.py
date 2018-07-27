@@ -1,6 +1,6 @@
 # Configuration file for jupyter-notebook.
 
-c.LatexExporter.template_file = 'style_jupyter.tplx' 
+c.LatexExporter.template_file = 'classic.tplx'
 
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
