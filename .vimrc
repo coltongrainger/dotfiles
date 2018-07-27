@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'aperezdc/vim-template'
 Plug 'coltongrainger/vim-markdown'
+Plug 'dbeniamine/cheat.sh-vim'
 Plug 'goerz/ipynb_notedown.vim'
 Plug 'dbeniamine/vim-mail'
 Plug 'fatih/vim-go'
@@ -113,6 +114,9 @@ if has('digraphs')
 endif
 
 iabbrev ADd Add
+
+" pygmentize theme used for pager output, see :CheatPager :styles-demo
+let g:CheatSheetPagerStyle="trac"
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:dualist_color_listchars = 1

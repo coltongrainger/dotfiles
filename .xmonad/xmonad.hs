@@ -82,6 +82,7 @@ main = do
       , ("M-/", promptSearch myXPConfig google)
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
       , ("S-C-/", selectSearch google)
+      -- , ("M-C-/", prompt "gnome-terminal -- cht.sh" myXPConfig)
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne
@@ -93,6 +94,10 @@ main = do
       , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
       -- (b)ash config
       , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
+      -- invert colors
+      , ("M-<Home>", spawn "xcalib -invert -alter")
+      -- toggle display back to single screen
+      , ("M-<End>", spawn "xrandr -s 1")
       ]
 
 myXPConfig = def { position          = Top
