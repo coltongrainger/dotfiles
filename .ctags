@@ -1,3 +1,9 @@
+# Basic options
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+
+# regex for tex
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/\\label\{([^}]*)\}/\1/l,label/
@@ -7,6 +13,14 @@
 --regex-latex=/\\section\*\{([^}]*)\}/\1/s,section/
 --regex-latex=/\\subsection\*\{([^}]*)\}/\1/t,subsection/
 --regex-latex=/\\subsubsection\*\{([^}]*)\}/\1/u,subsubsection/
+
+# regex for markdown (cc0 from issa rice)
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^\[([a-zA-Z0-9_ -]+)\]:/\1/l,link,links/
+
+# test exclude terms to avoid cache type browsing files
+# TODO why do I need blanket excludes?
 --exclude=min
 --exclude=vendor
 --exclude=\*.min.\*
@@ -21,3 +35,9 @@
 --exclude=build
 --exclude=dist
 --exclude=*.bundle.*
+--exclude=*.html 
+--exclude=*.js
+--exclude=*.cache/*
+--exclude=*.cabal/*
+--exclude=*.stack/*
+--exclude=*.wine/*
