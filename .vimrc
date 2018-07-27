@@ -127,6 +127,10 @@ let g:VimMailStartFlags="to"
 let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
 let g:VimMailDoNotFold=1
 
+"ctags shortcuts
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> [W <Plug>(ale_first)
