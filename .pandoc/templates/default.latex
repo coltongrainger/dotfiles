@@ -1,6 +1,7 @@
 \documentclass{humanist}
 % pandoc is utf8 native
 \usepackage[utf8]{inputenc}
+%\usepackage[margin=1.25in]{geometry}
 % pandoc transfers h2 to subsections, I prefer h2 for sections
 \let\subsubsection\subsection
 \let\subsection\section
@@ -68,6 +69,9 @@ $if(author)$
 $endif$
 $if(date)$
 \date{$date$}
+$endif$
+$if(url)$
+\thanks{\textit{Source repo:} \url{$url$}}
 $endif$
 
 \begin{document}

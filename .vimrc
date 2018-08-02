@@ -2,7 +2,7 @@
 " https://github.com/riceissa/dotfiles
 
 scriptencoding utf-8
-set nocompatible
+set nocompatible number
 
 " Use vim-plug to manage Vim plugins. Install with
 "     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -14,13 +14,14 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'aperezdc/vim-template'
 Plug 'coltongrainger/vim-markdown'
 Plug 'dbeniamine/vim-mail'
+Plug 'dbeniamine/cheat.sh-vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'goerz/ipynb_notedown.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/gv.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'riceissa/vim-dualist'
 Plug 'riceissa/vim-inclusivespace'
@@ -52,10 +53,9 @@ runtime! plugin/sleuth.vim
 " Override ttimeoutlen later
 runtime! plugin/sensible.vim
 
-set number nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces ea
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 set formatprg=par\ -w72qe
-set tags=./tags,tags;$HOME
 
 nnoremap Y y$
 
