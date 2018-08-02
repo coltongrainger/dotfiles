@@ -4,14 +4,14 @@
     [2018-06-28 Humanist style for coursework, handouts]
 
 % parent style
-\LoadClass[12pt,oneside]{amsart}
+\LoadClass[12pt]{amsart}
 
 % Fira Sans, Euler Math, Inconsolata
 \RequirePackage[T1]{fontenc}
 \RequirePackage[sfdefault,scaled=0.85]{FiraSans}
 \RequirePackage[small,euler-digits]{eulervm}
 \RequirePackage{textcomp}
-%\RequirePackage[mono,varqu,varl,scaled=0.9]{zi4}
+%\RequirePackage[mono,varqu,varl,scaled=0.9]{zi4} decided against it
 
 % metadata: date and filename
 \RequirePackage[english]{datetime2}
