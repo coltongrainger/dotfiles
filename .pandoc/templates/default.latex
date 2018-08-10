@@ -26,6 +26,7 @@ $if(linestretch)$
 $endif$
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\usepackage{booktabs,longtable}
 % code blocks
 $if(highlighting-macros)$
 $highlighting-macros$
@@ -70,8 +71,8 @@ $endif$
 $if(date)$
 \date{$date$}
 $endif$
-$if(url)$
-\thanks{\textit{Source repo:} \url{$url$}}
+$if(repo)$
+\thanks{\textit{Repo:} \url{$repo$}}
 $endif$
 
 \begin{document}

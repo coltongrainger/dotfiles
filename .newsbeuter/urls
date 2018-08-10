@@ -6,6 +6,7 @@ https://twitrss.me/twitter_user_to_rss/?user=jeanqasaur        "~Jean Yang"
 https://twitrss.me/twitter_user_to_rss/?user=fancytypes        "~Stephanie Weirich"
 https://twitrss.me/twitter_user_to_rss/?user=polikarn          "~Nadia Polikarpova"
 https://twitrss.me/twitter_user_to_rss/?user=nayafia           "~Nadia Eghbal"
+https://twitrss.me/twitter_user_to_rss/?user=bouldertheory     "~CU Boulder Theory Seminar"
 
 # writing
 https://simplystatistics.org/index.xml                         "~Rafa Irizarry, Roger Peng, Jeff Leek"
@@ -18,7 +19,7 @@ https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_mps.xml   "~NSF MPS funding
 https://www.nsf.gov/rss/rss_www_news_cise.xml                  "~NSF CISE news"
 https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_cise.xml  "~NSF CISE funding"
 
-# arxiv
+# arxiv! way too big! no way!
 # https://arxiv.org/rss/math.AG
 # https://arxiv.org/rss/math.GT
 # https://arxiv.org/rss/cs.CG
@@ -26,6 +27,7 @@ https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf_cise.xml  "~NSF CISE fundin
 
 # research
 http://jocg.org/index.php/jocg/gateway/plugin/WebFeedGatewayPlugin/rss "~J. Comput. Geom."
+https://www.worldscientific.com/action/showFeed?type=etoc&feed=rss&jc=ijcga "~Int'l. J. Comput. Geom. Appl."	
 https://rss.sciencedirect.com/research/science/09257721     "~Comput. Geom."
 https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10208&channel-name=Foundations+of+Computational+Mathematics "~J. FoCM"
 https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=454&channel-name=Discrete+%26+Computational+Geometry "~Discrete Comput. Geom."

@@ -50,6 +50,9 @@ function open {
     done
 }
 
+function test-microphone {
+    arecord -vvv -f dat /dev/null
+}
 # https://gist.github.com/Dnomyar/9c289fcc2668b59e1ffb
 function githelp {
     echo "-------------------------------------------------------------------------------"
