@@ -29,6 +29,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 -- import XMonad.Util.WorkspaceScreenshot
 
+
 main = do
 
   xmonad $ desktopConfig
@@ -80,6 +81,7 @@ main = do
       -- f(i)refox
       , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
       , ("M-/", promptSearch myXPConfig google)
+      , ("S-C-d", selectSearch (searchEngine "doi" "doi:"))
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
       , ("S-C-/", selectSearch google)
       -- , ("M-C-/", prompt "gnome-terminal -- cht.sh" myXPConfig)
@@ -95,9 +97,10 @@ main = do
       -- (b)ash config
       , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
       -- invert colors
-      , ("M-<Home>", spawn "xcalib -invert -alter")
+      , ("M-<Page_Up>", spawn "xcalib -invert -alter")
       -- toggle display back to single screen
       , ("M-<End>", spawn "xrandr -s 1")
+      , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
       ]
 
 myXPConfig = def { position          = Top

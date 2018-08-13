@@ -59,7 +59,7 @@
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
                (org-agenda-skip-if nil '(scheduled deadline)))))))
-      ((ps-left-header (list "(emacs org-mode)" "(Colton Grainger)"))
+      ((ps-left-header (list "(Agenda)" "(Colton Grainger)"))
        (org-agenda-add-entry-text-maxlines 5)
        (org-agenda-with-colors nil)
        ;(htmlize-output-type 'font)
@@ -70,6 +70,7 @@
  '(ps-right-header
    (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
  ;; portrait half-page agenda
+ '(ps-print-color-p 'black-white)
  '(ps-header-font-family 'Helvetica)
  '(ps-font-family 'Helvetica)
  '(ps-print-header-frame nil)
