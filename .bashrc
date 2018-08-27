@@ -1,8 +1,8 @@
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.cabal/bin
-export TEXINPUTS=".:~/texmf:"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/.local/TMSU
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export TEXINPUTS=".:~/.texmf:"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

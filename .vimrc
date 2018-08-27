@@ -2,7 +2,7 @@
 " https://github.com/riceissa/dotfiles
 
 scriptencoding utf-8
-set nocompatible number
+set nocompatible
 
 " Use vim-plug to manage Vim plugins. Install with
 "     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -96,24 +96,6 @@ endif
 inoremap <C-G>h <C-G>u<Esc>BxgEpgi
 inoremap <C-G>l <C-G>u<Esc>gExpgi
 
-if has('digraphs')
-  digraph el 8230
-  digraph ./ 8230
-  digraph ^\| 8593
-  digraph \\ 8726
-  digraph \- 8726
-  digraph -\ 8726
-  digraph \|> 8614
-  digraph v\| 8595
-  " Run under exe so that syntax highlighting isn't messed up
-  exe 'digraph (/ 8713'
-  exe 'digraph (\ 8713'
-  exe 'digraph (< 10216'
-  exe 'digraph >) 10217'
-endif
-
-iabbrev ADd Add
-
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:dualist_color_listchars = 1
 let g:sql_type_default = 'mysql'
@@ -125,6 +107,12 @@ let g:markdown_fenced_languages = ['python', 'haskell']
 let g:VimMailStartFlags="to"
 let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
 let g:VimMailDoNotFold=1
+let g:templates_directory=['$HOME/.vim/templates']
+let g:templates_use_licensee=0
+let g:templates_no_builtin_templates=1
+let g:license='CC0 Public Domain'
+let g:username='Colton Grainger'
+let g:email='colton.grainger@colorado.edu'
 
 "ctags shortcuts
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -137,9 +125,9 @@ nmap <silent> ]W <Plug>(ale_last)
 nnoremap [s [s<Space><BS>
 nnoremap ]s ]s<BS><Space>
 
-"highlight Visual ctermfg=White ctermbg=Gray
 highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
 "highlight SpellBad ctermfg=White ctermbg=Red
+"highlight Visual ctermfg=White ctermbg=Gray
 
 nnoremap j gj
 nnoremap k gk

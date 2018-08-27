@@ -1,18 +1,17 @@
 #! /bin/sh
 #
-# taco.sh
-#
-# TODO implement custom date option
-#
-# TODO implement duplex command line option
+# two-sided-scan.sh
+# 2018-08-22
+# CC0 Public Domain
 
 scanimage\
-    -d imagescan:esci:usb:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.2/2-1.2:1.0\
+    -d imagescan:esci:usb:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0\
     --resolution 300\
     --scan-area Letter/Portrait\
     --mode Monochrome\
     --threshold 150\
     --batch=$(date +%Y%m%d_%H%M%S)_p%04d.tiff\
+    --duplex\
 
 convert *.tiff $(date +%Y-%m-%d).pdf
 

@@ -12,7 +12,7 @@ set tmpdir           = ~/.mutt/temp          # where to keep temp files
 set alias_file       = ~/.mutt/aliases.txt   # where to store aliases
 # don't want all these contacts right now
 # TODO improve display_filter
-set display_filter   = ~/.mutt/display_filter.sh
+# set display_filter   = ~/.mutt/display_filter.sh
 set sort_alias=alias
 set reverse_alias=yes
 source $alias_file
