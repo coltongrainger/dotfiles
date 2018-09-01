@@ -41,7 +41,7 @@
          (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
        (agenda "" 
         ((org-agenda-overriding-header "TIME-SENSITIVE")
-         (org-agenda-span 3)))
+         (org-agenda-span 7)))
        (alltodo ""
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
@@ -53,7 +53,7 @@
          (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
        (agenda "" 
         ((org-agenda-overriding-header "TIME-SENSITIVE")
-         (org-agenda-span 3)))
+         (org-agenda-span 7)))
        (alltodo ""
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function

@@ -50,6 +50,7 @@ latex_preamble = r"""
 \newcommand{\id}{\text{id}}
 \newcommand{\TOE}{\mathscr{T}}
 \newcommand{\Cl}{\overline}
+\newcommand{\GLnR}{GL_n(\mathbf{R})}
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}
 \pagestyle{empty}
