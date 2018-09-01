@@ -71,6 +71,10 @@ main = do
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt"))
       , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.muttrc'") (title =? ".muttrc"))
       , ("M-c a", raiseMaybe (runInTerm "-title aliases.txt" "bash -c 'vim $HOME/.mutt/aliases.txt'") (title =? "aliases.txt"))
+      -- (p)andoc
+      , ("M-c p", raiseMaybe (runInTerm "-title .pandoc/templates/default.latex" "bash -c 'vim $HOME/.pandoc/templates/default.latex'") (title =? ".pandoc/templates/default.latex"))
+      -- (t)ex
+      , ("M-c t", raiseMaybe (runInTerm "-title texmf/tex/latex/humanist.cls" "bash -c 'vim $HOME/texmf/tex/latex/humanist.cls'") (title =? "texmf/tex/latex/humanist.cls"))
       -- (v)im
       , ("M-v", raiseMaybe (runInTerm "-title vim" "bash -c vim") (title =? "vim"))
       , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
