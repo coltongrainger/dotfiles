@@ -10,7 +10,7 @@
 
 % Fira Sans, Euler Math, Inconsolata
 \RequirePackage[T1]{fontenc}
-\RequirePackage{times}
+\RequirePackage{fourier}
 % \RequirePackage[sfdefault,scaled=0.85]{FiraSans}
 % \RequirePackage[small,euler-digits]{eulervm}
 % \RequirePackage{textcomp}
