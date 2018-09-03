@@ -85,10 +85,12 @@ main = do
       -- f(i)refox
       , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
       , ("M-/", promptSearch myXPConfig google)
-      , ("S-C-d", selectSearch (searchEngine "doi" "doi:"))
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
       , ("S-C-/", selectSearch google)
-      -- , ("M-C-/", prompt "gnome-terminal -- cht.sh" myXPConfig)
+      -- (d)igital object identifiers
+      , ("M-S-d", selectSearch (searchEngine "doi" "doi:"))
+      -- (i)nternational standard book number
+      , ("M-S-i", selectSearch (searchEngine "isbn" "isbn:"))
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne

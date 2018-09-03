@@ -7,7 +7,7 @@
 \let\section\chapter
 \let\chapter\part
 % section numbering
-$if(nonumber)$
+$if(nonumbering)$
 \setcounter{secnumdepth}{0}
 $else$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
@@ -101,6 +101,7 @@ $body$
 $if(linestretch)$
 \singlespacing
 $endif$
+
 $if(natbib)$
 $if(biblio-files)$
 $if(biblio-title)$
@@ -117,6 +118,6 @@ $endif$
 $endif$
 $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
- 
+
 $endif$
 \end{document}

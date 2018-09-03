@@ -8,9 +8,9 @@
 \RequirePackage{fullpage}
 \RequirePackage{mathrsfs}
 
+\RequirePackage[varg]{txfonts}
 % Fira Sans, Euler Math, Inconsolata
-\RequirePackage[T1]{fontenc}
-\RequirePackage{fourier}
+%\RequirePackage[T1]{fontenc}
 % \RequirePackage[sfdefault,scaled=0.85]{FiraSans}
 % \RequirePackage[small,euler-digits]{eulervm}
 % \RequirePackage{textcomp}
