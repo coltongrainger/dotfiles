@@ -19,7 +19,7 @@ for i in *pdf *djvu *epub; do
       echo "- $file_title ($file_size)" >> catalog
 done
 
-sort catalog >> index.md
+sort -r catalog >> index.md
 rm catalog
 mv index.md $HOME/wiki/quamash/lit.md
 

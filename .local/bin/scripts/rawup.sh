@@ -11,7 +11,7 @@ echo "---\ntitle: Raw (handwritten) notes\nauthor: Colton Grainger\ndate: $(date
 echo "" > catalog
 
 # TODO add error message if rsync fails or file is corrupt
-for i in *pdf *djvu *epub; do
+for i in *pdf; do
       rsync -v $i colton@quamash.net:/home/colton/wiki/static
       file=${i##*/}
       file_size=$(du -h "$file" | cut -f1)
@@ -19,7 +19,7 @@ for i in *pdf *djvu *epub; do
       echo "- $file_title ($file_size)" >> catalog
 done
 
-sort catalog >> index.md
+sort -r catalog >> index.md
 rm catalog
 mv index.md $HOME/wiki/quamash/raw.md
 
