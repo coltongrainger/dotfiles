@@ -40,19 +40,79 @@ latex_preamble = r"""
 \documentclass{article}
 \usepackage[textwidth=4.9cm]{geometry}
 \usepackage{amssymb,amsmath}
-\newcommand{\NN}{\mathbf{N}}
-\newcommand{\ZZ}{\mathbf{Z}}
-\newcommand{\QQ}{\mathbf{Q}}
-\newcommand{\II}{\mathbf{I}}
-\newcommand{\RR}{\mathbf{R}}
-\newcommand{\CC}{\mathbf{C}}
+\usepackage{mathrsfs}
+
+% oldest to newest macros
+% summer 2016
 \newcommand{\eps}{\varepsilon}
 \newcommand{\id}{\text{id}}
 \newcommand{\TOE}{\mathscr{T}}
 \newcommand{\Cl}{\overline}
-\newcommand{\GLnR}{GL_n(\mathbf{R})}
-\providecommand{\abs}[1]{\lvert#1\rvert}
-\providecommand{\norm}[1]{\lVert#1\rVert}
+
+% summer 2018
+\providecommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\providecommand{\norm}[1]{\left\lVert #1 \rVert\right}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\varnothing}
+
+% fall 2018 (cf. Agnès Beaudry)
+\newcommand{\AA}{\mathbf{A}}
+\newcommand{\BB}{\mathbf{B}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\DD}{\mathbf{D}}
+\newcommand{\EE}{\mathbf{E}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\II}{\mathbf{I}}
+\newcommand{\JJ}{\mathbf{J}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\MM}{\mathbf{M}}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\OO}{\mathbf{O}}
+\newcommand{\PP}{\mathbf{P}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\SS}{\mathbf{S}}
+\newcommand{\TT}{\mathbf{T}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\VV}{\mathbf{V}}
+\newcommand{\WW}{\mathbf{W}}
+\newcommand{\XX}{\mathbf{X}}
+\newcommand{\YY}{\mathbf{Y}}
+\newcommand{\ZZ}{\mathbf{Z}}
+
+%% script math capitals
+%% requires mathrsfs
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+% more
 \pagestyle{empty}
 \setlength{\parindent}{0in}
 \begin{document}
