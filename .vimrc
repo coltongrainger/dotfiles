@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'aperezdc/vim-template'
 Plug 'coltongrainger/vim-markdown'
+"Plug 'vim-pandoc/vim-pandoc'
+"Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'dbeniamine/vim-mail'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'fatih/vim-go'

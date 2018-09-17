@@ -55,8 +55,8 @@ latex_preamble = r"""
 \renewcommand{\phi}{\varphi}
 \renewcommand{\emptyset}{\varnothing}
 
-% fall 2018 (cf. Agnès Beaudry)
-\newcommand{\AA}{\mathbf{A}}
+% fall 2018 
+%% cf Agnès Beaudry
 \newcommand{\BB}{\mathbf{B}}
 \newcommand{\CC}{\mathbf{C}}
 \newcommand{\DD}{\mathbf{D}}
@@ -74,7 +74,6 @@ latex_preamble = r"""
 \newcommand{\PP}{\mathbf{P}}
 \newcommand{\QQ}{\mathbf{Q}}
 \newcommand{\RR}{\mathbf{R}}
-\newcommand{\SS}{\mathbf{S}}
 \newcommand{\TT}{\mathbf{T}}
 \newcommand{\UU}{\mathbf{U}}
 \newcommand{\VV}{\mathbf{V}}
@@ -112,7 +111,7 @@ latex_preamble = r"""
 \newcommand{\sY}{\mathscr{Y}}
 \newcommand{\sZ}{\mathscr{Z}}
 
-% more
+% formatting
 \pagestyle{empty}
 \setlength{\parindent}{0in}
 \begin{document}
