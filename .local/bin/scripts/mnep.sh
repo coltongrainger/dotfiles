@@ -7,8 +7,8 @@ OUTPUT=$MNEMO_DIR$(date +%F).txt
 
 sed 's/\! /\: /' $1\
     | tee /dev/stderr |\
-sed -e '/^[[:upper:]]\{2,\}\: /!d'\
-    -e 's/^[[:upper:]]\{2,\}\: //g'\
+sed -e '/^[[:upper:]]\{1,\}\: /!d'\
+    -e 's/^[[:upper:]]\{1,\}\: //g'\
     -e 's/ \.\.\. /<\/latex>\t<latex>/g'\
     -e '/^$/d'\
     -e 's/^/<latex>/g'\

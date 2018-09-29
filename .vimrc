@@ -55,7 +55,7 @@ runtime! plugin/sleuth.vim
 " Override ttimeoutlen later
 runtime! plugin/sensible.vim
 
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces ea
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces ea number
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 set formatprg=par\ -w72qe
 

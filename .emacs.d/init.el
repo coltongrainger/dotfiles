@@ -31,7 +31,7 @@
       "* TODO %?
   %i")))
  '(org-todo-keywords
-  '((sequence "TODO(t)" "|" "DONE(d)" "NOPE(n)")))
+  '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "NOPE(n)")))
  '(org-agenda-block-separator "")
  '(org-agenda-prefix-format "  %t%s")
  '(org-agenda-custom-commands
@@ -46,7 +46,7 @@
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-if nil '(scheduled deadline))))))))
+               (org-agenda-skip-entry-if 'deadline 'scheduled 'todo '("WAITING" "DONE"))))))))
      ("p" "printable-ccg-agenda"
       ((tags "PRIORITY=\"A\""
         ((org-agenda-overriding-header "PRIORITIES")
@@ -58,9 +58,9 @@
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-if nil '(scheduled deadline)))))))
+               (org-agenda-skip-entry-if 'deadline 'scheduled 'todo '("WAITING" "DONE"))))))))
       ((ps-left-header (list "(Agenda)" "(Colton Grainger)"))
-       (org-agenda-add-entry-text-maxlines 5)
+       (org-agenda-add-entry-text-maxlines 3)
        (org-agenda-with-colors nil)
        ;(htmlize-output-type 'font)
        )

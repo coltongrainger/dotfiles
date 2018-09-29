@@ -15,7 +15,7 @@ for i in *pdf; do
       rsync -v $i colton@quamash.net:/home/colton/wiki/static
       file=${i##*/}
       file_size=$(du -h "$file" | cut -f1)
-      file_title="[$file](/$file)"
+      file_title="[$file](https://docs.google.com/gview?embedded=true&url=http://quamash.net/$file)"
       echo "- $file_title ($file_size)" >> catalog
 done
 

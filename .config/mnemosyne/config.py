@@ -111,6 +111,12 @@ latex_preamble = r"""
 \newcommand{\sY}{\mathscr{Y}}
 \newcommand{\sZ}{\mathscr{Z}}
 
+% 2018-09-22
+
+\newcommand{\Stab}[2]{\mathrm{Stab}_{#1} \left( #2 \right)}
+\newcommand{\Norm}[2]{\mathrm{Norm}_{#1} \left( #2 \right)}
+\newcommand{\C}[2]{C_{#1}\left( #2\right)}
+
 % formatting
 \pagestyle{empty}
 \setlength{\parindent}{0in}
