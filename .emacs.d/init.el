@@ -29,7 +29,12 @@
      ("t" "TODO item" entry
       (file+headline "~/todo.org" "unsorted")
       "* TODO %?
-  %i")))
+  %i")
+     ("w" "WAITING item" entry
+      (file+headline "~/todo.org" "unsorted")
+      "* WAITING %?
+  %i")
+    ))
  '(org-todo-keywords
   '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "NOPE(n)")))
  '(org-agenda-block-separator "")
@@ -46,7 +51,7 @@
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-entry-if 'deadline 'scheduled 'todo '("WAITING" "DONE"))))))))
+               (org-agenda-skip-entry-if nil '(deadline scheduled todo '("WAITING" "DONE")))))))))
      ("p" "printable-ccg-agenda"
       ((tags "PRIORITY=\"A\""
         ((org-agenda-overriding-header "PRIORITIES")
@@ -58,7 +63,7 @@
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-entry-if 'deadline 'scheduled 'todo '("WAITING" "DONE"))))))))
+               (org-agenda-skip-entry-if nil '(deadline scheduled todo '("WAITING" "DONE"))))))))
       ((ps-left-header (list "(Agenda)" "(Colton Grainger)"))
        (org-agenda-add-entry-text-maxlines 3)
        (org-agenda-with-colors nil)
