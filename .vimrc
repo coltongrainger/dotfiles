@@ -15,8 +15,8 @@ Plug 'aperezdc/vim-template'
 Plug 'coltongrainger/vim-markdown'
 "Plug 'vim-pandoc/vim-pandoc'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'dbeniamine/vim-mail'
-Plug 'dbeniamine/cheat.sh-vim'
+"Plug 'dbeniamine/vim-mail'
+"Plug 'dbeniamine/cheat.sh-vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'goerz/ipynb_notedown.vim'
@@ -106,15 +106,21 @@ let g:surround_{char2nr('q')} = "“\r”"
 let g:tex_flavor = 'latex'
 let g:vim_markdown_folding_disabled = 1
 let g:markdown_fenced_languages = ['python', 'haskell']
-let g:VimMailStartFlags="to"
-let g:VimMailClient="urxvt -e 'sh -c mutt -R'"
-let g:VimMailDoNotFold=1
 let g:templates_directory=['$HOME/.vim/templates']
 let g:templates_use_licensee=0
 let g:templates_no_builtin_templates=1
 let g:license='CC0 Public Domain'
 let g:username='Colton Grainger'
 let g:email='colton.grainger@colorado.edu'
+
+"compiles a snippet
+vmap \snip :w !snip.sh
+"mnep a card to to mnemosyne
+vmap \mnep :!mnep.sh
+"pvc compiles with cite-proc to pdf and opens the pdf
+nmap \pv :!pandoc-view-compile.sh %
+"pcc compiles with cite-proc to pdf
+nmap \pc :!pandoc-citeproc-compile.sh %
 
 "ctags shortcuts
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

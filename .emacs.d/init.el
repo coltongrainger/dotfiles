@@ -23,22 +23,16 @@
  '(org-agenda-start-on-weekday nil)
  '(org-capture-templates
    '(
-     ;; ("i" "idea" entry
-     ;;  (file+headline "~/todo.org" "ideas")
-     ;;  "* %T %?")
-     ("t" "TODO item" entry
-      (file+headline "~/todo.org" "unsorted")
-      "* TODO %?
-  %i")
      ("w" "WAITING item" entry
       (file+headline "~/todo.org" "unsorted")
-      "* WAITING %?
-  %i")
-    ))
+      "* WAITING %?")
+     ("t" "TODO item" entry
+      (file+headline "~/todo.org" "unsorted")
+      "* TODO %? %i")))
  '(org-todo-keywords
   '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "NOPE(n)")))
  '(org-agenda-block-separator "")
- '(org-agenda-prefix-format "  %t%s")
+ '(org-agenda-prefix-format "    %t%s")
  '(org-agenda-custom-commands
    '(("c" "ccg-agenda"
       ((tags "PRIORITY=\"A\""
@@ -51,7 +45,8 @@
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-entry-if nil '(deadline scheduled todo '("WAITING" "DONE")))))))))
+               (org-agenda-skip-if nil '(scheduled deadline))
+               (org-agenda-skip-entry-if 'todo '("WAITING"))))))))
      ("p" "printable-ccg-agenda"
       ((tags "PRIORITY=\"A\""
         ((org-agenda-overriding-header "PRIORITIES")
@@ -63,9 +58,9 @@
         ((org-agenda-overriding-header "UNSCHEDULED")
          (org-agenda-skip-function
           '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-entry-if nil '(deadline scheduled todo '("WAITING" "DONE"))))))))
+               (org-agenda-skip-if nil '(scheduled deadline))
+               (org-agenda-skip-entry-if 'todo '("WAITING")))))))
       ((ps-left-header (list "(Agenda)" "(Colton Grainger)"))
-       (org-agenda-add-entry-text-maxlines 3)
        (org-agenda-with-colors nil)
        ;(htmlize-output-type 'font)
        )
@@ -85,8 +80,8 @@
  '(ps-font-size 7)
  '(ps-header-lines 2)
  '(ps-header-line-pad 0)
- '(ps-left-margin 10)
- '(ps-right-margin 10)
+ '(ps-left-margin 20)
+ '(ps-right-margin 20)
  '(ps-top-margin 20)
  '(ps-bottom-margin 20)
  '(ps-number-of-columns 1)
