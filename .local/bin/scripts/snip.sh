@@ -4,6 +4,6 @@
 SNIP=$1
 pandoc $SNIP --metadata=macros -o $HOME/Downloads/temp.pdf
 mupdf $HOME/Downloads/temp.pdf &
-sleep 1
+sleep 0.2
 rm    $HOME/Downloads/temp.pdf
 return $SNIP
