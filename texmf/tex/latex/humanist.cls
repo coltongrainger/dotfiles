@@ -4,16 +4,16 @@
     [2018-06-28 Humanist style for coursework, handouts]
 
 % parent style
-\LoadClass{amsart}
+\LoadClass[11pt]{amsart}
 \RequirePackage{fullpage}
 \RequirePackage{mathrsfs}
 
 \RequirePackage[varg]{txfonts}
 % Fira Sans, Euler Math, Inconsolata
-%\RequirePackage[T1]{fontenc}
-% \RequirePackage[sfdefault,scaled=0.85]{FiraSans}
-% \RequirePackage[small,euler-digits]{eulervm}
-% \RequirePackage{textcomp}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[sfdefault,scaled=0.85]{FiraSans}
+\RequirePackage[small,euler-digits]{eulervm}
+\RequirePackage{textcomp}
 
 % metadata: date and filename
 \RequirePackage[english]{datetime2}

@@ -42,21 +42,14 @@ latex_preamble = r"""
 \usepackage{amssymb,amsmath}
 \usepackage{mathrsfs}
 
-% oldest to newest macros
+% macros added in chronological order
 % summer 2016
 \newcommand{\eps}{\varepsilon}
 \newcommand{\id}{\text{id}}
 \newcommand{\TOE}{\mathscr{T}}
 \newcommand{\Cl}{\overline}
 
-% summer 2018
-\providecommand{\abs}[1]{\left\lvert #1 \right\rvert}
-\providecommand{\norm}[1]{\left\lVert #1 \rVert\right}
-\renewcommand{\phi}{\varphi}
-\renewcommand{\emptyset}{\varnothing}
-
-% fall 2018 
-%% cf Agnès Beaudry
+%% bold math capitals
 \newcommand{\BB}{\mathbf{B}}
 \newcommand{\CC}{\mathbf{C}}
 \newcommand{\DD}{\mathbf{D}}
@@ -83,7 +76,6 @@ latex_preamble = r"""
 \newcommand{\ZZ}{\mathbf{Z}}
 
 %% script math capitals
-%% requires mathrsfs
 \newcommand{\sA}{\mathscr{A}}
 \newcommand{\sB}{\mathscr{B}}
 \newcommand{\sC}{\mathscr{C}}
@@ -111,11 +103,22 @@ latex_preamble = r"""
 \newcommand{\sY}{\mathscr{Y}}
 \newcommand{\sZ}{\mathscr{Z}}
 
-% 2018-09-22
+% more 2018-09-01 era
+\providecommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\providecommand{\norm}[1]{\left\lVert #1 \rVert\right}
+\renewcommand{\phi}{\varphi}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
 
-\newcommand{\Stab}[2]{\mathrm{Stab}_{#1} \left( #2 \right)}
-\newcommand{\Norm}[2]{\mathrm{Norm}_{#1} \left( #2 \right)}
-\newcommand{\C}[2]{C_{#1}\left( #2\right)}
+% group actions 2018-10-14
+\providecommand{\Stab}[2]{\mathrm{Stab}_{#1} \left( #2 \right)}
+\providecommand{\Norm}[2]{\mathrm{Norm}_{#1} \left( #2 \right)}
+
+% sylow theory 2018-10-30
+\providecommand{\Syl}[2]{\mathrm{Syl}_{ #1 }\left( #2 \right)}
+\providecommand{\N}[2]{N_{ #1 }\left( #2 \right)}
+\providecommand{\C}[2]{C_{ #1 }\left( #2 \right)}
+\providecommand{\Aut}[1]{\mathrm{Aut}\left({ #1 }\right)}
 
 % formatting
 \pagestyle{empty}

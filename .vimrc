@@ -122,6 +122,10 @@ nmap \pv :!pandoc-view-compile.sh %
 "pcc compiles with cite-proc to pdf
 nmap \pc :!pandoc-citeproc-compile.sh %
 
+:nnoremap <F5> "=strftime("%F")<CR>P
+:inoremap <F5> <C-R>=strftime("%F")<CR>
+
+
 "ctags shortcuts
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>

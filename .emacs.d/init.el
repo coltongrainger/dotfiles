@@ -14,86 +14,110 @@
 
 ;; only one instance of custom-set-variables please
 (custom-set-variables
- ;; org mode
- '(package-selected-packages (quote (magit)))
- '(org-agenda-files (quote ("~/todo.org" )))
- '(org-archive-location "~/rec/archive.org::")
- '(org-log-done (quote time))
- '(org-startup-truncated nil)
- '(org-agenda-start-on-weekday nil)
- '(org-capture-templates
-   '(
-     ("w" "WAITING item" entry
-      (file+headline "~/todo.org" "unsorted")
-      "* WAITING %?")
-     ("t" "TODO item" entry
-      (file+headline "~/todo.org" "unsorted")
-      "* TODO %? %i")))
- '(org-todo-keywords
-  '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "NOPE(n)")))
- '(org-agenda-block-separator "")
- '(org-agenda-prefix-format "    %t%s")
- '(org-agenda-custom-commands
-   '(("c" "ccg-agenda"
-      ((tags "PRIORITY=\"A\""
-        ((org-agenda-overriding-header "PRIORITIES")
-         (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
-       (agenda "" 
-        ((org-agenda-overriding-header "TIME-SENSITIVE")
-         (org-agenda-span 7)))
-       (alltodo ""
-        ((org-agenda-overriding-header "UNSCHEDULED")
-         (org-agenda-skip-function
-          '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-if nil '(scheduled deadline))
-               (org-agenda-skip-entry-if 'todo '("WAITING"))))))))
-     ("p" "printable-ccg-agenda"
-      ((tags "PRIORITY=\"A\""
-        ((org-agenda-overriding-header "PRIORITIES")
-         (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
-       (agenda "" 
-        ((org-agenda-overriding-header "TIME-SENSITIVE")
-         (org-agenda-span 7)))
-       (alltodo ""
-        ((org-agenda-overriding-header "UNSCHEDULED")
-         (org-agenda-skip-function
-          '(or (air-org-skip-subtree-if-priority ?A)
-               (org-agenda-skip-if nil '(scheduled deadline))
-               (org-agenda-skip-entry-if 'todo '("WAITING")))))))
-      ((ps-left-header (list "(Agenda)" "(Colton Grainger)"))
-       (org-agenda-with-colors nil)
-       ;(htmlize-output-type 'font)
-       )
-      (;"~/agenda.html" 
-       "~/agenda.pdf"))
-     ))
- '(ps-right-header
-   (list 'ps-time-stamp-yyyy-mm-dd "/pagenumberstring load"))
- ;; portrait half-page agenda
- '(ps-print-color-p 'black-white)
- '(ps-header-font-family 'Helvetica)
- '(ps-font-family 'Helvetica)
- '(ps-print-header-frame nil)
- '(ps-print-footer nil)
- '(ps-header-title-font-size 11)
- '(ps-header-font-size 9)
- '(ps-font-size 7)
- '(ps-header-lines 2)
- '(ps-header-line-pad 0)
- '(ps-left-margin 20)
- '(ps-right-margin 20)
- '(ps-top-margin 20)
- '(ps-bottom-margin 20)
- '(ps-number-of-columns 1)
- '(ps-inter-column 0)
- '(ps-landscape-mode nil)
- ;; usage
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(cursor-type (quote bar))
  '(indent-tabs-mode nil)
  '(magit-diff-refine-hink (quote all))
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
+ '(org-agenda-block-separator "")
+ '(org-agenda-custom-commands
+   (quote
+    (("c" "ccg-agenda"
+      ((tags "PRIORITY=\"A\""
+             ((org-agenda-overriding-header "PRIORITIES")
+              (org-agenda-skip-function
+               (quote
+                (org-agenda-skip-entry-if
+                 (quote todo)
+                 (quote done))))))
+       (agenda ""
+               ((org-agenda-overriding-header "TIME-SENSITIVE")
+                (org-agenda-span 7)))
+       (alltodo ""
+                ((org-agenda-overriding-header "UNSCHEDULED")
+                 (org-agenda-skip-function
+                  (quote
+                   (or
+                    (air-org-skip-subtree-if-priority 65)
+                    (org-agenda-skip-if nil
+                                        (quote
+                                         (scheduled deadline)))
+                    (org-agenda-skip-entry-if
+                     (quote todo)
+                     (quote
+                      ("WAITING"))))))))))
+     ("p" "printable-ccg-agenda"
+      ((tags "PRIORITY=\"A\""
+             ((org-agenda-overriding-header "PRIORITIES")
+              (org-agenda-skip-function
+               (quote
+                (org-agenda-skip-entry-if
+                 (quote todo)
+                 (quote done))))))
+       (agenda ""
+               ((org-agenda-overriding-header "TIME-SENSITIVE")
+                (org-agenda-span 7)))
+       (alltodo ""
+                ((org-agenda-overriding-header "UNSCHEDULED")
+                 (org-agenda-skip-function
+                  (quote
+                   (or
+                    (air-org-skip-subtree-if-priority 65)
+                    (org-agenda-skip-if nil
+                                        (quote
+                                         (scheduled deadline)))
+                    (org-agenda-skip-entry-if
+                     (quote todo)
+                     (quote
+                      ("WAITING")))))))))
+      ((ps-left-header
+        (list "(Agenda)" "(Colton Grainger)"))
+       (org-agenda-with-colors nil))
+      ("~/agenda.pdf")))))
+ '(org-agenda-files (quote ("~/todo.org")))
+ '(org-agenda-prefix-format "    %t%s")
+ '(org-agenda-start-on-weekday nil)
+ '(org-archive-location "~/rec/archive.org::")
+ '(org-capture-templates
+   (quote
+    (("w" "WAITING item" entry
+      (file+headline "~/todo.org" "unsorted")
+      "* WAITING %?")
+     ("t" "TODO item" entry
+      (file+headline "~/todo.org" "unsorted")
+      "* TODO %? %i"))))
+ '(org-log-done (quote time))
+ '(org-startup-truncated nil)
+ '(org-todo-keywords
+   (quote
+    ((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "NOPE(n)"))))
+ '(package-selected-packages (quote (multiple-cursors magit)))
+ '(ps-bottom-margin 20)
+ '(ps-font-family (quote Helvetica))
+ '(ps-font-size 7)
+ '(ps-header-font-family (quote Helvetica))
+ '(ps-header-font-size 9)
+ '(ps-header-line-pad 0)
+ '(ps-header-lines 2)
+ '(ps-header-title-font-size 11)
+ '(ps-inter-column 0)
+ '(ps-landscape-mode nil)
+ '(ps-left-margin 20)
+ '(ps-number-of-columns 1)
+ '(ps-print-color-p (quote black-white))
+ '(ps-print-footer nil)
+ '(ps-print-header-frame nil)
+ '(ps-right-header
+   (list
+    (quote ps-time-stamp-yyyy-mm-dd)
+    "/pagenumberstring load"))
+ '(ps-right-margin 20)
+ '(ps-top-margin 20)
  '(require-final-newline t)
  '(save-interprogram-paste-before-kill t)
  '(scroll-conservatively 1000)
@@ -138,3 +162,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                   '(lambda () (interactive)
                      (magit-stage-file buffer-file-name)
                      (magit-commit))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
