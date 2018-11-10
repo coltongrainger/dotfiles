@@ -119,6 +119,8 @@ latex_preamble = r"""
 \providecommand{\N}[2]{N_{ #1 }\left( #2 \right)}
 \providecommand{\C}[2]{C_{ #1 }\left( #2 \right)}
 \providecommand{\Aut}[1]{\mathrm{Aut}\left({ #1 }\right)}
+\providecommand{\Inn}[1]{\mathrm{Inn}\left({ #1 }\right)}
+\providecommand{\inn}[1]{\mathrm{inn}\left({ #1 }\right)}
 
 % formatting
 \pagestyle{empty}
