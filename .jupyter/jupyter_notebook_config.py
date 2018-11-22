@@ -138,7 +138,7 @@ c.LatexExporter.template_file = 'classic.tplx'
 #  connection, or for offline use of the notebook.
 #  
 #  When disabled, equations etc. will appear as their untransformed TeX source.
-#c.NotebookApp.enable_mathjax = True
+c.NotebookApp.enable_mathjax = True
 
 ## extra paths to look for Javascript notebook extensions
 #c.NotebookApp.extra_nbextensions_path = []
@@ -201,11 +201,11 @@ c.LatexExporter.template_file = 'classic.tplx'
 #c.NotebookApp.logout_handler_class = 'notebook.auth.logout.LogoutHandler'
 
 ## The MathJax.js configuration file that is to be used.
-#c.NotebookApp.mathjax_config = 'TeX-AMS-MML_HTMLorMML-full,Safe'
+c.NotebookApp.mathjax_config = 'TeX-AMS_SVG'
 
 ## A custom url for MathJax.js. Should be in the form of a case-sensitive url to
 #  MathJax, for example:  /static/components/MathJax/MathJax.js
-#c.NotebookApp.mathjax_url = ''
+c.NotebookApp.mathjax_url = '/nbextensions/mathjax/MathJax.js'
 
 ## Dict of Python modules to load as notebook server extensions.Entry values can
 #  be used to enable and disable the loading ofthe extensions. The extensions

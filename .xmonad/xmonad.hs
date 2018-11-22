@@ -46,6 +46,7 @@ main = do
 
     `additionalKeysP`
       [ ("M-p", shellPrompt myXPConfig)
+      , ("M-S-z", spawn "urxvt")
       , ("M-S-p", manPrompt myXPConfig)                           -- (24)
       -- htop
       , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
@@ -91,6 +92,7 @@ main = do
       , ("M-S-d", selectSearch (searchEngine "doi" "doi:"))
       -- (i)nternational standard book number
       , ("M-S-i", selectSearch (searchEngine "isbn" "isbn:"))
+      , ("M-S-h", selectSearch (searchEngine "hypothes.is" "https://via.hypothes.is/"))
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne

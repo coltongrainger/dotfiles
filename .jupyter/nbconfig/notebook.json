@@ -1,7 +1,7 @@
 {
   "load_extensions": {
-    "nbextensions_configurator/config_menu/main": true, 
-    "vim_binding/vim_binding": true, 
-    "contrib_nbextensions_help_item/main": true
+    "nbextensions_configurator/config_menu/main": true,
+    "contrib_nbextensions_help_item/main": true,
+    "cite2c/main": true
   }
 }
