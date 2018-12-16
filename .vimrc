@@ -122,9 +122,25 @@ nmap \pv :!pandoc-view-compile.sh %
 "pcc compiles with cite-proc to pdf
 nmap \pc :!pandoc-citeproc-compile.sh %
 
+"paste time
 :nnoremap <F5> "=strftime("%F")<CR>P
 :inoremap <F5> <C-R>=strftime("%F")<CR>
 
+" This inserts the citation at the cursor using the shortcut ctrl-z (in
+" insert mode) or <leader>z (in normal, visual etc. modes, <leader> being
+" backslash by default).
+" https://retorque.re/zotero-better-bibtex/cayw/
+function! ZoteroCite()
+  " pick a format based on the filetype (customize at will)
+  let format = &filetype =~ '.*tex' ? 'pandoc' : 'pandoc'
+  let api_call = 'http://localhost:23119/better-bibtex/cayw?format='.format.'&brackets=1'
+  let ref = system('curl -s '.shellescape(api_call))
+  return ref
+endfunction
+
+nnoremap <C-z> <nop>
+noremap <leader>z "=ZoteroCite()<CR>p
+inoremap <C-z> <C-r>=ZoteroCite()<CR>
 
 "ctags shortcuts
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

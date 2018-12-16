@@ -15,6 +15,8 @@
 \RequirePackage[small,euler-digits]{eulervm}
 \RequirePackage{textcomp}
 
+%\RequirePackage{fourier}
+
 % metadata: date and filename
 \RequirePackage[english]{datetime2}
 \RequirePackage{currfile}

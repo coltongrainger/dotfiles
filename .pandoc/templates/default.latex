@@ -118,6 +118,24 @@ $if(macros)$
 \providecommand{\Aut}[1]{\mathrm{Aut}\left({ #1 }\right)}
 \providecommand{\Inn}[1]{\mathrm{Inn}\left({ #1 }\right)}
 \providecommand{\inn}[1]{\mathrm{inn}\left({ #1 }\right)}
+
+% proof tools 2018-11-28
+\newcommand{\pf}{\emph{Proof.}\ }
+\newcommand{\wts}{\emph{To prove.}\ }
+\newcommand{\gvn}{\emph{Given.}\ }
+
+% fraktur 2018-11-30
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+\newcommand{\fr}{\mathfrak{r}}
+
 $endif$
 % graphics
 $if(graphics)$

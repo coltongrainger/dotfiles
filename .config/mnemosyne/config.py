@@ -38,7 +38,7 @@ backup_before_sync = True
 # reads them in.
 latex_preamble = r"""
 \documentclass{article}
-\usepackage[textwidth=4.9cm]{geometry}
+\usepackage[textwidth=5.8cm]{geometry}
 \usepackage{amssymb,amsmath}
 \usepackage{mathrsfs}
 

@@ -46,7 +46,6 @@ main = do
 
     `additionalKeysP`
       [ ("M-p", shellPrompt myXPConfig)
-      , ("M-S-z", spawn "urxvt")
       , ("M-S-p", manPrompt myXPConfig)                           -- (24)
       -- htop
       , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
@@ -109,6 +108,8 @@ main = do
       -- toggle display back to single screen
       , ("M-<End>", spawn "xrandr -s 1")
       , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
+      -- zotero
+      , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
       ]
 
 myXPConfig = def { position          = Top

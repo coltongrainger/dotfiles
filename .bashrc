@@ -1,4 +1,5 @@
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.cabal/bin
+export R_HOME=/usr/lib/R
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/.local/TMSU
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
@@ -53,6 +54,15 @@ function open {
 function test-microphone {
     arecord -vvv -f dat /dev/null
 }
+
+function countdown(){
+   date1=$((`date +%s` + $1));
+   while [ "$date1" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
+
 # https://gist.github.com/Dnomyar/9c289fcc2668b59e1ffb
 function githelp {
     echo "-------------------------------------------------------------------------------"
