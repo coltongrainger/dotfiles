@@ -38,6 +38,7 @@ URxvt.italicFont: xft:Ubuntu Mono:italic:size=11
 
 URxvt.letterSpace: -1
 Xft.hinting: false
+Xft.dpi: 102
 
 URxvt*scrollBar: false
 URxvt.cursorBlink: false

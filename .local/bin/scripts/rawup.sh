@@ -6,7 +6,7 @@
 
 cd $HOME/raw
 
-echo "---\ntitle: Scanned notes\nauthor: Colton Grainger\ndate: $(date -I)\n---\n\n Unfinished! Handwritten!\n"\
+echo "---\ntitle: Handwritten notes\nauthor: Colton Grainger\ndate: $(date -I)\n---\n\n Rushed! Unfinished! Naïve!\n"\
       > index.md
 echo "" > catalog
 

@@ -87,10 +87,6 @@ main = do
       , ("M-/", promptSearch myXPConfig google)
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
       , ("S-C-/", selectSearch google)
-      -- (d)igital object identifiers
-      , ("M-S-d", selectSearch (searchEngine "doi" "doi:"))
-      -- (i)nternational standard book number
-      , ("M-S-i", selectSearch (searchEngine "isbn" "isbn:"))
       , ("M-S-h", selectSearch (searchEngine "hypothes.is" "https://via.hypothes.is/"))
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
@@ -103,11 +99,15 @@ main = do
       , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
       -- (b)ash config
       , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
+      -- writing
+      , ("M-c j, raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
+      , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
       -- invert colors
       , ("M-<Page_Up>", spawn "xcalib -invert -alter")
       -- toggle display back to single screen
       , ("M-<End>", spawn "xrandr -s 1")
       , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
+
       -- zotero
       , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
       ]
