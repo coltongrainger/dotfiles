@@ -107,14 +107,14 @@ main = do
       , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
       -- (z)otero
       , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
-      -- keepassx
-      , ("M-C-p", runOrRaise "keepassx" (className =? "KeePassX"))
-      , ("M-C-S-p", spawn "/usr/bin/keepassx --auto-type")
+      -- keepassxc
+      , ("M-C-p", runOrRaise "keepassxc" (className =? "keepassxc"))
+      , ("M-C-S-p", spawn "/usr/bin/keepassxc --auto-type")
       ]
 
 -- myStartupHook :: X ()
 -- myStartupHook = do
---         spawn "keepassx"
+--         spawn "keepassxc"
 
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
