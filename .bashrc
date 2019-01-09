@@ -22,6 +22,10 @@ promptFunc() {
 }
 PROMPT_COMMAND=promptFunc
 
+function fh {
+   grep --text $1 $HOME/.full_history
+}
+
 # https://github.com/rpellerin/dotfiles/blob/master/.aliases
 function extract() {
     if [ -f $1 ] ; then

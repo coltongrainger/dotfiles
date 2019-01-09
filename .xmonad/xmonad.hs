@@ -29,16 +29,17 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 -- import XMonad.Util.WorkspaceScreenshot
 
-
 main = do
 
   xmonad $ desktopConfig
     { terminal    = "urxvt"
+    , workspaces  = map show [1..9]
     , borderWidth = 2
     , modMask     = mod4Mask -- Use the "Win" key for the mod key
     , manageHook  = myManageHook <+> manageHook desktopConfig
     , layoutHook  = desktopLayoutModifiers $ myLayouts
     , logHook     = dynamicLogString quamashPP >>= xmonadPropLog
+    -- , startupHook = myStartupHook
     }
 
     `removeKeysP`
@@ -57,8 +58,11 @@ main = do
       , ("M-'", banishScreen LowerRight)                          -- (18)
       -- window manipulation
       , ("M-<Esc>", sendMessage (Toggle "Full"))
-      -- print screen
-      -- , ("M-S-<Print>", captureWorkspacesWhen defaultPredicate defaultHook horizontally)
+      -- invert colors
+      , ("M-<Page_Up>", spawn "xcalib -invert -alter")
+      -- toggle display back to single screen
+      , ("M-<End>", spawn "xrandr -s 1")
+      , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
       -- (l)ock-screen
       , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
       -- get me outta here!
@@ -87,7 +91,6 @@ main = do
       , ("M-/", promptSearch myXPConfig google)
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
       , ("S-C-/", selectSearch google)
-      , ("M-S-h", selectSearch (searchEngine "hypothes.is" "https://via.hypothes.is/"))
       -- J(u)ptyer QtConsole 
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       -- M(n)emosyne
@@ -100,17 +103,18 @@ main = do
       -- (b)ash config
       , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
       -- writing
-      , ("M-c j, raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
+      , ("M-c j", raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
       , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
-      -- invert colors
-      , ("M-<Page_Up>", spawn "xcalib -invert -alter")
-      -- toggle display back to single screen
-      , ("M-<End>", spawn "xrandr -s 1")
-      , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
-
-      -- zotero
+      -- (z)otero
       , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
+      -- keepassx
+      , ("M-C-p", runOrRaise "keepassx" (className =? "KeePassX"))
+      , ("M-C-S-p", spawn "/usr/bin/keepassx --auto-type")
       ]
+
+-- myStartupHook :: X ()
+-- myStartupHook = do
+--         spawn "keepassx"
 
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True

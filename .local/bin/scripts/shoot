@@ -1,0 +1,8 @@
+#! /bin/sh
+# 2019-01-03
+# CC0 Public Domain
+
+TITLE=$1
+DATE=`date '+%Y-%m-%d'`
+scrot -s $HOME/rote/$DATE-$TITLE.png
+feh $HOME/rote/$DATE-$TITLE.png
