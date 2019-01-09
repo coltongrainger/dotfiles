@@ -79,17 +79,17 @@
         (list "(Agenda)" "(Colton Grainger)"))
        (org-agenda-with-colors nil))
       ("~/agenda.pdf")))))
- '(org-agenda-files (quote ("~/todo.org")))
+ '(org-agenda-files (quote ("~/rec/Dropbox/todo.org")))
  '(org-agenda-prefix-format "    %t%s")
  '(org-agenda-start-on-weekday nil)
- '(org-archive-location "~/rec/archive.org::")
+ '(org-archive-location "~/rec/Dropbox/archive.org::")
  '(org-capture-templates
    (quote
     (("w" "WAITING item" entry
-      (file+headline "~/todo.org" "unsorted")
+      (file+headline "~/rec/Dropbox/todo.org" "unsorted")
       "* WAITING %?")
      ("t" "TODO item" entry
-      (file+headline "~/todo.org" "unsorted")
+      (file+headline "~/rec/Dropbox/todo.org" "unsorted")
       "* TODO %? %i"))))
  '(org-log-done (quote time))
  '(org-startup-truncated nil)

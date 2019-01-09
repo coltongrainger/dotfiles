@@ -84,7 +84,7 @@ main = do
       , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
       , ("M-c v", raiseMaybe (runInTerm "-title .vimrc" "bash -c 'vim $HOME/.vimrc'") (title =? ".vimrc"))
       -- emac(s)
-      , ("M-s", raiseMaybe (spawn "emacs $HOME/todo.org") (className =? "Emacs"))
+      , ("M-s", raiseMaybe (spawn "emacs $HOME/rec/Dropbox/todo.org") (className =? "Emacs"))
       , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
       -- f(i)refox
       , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
