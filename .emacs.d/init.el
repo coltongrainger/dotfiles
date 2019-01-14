@@ -12,6 +12,9 @@
  '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+(require 'evil)
+(evil-mode 1)
+
 ;; only one instance of custom-set-variables please
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -82,7 +85,7 @@
  '(org-agenda-files (quote ("~/rec/Dropbox/todo.org")))
  '(org-agenda-prefix-format "    %t%s")
  '(org-agenda-start-on-weekday nil)
- '(org-archive-location "~/rec/Dropbox/archive.org::")
+ '(org-archive-location "~/rec/archive.org::")
  '(org-capture-templates
    (quote
     (("w" "WAITING item" entry

@@ -1,5 +1,6 @@
 *.swp
-
+*/.mutt/password*
+*.msmtprc*
 *.aux
 *.log
 *.out

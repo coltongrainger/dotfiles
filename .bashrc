@@ -4,6 +4,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/.local/TMSU
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export TEXINPUTS=".:~/.texmf:"
+export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -24,6 +25,11 @@ PROMPT_COMMAND=promptFunc
 
 function fh {
    grep --text $1 $HOME/.full_history
+}
+
+function om {
+   grep -h -n -C 20 --color=always --text\
+      $1 $HOME/rec/communication/2019-01-09-old-email.mbox.stripped
 }
 
 # https://github.com/rpellerin/dotfiles/blob/master/.aliases
@@ -121,3 +127,9 @@ function githelp {
     echo "git fetch origin ; git remote prune origin"
     echo "-------------------------------------------------------------------------------"
 }
+
+PATH="/home/colton/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/colton/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/colton/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/colton/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/colton/perl5"; export PERL_MM_OPT;
