@@ -1,30 +1,22 @@
-\documentclass[10pt]{amsart}
-\usepackage{fullpage}
-
-% macros
+\documentclass{humanist}
 \usepackage{ccg-macros}
-
 % pandoc is utf8 native
 \usepackage[utf8]{inputenc}
-
 % pandoc transfers h2 to subsections, I prefer h2 for sections
 \let\subsubsection\subsection
 \let\subsection\section
 \let\section\chapter
 \let\chapter\part
-
-% pandoc section numbering
+% section numbering
 $if(nonumbering)$
 \setcounter{secnumdepth}{0}
 $else$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $endif$
-
-% pandoc urls as footnotes
+% urls as footnotes
 \usepackage[unicode=true]{hyperref}
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
-
-% pandoc fix: parskip mangles ams table of contents
+% fix: parskip mangles ams table of contents
 $if(indent)$
 $else$
 \usepackage{parskip}
@@ -34,31 +26,27 @@ $else$
 }
 \makeatother
 $endif$
-
 $if(linestretch)$
-% pandoc linespacing
+% linespacing
 \usepackage{setspace}
 $endif$
 
 $if(tikz)$
-% commutative diagrams
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz, tikz-3dplot, pgfplots}
 \usepackage{tkz-graph}
 \usetikzlibrary[positioning,patterns]
 $endif$
 
-% pandoc for upquote if available
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \usepackage{booktabs,longtable}
-
+% code blocks
 $if(highlighting-macros)$
-% pandoc code blocks
 $highlighting-macros$
 $endif$
-
+% graphics
 $if(graphics)$
-% pandoc graphics
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -69,13 +57,10 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
-
-% pandoc prevent overfull lines
-\setlength{\emergencystretch}{3em}  
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% pandoc default figure placement to htbp
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
@@ -114,4 +99,5 @@ $body$
 $if(linestretch)$
 \singlespacing
 $endif$
+
 \end{document}

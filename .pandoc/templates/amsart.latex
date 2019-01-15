@@ -3,33 +3,6 @@
 \usepackage{fullpage}
 \usepackage{ccg-macros}
 
-% pandoc transfers h2 to subsections, I prefer h2 for sections
-\let\subsubsection\subsection
-\let\subsection\section
-\let\section\chapter
-\let\chapter\part
-% section numbering
-$if(nonumbering)$
-\setcounter{secnumdepth}{0}
-$else$
-\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-$endif$
-% urls as footnotes
-\usepackage[unicode=true]{hyperref}
-\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
-% fix: parskip mangles ams table of contents
-$if(indent)$
-$else$
-\usepackage{parskip}
-\makeatletter
-\renewcommand\tableofcontents{%
-    \@starttoc{toc}%
-}
-\makeatother
-$endif$
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
 $if(title)$
 \title{$title$}
 $endif$
