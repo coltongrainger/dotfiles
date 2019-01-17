@@ -1,8 +1,16 @@
 \documentclass[10pt]{amsart}
 \usepackage{fullpage}
+% I it's bad, but I write in bullet points
+% https://tex.stackexchange.com/questions/174073
+\usepackage{parskip}
 
 % macros
 \usepackage{ccg-macros}
+\usepackage{amscd, amssymb}
+
+$if(physics)$
+\usepackage{physics}
+$endif$
 
 % pandoc is utf8 native
 \usepackage[utf8]{inputenc}
@@ -24,33 +32,26 @@ $endif$
 \usepackage[unicode=true]{hyperref}
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
-% pandoc fix: parskip mangles ams table of contents
-$if(indent)$
-$else$
-\usepackage{parskip}
-\makeatletter
-\renewcommand\tableofcontents{%
-    \@starttoc{toc}%
-}
-\makeatother
-$endif$
-
 $if(linestretch)$
 % pandoc linespacing
 \usepackage{setspace}
 $endif$
 
-$if(tikz)$
-% commutative diagrams
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{tikz, tikz-3dplot, pgfplots}
-\usepackage{tkz-graph}
-\usetikzlibrary[positioning,patterns]
-$endif$
-
 % pandoc for upquote if available
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\usepackage{booktabs,longtable}
+
+% tables, pandoc manges export
+$if(tables)$
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+$endif$
+
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
 
 $if(highlighting-macros)$
 % pandoc code blocks
@@ -94,17 +95,17 @@ $if(repo)$
 $endif$
 
 \begin{document}
+
 $if(title)$
 \maketitle
 $endif$
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
 $endif$
-$if(toc)$
-\tableofcontents
-$endif$
+
 $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
@@ -114,4 +115,5 @@ $body$
 $if(linestretch)$
 \singlespacing
 $endif$
+
 \end{document}

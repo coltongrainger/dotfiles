@@ -39,7 +39,7 @@ backup_before_sync = True
 latex_preamble = r"""
 \documentclass{article}
 \usepackage[textwidth=5.8cm]{geometry}
-\usepackage{amssymb,amsmath}
+\usepackage{amssymb,amsmath,amscd}
 \usepackage{mathrsfs}
 
 % macros added in chronological order
