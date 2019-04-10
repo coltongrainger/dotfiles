@@ -39,7 +39,7 @@ backup_before_sync = True
 latex_preamble = r"""
 \documentclass{article}
 \usepackage[textwidth=5.8cm]{geometry}
-\usepackage{amssymb,amsmath,amscd}
+\usepackage{amssymb,amsmath, amscd}
 \usepackage{mathrsfs}
 
 % macros added in chronological order
@@ -121,6 +121,22 @@ latex_preamble = r"""
 \providecommand{\Aut}[1]{\mathrm{Aut}\left({ #1 }\right)}
 \providecommand{\Inn}[1]{\mathrm{Inn}\left({ #1 }\right)}
 \providecommand{\inn}[1]{\mathrm{inn}\left({ #1 }\right)}
+
+% fraktur 2018-11-30
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+\newcommand{\fr}{\mathfrak{r}}
+
+% module theory 2019-02-01
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\End}{\operatorname{End}}
 
 % formatting
 \pagestyle{empty}

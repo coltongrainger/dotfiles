@@ -1,19 +1,30 @@
+$if(fontsize)$
+\documentclass[$fontsize$]{amsart}
+$else$
 \documentclass[10pt]{amsart}
+$endif$
+$if(geometry)$
+\usepackage{geometry}
+$else$
 \usepackage{fullpage}
-% I it's bad, but I write in bullet points
+$endif$
 % https://tex.stackexchange.com/questions/174073
 \usepackage{parskip}
 
 % macros
 \usepackage{ccg-macros}
 \usepackage{amscd, amssymb}
-
-$if(physics)$
 \usepackage{physics}
-$endif$
 
 % pandoc is utf8 native
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% extra macros
+$for(header-includes)$
+$header-includes$
+
+$endfor$
 
 % pandoc transfers h2 to subsections, I prefer h2 for sections
 \let\subsubsection\subsection
@@ -71,6 +82,17 @@ $if(graphics)$
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
 
+$if(tikz)$
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz, tikz-3dplot, pgfplots}
+\usepackage{tkz-graph}
+\usetikzlibrary[positioning,patterns]
+$endif$
+
+$if(xy)$
+\usepackage[all]{xy}
+$endif$
+
 % pandoc prevent overfull lines
 \setlength{\emergencystretch}{3em}  
 \providecommand{\tightlist}{%
@@ -90,8 +112,8 @@ $endif$
 $if(date)$
 \date{$date$}
 $endif$
-$if(repo)$
-\thanks{\textit{Git Repo:} \url{$repo$}}
+$if(url)$
+\thanks{\textit{url:} \url{$url$}}
 $endif$
 
 \begin{document}

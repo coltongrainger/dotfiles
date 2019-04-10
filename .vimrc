@@ -117,10 +117,8 @@ let g:email='colton.grainger@colorado.edu'
 vmap \snip :w !snip.sh
 "mnep a card to to mnemosyne
 vmap \mnep :!mnep.sh
-"pvc compiles with cite-proc to pdf and opens the pdf
-nmap \pv :!pandoc-view-compile.sh %
-"pcc compiles with cite-proc to pdf
-nmap \pc :!pandoc-citeproc-compile.sh %
+"pc compiles with cite-proc to pdf
+nmap \pc :Dispatch! pandoc-citeproc-compile.sh %<CR>
 
 "paste time
 :nnoremap <F5> "=strftime("%F")<CR>P
