@@ -11,10 +11,10 @@ set nocompatible
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'aperezdc/vim-template'
-Plug 'coltongrainger/vim-markdown'
-"Plug 'vim-pandoc/vim-pandoc'
-"Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'w0rp/ale'
 "Plug 'dbeniamine/vim-mail'
 "Plug 'dbeniamine/cheat.sh-vim'
 Plug 'fatih/vim-go'
@@ -71,17 +71,13 @@ if has('autocmd')
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
     autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
-    " vim-markdown does this
-    " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-    autocmd BufNewFile,BufRead *.page setlocal filetype=markdown
-    autocmd BufNewFile,BufRead *.arbtt/categorize.cfg setlocal syntax=haskell
+    " md as tex files for now 2019-04-10
+    autocmd BufNewFile,BufReadPost *.md set filetype=tex
     autocmd FileType crontab setlocal commentstring=#%s
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
     autocmd FileType help,man setlocal nolist nospell
     autocmd FileType make setlocal noexpandtab
-    autocmd FileType matlab setlocal commentstring=%%s
-    autocmd FileType php setlocal commentstring=//%s
     " Prevent overzealous autoindent in align environment
     autocmd FileType tex setlocal indentexpr=
     autocmd FileType tex let b:surround_{char2nr('m')} = "\\(\r\\)"
@@ -93,32 +89,21 @@ if has('autocmd')
   augroup END
 endif
 
-" Fix common typos where one character is stuck to the beginning of the next
-" word or the end of the last word.
-inoremap <C-G>h <C-G>u<Esc>BxgEpgi
-inoremap <C-G>l <C-G>u<Esc>gExpgi
-
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:dualist_color_listchars = 1
-let g:sql_type_default = 'mysql'
-let g:surround_{char2nr('Q')} = "‘\r’"
-let g:surround_{char2nr('q')} = "“\r”"
+let g:airline#extensions#ale#enabled = 1
 let g:tex_flavor = 'latex'
-let g:vim_markdown_folding_disabled = 1
 let g:markdown_fenced_languages = ['python', 'haskell']
 let g:templates_directory=['$HOME/.vim/templates']
-let g:templates_use_licensee=0
+let g:templates_use_licensee=1
 let g:templates_no_builtin_templates=1
-let g:license='CC0 Public Domain'
+let g:license='CC0'
 let g:username='Colton Grainger'
 let g:email='colton.grainger@colorado.edu'
 
-"compiles a snippet
-vmap \snip :w !snip.sh
-"mnep a card to to mnemosyne
-vmap \mnep :!mnep.sh
-"pc compiles with cite-proc to pdf
-nmap \pc :Dispatch! pandoc-citeproc-compile.sh %<CR>
+"pandoc continuous compilation
+nmap \pc :Start! pc.sh %<CR>
+"open mupdf
+nmap \pv :Dispatch! pv.sh %<CR>
 
 "paste time
 :nnoremap <F5> "=strftime("%F")<CR>P
@@ -136,14 +121,22 @@ function! ZoteroCite()
   return ref
 endfunction
 
+nmap \pz ZoteroCite()<CR>p
+
 nnoremap <C-z> <nop>
-noremap <leader>z "=ZoteroCite()<CR>p
-inoremap <C-z> <C-r>=ZoteroCite()<CR>
+" Trigger configuration.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 "ctags shortcuts
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
+"ale shortcuts
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> [W <Plug>(ale_first)
