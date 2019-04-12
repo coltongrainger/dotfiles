@@ -32,3 +32,5 @@ texmf/tex/latex/
 .Xresources
 .xscreensaver
 .Xsession
+.dir_colors
+.latexmkrc

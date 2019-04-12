@@ -4,5 +4,5 @@
 # latexmk replacement 
 # 2019-04-10
 
-file="${1%.*}.pdf"
-mupdf -r $file
+textobject=$(realpath $1)
+mupdf "${textobject%.*}.pdf"

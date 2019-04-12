@@ -11,12 +11,9 @@ set nocompatible
 " Vim to install the plugins.
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'aperezdc/vim-template'
-Plug 'w0rp/ale'
 "Plug 'dbeniamine/vim-mail'
 "Plug 'dbeniamine/cheat.sh-vim'
+Plug 'coltongrainger/vim-markdown'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'goerz/ipynb_notedown.vim'
@@ -46,6 +43,14 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+Plug 'aperezdc/vim-template'
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29 to override
@@ -64,15 +69,15 @@ nnoremap Y y$
 if has('autocmd')
   augroup vimrc
     autocmd!
+    autocmd bufwritepost .vimrc source $HOME/.vimrc
     autocmd FileType conf,gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
     " outgoing emails hard wrap
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
     " we set a buffer-local variable to track if we have already run the autocmd so it
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
-    autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
-    " md as tex files for now 2019-04-10
-    autocmd BufNewFile,BufReadPost *.md set filetype=tex
+    " also .md as filetype tex (for now 2019-04-10)
+    autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 filetype=tex | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     autocmd FileType crontab setlocal commentstring=#%s
     autocmd FileType gitconfig setlocal commentstring=#%s
     autocmd FileType help,man nnoremap <buffer> <silent> q :q<CR>
@@ -89,9 +94,9 @@ if has('autocmd')
   augroup END
 endif
 
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:airline#extensions#ale#enabled = 1
 let g:tex_flavor = 'latex'
+let g:airline_theme='solarized'
+
 let g:markdown_fenced_languages = ['python', 'haskell']
 let g:templates_directory=['$HOME/.vim/templates']
 let g:templates_use_licensee=1
@@ -100,9 +105,16 @@ let g:license='CC0'
 let g:username='Colton Grainger'
 let g:email='colton.grainger@colorado.edu'
 
+"vim-dispatch
+"nnoremap <F9> :Dispatch<CR>
+
+"https://github.com/scrooloose/nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
 "pandoc continuous compilation
-nmap \pc :Start! pc.sh %<CR>
-"open mupdf
+let g:dispatch_terminal_exec='urxvt -e'
+nmap \pc :Start pc.sh %<CR>
+"open mupdf if pdf exists
 nmap \pv :Dispatch! pv.sh %<CR>
 
 "paste time
@@ -123,6 +135,7 @@ endfunction
 
 nmap \pz ZoteroCite()<CR>p
 
+"UtilSnips
 nnoremap <C-z> <nop>
 " Trigger configuration.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -130,23 +143,13 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
 "ctags shortcuts
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
-"ale shortcuts
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> ]W <Plug>(ale_last)
-nnoremap [s [s<Space><BS>
-nnoremap ]s ]s<BS><Space>
+"map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 highlight Folded ctermfg=DarkGray ctermbg=LightGray cterm=bold,underline
-"highlight SpellBad ctermfg=White ctermbg=Red
-"highlight Visual ctermfg=White ctermbg=Gray
 
 nnoremap j gj
 nnoremap k gk
