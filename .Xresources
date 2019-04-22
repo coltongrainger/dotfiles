@@ -1,3 +1,8 @@
+! free up these chords
+URxvt.keysym.C-M-c: builtin-string:
+URxvt.keysym.C-M-v: builtin-string:
+URxvt.keysym.M-s: builtin-string:
+
 ! utilities
 URxvt.perl-ext-common: default,clipboard,matcher
 URxvt.url-launcher: xdg-open
@@ -6,11 +11,6 @@ URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
-
-! free up these chords
-URxvt.keysym.C-M-c: builtin-string:
-URxvt.keysym.C-M-v: builtin-string:
-URxvt.keysym.M-s: builtin-string:
 
 ! disable unicode pasting
 URxvt.iso14755: false
@@ -24,26 +24,20 @@ URxvt.keysym.S-Left:  string:\033[1;2D
 URxvt.scrollBar: false
 URxvt.cursorBlink: false
 
-! font
-Xft.dpi: 120
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+URxvt.font: 		xft:Iosevka Term-10:Medium
+URxvt.boldFont: 	xft:Iosevka Term-10:Bold
+URxvt.italicFont: 	xft:Iosevka Term-10:Italic
 
-URxvt.font: xft:Iosevka Nerd Font Mono:style=medium:pixelsize=17
-URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=17
-URxvt.italicFont: xft:Iosevka Nerd Font Mono:style=italic:pixelsize=17
-URxvt.boldItalicFont: xft:Iosevka Nerd Font Mono:style=bold italic:pixelsize=17
+URxvt.letterSpace: -1
+Xft.hinting: false
+Xft.dpi: 102
 
-URxvt.keysym.C-S-plus: font-size:increase
-URxvt.keysym.C-KP_Add: font-size:increase
-URxvt.keysym.C-S-underscore: font-size:decrease
-URxvt.keysym.C-KP_Subtract: font-size:decrease
-URxvt.keysym.C-0: font-size:reset
-URxvt.keysym.C-KP_0: font-size:reset
+/* URxvt.keysym.C-S-plus: font-size:increase */
+/* URxvt.keysym.C-KP_Add: font-size:increase */
+/* URxvt.keysym.C-S-underscore: font-size:decrease */
+/* URxvt.keysym.C-KP_Subtract: font-size:decrease */
+/* URxvt.keysym.C-0: font-size:reset */
+/* URxvt.keysym.C-KP_0: font-size:reset */
 
 ! solarized dark
 /* #define S_base03        #002b36 */

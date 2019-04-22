@@ -2,14 +2,13 @@ import System.Exit
 import XMonad
 
 import XMonad.Config.Desktop
-
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 
-import XMonad.Layout.BinarySpacePartition (emptyBSP)
 import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Layout.ResizableTile (ResizableTall(..))
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
+import XMonad.Layout.StackTile
 
 import XMonad.Actions.Warp         -- (18) warp the mouse pointer
 import XMonad.Actions.Submap       -- (19) create keybinding submaps
@@ -17,6 +16,8 @@ import XMonad.Actions.Search hiding (Query, images)
                                    -- (20) some predefined web searches
 import XMonad.Actions.WithAll      -- (22) do something with all windows on a workspace
 import XMonad.Actions.WindowGo
+import XMonad.Actions.RotSlaves
+import XMonad.Actions.CycleWindows
 
 import XMonad.Prompt
 import XMonad.Prompt.Man
@@ -48,68 +49,50 @@ main = do
     `additionalKeysP`
       [ ("M-p", shellPrompt myXPConfig)
       , ("M-S-p", manPrompt myXPConfig)                           -- (24)
-      -- htop
-      , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
-      -- audio
-      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
-      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
-      , ("<XF86AudioMute>", spawn "amixer set Master toggle")
-      -- banish the pointer
-      , ("M-'", banishScreen LowerRight)                          -- (18)
-      -- window manipulation
-      , ("M-<Esc>", sendMessage (Toggle "Full"))
-      -- invert colors
-      , ("M-<Page_Up>", spawn "xcalib -invert -alter")
-      -- toggle display back to single screen
-      , ("M-<End>", spawn "xrandr -s 1")
-      , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
-      -- (l)ock-screen
+      , ("S-C-/", selectSearch google)
+      , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
+      , ("M-v", raiseMaybe (runInTerm "-title vim" "bash -c vim") (title =? "vim"))
+      , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
+      , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary"))
+      , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne"))
+      , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt"))
+      , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
+      , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
+      , ("M-c v", raiseMaybe (runInTerm "-title .vimrc" "bash -c 'vim $HOME/.vimrc'") (title =? ".vimrc"))
+      , ("M-c t", raiseMaybe (runInTerm "-title stylefiles" "bash -c 'vim $HOME/fy/19/stylefiles/src'") (title =? "stylefiles"))
+      , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
+      , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
+      , ("M-c p", raiseMaybe (runInTerm "-title make-stylefiles" "bash -c 'make -C $HOME/fy/19/stylefiles'") (title =? "make-stylefiles"))
+      , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))
+      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.muttrc'") (title =? ".muttrc"))
+      , ("M-c j", raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
+      , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
+      , ("M-c a", raiseMaybe (runInTerm "-title aliases.txt" "bash -c 'vim $HOME/.mutt/aliases.txt'") (title =? "aliases.txt"))
+      , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
+      , ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
       , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
-      -- get me outta here!
       , ("M-S-a", kill)
       , ("M-S-C-a", killAll)                                      -- (22)
-      , ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
-      -- (o)ed
-      , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary"))
-      -- (m)utt
-      , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt"))
-      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.muttrc'") (title =? ".muttrc"))
-      , ("M-c a", raiseMaybe (runInTerm "-title aliases.txt" "bash -c 'vim $HOME/.mutt/aliases.txt'") (title =? "aliases.txt"))
-      -- (p)andoc
-      , ("M-c p", raiseMaybe (runInTerm "-title .pandoc/templates/default.latex" "bash -c 'vim $HOME/.pandoc/templates/default.latex'") (title =? ".pandoc/templates/default.latex"))
-      -- (t)ex
-      , ("M-c t", raiseMaybe (runInTerm "-title texmf/tex/latex/humanist.cls" "bash -c 'vim $HOME/texmf/tex/latex/humanist.cls'") (title =? "texmf/tex/latex/humanist.cls"))
-      -- (v)im
-      , ("M-v", raiseMaybe (runInTerm "-title vim" "bash -c vim") (title =? "vim"))
-      , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
-      , ("M-c v", raiseMaybe (runInTerm "-title .vimrc" "bash -c 'vim $HOME/.vimrc'") (title =? ".vimrc"))
-      -- emac(s)
-      , ("M-s", raiseMaybe (spawn "emacs $HOME/rec/Dropbox/todo.org") (className =? "Emacs"))
-      , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
-      -- f(i)refox
-      , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
-      , ("M-/", promptSearch myXPConfig google)
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
-      , ("S-C-/", selectSearch google)
-      -- J(u)ptyer QtConsole 
-      , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
-      -- M(n)emosyne
-      , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne"))
-      -- TODO create a hotkey for creating a front/back mnemosyne card
-      -- , ("M-S-n", appendFilePrompt myXPConfig "$HOME/rote/mnemosyne/what")
-      , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))
-      -- (x)monad config
-      , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
-      -- (b)ash config
-      , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
-      -- writing
-      , ("M-c j", raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
-      , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
-      -- (z)otero
-      , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
-      -- keepassxc
       , ("M-C-p", runOrRaise "keepassxc" (className =? "keepassxc"))
       , ("M-C-S-p", spawn "/usr/bin/keepassxc --auto-type")
+      , ("M-<Page_Up>", spawn "xcalib -invert -alter")
+      , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
+      , ("M-<Esc>", sendMessage (Toggle "Full"))
+      , ("M-<End>", spawn "xrandr -s 1")
+      , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
+      , ("M-/", promptSearch myXPConfig google)
+      , ("M-'", banishScreen LowerRight)                          -- (18)
+      , ("<XF86Launch1>", spawn "arandr")
+      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
+      , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
+      , ("<XF86AudioMicMute>", spawn "pavucontrol")
+      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
+      -- , ("M-<Tab>", cycleRecentWindows [xK_Super_L] xK_Tab xK_Tab)
+      , ("M-[" , rotSlavesUp)
+      , ("M-]" , rotSlavesDown)
+      , ("M-S-[" , rotAllUp)
+      , ("M-S-]" , rotAllDown)
       ]
 
 -- myStartupHook :: X ()
@@ -126,7 +109,7 @@ myXPConfig = def { position          = Top
 
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = ResizableTall 1 (1.5/100) (5/8) [] ||| emptyBSP
+    others = ResizableTall 1 (1.5/100) (5/8) [] ||| StackTile 1 (3/100) (1/2)
 
 myManageHook = composeOne
   [ isDialog              -?> doCenterFloat
