@@ -10,7 +10,6 @@ import XMonad.Layout.ResizableTile (ResizableTall(..))
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
 import XMonad.Layout.StackTile
 
-import XMonad.Actions.Warp         -- (18) warp the mouse pointer
 import XMonad.Actions.Submap       -- (19) create keybinding submaps
 import XMonad.Actions.Search hiding (Query, images) 
                                    -- (20) some predefined web searches
@@ -30,12 +29,18 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 -- import XMonad.Util.WorkspaceScreenshot
 
+import qualified XMonad.StackSet as W
+import XMonad.Util.NamedWindows ( getName )
+import Data.Traversable ( traverse )
+import Data.Maybe ( maybeToList )
+import Data.List ( (\\), intercalate )
+
 main = do
 
   xmonad $ desktopConfig
     { terminal    = "urxvt"
     , workspaces  = map show [1..9]
-    , borderWidth = 2
+    , borderWidth = 0
     , modMask     = mod4Mask -- Use the "Win" key for the mod key
     , manageHook  = myManageHook <+> manageHook desktopConfig
     , layoutHook  = desktopLayoutModifiers $ myLayouts
@@ -82,7 +87,6 @@ main = do
       , ("M-<End>", spawn "xrandr -s 1")
       , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
       , ("M-/", promptSearch myXPConfig google)
-      , ("M-'", banishScreen LowerRight)                          -- (18)
       , ("<XF86Launch1>", spawn "arandr")
       , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
       , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
@@ -102,9 +106,9 @@ main = do
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
                  , promptBorderWidth = 0
-                 , font    = "-*-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
-                 , fgColor = "white"
-                 , bgColor = "black"
+                 , font    = "-uw-*-medium-i-*-*-14-*-*-*-*-*-*-*"
+                 , fgColor = "#839496"
+                 , bgColor = "#002b36"
                  }
 
 myLayouts = toggleLayouts (noBorders Full) others
@@ -118,7 +122,15 @@ myManageHook = composeOne
 
 -- customLogHook to show windows in xmobar
 quamashPP :: PP
-quamashPP = def { ppCurrent = xmobarColor "white" "black"
-                , ppTitle = xmobarColor "yellow" "" . shorten 60
+quamashPP = def { ppCurrent = xmobarColor "#268bd2" ""
+                , ppTitle = xmobarColor "#b58900" "" . shorten 40 
                 , ppLayout = const "" -- to disable the layout info on xmobar
+                , ppExtras = [logTitles]
+                , ppOrder  = \(ws:l:t:ts:_) -> ws : t : [xmobarColor "#839496" "" ts]
                 }
+
+-- https://stackoverflow.com/questions/22838932/
+logTitles :: X (Maybe String) -- this is a Logger
+logTitles = withWindowSet $ fmap (Just . intercalate " & ") -- fuse window names
+                          . traverse (fmap (shorten 40) . fmap show . getName) -- show window names
+                          . (\ws -> W.index ws \\ maybeToList (W.peek ws))
