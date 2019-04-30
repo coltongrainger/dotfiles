@@ -13,29 +13,30 @@ postsynchook = notmuch new
 type = Maildir
 localfolders = ~/.mail
 nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
                             'archive': '[Gmail]/All Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'spam': '[Gmail]/Spam',
+                            'trash':   '[Gmail]/Trash',
                             }.get(folder, folder)
 
 [Repository coltongrainger-remote]
-
 maxconnections = 1
 type = Gmail
 remoteuser = colton.grainger@gmail.com
 remotepasseval = get_pass()
 realdelete = no
+synclabels = yes
 nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/All Mail':  'archive',
                             '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Spam':      'spam',
                             '[Gmail]/Starred':   'flagged',
                             '[Gmail]/Trash':     'trash',
-                            '[Gmail]/All Mail':  'archive',
                             }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
-                                             '[Gmail]/Spam',
+                            		     '[Gmail]/Spam',
                                              ]
-
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
