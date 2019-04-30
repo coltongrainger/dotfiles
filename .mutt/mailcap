@@ -1,39 +1,5 @@
-# MS Word documents
-application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+# As a cautionary note. You should never add to this list programs that may have bad effect on your system. For example adding an entry for application/x-sh (for a shell script) is a bad idea, as that could perfectly be a virus, and you certainly do not need to get infected by one. For the same reason, you should not associate a program to the file type application/octet-stream.
 
-# this will use the default xls spreadsheet handler from open
-application/x-msexcel; ~/.mutt/view_attachment.sh %s doc
-application/ms-exc; ~/.mutt/view_attachment.sh %s doc
-application/excel; ~/.mutt/view_attachment.sh %s doc
-application/msexcel; ~/.mutt/view_attachment.sh %s doc
-application/vnd.ms-exc; ~/.mutt/view_attachment.sh %s doc
-application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s doc
-
-# docx
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/view_attachment.sh %s doc
-
-# xlsx
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_attachment.sh %s doc
-
-# presentations
-application/vnd.openxmlformats-officedocument.presentationml.presentation; ~/.mutt/view_attachment.sh %s pptx
-
-# Images
-image/jpg; feh %s 
-image/jpeg; feh %s 
-image/pjpeg; feh %s
-image/png; feh %s
-image/gif; feh %s
-
-# PDFs
-application/pdf; evince %s
-
-# HTML
-text/html; ~/.mutt/view_attachment.sh %s html
-text/plain; vim %s
-
-# Unidentified files
-application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
-
-# video
-video/quicktime; vlc %s
+application/pdf; evince '%s' ; test=test -n "$DISPLAY"; needsterminal;
+image/*; feh %s; test=test -n "$DISPLAY"; needsterminal;
+text/html; firefox %s & sleep 2; test=test -n "$DISPLAY"; nametemplate=%s.html; needsterminal;
