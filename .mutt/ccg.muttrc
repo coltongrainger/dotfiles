@@ -1,0 +1,38 @@
+source ~/.mutt/common.muttrc 
+
+set from = "colton.grainger@colorado.edu"
+alternates ^colton.grainger@gmail.com
+set realname = "Colton Grainger"
+set signature = ~/.mutt/signature
+
+# msmtp to send mail
+set sendmail = "/usr/bin/msmtp -a coltongrainger"
+set sendmail_wait = 0
+unset record
+
+# mailbox location
+set folder = ~/.mail 
+# where to keep temp files
+set tmpdir = ~/.mutt/temp
+# entries for filetypes
+set mailcap_path = ~/.mutt/mailcap 
+# where to store certs
+set certificate_file = ~/.mutt/certificates
+# where to store bodies
+set message_cachedir = ~/.mutt/bodies
+# where to store headers
+set header_cache = ~/.mutt/headers 
+
+# default folders
+set spoolfile = "+INBOX"
+set mbox      = "+archive"
+set postponed = "+drafts"
+
+# mailboxes to show in the sidebar
+mailboxes +INBOX \
+          +archive \
+          +drafts \
+          +trash \
+          +spam \
+
+push <show-version>
