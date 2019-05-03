@@ -107,12 +107,11 @@ set pager_context       = 5
 # number of index lines to show
 set pager_index_lines   = 10                                           
 
-# attachments
-auto_view text/html                                                    
 # autoview html
-alternative_order text/plain text/enriched text/html                   
+auto_view text/html                                                    
 # save html for last 
-bind attach <return>    view-mailcap
+alternative_order text/plain text/enriched text/html                   
+bind attach <return> view-mailcap
 
 # color
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
@@ -125,10 +124,10 @@ bind index,pager \CN sidebar-next
 bind index,pager \CP sidebar-prev
 bind index,pager \CO sidebar-open
 
-# unbind link-threads 
-bind index,pager & noop                                                
-# unbind toggle-write                          
-bind index,pager % noop                                                
+# # unbind link-threads 
+# bind index,pager & noop                                                
+# # unbind toggle-write                          
+# bind index,pager % noop                                                
 # unbind delete-thread
 bind index,pager \# noop
 # unbind whatever the g key does
@@ -156,42 +155,48 @@ bind pager <down> next-line
 bind pager <up> previous-line                                          
 
 # sync email
-macro pager,index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
-macro pager,index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+# macro pager,index \CR "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+macro pager,index \CR "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 
 # operate on messages
 macro index,pager e "<save-message>=archive<enter><enter>" "archive"
-bind index,pager \# delete-thread
+bind  index,pager \# delete-thread
+bind  index,pager <delete> purge-message
 macro index,pager ! "<save-message>=spam<enter><enter>"  "report spam"
 
 # default trash/spam management
-folder-hook +trash macro index,pager u "<save-message>=INBOX<enter><enter>" "Move to inbox"
-folder-hook +spam  macro index,pager u "<save-message>=INBOX<enter><enter>" "Move to inbox"
-folder-hook +trash push "D.*\n"
-folder-hook +spam  push "D.*\n"
+folder-hook spam  push "<delete-pattern>.*<Enter>"
+folder-hook trash push "<delete-pattern>.*<Enter>"
 
 bind  index . noop
 # .i will show all new/flagged
 macro index .i  "<limit>(~N|~F)<Enter>"  "view new/flag"
+macro index .u  "<limit>(~U)<Enter>"  "view unread"
 # .a will show all again
 macro index .a "<limit>~A<Enter>" "view all"
 # mark all as read
 macro index .r "T.*\n;WN" "party time, excellent"
 
-# ctrl-n, ctrl-p to select next, prev folder 
-bind index,pager \CP sidebar-prev 
-bind index,pager \CN sidebar-next 
-# ctrl-o to open selected folder 
-bind index,pager \CO sidebar-open 
-
-# ctrl-I for inbox 
-macro index   \CI "<change-folder>=INBOX<Enter>"              "go to INBOX"
-macro browser \CI "<exit><Enter><change-folder>=INBOX<Enter>" "go to INBOX"
-macro pager   \CI "<exit><change-folder>=INBOX<Enter>"        "go to INBOX"
-# ctrl_A for archive
-macro index   \CA "<change-folder>=archive<Enter>"              "go to archive"
-macro browser \CA "<exit><Enter><change-folder>=archive<Enter>" "go to archive"
-macro pager   \CA "<exit><change-folder>=archive<Enter>"        "go to archive"
+# go to inbox 
+macro index   gi "<change-folder>=INBOX<Enter>"              "go to INBOX"
+macro browser gi "<exit><Enter><change-folder>=INBOX<Enter>" "go to INBOX"
+macro pager   gi "<exit><change-folder>=INBOX<Enter>"        "go to INBOX"
+# go to archive
+macro index   ga "<change-folder>=archive<Enter>"              "go to archive"
+macro browser ga "<exit><Enter><change-folder>=archive<Enter>" "go to archive"
+macro pager   ga "<exit><change-folder>=archive<Enter>"        "go to archive"
+# go to trash
+macro index   gt "<change-folder>=trash<Enter>"              "go to trash"
+macro browser gt "<exit><Enter><change-folder>=trash<Enter>" "go to trash"
+macro pager   gt "<exit><change-folder>=trash<Enter>"        "go to trash"
+# go to drafts
+macro index   gd "<change-folder>=drafts<Enter>"              "go to drafts"
+macro browser gd "<exit><Enter><change-folder>=drafts<Enter>" "go to drafts"
+macro pager   gd "<exit><change-folder>=drafts<Enter>"        "go to drafts"
+# go to spam
+macro index   gs "<change-folder>=spam<Enter>"              "go to spam"
+macro browser gs "<exit><Enter><change-folder>=spam<Enter>" "go to spam"
+macro pager   gs "<exit><change-folder>=spam<Enter>"        "go to spam"
 
 # gmail style keybindings
 bind editor <space> noop
@@ -214,30 +219,22 @@ bind index,pager c mail
 
 #  fakesection: notmuch # 
 # ctrl-f to search
-macro index \CF \
+folder-hook . 'macro index \CF \
 "<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
 <shell-escape>notmuch-mutt -r --prompt search<enter>\
 <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
 <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-"notmuch: search mail"
+"notmuch: search mail"'
 
-# ctrl-G to reconstruct thread
-macro index \CG \
+# ctrl-f to reconstruct thread
+folder-hook notmuch 'macro index \CF \
 "<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
 <pipe-message>notmuch-mutt -r thread<enter>\
 <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
 <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-"notmuch: reconstruct thread"
-
-# ctrl-E to archive
-macro index \CE \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<pipe-message>notmuch-mutt tag -- -inbox<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-"notmuch: remove message from inbox"
+"notmuch: reconstruct thread"'
 
 #  fakesection: personal # 
-
 set from = "colton.grainger@colorado.edu"
 alternates ^colton.grainger@gmail.com
 set realname = "Colton Grainger"
@@ -249,12 +246,11 @@ set sendmail_wait = 0
 unset record
 
 #  fakesection: maildir and aliases # 
-
 set folder = ~/.mail 
 # where to keep temp files
 set tmpdir = ~/.mutt/temp
 # entries for filetypes
-set mailcap_path = ~/.mutt/mailcap 
+set mailcap_path = ~/.mutt/mailcap.backgrounding
 # where to store certs
 set certificate_file = ~/.mutt/certificates
 # where to store bodies

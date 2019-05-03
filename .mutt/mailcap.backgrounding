@@ -1,0 +1,6 @@
+#
+# Mutt mailcap for backgrounding 
+
+text/html; ~/.mutt/browserrun %s; description=Open file in browser via FIFO
+application/*; ~/.mutt/bgrun %s %t; description=Backgrounded run of run-mailcap
+image/*; ~/.mutt/bgrun %s %t; description=Backgrounded run of run-mailcap
