@@ -69,10 +69,10 @@ main = do
       , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
       , ("M-c p", raiseMaybe (runInTerm "-title make-stylefiles" "bash -c 'make -C $HOME/fy/19/stylefiles'") (title =? "make-stylefiles"))
       , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))
-      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.muttrc'") (title =? ".muttrc"))
+      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.mutt/common.muttrc'") (title =? ".muttrc"))
       , ("M-c j", raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
       , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
-      , ("M-c a", raiseMaybe (runInTerm "-title aliases.txt" "bash -c 'vim $HOME/.mutt/aliases.txt'") (title =? "aliases.txt"))
+      , ("M-c a", raiseMaybe (runInTerm "-title aliases" "bash -c 'vim $HOME/.mutt/aliases'") (title =? "aliases"))
       , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
       , ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
       , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
@@ -123,7 +123,7 @@ myManageHook = composeOne
 -- customLogHook to show windows in xmobar
 quamashPP :: PP
 quamashPP = def { ppCurrent = xmobarColor "#268bd2" ""
-                , ppTitle = xmobarColor "#b58900" "" . shorten 40 
+                , ppTitle = xmobarColor "#b58900" "" . shorten 20
                 , ppLayout = const "" -- to disable the layout info on xmobar
                 , ppExtras = [logTitles]
                 , ppOrder  = \(ws:l:t:ts:_) -> ws : t : [xmobarColor "#839496" "" ts]
@@ -131,6 +131,6 @@ quamashPP = def { ppCurrent = xmobarColor "#268bd2" ""
 
 -- https://stackoverflow.com/questions/22838932/
 logTitles :: X (Maybe String) -- this is a Logger
-logTitles = withWindowSet $ fmap (Just . intercalate " & ") -- fuse window names
-                          . traverse (fmap (shorten 40) . fmap show . getName) -- show window names
+logTitles = withWindowSet $ fmap (Just . intercalate "  :  ") -- fuse window names
+                          . traverse (fmap (shorten 15) . fmap show . getName) -- show window names
                           . (\ws -> W.index ws \\ maybeToList (W.peek ws))

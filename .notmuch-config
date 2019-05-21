@@ -31,8 +31,8 @@ path= /home/colton/.mail
 #
 [user]
 name=Colton Grainger
-primary_email=coltongrainger@gmail.com
-other_email=coltong@fscss.org;
+primary_email=colton.grainger@colorado.edu
+other_email=colton.grainger@gmail.com;
 
 # Configuration for "notmuch new"
 #

@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'godlygeek/tabular'
   Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
   Plug 'junegunn/gv.vim'
+  Plug 'junegunn/goyo.vim'
   Plug 'tpope/vim-characterize'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
@@ -38,7 +39,7 @@ call plug#begin('~/.vim/plugged')
   " TODO Here's a list of plugins to tentatively remove. <ccg, 2019-04-21> "
   " Plug 'fatih/vim-go'
   " Plug 'goerz/ipynb_notedown.vim'
-  " Plug 'aperezdc/vim-template'
+  Plug 'aperezdc/vim-template'
   " Plug 'coltongrainger/vim-markdown'
   Plug 'altercation/vim-colors-solarized'
 call plug#end()
@@ -52,7 +53,7 @@ runtime! plugin/sensible.vim
 
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces number
 set noerrorbells visualbell t_vb= 
-set noshowmatch lazyredraw scrolljump=5 " scrolloff=5
+set noshowmatch scrolljump=5 " scrolloff=5
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 set formatprg=par\ -w80qes0
 
@@ -64,11 +65,14 @@ if has('autocmd')
     " When editing a file, always jump to the last cursor position
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     autocmd BufWritePost .vimrc source $HOME/.vimrc
+    autocmd BufReadPost *muttrc set filetype=muttrc
+    autocmd BufNewFile,BufRead ~/.mutt/temp/*mutt* set noautoindent filetype=mail nonumber nolist nopaste
     autocmd FileType vim setlocal keywordprg=:help
     autocmd FileType conf,gitcommit,mail,markdown,mediawiki,tex setlocal spell linebreak
     autocmd FileType crontab setlocal commentstring=#%s
     autocmd FileType gitignore setlocal commentstring=#\ %s
     autocmd FileType mail,text,help setlocal comments=fb:*,fb:-,fb:+,n:>
+    autocmd FileType mail setlocal tw=0
     autocmd FileType help,man,qf nnoremap <buffer> <silent> q :q<CR>
     autocmd FileType help,man setlocal nolist nospell
     " indentation defaults for written documents
@@ -76,14 +80,15 @@ if has('autocmd')
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
     autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    autocmd FileType text setlocal filetype=markdown
     autocmd FileType make setlocal noexpandtab
     autocmd FileType cls setlocal filetype=tex
-    autocmd FileType tex let g:tex_flavor='latex'
     autocmd FileType tex let g:tex_fold_enabled=1
     autocmd FileType tex setlocal fillchars=fold:\ 
     " More aggressively check spelling in LaTeX; see
     " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
     autocmd FileType tex syntax spell toplevel
+    autocmd FileType tex let g:tex_flavor='latex'
   augroup END
 endif
 
@@ -96,16 +101,16 @@ let g:templates_directory=['$HOME/.vim/templates']
 let g:templates_no_builtin_templates=1
 let g:templates_use_licensee=1
 let g:email='colton.grainger@colorado.edu'
-let g:username='ccg'
+let g:username='Colton Grainger'
 let g:license='CC-0 Public Domain'
 
-let g:snips_author='ccg'
+let g:snips_author='Colton Grainger'
 let g:snips_email='colton.grainger@colorado.edu'
 let g:snips_github='https://github.com/coltongrainger'
 
 let g:UltiSnipsEditSplit="tabdo"
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
@@ -125,7 +130,8 @@ let g:vimtex_quickfix_latexlog = {
       \}
 
 let g:fastfold_fold_movement_commands = []
-let g:fastfold_minlines=200
+let g:fastfold_minlines=0
+let g:fastfold_force=1
 nmap <F5> <Plug>(FastFoldUpdate)
 
 let g:vimtex_fold_enabled=1
@@ -154,7 +160,14 @@ noremap <F2> :so ~/.vimrc<CR>
 noremap <F3> :Start latex-help.sh<CR>
 noremap <F4> :UltiSnipsEdit<CR>
 " Give suggestions for last misspelled word.
-noremap <C-S> [sz=
+map <C-S> [sz=
+
+" pandoc
+nmap \pz ZoteroCite()<CR>
+" compile .pdf and watch
+nmap \pc :Start pc.sh %<CR>
+" view available .pdf
+nmap \pv :Dispatch! pv.sh %<CR>
 
 " https://github.com/vEnhance/dotfiles/blob/master/vimrc
 function! DelEmptyLineAbove()

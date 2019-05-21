@@ -17,6 +17,8 @@ PERL_MM_OPT="INSTALL_BASE=/home/colton/perl5"; export PERL_MM_OPT;
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
+alias dropbox='python $HOME/.local/dropbox.py start &'
+
 # https://www.jefftk.com/p/you-should-be-logging-shell-history
 promptFunc() {
     # Right before prompting for the next command, save the previous

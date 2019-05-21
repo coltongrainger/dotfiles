@@ -108,7 +108,7 @@ set pager_context       = 5
 set pager_index_lines   = 10                                           
 
 # autoview html
-auto_view text/html                                                    
+auto_view text/html
 # save html for last 
 alternative_order text/plain text/enriched text/html                   
 bind attach <return> view-mailcap
