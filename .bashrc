@@ -14,10 +14,10 @@ PERL_MM_OPT="INSTALL_BASE=/home/colton/perl5"; export PERL_MM_OPT;
 # Initialize fuzzy find.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
-
+# renames
 alias dropbox='python $HOME/.local/dropbox.py start &'
+alias vpn='/opt/cisco/anyconnect/bin/vpn'
+alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
 
 # https://www.jefftk.com/p/you-should-be-logging-shell-history
 promptFunc() {

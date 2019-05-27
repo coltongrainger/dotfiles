@@ -21,5 +21,5 @@ Config { font = "-uw-*-medium-i-*-*-14-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-        template = "        %XMonadLog% }{%cpu%  %memory%  <fc=#859900>%date%</fc> "
+        template = "                     %XMonadLog% }{%cpu%  %memory%  <fc=#859900>%date%</fc> "
        }

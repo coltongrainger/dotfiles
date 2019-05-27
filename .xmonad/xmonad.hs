@@ -10,6 +10,7 @@ import XMonad.Layout.ResizableTile (ResizableTall(..))
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
 import XMonad.Layout.StackTile
 
+import XMonad.Actions.Warp         -- (18) warp the mouse pointer
 import XMonad.Actions.Submap       -- (19) create keybinding submaps
 import XMonad.Actions.Search hiding (Query, images) 
                                    -- (20) some predefined web searches
@@ -40,7 +41,7 @@ main = do
   xmonad $ desktopConfig
     { terminal    = "urxvt"
     , workspaces  = map show [1..9]
-    , borderWidth = 0
+    , borderWidth = 1
     , modMask     = mod4Mask -- Use the "Win" key for the mod key
     , manageHook  = myManageHook <+> manageHook desktopConfig
     , layoutHook  = desktopLayoutModifiers $ myLayouts
@@ -52,56 +53,71 @@ main = do
       [ "M-S-c" ]
 
     `additionalKeysP`
-      [ ("M-p", shellPrompt myXPConfig)
-      , ("M-S-p", manPrompt myXPConfig)                           -- (24)
-      , ("S-C-/", selectSearch google)
-      , ("M-z", runOrRaise "zotero" (className =? "Zotero"))
-      , ("M-v", raiseMaybe (runInTerm "-title vim" "bash -c vim") (title =? "vim"))
-      , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
-      , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary"))
-      , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne"))
-      , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt"))
-      , ("M-i", runOrRaise "firefox" (className =? "Firefox"))
-      , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
-      , ("M-c v", raiseMaybe (runInTerm "-title .vimrc" "bash -c 'vim $HOME/.vimrc'") (title =? ".vimrc"))
-      , ("M-c t", raiseMaybe (runInTerm "-title stylefiles" "bash -c 'vim $HOME/fy/19/stylefiles/src'") (title =? "stylefiles"))
-      , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
-      , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
-      , ("M-c p", raiseMaybe (runInTerm "-title make-stylefiles" "bash -c 'make -C $HOME/fy/19/stylefiles'") (title =? "make-stylefiles"))
-      , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))
-      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.mutt/common.muttrc'") (title =? ".muttrc"))
-      , ("M-c j", raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal"))
-      , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
-      , ("M-c a", raiseMaybe (runInTerm "-title aliases" "bash -c 'vim $HOME/.mutt/aliases'") (title =? "aliases"))
-      , ("M-S-v", prompt "urxvt -e 'vim'" myXPConfig)
-      , ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
-      , ("M-S-l", spawn "xscreensaver-command -lock")             -- (0)
+      [ ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
+      -- center the pointer, banish the pointer
+      , ("M-'", warpToWindow (1/2) (1/2))
+      , ("M-S-'", banishScreen LowerRight)                          -- (18)
+      -- window movements 
+      , ("M-<Esc>", sendMessage (Toggle "Full"))
+      , ("<XF86Forward>" , rotAllDown)
+      , ("<XF86Back>" , rotAllUp)
+      -- kill windows
       , ("M-S-a", kill)
       , ("M-S-C-a", killAll)                                      -- (22)
-      , ("M-S-/", promptSearch myXPConfig duckduckgo)
-      , ("M-C-p", runOrRaise "keepassxc" (className =? "keepassxc"))
-      , ("M-C-S-p", spawn "/usr/bin/keepassxc --auto-type")
-      , ("M-<Page_Up>", spawn "xcalib -invert -alter")
-      , ("M-<Home>", spawn "xrandr --output VGA-1 --mode 1920x1080 --pos 1360x0 --rotate normal --output LVDS-1 --primary --mode 1360x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off")
-      , ("M-<Esc>", sendMessage (Toggle "Full"))
-      , ("M-<End>", spawn "xrandr -s 1")
-      , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
-      , ("M-/", promptSearch myXPConfig google)
-      , ("<XF86Launch1>", spawn "arandr")
-      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
-      , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
-      , ("<XF86AudioMicMute>", spawn "pavucontrol")
+      -- run process
+      , ("M-p", shellPrompt myXPConfig)
+      -- run process in terminal
+      , ("M-S-p", prompt "urxvt -e" myXPConfig)
+      -- audio controls
       , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
-      -- , ("M-<Tab>", cycleRecentWindows [xK_Super_L] xK_Tab xK_Tab)
-      , ("M-[" , rotSlavesUp)
-      , ("M-]" , rotSlavesDown)
-      , ("M-S-[" , rotAllUp)
-      , ("M-S-]" , rotAllDown)
+      , ("<XF86AudioMicMute>", spawn "pavucontrol")
+      , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
+      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
+      -- display controls
+      , ("M-<End>", spawn "xrandr -s 1")
+      , ("M-<Home>", spawn "arandr")
+      , ("<XF86Launch1>", spawn "xcalib -invert -alter")
+      -- open man page
+      , ("M-;", manPrompt myXPConfig)                           -- (24)
+      -- open tldr page
+      , ("M-S-;", prompt "urxvt -e 'tldr'" myXPConfig)
+      -- searches
+      , ("M-/", promptSearch myXPConfig google)
+      , ("M-S-/", promptSearch myXPConfig duckduckgo)
+      , ("S-C-/", selectSearch google)
+      -- run named software
+      , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
+      , ("M-0", raiseMaybe (spawn "google-chrome 'https://trello.com/b/ynVgFrfd/todo'") (title=? "todo | Trello - Google Chrome")) -- tod(0)
+      , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
+      , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne
+      , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary")) -- (o)ed
+      , ("M-v", prompt "urxvt -e 'vim'" myXPConfig) -- (v)im
+      , ("M-z", runOrRaise "zotero" (className =? "Zotero")) -- (z)otero
+      , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
+      , ("M-<F5>", raiseMaybe (spawn "/opt/cisco/anyconnect/bin/vpnui") (className =? "Cisco AnyConnect Secure Mobility Client"))
+      , ("M-\\", runOrRaise "keepassxc" (className =? "keepassxc")) -- M-S-\ runs autotype ... this shortcut is configured in keepassxc itself
+      -- config files
+      -- vimrc
+      , ("M-c v", raiseMaybe (runInTerm "-title .vimrc" "bash -c 'vim $HOME/.vimrc'") (title =? ".vimrc"))
+      -- init.el
+      , ("M-c s", raiseMaybe (runInTerm "-title init.el" "bash -c 'vim $HOME/.emacs.d/init.el'") (title =? "init.el"))
+      -- bashrc
+      , ("M-c b", raiseMaybe (runInTerm "-title .bashrc" "bash -c 'vim $HOME/.bashrc'") (title =? ".bashrc"))
+      -- muttrc
+      , ("M-c m", raiseMaybe (runInTerm "-title .muttrc" "bash -c 'vim $HOME/.mutt/common.muttrc'") (title =? ".muttrc")) -- edit muttrc
+      -- mutt aliases
+      , ("M-c a", raiseMaybe (runInTerm "-title aliases" "bash -c 'vim $HOME/.mutt/aliases'") (title =? "aliases")) -- mutt aliases
+      -- xmonad.hs
+      , ("M-c x", raiseMaybe (runInTerm "-title xmonad.hs" "bash -c 'vim $HOME/.xmonad/xmonad.hs'") (title =? "xmonad.hs"))
+      -- edi(t) and com(p)ile stylefiles
+      , ("M-c t", raiseMaybe (runInTerm "-title stylefiles" "bash -c 'vim $HOME/fy/19/stylefiles/src'") (title =? "stylefiles"))
+      , ("M-c p", raiseMaybe (runInTerm "-title make-stylefiles" "bash -c 'make -C $HOME/fy/19/stylefiles'") (title =? "make-stylefiles"))
+      -- mnemosyne
+      , ("M-c n", raiseMaybe (runInTerm "-title config.py" "bash -c 'vim $HOME/.config/mnemosyne/config.py'") (title =? "config.py"))
+      -- (j)ournal and (q)uamash wiki
+      , ("M-c j", raiseMaybe (runInTerm "-title journal" "bash -c 'vim $HOME/journal/index.md'") (title =? "journal")) -- edit journal
+      , ("M-c q", raiseMaybe (runInTerm "-title quamash" "bash -c 'cd $HOME/wiki/quamash && vim .'") (title =? "quamash"))
       ]
-
--- myStartupHook :: X ()
--- myStartupHook = do
---         spawn "keepassxc"
 
 myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
@@ -113,7 +129,7 @@ myXPConfig = def { position          = Top
 
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = ResizableTall 1 (1.5/100) (5/8) [] ||| StackTile 1 (3/100) (1/2)
+    others = ResizableTall 1 (1.5/100) (5/8) [] -- ||| StackTile 1 (3/100) (1/2)
 
 myManageHook = composeOne
   [ isDialog              -?> doCenterFloat

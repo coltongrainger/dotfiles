@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'aperezdc/vim-template'
   " Plug 'coltongrainger/vim-markdown'
   Plug 'altercation/vim-colors-solarized'
+  Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29.
@@ -93,10 +94,11 @@ if has('autocmd')
 endif
 
 colorscheme solarized
-set background=dark
+set background=light
 
 let g:dispatch_terminal_exec='urxvt -e'
 
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'yaml']
 let g:templates_directory=['$HOME/.vim/templates']
 let g:templates_no_builtin_templates=1
 let g:templates_use_licensee=1

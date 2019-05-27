@@ -81,7 +81,7 @@ set sort_re
 # don't collapse on an unread message
 set uncollapse_jump                                                    
 # like gmail
-set sort_aux = reverse-last-date-received                   
+set sort_aux = last-date-received                   
 # like gmail
 set sort = threads                                      
 # format of the index view, show all flags, date, the sender and finally the subject
@@ -115,7 +115,7 @@ bind attach <return> view-mailcap
 
 # color
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-source ~/.mutt/mutt-colors-solarized-dark-16.muttrc 
+source ~/.mutt/mutt-colors-solarized-light-16.muttrc 
 
 #  fakesection: keybindings # 
 
@@ -235,8 +235,8 @@ folder-hook notmuch 'macro index \CF \
 "notmuch: reconstruct thread"'
 
 #  fakesection: personal # 
-set from = "colton.grainger@colorado.edu"
-alternates ^colton.grainger@gmail.com
+set from = "grainger@ucar.edu"
+alternates ^colton.grainger@gmail.com$ ^colton.grainger@colorado.edu$
 set realname = "Colton Grainger"
 set signature = ~/.mutt/signature
 
