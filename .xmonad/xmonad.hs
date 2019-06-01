@@ -79,8 +79,6 @@ main = do
       , ("<XF86Launch1>", spawn "xcalib -invert -alter")
       -- open man page
       , ("M-;", manPrompt myXPConfig)                           -- (24)
-      -- open tldr page
-      , ("M-S-;", prompt "urxvt -e 'tldr'" myXPConfig)
       -- searches
       , ("M-/", promptSearch myXPConfig google)
       , ("M-S-/", promptSearch myXPConfig duckduckgo)
@@ -88,10 +86,11 @@ main = do
       -- run named software
       , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
       , ("M-0", raiseMaybe (spawn "google-chrome 'https://trello.com/b/ynVgFrfd/todo'") (title=? "todo | Trello - Google Chrome")) -- tod(0)
+      , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne
       , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary")) -- (o)ed
-      , ("M-v", prompt "urxvt -e 'vim'" myXPConfig) -- (v)im
+      --, ("M-v", raiseMaybe (runInTerm "-title GhostTextStart" "bash -c 'vim -c \"GhostTextStart\"'") (title =? "GhostTextStart"))
       , ("M-z", runOrRaise "zotero" (className =? "Zotero")) -- (z)otero
       , ("M-<Delete>", raiseMaybe (runInTerm "-title htop" "bash -c htop") (title =? "htop"))
       , ("M-<F5>", raiseMaybe (spawn "/opt/cisco/anyconnect/bin/vpnui") (className =? "Cisco AnyConnect Secure Mobility Client"))
