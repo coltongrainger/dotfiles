@@ -1,7 +1,7 @@
 #!/bin/bash
 
 to_sync="$(readlink -f .)"/ 
-google_drive_dir="$(readlink -f /home/colton/fy/20/sia)"*/
+google_drive_dir="$HOME/fy/20/siparcs/team-drive"
 options="-v -u\
     --checkers 1\
     --transfers 4\

@@ -112,8 +112,8 @@ $endif$
 $if(date)$
 \date{$date$}
 $endif$
-$if(url)$
-\thanks{\textit{url:} \url{$url$}}
+$if(note)$
+\thanks{$note$}
 $endif$
 
 \begin{document}

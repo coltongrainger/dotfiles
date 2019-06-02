@@ -85,6 +85,7 @@ main = do
       , ("S-C-/", selectSearch google)
       -- run named software
       , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
+      , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       , ("M-0", raiseMaybe (spawn "google-chrome 'https://trello.com/b/ynVgFrfd/todo'") (title=? "todo | Trello - Google Chrome")) -- tod(0)
       , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt

@@ -14,8 +14,4 @@ for x in $(seq $1 -1 0); do
 done
 
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress\
-    -sOutputFile=$HOME/Downloads/temp.pdf ${outarray[@]}
-
-mupdf $HOME/Downloads/temp.pdf
-wait
-rm $HOME/Downloads/temp.pdf
+    -sOutputFile=$HOME/raw-notes.pdf ${outarray[@]}

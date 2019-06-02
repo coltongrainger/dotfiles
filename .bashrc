@@ -4,6 +4,9 @@ export GOROOT=/usr/local/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
 export VIMRUNTIME=/usr/share/vim/vim81
+export PYTHONPATH=/.local/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=/.local/lib/python3.6/site-packages:$PYTHONPATH
+export PYTHONPATH=/.local/lib/python3.7/site-packages:$PYTHONPATH
 
 PATH="/home/colton/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/colton/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -44,6 +47,9 @@ then
     stty werase ''
 fi
 
+# colors
+eval $(dircolors ~/.dir_colors)
+
 # https://superuser.com/questions/665274/how-to-make-ls-color-its-output-by-default-without-setting-up-an-alias
 alias grep='grep -i --color'
 
@@ -52,7 +58,9 @@ alias ls='ls --color=auto'
 
 # Use a long listing format.
 alias ll='ls -la'
-eval $(dircolors ~/.dir_colors)
+
+## Show hidden files ##
+alias l.='ls -d .* --color=auto'
 
 # Open the OED with Wine.
 alias oed="wine start /unix '/opt/oed/swhx.exe'"
@@ -116,3 +124,58 @@ function extract() {
 
 # TODO Remove TMSU.
 # export GOPATH=$HOME/.local/TMSU
+
+# https://gist.github.com/Dnomyar/9c289fcc2668b59e1ffb
+function githelp {
+    echo ""
+    echo "git clone http://... [repo-name]"
+    echo "git init [repo-name]"
+    echo ""
+    echo "git add -A <==> git add . ; git add -u # Add to the staging area (index)"
+    echo ""
+    echo "git commit -m 'message' -a"
+    echo "git commit -m 'message' -a amend"
+    echo ""
+    echo "git status"
+    echo "git log stat # Last commits, stat optional"
+    echo "git ls-files"
+    echo "git diff HEAD~1..HEAD"
+    echo ""
+    echo "git push origin master"
+    echo "git push origin master:master"
+    echo ""
+    echo "git remote add origin http://..."
+    echo "git remote set-url origin git://..."
+    echo ""
+    echo "git stash"
+    echo "git pull origin master"
+    echo "git stash list ; git stash pop"
+    echo ""
+    echo "git submodule add /absolute/path repo-name"
+    echo "git submodule add http://... repo-name"
+    echo ""
+    echo "git checkout -b new-branch <==> git branch new-branch ; git checkout new-branch"
+    echo "git merge old-branch"
+    echo "git branch local_name origin/remote_name # Associate branches"
+    echo ""
+    echo "git update-index assume-unchanged <file> # Ignore changes"
+    echo "git rm cached <file> # Untrack a file"
+    echo ""
+    echo "git reset hard HEAD # Repair what has been done since last commit"
+    echo "git revert HEAD # Repair last commit"
+    echo "git checkout [file] # Reset a file to its previous state at last commit"
+    echo ""
+    echo "git tag # List"
+    echo "git tag v0.5 # Lightwieght tag"
+    echo "git tag -a v1.4 -m 'my version 1.4' # Annotated tag"
+    echo "git push origin v1.4 # Pushing"
+    echo ""
+    echo "HOW TO RENAME A BRANCH LOCALLY AND REMOTELY"
+    echo "git branch -m old_name new_name"
+    echo "git push origin new_name"
+    echo "git push origin :old_name"
+    echo ""
+    echo "Each other client of the repository has to do:"
+    echo "git fetch origin ; git remote prune origin"
+    echo ""
+}

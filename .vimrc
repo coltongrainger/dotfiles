@@ -38,11 +38,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'
   " TODO Here's a list of plugins to tentatively remove. <ccg, 2019-04-21> "
   " Plug 'fatih/vim-go'
-  " Plug 'goerz/ipynb_notedown.vim'
+  Plug 'goerz/ipynb_notedown.vim'
   Plug 'aperezdc/vim-template'
   " Plug 'coltongrainger/vim-markdown'
   Plug 'altercation/vim-colors-solarized'
-  Plug 'jalvesaq/Nvim-R'
+  Plug 'pandysong/ghost-text.vim'
+  Plug 'wmvanvliet/jupyter-vim'
 call plug#end()
 
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29.

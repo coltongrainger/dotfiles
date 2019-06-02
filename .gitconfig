@@ -55,3 +55,5 @@ clean = "jq --indent 1 \
 '"
 smudge = cat
 required = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
