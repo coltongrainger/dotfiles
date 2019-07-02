@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2019-07-02T03:46:39-06:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>“Inverse” Problems</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><link href="http://localhost/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="http://localhost/webwork2_files/js/vendor/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.11/pretext.js"></script><script src="https://pretextbook.org/js/0.11/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
+<script>var logged_in = false;
+var role = 'student';
+var guest_access = true;
+var login_required = false;
+var js_version = 0.11;
+</script>
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\newcommand{\indefiniteintegral}[2]{\int#1\,d#2} 
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="index.html"><span class="title">Math 1300 Student's Guide</span></a></h1>
+<p class="byline">Various Authors, Colton Grainger</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="manipulating-numbers.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="preliminaries.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="setting-up-coordinates.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="manipulating-numbers.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="preliminaries.html" title="Up">Up</a><a class="next-button button toolbar-item" href="setting-up-coordinates.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon.html" data-scroll="colophon">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="preliminaries.html" data-scroll="preliminaries"><span class="codenumber">1</span> <span class="title">Background</span></a><ul>
+<li><a href="good-to-know.html" data-scroll="good-to-know">What's Good?</a></li>
+<li><a href="manipulating-numbers.html" data-scroll="manipulating-numbers">Manipulating Numbers</a></li>
+<li><a href="inverse-problems.html" data-scroll="inverse-problems" class="active">“Inverse” Problems</a></li>
+<li><a href="setting-up-coordinates.html" data-scroll="setting-up-coordinates">Setting Up Coordinates</a></li>
+<li><a href="solving-simultaneous-equations.html" data-scroll="solving-simultaneous-equations">Solving Simultaneous Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="sets-and-functions.html" data-scroll="sets-and-functions"><span class="codenumber">2</span> <span class="title">Sets and Functions</span></a><ul>
+<li><a href="sets.html" data-scroll="sets">Sets</a></li>
+<li><a href="functions.html" data-scroll="functions">Functions</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="mailto:colton.grainger@colorado.edu" target="_blank">Send feedback here.</a><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="inverse-problems"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">“Inverse” Problems</span>
+</h2>
+<a href="inverse-problems.html" class="permalink">¶</a>Robin Cruz<section class="subsection" id="subsection-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.1</span> <span class="title">Properties of Radicals</span>
+</h3>
+<p id="p-113">What is \(\sqrt{x^2 + 9}\text{?}\) Many students will answer quickly that the answer is \((x + 3)\) and have a very difficult time believing this answer is wrong. But it is wrong.</p>
+<p id="p-114">For positive values of \(x\text{,}\) \(\sqrt{x^2}\) <em class="emphasis">is</em> \(x\) and \(\sqrt{9}\) <em class="emphasis">is</em> \(3\text{,}\) but \(\sqrt{x^2 + 9}\) is not \((x + 3).\)</p>
+<p id="p-115">Why not? Remember that \(\sqrt{x^2 + 9}\) is asking a question: “what <em class="emphasis">squared</em> gives the answer \(x^2 + 9\text{?}\)” So \((x + 3)\) is not an answer, because \((x + 3)^2 = x^2 + 6x+9\text{,}\) not \(x^2 + 9\text{.}\)</p>
+<p id="p-116">As an example, suppose \(x = 4\text{.}\) Substituting into \(\sqrt{x^2 + 9}\) gives \(\sqrt{4^2 + 9} = \sqrt{25} = 5\text{.}\) But substituting into \((x + 3)\) gives, \((4 + 3) = 7\text{.}\)  That is, when \(x = 4\text{:}\)</p>
+<div class="displaymath">
+\begin{gather*}
+\sqrt{x^2 + 9} = \sqrt{4^2 + 9} = \sqrt{25} = 5\neq 7 = (4+3)=(x+3)
+\end{gather*}
+</div>
+<p id="p-117"><em class="alert">NOTE:</em> If two numbers are added or subtracted under a square root, you cannot split them up. In symbols: \(\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}\) or, to put it another way, \(\sqrt{x^2 + y^2} \neq x + y.\)</p>
+<p id="p-118">\(\sqrt{x^2 + 9}\) cannot, in fact, be simplified at all. It is a perfectly valid function, but cannot be rewritten in a simpler form.</p>
+<p id="p-119">How about \(\sqrt{9x^2}\text{?}\) By analogy to the previous discussion, you might expect that this cannot be simplified either. But in fact, it can be simplified:</p>
+<div class="displaymath">
+\begin{gather*}
+\sqrt{9x^2} = 3x
+\end{gather*}
+</div>
+<p>Why? Again, \(\sqrt{9x^2}\) is asking “what squared gives the answer \(9x^2\text{?}\)” The answer is \(3x\) because \((3x)^2 = 9x^2.\)</p>
+<p id="p-120">Similarly, \(\displaystyle \sqrt{\frac{9}{x^2}} = \frac{3}{x}\) , because \(\displaystyle \left(\frac{3}{x}\right)^2 = \frac{9}{x^2}\text{.}\)</p>
+<p id="p-121">There are radicals (or roots) other than a square root: \(\sqrt[3]{27}\) means “what number raised to the third power gives \(27\)”.  In this case, \(3^3=27\) so \(\sqrt[3]{27} = 3\text{.}\)  Similarly, \(\sqrt[4]{16} = 2.\)</p></section><section class="subsection" id="subsection-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.2</span> <span class="title">Radicals as Exponents</span>
+</h3>
+<section class="introduction" id="introduction-2"><p id="p-122">The way we generally consider exponents is as repeated multiplication: \(10^6\) means \(10\cdot10\cdot10\cdot10\cdot10\cdot10\text{.}\) But this definition of exponents does not enable us to answer questions such as:</p>
+<div class="displaymath">
+\begin{align*}
+4^0\amp = ??\\
+5^{-4}\amp =??\\
+9^{1/2}\amp = ??
+\end{align*}
+</div>
+<p>You can't “multiply \(9\) by itself half a time” or “multiply \(5\) by itself \(-4\) times.” We need a different way of considering the exponent in these cases.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width" style="width:100%;justify-content:flex-start;"><table>
+<tr><td class="c m b3 r1 l1 t3" colspan="4" style="max-width:120px;"><p id="p-123">Definitions: When the exponent is not a positive integer</p></td></tr>
+<tr>
+<td class="c m b3 r1 l1 t0" style="max-width:120px;"><p id="p-124">Zero Exponents</p></td>
+<td class="c m b3 r1 l0 t0" style="max-width:120px;"><p id="p-125">Negative Exponents</p></td>
+<td class="c m b3 r1 l0 t0" style="max-width:180px;">
+<p id="p-126">Fractional Exponents</p>
+<p id="p-127">(\(1/n\))</p>
+</td>
+<td class="c m b3 r1 l0 t0" style="max-width:180px;">
+<p id="p-128">Fractional Exponents</p>
+<p id="p-129">(\(m/n\))</p>
+</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0" style="max-width:120px;"><p id="p-130">Always \(1\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:120px;"><p id="p-131">Indicate the reciprocal</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;"><p id="p-132">Act as a radical</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;">
+<p id="p-133">\(m\) is an exponent,</p>
+<p id="p-134">\(n\) is a radical</p>
+</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0" style="max-width:120px;"><p id="p-135">\(7^0 = 1\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:120px;"><p id="p-136">\(7^{-3} = \frac{1}{7^3} = \frac{1}{343}\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;"><p id="p-137">\(9^{1/2} = \sqrt{9} = 3\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;">
+<p id="p-138">\(8^{2/3}=\sqrt[3]{8^2}=4\) or \((\sqrt[3]{8})^2=4\)</p>
+<p id="p-139">The order doesn't matter.</p>
+</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0" style="max-width:120px;"><p id="p-140">\(9^0=1\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:120px;"><p id="p-141">\(x^{-5} = \frac{1}{x^5}\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;"><p id="p-142">\(2^{1/2} = \sqrt{2}\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;"><p id="p-143">\(8^{3/2} = \sqrt{8^3}\) or \((\sqrt{8})^3\)</p></td>
+</tr>
+</table></div></div></div>
+<p id="p-144">Note that you can combine these definitions. For instance, \(8^{-2/3}\) is a negative, fractional exponent. The negative exponent means, as always, "put me in the denominator." So we can write:</p>
+<div class="displaymath">
+\begin{gather*}
+8^{-2/3} = \frac{1}{8^{2/3}} = \frac{1}{(\sqrt[3]{8})^2} = \frac{1}{2^2} = \frac{1}{4}
+\end{gather*}
+</div></section><section class="subsubsection" id="subsubsection-1"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span> <span class="codenumber">1.3.2.1</span> <span class="title">OK, so why define exponents that way?</span>
+</h4>
+<p id="p-145">These are obviously not chosen to be the simplest possible definitions. But they are chosen to be consistent with the behavior of positive-integer exponents. One way to see that consistency is to consider the following progression:</p>
+<div class="displaymath">
+\begin{gather*}
+19^4 = 19 \cdot 19 \cdot 19 \cdot 1\\
+19^3 = 19 \cdot 19 \cdot 19\\
+19^2 = 19 \cdot 19\\
+19^1 = 19
+\end{gather*}
+</div>
+<p>What happens each time we decrease the exponent by \(1\text{?}\) Your first response might be “we have one less \(19\text{.}\)” But what is really happening, mathematically, to the numbers on the right? The answer is that, with each step, they are dividing by \(19\text{.}\) If you take \(19 \cdot 19 \cdot 19 \cdot 19\text{,}\) and divide it by \(19\text{,}\) you get \(19 \cdot 19 \cdot 19\text{.}\) Divide that by \(19\) again, and you get \(19 \cdot 19\) \(\ldots\) and so on. From this we can formulate the following principle for the powers of \(19\text{:}\)</p>
+<p id="p-146">Whenever you <em class="emphasis">subtract</em> \(1\) from the exponent, you <em class="emphasis">divide the answer</em> by \(19.\)</p>
+<p id="p-147">As we said earlier, we want the behavior of our new exponents to be consistent with the behavior of the old (positive-integer) exponents. So we can continue this progression as follows:</p>
+<div class="displaymath">
+\begin{align*}
+19^1 \amp =19\\
+19^0 \amp =\frac{19}{19} = 1\\
+19^{-1} \amp = \frac{1}{19}\\
+19^{-2}  \amp = \frac{\frac{1}{19}}{19} = \frac{1}{19^2}
+\end{align*}
+</div>
+<p>\(\ldots\) and so on. We arrive at our definitions that anything to the zero power is \(1\) and negative exponents go to the denominator by simply requiring this progression to be consistent.</p>
+<p id="p-148">More rigorously, we can find all our exponent definitions by using the laws of exponents. For instance, what is \(4^0\text{?}\) We can approach this question indirectly by asking: what is \(\dfrac{4^2}{4^2}\text{?}\)</p>
+<ul class="disc">
+<li id="li-10">The second law of exponents tells us that \(\dfrac{4^2}{4^2} = 4^{2-2}\text{,}\) which is \(4^0\text{.}\)</li>
+<li id="li-11">But of course, \(\dfrac{4^2}{4^2}\) is just \(\dfrac{16}{16}\) , or \(1\text{.}\)</li>
+<li id="li-12">Since \(\dfrac{4^2}{4^2}\) is both \(4^0\) and \(1\text{,}\) \(4^0\) and \(1\) must be the same thing!</li>
+</ul>
+<p id="p-149">The proofs given below all follow this pattern. They use the laws of exponents to rewrite expressions such as \(\frac{4^2}{4^2}\) , and go on to show how zero, negative, and fractional exponents must be defined. We started with the definition of an exponent for a positive integer, \(10^6 = 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10\text{.}\) From there, we developed the laws of exponents. Now we find that, if we want those same laws to apply to other kinds of exponents, there is only one correct way to define those other kinds of exponents.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width" style="width:100%;justify-content:flex-start;"><table>
+<tr><td class="c m b3 r1 l1 t3" colspan="4" style="max-width:120px;"><p id="p-150">Definitions: When the exponent is not a positive integer</p></td></tr>
+<tr>
+<td class="c m b3 r1 l1 t0" style="max-width:120px;"><p id="p-151">Zero Exponents</p></td>
+<td class="c m b3 r1 l0 t0" style="max-width:180px;"><p id="p-152">Negative Exponents</p></td>
+<td class="c m b3 r1 l0 t0" style="max-width:150px;">
+<p id="p-153">Fractional Exponents</p>
+<p id="p-154">(\(1/n\))</p>
+</td>
+<td class="c m b3 r1 l0 t0" style="max-width:150px;">
+<p id="p-155">Fractional Exponents</p>
+<p id="p-156">(\(m/n\))</p>
+</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0" style="max-width:120px;"><p id="p-157">Always \(1\)</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;"><p id="p-158">Go in the denominator</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:150px;"><p id="p-159">Act as a radical</p></td>
+<td class="c m b1 r1 l0 t0" style="max-width:150px;">
+<p id="p-160">\(m\) is an exponent,</p>
+<p id="p-161">\(n\) is a radical</p>
+</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0" style="max-width:120px;">
+<p id="p-162">\(\frac{4^2}{4^2} = 4^{2-2} = 0\)</p>
+<p id="p-163">but \(\frac{4^2}{4^2} =\frac{16}{16} = 1\)</p>
+<p id="p-164">so \(4^0\) must be \(1\text{!}\)</p>
+</td>
+<td class="c m b1 r1 l0 t0" style="max-width:180px;">
+<p id="p-165">\(\frac{10^1}{10^3} = 10^{1-3} = 10^{-2}\text{,}\)</p>
+<p id="p-166">but \(\frac{10^1}{10^3} = \frac{10}{10 \cdot 10 \cdot 10} = \frac{1}{10 \cdot 10}\)</p>
+<p id="p-167">so \(10^{-2}\) must be \(\frac{1}{10^2}\text{.}\)</p>
+</td>
+<td class="c m b1 r1 l0 t0" style="max-width:150px;">
+<p id="p-168">\((9^{\frac{1}{2}})^2 = 9^{\frac{1}{2} \cdot 2} = 9^1 = 9\text{.}\)</p>
+<p id="p-169">So, what is \(9^{\frac{1}{2}}\text{?}\)</p>
+<p id="p-170">Well, when you square it, you get \(9\text{.}\)</p>
+<p id="p-171">So it must be \(\sqrt{9}\text{,}\) or \(3\text{!}\)</p>
+</td>
+<td class="c m b1 r1 l0 t0" style="max-width:150px;">
+<p id="p-172">\(8^{\frac{2}{3}}=(8^{\frac{1}{3}})^2=(\sqrt[3]{8})^2\)</p>
+<p id="p-173">or \(8^{\frac{2}{3}}=(8^2)^{\frac{1}{3}}=\sqrt[3]{8^2}\)</p>
+</td>
+</tr>
+</table></div></div></div>
+<p id="p-174">Hence, we may use radicals and rational exponents interchangably:</p>
+<p id="p-175"><dfn class="terminology">Radicals and Rational Exponents</dfn>:</p>
+<div class="displaymath">
+\begin{gather}
+a^{\frac{n}{m}}=\left(\sqrt[m]{a} \right)^n\label{quadratic-formula}\tag{1.8}
+\end{gather}
+</div>
+<p id="p-176">The denominator of a rational exponent becomes the index on our radical, likewise the index on the radical becomes the denominator of the exponent. We can use this property to change any radical expression into an exponential expression.</p>
+<article class="example-like" id="example-radical-vs-rational-exponents"><a data-knowl="" class="id-ref" data-refid="hk-example-radical-vs-rational-exponents"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">1.34</span>. <span class="title">Compare Radical and Exponential Notation.</span>
+</h6></a></article><div id="hk-example-radical-vs-rational-exponents" class="hidden-content tex2jax_ignore"><article class="example-like"><div class="displaymath" id="p-177">
+\begin{align*}
+\text{Index is the denominator: }\amp\left(\sqrt[5]{x} \right)^3 = x^{\frac{3}{5}}\amp\amp\left(\sqrt[6]{3x} \right)^5 = (3x)^{\frac{5}{6}}\\
+\text{Negative exponents from reciprocals: }\amp\dfrac{1}{\left(\sqrt[7]{a} \right)^3} = a^{-\frac{3}{7}}\amp\amp\dfrac{1}{\left(\sqrt[3]{xy} \right)^2} = (xy)^{-\frac{2}{3}}
+\end{align*}
+</div></article></div>
+<article class="example-like" id="example-rewrite-radical"><a data-knowl="" class="id-ref" data-refid="hk-example-rewrite-radical"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">1.35</span>. <span class="title">Convert Radical to Exponential Form.</span>
+</h6></a></article><div id="hk-example-rewrite-radical" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-178">Rewrite the radical expression into exponent form.</p>
+<div class="displaymath" id="p-179">
+\begin{align*}
+3x\sqrt[3]{y^2}\amp\amp\amp\text{Index \(3\) is the denominator of the rational exponent}\\
+3x y^{2/3}\amp\amp\amp\text{Our Solution}\checkmark
+\end{align*}
+</div></article></div>
+<article class="example-like" id="example-rewrite-radical-2"><a data-knowl="" class="id-ref" data-refid="hk-example-rewrite-radical-2"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">1.36</span>. <span class="title">Convert Radical to Exponential Form.</span>
+</h6></a></article><div id="hk-example-rewrite-radical-2" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-180">Rewrite the radical expression into exponent form. Simplify if possible.</p>
+<div class="displaymath" id="p-181">
+\begin{align*}
+\sqrt[4]{x^9}\amp\amp\amp\text{Index \(4\) is the denominator of the rational exponent}\\
+\left({x^8x}\right)^\frac{1}{4}\amp\amp\amp\text{Rewrite the exponent }9=8+1,\\
+\amp\amp\amp\text{write the product of two powers of }x\\
+(x^8)^{\frac{1}{4}} x^\frac{1}{4}\amp\amp\amp\text{Apply the Power of a Power Rule (multiply exponents)}\\
+x^2 x^\frac{1}{4}\amp\amp\amp\text{Our Solution}\checkmark
+\end{align*}
+</div></article></div>
+<p id="p-182">Now that we have a firm understanding of how to deal with expressions like \(x^{n/m}\) where \(n\) and \(m\) are integers, we could extend the idea to expressions like \(x^r\) where \(r\) is a real number. We will demonstrate how such a critter would be calculated, but not go into the mathematical underpinnings for the expression in this course. Let's see how one would go about calculating \(2^\pi\text{.}\) Recall that \(\pi \approx 3.14159 \dots\text{.}\) Consider</p>
+<div class="displaymath">
+\begin{align*}
+2^3 \amp =8\\
+2^{3.1} \amp =2^{\frac{31}{10}} =  \sqrt[10]{2^{31}} = 8.5741877 \dots\\
+2^{3.14} \amp =2^{\frac{314}{100}} =  \sqrt[100]{2^{314}} = 8.815241 \dots\\
+2^{3.141} \amp =2^{\frac{3141}{1000}} =  \sqrt[1000]{2^{3141}} = 8.821353 \dots\\
+2^{3.1415} \amp =2^{\frac{31415}{10000}} =  \sqrt[10000]{2^{31415}} = 8.824411 \dots\\
+2^{3.14159} \amp =2^{\frac{314159}{100000}} =  \sqrt[100000]{2^{314159}} = 8.824962 \dots
+\end{align*}
+</div>
+<p>As we use more digits of \(\pi\text{,}\) the digits of the result begin to stabilize.  Note that after the last calculation the first four digits haven't changed: \(8.824\text{.}\) We won't ever get an exact value for \(2^\pi\) since \(\pi\)'s digits don't repeat, but we can get as accurate a number as we need by using enough digits to calculate \(2^\pi\text{.}\)</p></section></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.3</span> <span class="title">Radical Equations</span>
+</h3>
+<section class="introduction" id="introduction-3"><p id="p-183">When solving equations that involve radicals, begin by asking yourself: is there an \(x\) under the square root? The answer to this question will determine the way you approach the problem.</p>
+<p id="p-184">If there is not an \(x\) under the square root – if only numbers are under the radicals – you can solve much the same way you would solve with no radicals at all.</p>
+<article class="example-like" id="example-solve-radical-equation"><a data-knowl="" class="id-ref" data-refid="hk-example-solve-radical-equation"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">1.37</span>. <span class="title">Solve a Radical Equation.</span>
+</h6></a></article><div id="hk-example-solve-radical-equation" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-185">Solve a radical equation with no variables under square root.</p>
+<div class="displaymath" id="p-186">
+\begin{align*}
+\sqrt{2}x + 5\amp = 7 - \sqrt{3}x\amp\amp\text{Notice that there are no variables under a radical}\\
+\sqrt{2}x +\sqrt{3}x\amp = 7 - 5\amp\amp\text{Get everything with an \(x\) on one side,}\\
+\amp\amp\amp\text{everything else on the other}\\
+x(\sqrt{2} +\sqrt{3})\amp = 2\amp\amp\text{Factor out the }x\\
+\amp\amp\amp\text{Divide, to solve for }x\\
+x\amp = \dfrac{2}{\sqrt{2}+\sqrt{3}}\amp\amp\text{Our Solution}\checkmark
+\end{align*}
+</div></article></div>
+<p id="p-187">The key thing to note about such problems is that you do not have to square both sides of the equation. \(\sqrt{ 2}\) may look ugly, but it is just a number–you could find it on your calculator if you wanted to–it functions in the equation just the way that the number \(10\text{,}\) or \(\frac{1}{3}\) , or \(\pi\) would.</p>
+<p id="p-188">If there is an \(x\) under the square root, the problem is completely different. You will have to square both sides to get rid of the radical. However, there are two important notes about this kind of problem.</p>
+<ol class="decimal">
+<li id="li-13">If possible, always get the radical alone, on one side of the equation, before squaring.</li>
+<li id="li-14">Squaring both sides can introduce false answers–so it is important to check your answers after solving!</li>
+</ol>
+<p>Both of these principles are demonstrated in the following example.</p>
+<article class="example-like" id="example-solve-radical-equation-2"><a data-knowl="" class="id-ref" data-refid="hk-example-solve-radical-equation-2"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">1.38</span>. <span class="title">Solve a Radical Equation.</span>
+</h6></a></article><div id="hk-example-solve-radical-equation-2" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-189">Solve a radical equation with the variable under the square root.</p>
+<p id="p-190"><em class="alert">The Algebra Step</em></p>
+<div class="displaymath" id="p-191">
+\begin{align*}
+\sqrt{x + 2} + 3x\amp = 5x + 1\amp\amp\text{Here, there is a variable under radical}\\
+\sqrt{x + 2}\amp = 2x + 1\amp\amp\text{Isolate the radical on one side of the equation by subtracting }3x\\
+x + 2\amp = (2x + 1)^2\amp\amp\text{Square both sides to remove the radical}\\
+x + 2\amp = 4x^2 + 4x + 1\amp\amp\text{Multiply out. It looks like a quadratic equation now!}\\
+0\amp = 4x^2 + 3x - 1\amp\amp\text{As always with quadratics, get everything on one side}\\
+0\amp = (4x - 1) (x + 1)\amp\amp\text{Factor (the easiest way to solve quadratic equations)}\\
+x\amp = \frac{1}{4}\text{ or }x = -1\amp\amp\text{Two solutions. Do they work? Check in the original equation!}
+\end{align*}
+</div>
+<p id="p-192"><em class="alert">The Check Step</em></p>
+<div class="displaymath" id="p-193">
+\begin{align*}
+\underline{\text{Check: }}x = \frac{1}{4}:\amp\amp\amp\amp\underline{\text{Check: }}x = -1:\amp\\
+\sqrt{\frac{1}{4}+2}+3(\frac{1}{4})?\amp =?5(\frac{1}{4})+1\amp\amp\amp\sqrt{-1+2}+3(-1)?\amp =?5(-1)+1\\
+\sqrt{\frac{1}{4} + \frac{8}{4}}+ \frac{3}{4}?\amp =?\frac{5}{4} + 1\amp\amp\amp\sqrt{1} - 3?\amp =?-5 + 1\\
+\sqrt{\frac{9}{4}}+\frac{3}{4}?\amp =? \frac{5}{4} + \frac{4}{4}\amp\amp\amp 1 - 3?\amp =? -5 + 1\\
+\frac{3}{2} + \frac{3}{4}?\amp =? \frac{9}{4}\amp\amp\amp-2 \amp\neq -4\text{ Not equal!}\\
+\frac{9}{4}\amp = \frac{9}{4}\text{ This one works.}\checkmark\amp\amp\amp\amp
+\end{align*}
+</div></article></div>
+<p id="p-194">So the algebra yielded two solutions: \(\frac{1}{4}\) and \(-1\text{.}\) Checking, however, we discover that only the first solution is valid. This problem demonstrates how important it is to check solutions whenever squaring both sides of an equation.</p>
+<p id="p-195">If variables under the radical occur more than once, you will have to go through this procedure multiple times. Each time, you isolate a radical and then square both sides.</p></section><section class="subsubsection" id="subsubsection-2"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span> <span class="codenumber">1.3.3.1</span> <span class="title">When Good Math Leads to Bad Answers</span>
+</h4>
+<p id="p-196">Why is it that–when squaring both sides of an equation–perfectly good algebra can lead to invalid solutions? The answer is in the redundancy of squaring. Consider the following equation:</p>
+<div class="displaymath">
+\begin{gather*}
+-5 = 5\text{, is false.}
+\end{gather*}
+</div>
+<p>But square both sides, and we get...</p>
+<div class="displaymath">
+\begin{gather*}
+25 = 25\text{, which is true!}
+\end{gather*}
+</div>
+<p>So squaring both sides of a false equation can produce a true equation.</p>
+<p id="p-197">To see how this affects our equations, try plugging \(x = -1\) into the various steps of <a data-knowl="./knowl/example-rewrite-radical-2.html" title="Example 1.36: Convert Radical to Exponential Form">Example 1.36</a>:</p>
+<div class="displaymath" id="p-198">
+\begin{align*}
+\sqrt{x + 2} + 3x\amp = 5x + 1\amp\amp\text{Does \(x = -1\) work here? No, it does not.}\\
+\sqrt{x + 2}\amp = 2x + 1\amp\amp\text{How about here? No, \(x = -1\) produces the false equation \(1 = -1\).}\\
+x + 2\amp = (2x + 1)^2\amp\amp\text{Suddenly, \(x = -1\) works. (Try it!)}
+\end{align*}
+</div>
+<p id="p-199">When we squared both sides, we “lost” the difference between \(1\) and \(-1\text{,}\) and they “became equal.” From here on, when we solved, we ended up with \(x = -1\) as a valid solution. So, the moral of the story is if you square an equation in the course of solving it, you will need to check your answer to make sure a false one didn't sneak in.</p></section></section></section></div></main>
+</div>
+<div class="login-link"><span id="loginlogout" class="login">login</span></div>
+<script src="https://pretextbook.org/js/0.11/login.js"></script>
+</body>
+</html>

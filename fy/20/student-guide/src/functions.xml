@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="functions">
+  <title>Functions</title>
+
+  <introduction>
+    <p><q>'Til the time of Servius Tullius [575–535 BC], the Romans had no coined money, but made use of unstamped bars of copper, to purchase whatever they had occasion for. These rude bars, therefore, performed at this time the <term>function</term> of money.</q> [Adam Smith, 1776. Wealth of Nations, i.iv.I.25.]</p>
+  </introduction>
+      <!-- https://mhcc.edu/precalc1/activity-describing-functions.html -->
+      <!-- https://mhcc.edu/precalc1/functions-gist.html -->
+      <!-- https://mhcc.edu/precalc1/domain-and-range-piecewise-gist.html -->
+        <exercise>
+          <webwork source="Library/Mizzou/Algebra/functions_domain_range/fun_dom_15.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/Mizzou/Algebra/functions_domain_range/fun_dom_23.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/UVA-Stew5e/setUVA-Stew5e-C01S01-Functions/1-1-36.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec2/Q23.pg" />
+        </exercise>
+
+        <exercise>
+          <webwork source="Library/UCSB/Stewart5_1_5/Stewart5_1_5_3.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/UCSB/Stewart5_1_5/Stewart5_1_5_15.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/LoyolaChicago/Precalc/Chap3Sec2/Q24.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/LoyolaChicago/Precalc/Chap3Sec2/Q18.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/Union/setFunctionExponential/srw4_1_11.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/LoyolaChicago/Precalc/Chap9Sec7/Q03.pg" />
+        </exercise>
+        <exercise>
+          <webwork source="Library/LoyolaChicago/Precalc/Chap3Sec2/Q22.pg" />
+        </exercise>
+</section>

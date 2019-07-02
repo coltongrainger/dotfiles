@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="good-to-know">
+  <title>What's Good?</title>
+
+    <figure>
+      <caption>What do I need for this course? [Robert Ghrist, 2012. Penn State.]</caption>
+      <video xml:id="ghrist-prereqs" youtube="nqDVJFlahpU" start="67" end="171" play-at="embed" preview="default" />
+    </figure>
+
+    <p>Given Ghrist's advice, in this chapter we'll quickly review parts and peices of the background material needed for MATH 1300: manipulating numbers, setting up coordinate systems, and solving simultaneous equations. This material will not be (directly) examined, but I've included it regardless. It seems wise to hash out as many technical details as is necessary to <em>remember what's good</em> after the reader (and myself included) likely spent most of summer not looking at calculus-level mathematics.</p>
+
+    <p>You are free to initially skim this material, then loop back to it at any time during the semester. Perhaps you'll want to test yourself against some of the inline <webwork /> exercises.</p>
+
+    <p>After this chapter, we'll define sets and functions. <alert>Note:</alert> Because the prototypical example of a function is given by evaluating polynomials, you might keep polynomials in the back of your mind while reading through this review.</p> 
+</section>

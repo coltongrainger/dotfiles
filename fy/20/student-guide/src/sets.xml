@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sets">
+  <title>Sets</title>
+  <!-- Adapted from: College Algebra
+  Version bc
+  Corrected Edition
+  by
+  Carl Stitz, Ph.D. Je Zeager, Ph.D.
+  Lakeland Community College Lorain County Community College
+  July 4, 2013 pdf generated January 26, 2015,  pages 1-25-->
+  <introduction>
+    <figure>
+      <caption>Cantor Middle Third Set</caption>
+      <video youtube="y12Tt3bOmKA" start="298" stop="399"/>
+    </figure>
+    <p><q>The creation of <term>set theory</term> is generally credited to the German mathematician Georg Cantor, in the late nineteenth century. Previously, sets had seldom been regarded as entities worthy of study in their own right; but Cantor, originally motivated by a problem in Fourier analysis, developed an extensive theory. Among many other things, he showed that there are different sizes of infinity, proving, for instance, that there is no bijection between <m>\mathbb{R}</m> and <m>\mathbb{N}</m>.</q> [Leinster, 2016. Basic Category Theory.]</p>
+  </introduction>
+  <subsection xml:id="sets-of-numbers">
+    <title>Sets of Numbers</title>
+    <p>Before introducing functions, we'll need a brief summary of
+      <term>set theory</term> and some of the associated vocabulary and notations we use in the text. We begin with a definition.
+    </p>
+    <p>A
+      <term>set</term> is a collection of objects which are called the
+      <term>elements</term> of the set.
+    </p>
+    <p>For example, the collection of letters that make up the word
+      <q>coyote</q> is a set. Here are three ways to describe sets:
+    </p>
+    <p>
+      <term>Ways to Describe a Set</term>
+      <ol>
+        <li>
+          <p>
+            <term>The Verbal Method:</term> Use a sentence to define the set.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>The Roster Method:</term> Begin with a left brace '
+            <m>\{</m>', list each element of the set once, end with a right brace `
+            <m>\}</m>'.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>The Set-Builder Method:</term> A combination of the verbal and roster methods using a mathemaical expression to describe the set.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <example xml:id="example-describing-sets">
+      <title>Describing Sets</title>
+      <p>
+        <ul>
+          <li>
+            <p>For example, let
+              <m>S</m> be the set described verbally as:
+              <em>The set of letters that make up the word
+                <q>coyote</q>.
+              </em>
+            </p>
+            <p>A roster description of
+              <m>S</m> would be
+              <m>\{c,o,y,t,e\}</m>. Note that we listed
+              '<m>o</m>' only once, even though it appears twice in
+              <q>coyote</q>.  The order of the elements doesn't matter, so
+              <m>\{t,e,y,o,c\}</m> also is a roster description of
+              <m>S</m>.
+            </p>
+          </li>
+          <li>
+            <p> Now consider the set, <m>T</m> of integers <m>\{1,2,3,4,5,6,7,8,9\}</m>
+          </p>
+            <p>A set-builder description of
+              <m>T</m> is:
+              <m>\{x \; | \; x</m> is a positive integer with <m>x /lt 10
+              \}</m>.  The way to read this is:
+              <q>The set of positive integers
+                <m>x</m> such that
+                <m>x</m> is less than <m>10</m>.
+              </q>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </example>
+    <p>In each of the above cases, we may use the familiar equals sign
+      '<m>=</m>' and write
+      <m>S = \{c,o,t,e,y\}</m> or
+      <m>T = \{x \; | \; x </m> is a positive integer with <m> x \lt 10 \}</m>. Clearly
+      <m>t</m> is in
+      <m>S</m> and
+      <m>3</m> is not in
+      <m>S</m>.  Here are several famous sets of numbers.
+    </p>
+    <!-- We express these sentiments mathematically by writing <m>t \in S</m> and <m>q \notin S.</m>-->
+    <p>
+      <term>Sets of Numbers</term>
+      <ol>
+        <li>
+          <p>The Empty Set:
+            <m>\emptyset = \{ \}</m>. This is the set with no elements. Like the number
+            <m>0,</m> it plays a vital role in mathematics.
+          </p>
+        </li>
+        <li>
+          <p>The Natural Numbers:
+            <m>\mathbb{N} = {1, 2, 3, \dots }</m> The three periods in a row here
+       indicate that the natural numbers contain
+            <m>1</m>,
+            <m>2</m>,
+            <m>3</m>, and so forth.
+          </p>
+        </li>
+        <li>
+          <p>The Integers:
+            <m>\mathbb{Z} = {\cdots ,-3, -2, -1, 0, 1, 2, 3, \cdots}</m>
+          </p>
+        </li>
+        <li>
+          <p>The Rational Numbers:
+            <m>\mathbb{Q} = \{\frac{a}{b}\; |\; a  \mbox{ and } b \mbox{ are integers with } b \neq 0\}.</m> Rational numbers are the ratios of integers (provided the denominator is not zero!). It turns out that another way to describe the rational numbers is:</p>
+            <p><m>\mathbb{Q} = \{x \; | \; x \mbox{ is a real number that has a repeating or terminating decimal representation}\}.</m>
+          </p>
+        </li>
+        <li>
+          <p>The Real Numbers:
+            <m>\mathbb{R} = \{ x \; | \; x \mbox{ is a decimal number}\}.</m>
+          </p>
+        </li>
+        <li>
+          <p>The Irrational Numbers:
+            <m>\mathbb{P} = \{ x \; | \; x \mbox{ is a non-rational real number }\}.</m> Said another way,
+         an irrational number is a decimal that is not a repeating decimal.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>It is important to note that every natural number is an integer.
+Each integer is a rational number (taking
+      <m>b = 1</m> in the above definition for
+      <m>\mathbb{Q}</m> produces integers) and the rational numbers are all real numbers, since they possess decimal representations.
+For the most part, we will focus on sets whose elements come from the real numbers
+      <m>\mathbb{R}</m>.
+    </p>
+  </subsection>
+  <subsection xml:id="interval-notation">
+    <title>Interval Notation</title>
+    <p><q>Interval notation</q> is a shorthand way of describing an interval.  For example, for real numbers <m>a</m> and <m>b</m>, <q>(a,b)</q> is interval notation for <q> the set of all real numbers <m>x</m> bigger than <m>a</m> and less than <m>b</m></q>.  The table given below displays interval notation for different kinds of intervals.
+    </p>
+ <!--   <p>Recall that we may visualize
+      <m>\mathbb{R}</m> as a line. Segments of this line are called
+      <term>intervals</term> of numbers. Below is a summary of the so-called interval notation associated with given sets of numbers. For intervals with finite endpoints, we list the left endpoint, then the right endpoint. We use square brackets, '
+      <m>[</m>' or '
+      <m>]</m>', if the endpoint is included in the interval and use a filled-in or 'closed' circle,
+      <m>\bullet</m>, to indicate membership in the interval. Otherwise, we use parentheses, '
+      <m>(</m>' or '
+      <m>)</m>' and an 'open' circle,
+      <m>\circ</m>, to indicate that the endpoint is not part of the set. If the interval does not have finite endpoints, we use the symbols
+      <m>-\infty</m> to indicate that the interval extends indefinitely to the left and
+      <m>\infty</m> to indicate that the interval extends indefinitely to the right. Since
+      <term>infinity</term> is a concept, and not a number,
+we always use parentheses when using these symbols in interval notation, and use an appropriate
+arrow to indicate that the interval extends indefinitely in one (or both) directions.
+    </p>
+    <p>We will usually abuse the notation when we are considering intervals as sets of numbers.  Instead of using a complete form of set-builder notation, we will abbreviate to just the inequality:
+      <m>x&gt;2</m> as a shortened from of
+      <m>\{x \; |\; x&gt;2\}.</m> With this in mind, let
+      <m>a</m> and
+      <m>b</m> be real numbers with
+      <m>a&lt;b</m>, that is
+      <m>a</m> less than
+      <m>b</m>.
+    </p>
+  -->
+    <!-- <p> -->
+      <sbsgroup widths="25% 25% 45%" valign="middle">
+        <sidebyside>
+          <p>Set of Real Numbers</p>
+          <p>Interval Notation</p>
+          <p>Region on the Real Number Line</p>
+        </sidebyside>
+        <sidebyside>
+          <p>
+            <m>a &lt; x &lt; b</m>
+          </p>
+          <p>
+            <m>(a, b)</m>
+          </p>
+<!--          <figure xml:id="figure-interval-open-a-to-open-b"> -->
+              <image xml:id="interval-open-a-to-open-b">
+                <latex-image>\begin{tikzpicture}
+                      \draw[color=red] (0,.5) circle (.1cm);
+                      \draw[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red] (0.1,.5) -- (2.9,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$a$};
+                      \node[anchor=south, color=red] at (3,-.1) {$b$};
+                      \end{tikzpicture}</latex-image>
+              </image>
+<!--            </figure> -->
+        </sidebyside>
+        <sidebyside>
+          <p>
+            <m>a\leq x &lt; b</m>
+          </p>
+          <p>
+            <m>[a, b)</m>
+          </p>
+<!--          <figure xml:id="figure-interval-closed-a-to-open-b"> -->
+              <image xml:id="interval-closed-a-to-open-b">
+
+                <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (0,.5) circle (.1cm);
+                      \draw[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red] (0.1,.5) -- (2.9,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$a$};
+                      \node[anchor=south, color=red] at (3,-.1) {$b$};
+                      \end{tikzpicture}</latex-image>
+              </image>
+<!--            </figure> -->
+        </sidebyside>
+        <sidebyside>
+          <p>
+            <m>a&lt; x\leq  b</m>
+          </p>
+          <p>
+            <m>(a, b]</m>
+          </p>
+<!--          <figure xml:id="figure-interval-open-a-to-closed-b"> -->
+              <image xml:id="interval-open-a-to-closed-b">
+                <latex-image>\begin{tikzpicture}
+                      \draw[color=red] (0,.5) circle (.1cm);
+                      \fill[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red] (0.1,.5) -- (2.9,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$a$};
+                      \node[anchor=south, color=red] at (3,-.1) {$b$};
+                      \end{tikzpicture}</latex-image>
+              </image>
+<!--            </figure> -->
+        </sidebyside>
+        <sidebyside>
+          <p>
+            <m>a\leq x\leq b</m>
+          </p>
+          <p>
+            <m>[a, b]</m>
+          </p>
+<!--          <figure xml:id="figure-interval-closed-a-to-closed-b">  -->
+              <image xml:id="interval-closed-a-to-closed-b">
+                <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (0,.5) circle (.1cm);
+                      \fill[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red] (0.1,.5) -- (2.9,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$a$};
+                      \node[anchor=south, color=red] at (3,-.1) {$b$};
+                      \end{tikzpicture}</latex-image>
+              </image>
+<!--            </figure>  -->
+        </sidebyside>
+        <sidebyside>
+          <p>
+            <m>x &lt; b</m>
+          </p>
+          <p>
+            <m>(-\infty, b)</m>
+          </p>
+<!--          <figure xml:id="figure-interval-to-open-b">  -->
+              <image xml:id="interval-to-open-b">
+                <latex-image>\begin{tikzpicture}
+                      \draw[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red,
+                  &lt;-] (0,.5) -- (2.9,.5); \node[anchor=south, color=red] at (3,-.1) {$b$}; \end{tikzpicture}</latex-image>
+                </image>
+<!--              </figure>  -->
+          </sidebyside>
+          <sidebyside>
+            <p>
+              <m>x\leq b</m>
+            </p>
+            <p>
+              <m>(-\infty, b]</m>
+            </p>
+<!--            <figure xml:id="figure-interval-to-closed-b">  -->
+                <image xml:id="interval-to-closed-b">
+                  <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red,
+                    &lt;-] (0,.5) -- (2.9,.5); \node[anchor=south, color=red] at (3,-.1) {$b$}; \end{tikzpicture}</latex-image>
+                  </image>
+<!--                </figure>  -->
+            </sidebyside>
+            <sidebyside>
+              <p>
+                <m>a &lt; x</m>
+              </p>
+              <p>
+                <m>(a, \infty)</m>
+              </p>
+<!--              <figure xml:id="figure-interval-from-open-a">  -->
+                  <image xml:id="interval-from-open-a">
+                    <latex-image>\begin{tikzpicture}
+                      \draw[color=red] (0,.5) circle (.1cm);
+                      \draw[color=red, -&gt;] (0.1,.5) -- (3,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$a$};
+                      \end{tikzpicture}</latex-image>
+                  </image>
+<!--                </figure>  -->
+            </sidebyside>
+            <sidebyside>
+              <p>
+                <m>a\leq x</m>
+              </p>
+              <p>
+                <m>[a, \infty)</m>
+              </p>
+<!--              <figure xml:id="figure-interval-from-closed-a">  -->
+                  <image xml:id="interval-from-closed-a">
+                    <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (0,.5) circle (.1cm);
+                      \draw[color=red, -&gt;] (0.1,.5) -- (3,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$a$};
+                      \end{tikzpicture}</latex-image>
+                  </image>
+<!--                </figure>  -->
+            </sidebyside>
+            <sidebyside>
+              <p>All Real numbers,
+                <m>\mathbb{R}</m>
+              </p>
+              <p>
+                <m>(-\infty, \infty)</m>
+              </p>
+<!--              <figure xml:id="figure-interval-all-reals">  -->
+                  <image xml:id="interval-all-reals">
+                    <latex-image>\begin{tikzpicture}
+                      \draw[color=red,
+                      &lt;-&gt;] (0,.5) -- (3,.5);
+                      \draw[color=red](1.5,.4) -- (1.5, .6);
+                      \node[anchor=south, color=red] at (1.5,-.1) {$0$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+            </sbsgroup>
+          <!-- </p> -->
+      <aside>
+        <p>Square brackets <q><m> [ </m></q> or <q><m> ] </m></q> indicate that an endpoint is included in the interval; round parentheses <q><m> ( </m></q> or <q><m> ) </m></q> indicate that an endpoint is not included.
+      </p>
+      </aside>
+        <assemblage>
+          <title>WeBWorK: Entering Infinity and Inequalities</title>
+          <p>Type
+            <ul>
+              <li>
+                <c>inf</c> for
+                <m>\infty</m> and
+                <c>-inf</c> for
+                <m>-\infty</m>
+              </li>
+              <li>
+                <c>&gt;=</c> for
+                <m>\geq</m> and
+                <c>&lt;=</c> for
+                <m>\leq</m>
+              </li>
+            </ul>
+          </p>
+        </assemblage>
+        <p>Note that we could write the inequality
+          <m>1 &lt; x &lt; 3</m> as
+          <m>3 &gt; x &gt; 1</m> and still have the same set. An easy way to remember which inequality symbol to use is that the smaller (pointy) end of the inequality sign points to the smaller number and conversely the wide end is next to the larger value.
+        </p>
+        <example xml:id="example-describing-specific-sets">
+          <title>Describing Specific Sets</title>
+            <sbsgroup widths="25% 25% 45%" valign="middle">
+              <sidebyside>
+                <p>Set of Real Numbers</p>
+                <p>Interval Notation</p>
+                <p>Region on the Real Number Line</p>
+              </sidebyside>
+              <sidebyside>
+                <p>
+                  <m>1\leq x &lt; 3</m>
+                </p>
+                <p>
+                  <m>[1,3)</m>
+                </p>
+<!--                <figure xml:id="figure-interval-closed-1-to-open-3">  -->
+                    <image xml:id="interval-closed-1-to-open-3">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (0,.5) circle (.1cm);
+                      \draw[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red] (0.1,.5) -- (2.9,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$1$};
+                      \node[anchor=south, color=red] at (3,-.1) {$3$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+              <sidebyside>
+                <p>
+                  <m>4 \ge x \ge -1</m>
+                </p>
+                <p>
+                  <m>[-1,4]</m>
+                </p>
+<!--                <figure xml:id="figure-interval-closed-neg1-to-closed-4">  -->
+                    <image xml:id="interval-closed-neg1-to-closed-4">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (0,.5) circle (.1cm);
+                      \fill[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red] (0.1,.5) -- (2.9,.5);
+                      \node[anchor=south, color=red] at (0,-.1) {$-1$};
+                      \node[anchor=south, color=red] at (3,-.1) {$4$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+              <sidebyside>
+                <p>
+                  <m>x \le 5</m>
+                </p>
+                <p>
+                  <m>(-\infty, 5]</m>
+                </p>  <!-- FIX THIS ON THE GRAPH MAKER FILE SO THE CIRCLE IS FILLED IN. I THINK THE CODE HERE IS NOW CORRECT -->
+<!--                <figure xml:id="figure-interval-less-equal-5">  -->
+                    <image xml:id="interval-less-equal-5">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (3,.5) circle (.1cm);
+                      \draw[color=red,&lt;-] (0,.5) -- (2.9,.5);
+                      \draw[color=red](1.5,.4) -- (1.5, .6);
+                      \node[anchor=south, color=red] at (1.5,-.1) {$0$};
+                      \node[anchor=south, color=red] at (3,-.1) {$5$};
+                      \end{tikzpicture}</latex-image>
+                      </image>
+<!--                    </figure>  -->
+                </sidebyside>
+                <sidebyside>
+                  <p>
+                    <m>x&gt; -2</m>
+                  </p>
+                  <p>
+                    <m>(-2, \infty)</m>
+                  </p>
+<!--                  <figure xml:id="figure-interval-greater-neg2">  -->
+                    <image xml:id="interval-greater-neg2">
+                      <latex-image>\begin{tikzpicture}
+                      \draw[color=red] (0,.5) circle (.1cm);
+                      \draw[color=red, -&gt;] (0.1,.5) -- (3,.5);
+                      \draw[color=red](1.2,.4) -- (1.2, .6);
+                      \node[anchor=south, color=red] at (1.2,-.1) {$0$};
+                      \node[anchor=south, color=red] at (0,-.1) {$-2$};
+                      \end{tikzpicture}</latex-image>
+                      </image>
+<!--                    </figure>  -->
+                  </sidebyside>
+                </sbsgroup>
+            </example>
+<p>We will need to combine sets. Intersection and union are two basic ways to combine sets. We define both of these concepts below.</p>
+
+<p>Suppose <m>A</m> and <m>B</m> are two sets.
+<ul>
+  <li><p>The <term>intersection</term> of <m>A</m> and <m>B</m> contains the elements that are in BOTH sets: <m>A \cap B = \{ x \; | \;  x \mbox{ is in } A \mbox{ and }  x \mbox{ is in } B\}.</m></p>
+  </li>
+  <li><p>The <term>union</term> of <m>A</m> and <m>B</m> contains every element that occurs in AT LEAST ONE of the sets: <m>A \cup B = \{ x \; | \;  x \mbox{ is in } A \mbox{ or }  x \mbox{ is in } B \mbox{ (or both)}\}.</m></p>
+  </li>
+</ul>
+Said differently, the intersection of two sets is the overlap of the two sets-all the elements which the sets both have in common. The union of two sets consists of the elements in both of the sets, collected together.</p>
+<example xml:id="example-intersection-union-discrete">
+  <title>Set Intersection and Union</title>
+  <p>For
+    <m>A = \{1, 2, 3\}</m> and
+    <m>B = \{2, 4, 6\},</m> we have
+    <m>A \cap B = \{ 2 \}</m> and
+    <m>A \cup B = \{1, 2, 3, 4, 6\}.</m>
+  </p>
+</example>
+
+            <example xml:id="example-intersection-union-intervals">
+            <title>Interval Intersection and Union</title>
+            <p>If <m>A = [-5, 3)</m> and <m>B=(1,\infty),</m> then we can find <m>A \cap B</m> and
+            <m>A \cup B</m> graphically.</p>
+            <sbsgroup widths="45% 50%" valign="middle">
+              <sidebyside>
+                <p>First, sketch the graphs of <m>A</m> and <m>B</m>.
+                </p>
+<!--                <figure xml:id="figure-intervals-overlap">  -->
+                    <image xml:id="intervals-overlap">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=blue] (-5,1) circle (.1cm);
+                      \draw[color=blue] (3,1) circle (.1cm);
+                      \draw[color=blue] (-4.9,1)--(2.9,1);
+                      \draw[color=green] (1,.5) circle (.1cm);
+                      \draw[green, -&gt;] (1.1,.5) -- (5,.5);
+                      \draw[black, &lt;-&gt;] (-5.4,0) -- (5,0);
+                      \draw[black] (-5,-.1)--(-5, .1);
+                      \node[black] at (-5, -.5) {$-5$};
+                      \draw[black] (1,-.1)--(1, .1);
+                      \node[black] at (1, -.5) {$1$};
+                      \draw[black] (3,-.1)--(3, .1);
+                      \node[black] at (3, -.5) {$3$};
+                      \node[color=blue] at (-3,-1) {$A=[-5,3)$};
+                      \node[color=green] at (2,-1) {$B=(1,\infty)$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+              <sidebyside>
+                <p>To determine <m>A \cap B,</m> we shade the overlap of the two and obtain <m>A \cap B = (1, 3).</m>
+                </p>
+<!--                <figure xml:id="figure-intervals-overlap-intersection">  -->
+                    <image xml:id="intervals-overlap-intersection">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=blue] (-5,1) circle (.1cm);
+                      \draw[color=blue] (3,1) circle (.1cm);
+                      \draw[color=blue] (-4.9,1)--(2.9,1);
+                      \draw[color=green] (1,.5) circle (.1cm);
+                      \draw[green, -&gt;] (1.1,.5) -- (5,.5);
+                      \draw[black, &lt;-] (-5.4,0) -- (.9,0);
+                      \draw[black, -&gt;] (3.1,0) -- (5,0);
+                      \draw[black] (-5,-.1)--(-5, .1);
+                      \node[black] at (-5, -.5) {$-5$};
+                      \node[black] at (1, -.5) {$1$};
+                      \node[black] at (3, -.5) {$3$};
+                      \draw[red] (1,0) circle (.1cm);
+                      \draw[red] (3,0) circle (.1cm);
+                      \draw[red] (1.1,0)--(2.9,0);
+                      \node[red] at (2,-1) {$A\cap B =(1,3)$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+ <!--                 </figure> -->
+              </sidebyside>
+              <sidebyside>
+                <p>To determine <m>A \cup B,</m> we shade each of <m>A</m> and <m>B</m> along the lower number line and describe the resulting shaded region to see <m>A \cup B = [-5, \infty).</m>
+                </p>
+<!--                <figure xml:id="figure-intervals-overlap-union">  -->
+                    <image xml:id="intervals-overlap-union">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=blue] (-5,1) circle (.1cm);
+                      \draw[color=blue] (3,1) circle (.1cm);
+                      \draw[color=blue] (-4.9,1)--(2.9,1);
+                      \draw[color=green] (1,.5) circle (.1cm);
+                      \draw[green, -&gt;] (1.1,.5) -- (5,.5);
+                      \draw[black, &lt;-] (-5.4,0) -- (-4.9,0);
+                      \draw[black] (-5,-.1)--(-5, .1);
+                      \node[black] at (-5, -.5) {$-5$};
+                      \draw[black] (1,-.1)--(1, .1);
+                      \node[black] at (1, -.5) {$1$};
+                      \draw[black] (3,-.1)--(3, .1);
+                      \node[black] at (3, -.5) {$3$};
+                      \draw[red,-&gt;] (-5, 0) -- (5,0);
+                      \fill[color=red] (-5,0) circle (.1cm);
+                      \node[red] at (0,-1) {$A\cup B =[-5,\infty)$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+              </sbsgroup>
+              </example>
+              <p>Here are slightly more complicated situations where the set is in two separate pieces.</p>
+
+            <example xml:id="example-more-intervals">
+            <title>More Intervals</title>
+            <p>Express the following sets of numbers using interval notation:</p>
+            <sbsgroup widths="25% 25% 45%" valign="middle">
+              <sidebyside>
+                <p>Set of Real Numbers</p>
+                <p>Interval Notation</p>
+                <p>Region on the Real Number Line</p>
+              </sidebyside>
+              <sidebyside>
+                <p>
+                  <m>x \leq -2</m> or <m>x \geq 2</m>
+                </p>
+                <p>
+                  <m>(-\infty, -2] \cup [2, \infty)</m>
+                </p>
+<!--                <figure xml:id="figure-interval-less-neg2-great-2">  -->
+                    <image xml:id="interval-less-neg2-great-2">
+                      <latex-image>\begin{tikzpicture}
+                      \fill[color=red] (-1.0,0) circle (.1cm);
+                      \fill[color=red] (1,0) circle (.1cm);
+                      \draw[red, &lt;-] (-2,0) -- (-1,0);
+                      \draw[red, -&gt;] (1,0) -- (2,0);
+                      \draw[black] (-.9,0) -- (.9,0);
+                      \node[black] at (-1.2, -.5) {$-2$};
+                      \node[black] at (1, -.5) {$2$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+              <sidebyside>
+                <p>
+                  <m>x\neq 3</m>
+                </p>
+                <p>
+                  <m>(-\infty, 3)\cup (3, \infty)</m>
+                </p>
+<!--                <figure xml:id="figure-interval-neq-3">  -->
+                    <image xml:id="interval-neq-3">
+                      <latex-image>\begin{tikzpicture}
+                      \draw[color=red] (0.0,0) circle (.1cm);
+                      \draw[red, &lt;-] (-2,0) -- (-.1,0);
+                      \draw[red, -&gt;] (.1,0) -- (2,0);
+                      \node[black] at (0, -.5) {$3$};
+                      \end{tikzpicture}</latex-image>
+                    </image>
+<!--                  </figure>  -->
+              </sidebyside>
+            </sbsgroup>
+        </example>
+          <assemblage>
+          <title>WeBWorK: Entering Union <m>\cup</m> and Not Equal <m>\neq</m></title>
+          <p>Type
+            <ul>
+              <li>
+                Upper case <c>U</c> for union <m>\cup</m>.
+              </li>
+              <li>
+                <c>!=</c> for
+                <m>\neq</m>.
+              </li>
+            </ul>
+          </p>
+        </assemblage>
+
+      </subsection>
+    </section>

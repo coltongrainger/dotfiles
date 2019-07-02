@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="285pt" height="284pt" viewBox="0 0 285 284" version="1.1">
+<g id="surface1">
+<path style="fill:none;stroke-width:0.99214;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -140.904063 -0.000125 L 140.904531 -0.000125 " transform="matrix(1,0,0,-1,142.49,141.828)"/>
+<path style="fill:none;stroke-width:0.7937;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -1.731126 2.304813 C -1.586595 1.441531 -0.0006575 0.144656 0.432936 0.000125 C -0.0006575 -0.144406 -1.586595 -1.441281 -1.731126 -2.304562 " transform="matrix(-1,0,0,1,1.58528,141.828)"/>
+<path style="fill:none;stroke-width:0.7937;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -1.730658 2.304562 C -1.586126 1.441281 -0.00018875 0.144406 0.433405 -0.000125 C -0.00018875 -0.144656 -1.586126 -1.441531 -1.730658 -2.304813 " transform="matrix(1,0,0,-1,283.39472,141.828)"/>
+<path style="fill:none;stroke-width:0.99214;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00171875 -140.906375 L -0.00171875 140.906125 " transform="matrix(1,0,0,-1,142.49,141.828)"/>
+<path style="fill:none;stroke-width:0.7937;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -1.728814 2.306875 C -1.584282 1.439687 0.001655 0.142812 0.431343 -0.00171875 C 0.001655 -0.142344 -1.584282 -1.443125 -1.728814 -2.306406 " transform="matrix(0,1,1,0,142.49,282.73272)"/>
+<path style="fill:none;stroke-width:0.7937;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -1.729064 2.306406 C -1.584533 1.443125 0.001405 0.142344 0.431092 0.00171875 C 0.001405 -0.142812 -1.584533 -1.439687 -1.729064 -2.306875 " transform="matrix(0,-1,-1,0,142.49,0.92328)"/>
+<path style="fill:none;stroke-width:2.12599;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,100%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -141.732188 -56.695438 L 141.732656 42.519406 " transform="matrix(1,0,0,-1,142.49,141.828)"/>
+</g>
+</svg>
