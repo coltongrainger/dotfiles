@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="setting-up-coordinates">
+  <title>Setting Up Coordinates</title>
+  <authorbyline>Robin Cruz</authorbyline>
+    <p>Math became far more intuitive and powerful when people learned to marry the precision of algebra to the visual intuition of geometry. Simply put, we seek to find a way to draw algebraic things. Let's start with the Cartesian Coordinate Plane, named in honor of the 17th century philosopher, mathematician and scientist, Rene Decartes.</p>
+    <p>Imagine two real number lines crossing at a right angle at <m>0</m> as drawn below.</p>
+    <sidebyside>
+      <image xml:id="axes-no-grid">
+        <latex-image>\begin{tikzpicture}
+          \draw[black,&lt;-&gt;] (-5,0) -- (5,0) node[anchor=north west] {$x$};
+          \draw[black,&lt;-&gt;] (0,-5) -- (0,5) node[anchor=south east] {$y$};
+          \foreach \x in {-4,...,-1}
+          \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+          \foreach \x in {1,...,4}
+          \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+          \foreach \y in {-4,...,-1}
+          \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+          \foreach \y in {1,...,4}
+          \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+          \end{tikzpicture}</latex-image>
+      </image>
+    </sidebyside>
+    <p>The horizontal number line is usually called the <m>x</m>-axis while the vertical number line is usually called the <m>y</m>-axis. As with the usual number line, we imagine these axes extending off indefinitely in both directions. Having two number lines enables us to locate the positions of points off of the number lines as well as points on the lines themselves.</p>
+    <p>For example, consider the point <m>P</m> shown below:</p>
+    <sidebyside>
+      <image xml:id="axes-no-grid-P">
+        <latex-image>\begin{tikzpicture}
+          \draw[black,&lt;-&gt;] (-5,0) -- (5,0) node[anchor=north west] {$x$};
+          \draw[black,&lt;-&gt;] (0,-5) -- (0,5) node[anchor=south east] {$y$};
+          \foreach \x in {-4,...,-1}
+          \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+          \foreach \x in {1,...,4}
+          \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+          \foreach \y in {-4,...,-1}
+          \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+          \foreach \y in {1,...,4}
+          \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+          \draw[red, dashed] (0,-4) -- (2,-4);
+          \draw[red, dashed] (2,0) -- (2,-4);
+          \fill[red] (2,-4) circle (.15cm);
+          \node[red] at (2.5,-4) {\LARGE $P$};
+          \end{tikzpicture}
+      </latex-image>
+    </image>
+  </sidebyside>
+  <p>To use the numbers on the axes to label this  point, imagine dropping a vertical line from the <m>x</m>-axis to <m>P</m> and extending a horizontal line from the <m>y</m>-axis to <m>P</m>. This process is sometimes called <q>projecting</q> the point <m>P</m> to the <m>x</m>- (respectively <m>y</m>-) axis. We then locate the point <m>P</m> using the ordered pair <m>(2,-4).</m> The first number in the ordered pair is the <m>x</m>-coordinate and the second is the <m>y</m>-coordinate. Taken together, the ordered pair <m>(2, -4)</m> gives the position of the point <m>P</m> with respect to the <m>x</m> and <m>y</m> axes.
+</p>
+<p>Notice that the order in the ordered pair is important: if we wish to plot the point <m>(-4, 2),</m> we would move to the left <m>4</m> units from the origin and then move upwards <m>2</m> units.</p>
+<sidebyside>
+  <image xml:id="axes-no-grid-P-Q">
+    <latex-image>\begin{tikzpicture}
+      \draw[black,&lt;-&gt;] (-5,0) -- (5,0) node[anchor=north west] {$x$};
+      \draw[black,&lt;-&gt;] (0,-5) -- (0,5) node[anchor=south east] {$y$};
+      \foreach \x in {-4,...,-1}
+      \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+      \foreach \x in {1,...,4}
+      \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+      \foreach \y in {-4,...,-1}
+      \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+      \foreach \y in {1,...,4}
+      \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+      \draw[red, dashed] (0,-4) -- (2,-4);
+      \draw[red, dashed] (2,0) -- (2,-4);
+      \fill[red] (2,-4) circle (.15cm);
+      \node[red] at (2.5,-4.5) {\LARGE $P(2,-4)$};
+      \draw[red, dashed] (-4,0) -- (-4,2);
+      \draw[red, dashed] (0,2) -- (-4,2);
+      \fill[red] (-4,2) circle (.15cm);
+      \node[red] at (-4,2.5) {\LARGE $(-4,2)$};
+      \end{tikzpicture}
+  </latex-image>
+</image>
+          </sidebyside>
+          <p>The axes divide the plane into four regions called <term>quadrants</term>. They are labeled <m>Q1, Q2, Q3</m> and <m>Q4</m> and proceed counterclockwise around the plane as shown in the graph below. Note that point <m>P</m> is in quadrant 4, <m>Q4,</m> and <m>Q</m> is in quadrant 2, <m>Q2.</m>
+          </p>
+          <sidebyside>
+            <image xml:id="axes-no-grid-P-Q-quadrants"> <!--NEEDS TO BE UPDATED-->
+              <latex-image>\begin{tikzpicture}
+                \draw[black,&lt;-&gt;] (-5,0) -- (5,0) node[anchor=north west] {$x$};
+                \draw[black,&lt;-&gt;] (0,-5) -- (0,5) node[anchor=south east] {$y$};
+                \foreach \x in {-4,...,-1}
+                \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+                \foreach \x in {1,...,4}
+                \draw[black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+                \foreach \y in {-4,...,-1}
+                \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+                \foreach \y in {1,...,4}
+                \draw[black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+                \fill[red] (2,-4) circle (.15cm);
+                \node[red] at (2.5,-4.5) {$P(2,-4)$};
+                \fill[red] (-4,2) circle (.15cm);
+                \node[red] at (-4,2.5) {$Q(-4,2)$};
+                \draw[thick,red] (3,3) node {\LARGE $Q1$};
+                \draw[thick,red] (-3,3) node {\LARGE $Q2$};
+                \draw[thick,red] (-3,-3) node {\LARGE $Q3$};
+                \draw[thick,red] (3,-3) node {\LARGE $Q4$};
+                \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+
+          <subsection xml:id="linear-functions-in-coordinates">
+            <title>Linear Functions in Coordinates</title>
+              <!-- Cite Advanced Algebra II: Conceptual Explanations by Kenny M. Felder is licensed under a Creative Commons
+                Attribution License 2.0 (http://creativecommons.org/licenses/by/2.0/)
+              Based on the file: abvanced-algebra-II-conceptual-explanations-15.10.pdf generated February 21, 2014,  pages 50-52-->
+              <!-- </introduction> -->
+            <p>Most students entering this course are already familiar with the basic mechanics of graphing lines. Recapping very briefly: the equation for a line is <m>y = mx + b</m> where <m>b</m> is the <m>y</m>-intercept  and <m>m</m> is the slope.   This form of the equation for a line is sometimes called the <term>slope-intercept</term> form because the slope and vertical intercept are clearly seen.</p>
+            <example xml:id="example-linear-equation">
+              <title>Determine Slope and Intercept from Linear Equation</title>
+              <p>Any equation that can be written in slope-intercept form is the equation for a line. So, <m>2x-5y = 15</m> represents a line since:
+              <md>
+                <mrow>2x-5y &amp; = 15</mrow>
+                <mrow>-5y &amp; = -2x+15</mrow>
+                <mrow>y &amp; = \frac{2}{5}x-3.</mrow>
+              </md>
+                We see that the <m>y</m>-intercept of this line is at <m>y = -3</m> and the slope is <m>\frac{2}{5}.\checkmark</m></p>
+            </example>
+
+            <p>Not all equations represent lines. For example, <m>y = x^2 + 3x</m> does not define a line. It cannot be written in the form <m>y = mx + b.</m></p>
+            <p>There are two purposes of reintroducing this material in this course. The first is to frame the discussion as linear functions modeling behavior. The second is to deepen your understanding of the important concept of slope.</p>
+            <p>Consider the following examples. Sam is a salesman-he earns a commission for each sale. Alice is a technical support representative-she earns <m>\$100</m> each day. The chart below shows their bank accounts over the week.</p>
+            <sidebyside>
+              <tabular top="major" bottom="major" halign="center" left="minor" right="minor">
+                <col right="minor"/>
+                <col right="minor"/>
+                <col/>
+                  <!--  -->
+                <row bottom="major">
+                  <cell>After this many days (<m>d</m>)</cell>
+                  <cell>Sam's bank account (<m>S</m>)</cell>
+                  <cell>Alice's bank account (<m>A</m>)</cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>0</m> (*what they started with)</cell>
+                  <cell><m>\$75</m></cell>
+                  <cell><m>\$750</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>1</m></cell>
+                  <cell><m>\$275</m></cell>
+                  <cell><m>\$850</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>2</m></cell>
+                  <cell><m>\$275</m></cell>
+                  <cell><m>\$950</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>3</m></cell>
+                  <cell><m>\$450</m></cell>
+                  <cell><m>\$1,050</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>4</m></cell>
+                  <cell><m>\$480</m></cell>
+                  <cell><m>\$1,150</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>5</m></cell>
+                  <cell><m>\$530</m></cell>
+                  <cell><m>\$1,250</m></cell>
+                </row>
+              </tabular>
+            </sidebyside>
+            <p>Sam has some extremely good days (such as the first day, when he made <m>\$200</m>) and some extremely bad days (such as the second day, when he made nothing). Alice makes exactly <m>\$100</m> every day.</p>
+            <p>Let <m>d</m> be the number of days, <m>S</m> be the number of dollars Sam has made, and <m>A</m> be the number of dollars Alice has made. Both <m>S</m> and <m>A</m> are functions of time. But <m>S(d)</m> is not a linear function, and <m>A(d)</m> is a linear function.</p>
+            <p><term>Linear Function</term>: A function is said to be <q>linear</q> if every time the independent
+              variable increases by <m>1</m>, the dependent variable increases or decreases by the same amount.</p>
+
+              <exercise>
+                <title>Consider the Definition</title>
+                <webwork source="Library/PCC/BasicAlgebra/EquationsAndInequalitiesInTwoVariables/LinearOrNot30.pg" />
+              </exercise>
+
+          <!-- <exercise> -->
+          <!--   <title>Population Models</title> -->
+          <!--   <webwork source="Library/LoyolaChicago/Precalc/Chap3Sec2/Q01.pg" /> -->
+          <!-- </exercise> -->
+
+            <p>Once you know that Alice's bank account function is linear, there are only two things you need to know
+              before you can predict her bank account on any given day.
+            <ul>
+              <li><p>How much money she started with (<m>\$750</m> in this example). This is called the <m>y</m>-intercept</p></li>
+              <li><p>How much she makes each day (<m>\$100</m> in this example). This is called the slope.</p></li>
+          </ul></p>
+          <sidebyside widths="40% 55%" valign="middle">
+            <p>So, the linear function that gives how much money
+              is in Alice's bank account  <m>d</m> days after she opened the account is
+              <md>
+                <mrow>A(d) = 100d + 750.</mrow>
+              </md>
+            </p>
+            <image xml:id="graph-Alice"> <!--set2A-Linear_Functions_00.png-->
+              <latex-image>\begin{tikzpicture}
+                \draw[line width=0.55mm,black,&lt;-&gt;] (-.5,0) -- (10.5,0) node[anchor=north west] {d};
+                \draw[line width=0.55mm,black,&lt;-&gt;] (0,-0.5) -- (0,9.5) node[anchor=south east] {A};
+                \foreach \x in {1,...,10}
+                \draw[line width=0.55mm,black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+                \foreach [evaluate=\x as \y using int(200*\x)] \x in {1,...,9}
+                \draw[line width=0.55mm,black] (-3pt, \x cm) -- (3 pt, \x cm) node[shift={(-.75,0.05)}] {$\y$};
+                \draw[line width=0.75mm, domain=0:10.5,smooth,variable=\x,red] (0,3.75)--(10.5,9);
+                \fill[color=red] (0,3.75) circle (.1cm);
+                \node at (7,5) {$A(d)=100d+750$};
+                \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>The <m>y</m>-intercept is relatively easy to understand. The vertical intercept may be calculated from the formula of a line by evaluating the formula at <m>0</m>. Verbally, it is the dependent value when the independent variable is <m>0</m>; graphically, it is where the line crosses the <m>y</m>-axis. </p>
+
+
+        <assemblage xml:id="assemblage-determine-y-intercept">
+          <title>Determine <m>y</m>-intercept Two Ways</title>
+          <p>Determine the <m>y</m>-intercept for the line defined by the equation, <m>x + 3y = 6</m>.</p>
+          <p>
+            <ol>
+          <li><p>The <m>y</m>-intercept is the value of <m>y</m> when <m>x=0</m>, so <m>0 + 3y = 6</m>, and dividing both sides by <m>3</m> we get: <m>y=2</m>. So, the <m>y</m>-intercept is <m>2</m>.</p></li>
+              <li><p>Write the equation in the slope-intercept form to find the intercept:
+              <md>
+                <mrow>x + 3y\amp= 6\amp\amp\text{Subtract \(x\) from both sides}</mrow>
+                <mrow>\amp\amp\amp\text{Divide both sides by \(3\)}</mrow>
+                <mrow>y\amp= -\frac{1}{3}x+2\amp\amp\text{Slope-intercept form}</mrow>
+              </md>
+                We see the <m>y</m>-intercept is <m>2.\checkmark</m></p></li>
+        </ol></p>
+      </assemblage>
+    </subsection>
+
+    <subsection>
+      <title>But what about slope?</title>
+      <p>One of the best ways to understand the idea of slope is to convince yourself that all of the following definitions of slope are actually the same.</p>
+<sidebyside>
+      <tabular top="major" bottom="major" halign="center" left="minor" right="minor">
+        <col right="minor" width="30%"/>
+        <col right="minor" width="30%"/>
+        <col width="30%"/>
+        <!--  -->
+        <row bottom="major">
+          <cell colspan="3"><p><term>Definitions of Slope</term></p></cell>
+        </row>
+        <row bottom="major">
+            <cell><p>In our example</p></cell>
+            <cell><p>In general</p></cell>
+            <cell><p>On a graph</p></cell>
+        </row>
+        <row bottom="minor">
+          <cell><p>Each day, Alice's bank account increases by <m>100</m>.</p>
+          <p>So the slope is <m>100</m>.</p></cell>
+          <cell><p>Each time the independent variable increases by <m>1</m>, the dependent variable increases by the slope.</p></cell>
+          <cell><p>Each time you move to the right by <m>1</m>, the graph goes up (or down) by the slope.</p></cell>
+        </row>
+        <row bottom="minor">
+          <cell><p>Between days <m>2</m> and <m>5</m>, Alice earns <m>\$300</m> in <m>3</m> days. <m>300/3=100</m>.</p>
+          <p>Between days <m>1</m> and <m>3</m>, she earns <m>\$200</m> in <m>2</m> days. <m>200/2=100</m>.</p></cell>
+          <cell><p>Take any two values of the independent variable with their corresponding values in the dependent variable, divide the change in the dependent variable's values by the change in the independent variable. This is the slope.</p></cell>
+          <cell><p>Take any two points on the line.  The change in <m>y</m> divided by the change in <m>x</m> is the slope.</p>
+          <p>This is often written as <m>m = \dfrac{\Delta y}{\Delta x}= \dfrac{y_2 - y_1}{x_2-x_1}</m> , or as <m>m = \dfrac{\mbox{rise}}{\mbox{run}}</m></p></cell>
+        </row>
+        <row bottom="minor">
+          <cell><p>The higher the slope, the faster Alice is making money.</p></cell>
+          <cell><p>The higher the slope, the faster the dependent variable increases.</p></cell>
+          <cell><p>The higher the slope, the faster the graph rises as you move to the right.</p></cell>
+        </row>
+      </tabular>
+</sidebyside>
+
+    <p>So slope does not tell you where a graph is, but how quickly it is rising or falling. Looking at a graph, you can get an approximate feeling for its slope without any numbers. Examples are given below.  In each example, the scales on the horizontal and vertical axes are identical.</p>
+    <sbsgroup widths="55% 40%" valign="middle">
+        <sidebyside>
+          <p>A slope of <m>1</m>: each time you go over <m>1</m>, you also go up <m>1</m>.
+          </p>
+              <image xml:id="graph-slope-1">
+                <latex-image>\begin{tikzpicture}
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (-5,0) -- (5,0);
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (0,-5) -- (0,5);
+                      \draw[line width=0.75mm,red] (-5,-2)--(2,5);
+                      \end{tikzpicture}</latex-image>
+              </image>
+          </sidebyside>
+        <sidebyside>
+          <p>A steep slope of perhaps <m>3</m> or <m>4</m>.
+          </p>
+              <image xml:id="graph-slope-steep">
+                <latex-image>\begin{tikzpicture}
+                        \draw[line width=0.35mm,black,&lt;-&gt;] (-5,0) -- (5,0);
+                        \draw[line width=0.35mm,black,&lt;-&gt;] (0,-5) -- (0,5);
+                        \draw[line width=0.75mm, blue] (-1.33,-5)--(2,5);
+                      \end{tikzpicture}</latex-image>
+              </image>
+        </sidebyside>
+        <sidebyside>
+          <p>A gentle slope of perhaps <m>\frac{1}{2}</m>.
+          </p>
+              <image xml:id="graph-slope-gentle">
+                <latex-image>\begin{tikzpicture}
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (-5,0) -- (5,0);
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (0,-5) -- (0,5);
+                      \draw[line width=0.75mm,green] (-5,-2)--(5,1.5);
+                      \end{tikzpicture}</latex-image>
+              </image>
+        </sidebyside>
+        <sidebyside>
+          <paragraphs>
+          <p>A horizontal line has a slope of <m>0</m>:</p>
+          <p>each time you go over 1, you don't go up at all! The equation
+           of a horizontal line is: <m>y = 0x + b</m> and simplified: <m>y = b</m>.</p>
+         </paragraphs>
+              <image xml:id="graph-slope-horizontal">
+                <latex-image>\begin{tikzpicture}
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (-5,0) -- (5,0);
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (0,-5) -- (0,5);
+                      \draw[line width=0.75mm,red] (-5,3)--(5,3);
+                      \end{tikzpicture}</latex-image>
+              </image>
+        </sidebyside>
+        <sidebyside>
+          <paragraphs>
+          <p>This line goes down as you move left to right.</p>
+          <p>So the slope is negative. It is steep: maybe a <m>-2</m>.</p>
+         </paragraphs>
+              <image xml:id="graph-slope-negative">
+                <latex-image>\begin{tikzpicture}
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (-5,0) -- (5,0);
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (0,-5) -- (0,5);
+                      \draw[line width=0.75mm,blue] (-2,5)--(3,-5);
+                      \end{tikzpicture}</latex-image>
+              </image>
+        </sidebyside>
+        <sidebyside>
+          <paragraphs>
+          <p>A vertical line has no slope.</p>
+          <p>It has no change in the horizontal direction, and since we cannot calculate division by zero,   we say the slope is <term>not defined</term>. </p>
+          <p>Note that having no value is not the same as having the value of zero.</p>
+          <p>The equation for a vertical line is just <m>x = c</m> where <m>c</m> is the <m>x</m>-intercept of the line.</p>
+          </paragraphs>
+              <image xml:id="graph-slope-vertical">
+                <latex-image>\begin{tikzpicture}
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (-5,0) -- (5,0);
+                      \draw[line width=0.35mm,black,&lt;-&gt;] (0,-5) -- (0,5);
+                      \draw[line width=0.75mm,green] (-3,-5)--(-3,5);
+                      \end{tikzpicture}</latex-image>
+              </image>
+        </sidebyside>
+      </sbsgroup>
+      <p>The slope of a line may be calculated from any two points on the line, <m>(x_1, y_1)</m> and <m>(x_2, y_2)</m>.  The "rise" is found by finding the difference between the two <m>y</m> values, <m>y_2 - y_1</m> and dividing by the "run", the difference in the <m>x</m> values: <m>x_2 - x_1</m>. Note that you must find the differences in the same order. You may not calculate the change from <m>y_1</m> to <m>y_2</m> and then the change from <m>x_2</m> to <m>x_1</m>.  So the formula for finding the slope of a line from two points on the line is:
+        <mdn>
+        <mrow xml:id="exponents-product-rule">\text{Slope through two points }(x_1, y_1) \text{ and } ( x_2, y_2) = \dfrac{y_2 - y_1}{x_2 - x_1}
+        </mrow>
+      </mdn>
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>Finding the Equation for a Line</title>
+    <assemblage xml:id="assemblage-determine-slope-from-graph">
+      <title>Determine Slope Given a Graph</title>
+      <sidebyside widths="50% 45%" valign="middle">
+        <paragraphs><p>Looking at the graph at the right, you can see  it doesn't matter which points you use as long as you are consistent in finding the differences between <m>x</m> and <m>y</m> values:</p>
+          <p>slope <m>= \frac{2}{1} = \frac{-2}{-1} = 2.\checkmark</m></p>
+        </paragraphs>
+        <image xml:id="graph-slope-line">
+          <latex-image>\begin{tikzpicture}
+            \draw[step=1cm,gray,very thin] (-5.9,-5.9) grid (5.9,5.9);
+            \draw[line width=0.55mm,black,&lt;-&gt;] (-6,0) -- (6,0) node[anchor=north west] {$x$};
+            \draw[line width=0.55mm,black,&lt;-&gt;] (0,-6) -- (0,6) node[anchor=south east] {$y$};
+            \foreach \x in {-5,...,-1,1,2,...,5}
+            \draw[line width=0.55mm,black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+            \foreach \y in {-5,...,-1,1,2,...,5}
+            \draw[line width=0.55mm,black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+            \draw[line width=0.75mm,red] (-2.95,-5.9)--(2.95,5.9);
+            \draw[dashed, line width=0.75mm,black,-&gt;] (1,2) -- (2,2) node[shift={(-.5,-0.5)}] {\Large $+1$};
+            \draw[dashed, line width=0.75mm,black,-&gt;] (2,2) -- (2,4) node[shift={(.6,-.75)}] {\Large $+2$};
+            \draw[dashed, line width=0.75mm,black,-&gt;] (-1,-2) -- (-2,-2) node[shift={(.5,0.5)}] {\Large $-1$};
+            \draw[dashed, line width=0.75mm,black,-&gt;] (-2,-2) -- (-2,-4) node[shift={(-.6,.75)}] {\Large $-2$};
+            \end{tikzpicture}</latex-image>
+        </image>
+      </sidebyside>
+    </assemblage>
+
+    <assemblage xml:id="assemblage-slope-from-2-points-positive">
+        <title>Determine Slope Given Two Points</title>
+        <p>Determine the slope of the line passing through the points <m>(2, -5)</m> and <m>(4, 1).</m></p>
+        <p>To determine the slope, <m>m</m>, of the line passing through the points, <m>(2, -5)</m> and <m>(4, 1),</m> we calculate the rise and divide by the run.  It doesn't matter which point you take to be the <m>(x_1, y_1)</m> or <m>(x_2, y_2)</m> so let <m>(2, -5)</m> be the "first" point and <m>(4, 1)</m> be the "second" point:
+        <md>
+        <mrow>m = \frac{y_2 - y_1}{x_2 - x_1}=\frac{1 - (-5)}{4 - 2} = \frac{6}{2} = 3\checkmark</mrow>
+        </md>
+        </p>
+      </assemblage>
+
+      <assemblage xml:id="assemblage-slope-from-2-points-horizontal">
+        <title>Determine Slope Given Two Points</title>
+        <p>Determine the slope of the line passing through the points <m>(3, 2)</m> and <m>(-1, 2).</m></p>
+        <p>Calculate the rise and divide by the run. This time we let  <m>(3, 2)</m> be the "first" point and <m>(-1, 2)</m> be the "second" point:
+        <md>
+        <mrow>m = \frac{y_2 - y_1}{x_2 - x_1}=\frac{2 - 2}{-1- 3} = \frac{0}{-4} = 0</mrow>
+        </md>
+        Since the slope is zero, the line is horizontal with all <m>y</m>-coordinates equal to <m>2.\checkmark</m>
+        </p>
+      </assemblage>
+
+      <assemblage xml:id="assemblage-slope-from-2-points-undefined">
+        <title>Determine Slope Given Two Points</title>
+        <p>Determine the slope of the line passing through the points <m>(5, 0)</m> and <m>(5, 3).</m></p>
+        <p>We again calculate the rise and divide by the run. This time we let  <m>(5, 0)</m> be the "first" point and <m>(5, 3)</m> be the "second" point:
+        <md>
+          <mrow>m = \frac{y_2 - y_1}{x_2 - x_1}=\frac{3 - 0}{5- 5}  \text{ Oops, we are in trouble here!}</mrow>
+        </md>
+          Since <m>5 - 5 = 0</m> and we cannot divide by zero, the slope is not defined. This is a vertical line where all the points have an <m>x</m>-coordinate of <m>5</m>, i.e. the line passes vertically through <m>x = 5</m> on the <m>x</m>-axis.<m>\checkmark</m>
+        </p>
+      </assemblage>
+
+      <p>We can write an equation for a line if we can find it's slope and vertical intercept.</p>
+
+      <assemblage xml:id="assemblage-equation-given-graph">
+        <title>Determine Equation of a Line Given a Graph</title>
+        <sidebyside widths="40% 55%" valign="middle">
+          <paragraphs>
+            <p>This method is pretty easy if the slope is an integer or simple fraction like <m>\frac{2}{3}</m> or <m>-\frac{1}{2}</m>.</p>
+            <p>Using the previous graph, which we show again at the right, recall the slope is <m>2</m> and we can see that the <m>y</m>-intercept is <m>0</m>.
+          </p>
+        </paragraphs>
+        <image xml:id="graph-equation-line">
+          <latex-image>\begin{tikzpicture}
+            \draw[step=1cm,gray,very thin] (-5.9,-5.9) grid (5.9,5.9);
+            \draw[line width=0.55mm,black,&lt;-&gt;] (-6,0) -- (6,0) node[anchor=north west] {$x$};
+            \draw[line width=0.55mm,black,&lt;-&gt;] (0,-6) -- (0,6) node[anchor=south east] {$y$};
+            \foreach \x in {-5,...,-1,1,2,...,5}
+            \draw[line width=0.55mm,black] (\x cm,3pt) -- (\x cm,-3pt) node[shift={(0.05,-.3)}] {$\x$};
+            \foreach \y in {-5,...,-1,1,2,...,5}
+            \draw[line width=0.55mm,black] (3pt,\y cm) -- (-3pt,\y cm) node[shift={(-.3,0.05)}] {$\y$};
+            \draw[line width=0.75mm,red] (-2.95,-5.9)--(2.95,5.9);
+            \draw[dashed, line width=0.75mm,black,-&gt;] (1,2) -- (2,2) node[shift={(-.5,-0.5)}] {\Large $+1$};
+            \draw[dashed, line width=0.75mm,black,-&gt;] (2,2) -- (2,4) node[shift={(.6,-.75)}] {\Large $+2$};
+            \draw[dashed, line width=0.75mm,black,-&gt;] (-1,-2) -- (-2,-2) node[shift={(.5,0.5)}] {\Large $-1$};
+            \draw[dashed, line width=0.75mm,black,-&gt;] (-2,-2) -- (-2,-4) node[shift={(-.6,.75)}] {\Large $-2$};
+            \end{tikzpicture}</latex-image>
+        </image>
+      </sidebyside>
+      <p>Therefore, the equation for the line is <m>y = 2x.\checkmark</m>
+      </p>
+    </assemblage>
+    <p>Of course if the slope was <m>\sqrt{2}</m>, we'd want a better method of finding the equation.</p>
+    <assemblage xml:id="assemblage-quation-given-point-slope">
+        <title>Determine Equation of a Line Given the Slope and a Point</title>
+        <p>Determine the equation for the line with slope <m>\frac{1}{2}</m> which passes through the point <m>(-3,5).</m></p>
+        <p>If we know the slope, we are half way done! Since we know the point is on the line, it must be a solution of the equation for the line: <m>y = \frac{1}{2}x + b</m>.  If we plug in the values <m>x = -3</m> and <m>y = 5</m> into the equation, we can find the value of <m>b:</m>
+        <md>
+          <mrow>5 &amp; = \frac{1}{2}(-3) + b</mrow>
+          <mrow>5 &amp; = -\frac{3}{2} + b</mrow>
+          <mrow>5 + \frac{3}{2} &amp; = b</mrow>
+          <mrow>\frac{10}{2} + \frac{3}{2} &amp; = b</mrow>
+          <mrow>\frac{13}{2} &amp; =  b</mrow>
+        </md>
+        So, the equation for this line is <m>y = \frac{1}{2}x + \frac{13}{2}.\checkmark</m></p>
+    </assemblage>
+    <assemblage xml:id="assemblage-quation-given-points">>
+      <title>Determine Equation of a Line Given Two Points</title>
+      <p>Let <m>(-2,3)</m> and <m>(1,7)</m> be points on a line. If we find the slope, we may use the same process as the previous assemblage to find the equation. The slope is:
+      <md>
+        <mrow>m = \dfrac{7-3}{1-(-2)} =\dfrac{4}{3}.</mrow>
+      </md>
+        We now know half of what we need for the equation: <m>y = \frac{4}{3}x + b</m>, where <m>b</m> is the <m>y</m>-intercept.  Both points are on the line and so if we pick a point and plug in the <m>x</m> and <m>y</m> values, we can find <m>b</m>:
+        <md>
+          <mrow>7 &amp; = \frac{4}{3}(1) + b</mrow>
+          <mrow>7 - \frac{4}{3} &amp; = b</mrow>
+          <mrow>\frac{21}{3} - \frac{4}{3} &amp; = b</mrow>
+          <mrow>\mbox{So, }    b &amp; = \frac{17}{3}</mrow>
+        </md>
+          Hence, the equation is <m>y = \frac{4}{3}x + \frac{17}{3}.\checkmark</m></p>
+      </assemblage>
+    <p>We could have used the other point: <m>3 = \frac{4}{3}(-2) + b</m>. In this case, <m>b = 3 + \frac{8}{3} = \frac{9}{3} + \frac{8}{3}= \frac{17}{3}</m> and <m>b</m> is still equal to <m>\frac{17}{3}.</m>  So remember, we can use either point to find <m>b</m>.
+</p>
+<assemblage xml:id="assemblage-quation-given-points-undefined">
+        <title>Determine Equation of a Line Given Two Points</title>
+        <p>Let <m>(-2,1)</m> and <m>(3,1)</m> be points on a line. The slope is:
+        <md>
+          <mrow>m = \frac{1 - 1}{3 - (-2)} = \frac{0}{5} = 0.</mrow>
+        </md>
+          A line with zero slope is horizontal.  It is defined by the fact that all of it's <m>y</m>-coordinates are the same. In this case, <m>y = 1</m> is the equation for the line.  Even if you take the time to write out the slope-intercept form to find the <m>y</m>-intercept, you will find:
+          <md>
+            <mrow>y &amp; = 0x + b</mrow>
+            <mrow>1 &amp; = 0(-2)+b</mrow>
+            <mrow> 1 &amp; =b.</mrow>
+          </md>
+          And, even though it took a little longer, we get the equation, <m>y = 1,</m> for this line. Please don't write <m>y = 0x + 1</m> for the equation. Even though it is technically correct, it's better to simplify the equation. <m>\checkmark</m>
+</p>
+</assemblage>
+<assemblage xml:id="assemblage-quation-given-vertical">
+    <title>Determine Equation of a Vertical Line Given One Point</title>
+    <p>Determine the equation for the vertical line through the point <m>(-2,5).</m></p>
+    <p>The slope of a vertical line is not defined since it has no change in the horizontal direction.  So, there is no value for the <m>m</m> in the slope-intercept form: <m>y = mx+b</m>. How can we proceed if we don't have a value to work with?</p>
+    <p>The defining aspect of a vertical line is the fact that all of it's <m>x</m>=coordinates are the same. In this case, the <m>x</m> values of all the points on the line are <m>-2.</m> So, the equation for the line is <m>x = -2,</m> since it tells all we need to know about <q>where</q> the line is and what it looks like.<m>\checkmark</m></p></assemblage>
+</subsection>
+<exercise>
+  <webwork source="local/mhcc5112.pg" />
+</exercise>
+      <exercise>
+        <title>A Cubic Polynomial</title>
+      <webwork source="local/mhcc9217.pg" />
+      </exercise>
+      <exercise>
+        <title>A Higher Order Polynomial</title>
+        <webwork source="local/mhcc912.pg" />
+      </exercise>
+
+</section>
