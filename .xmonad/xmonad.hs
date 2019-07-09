@@ -8,6 +8,8 @@ import XMonad.Hooks.DynamicBars
 
 import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
+import XMonad.Layout.Roledex
+import XMonad.Layout.ResizableTile
 
 import XMonad.Actions.Warp         -- (18) warp the mouse pointer
 import XMonad.Actions.Submap       -- (19) create keybinding submaps
@@ -135,8 +137,14 @@ myXPConfig = def { position          = Top
                  , historyFilter = deleteConsecutive
                  }
 
-myLayouts = avoidStruts (tall ||| Mirror tall)
-                   where  tall = Tall 1 (3/100) (1/2)
+
+
+myLayouts = avoidStruts (resizableTile ||| Mirror resizableTile)
+     where
+        resizableTile = ResizableTall nmaster delta ratio []
+        nmaster = 1
+        ratio = toRational (2/(1+sqrt(5)::Double))
+        delta = 1/100
 
 myManageHook :: ManageHook
 myManageHook = composeAll
