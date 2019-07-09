@@ -1,18 +1,32 @@
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin/scripts
+export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:/opt/webwork/webwork2/bin
+export PATH=$PATH:/home/colton/fy/20/mathbook/script
+# export GOROOT=/usr/local/go
+# export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export R_HOME=/usr/lib/R
-export GOROOT=/usr/local/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
 export VIMRUNTIME=/usr/share/vim/vim81
+# https://stackoverflow.com/questions/18247333/python-pythonpath-in-linux
 export PYTHONPATH=/.local/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=/.local/lib/python3.6/site-packages:$PYTHONPATH
 export PYTHONPATH=/.local/lib/python3.7/site-packages:$PYTHONPATH
-
+export WEBWORK_ROOT=/opt/webwork/webwork2
+export PG_ROOT=/opt/webwork/pg
+# Perl automagic
 PATH="/home/colton/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/colton/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/colton/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/colton/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/colton/perl5"; export PERL_MM_OPT;
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+function margs {
+   echo $(gpg -dq /home/colton/.ssh/mysql-args.txt.gpg)
+}
 
 # Initialize fuzzy find.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

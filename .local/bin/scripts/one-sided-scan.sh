@@ -6,7 +6,7 @@
 scanimage\
     -d imagescan:esci:usb:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0\
     --resolution 225\
-    --blank-threshold 10\
+    --blank-threshold 5\
     --scan-area Letter/Portrait\
     --mode Monochrome\
     --threshold 150\

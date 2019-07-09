@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.40 for colton on Thu Apr 18 08:59:06 2019.
+# Written by xscreensaver-demo 5.42 for colton on Thu Jun 13 15:11:27 2019.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:02:00
+timeout:	0:05:00
 cycle:		0:05:00
 lock:		True
 lockTimeout:	0:10:00
@@ -17,17 +17,17 @@ demoCommand:	xscreensaver-demo
 prefsCommand:	xscreensaver-demo -prefs
 nice:		10
 memoryLimit:	0
-fade:		False
+fade:		True
 unfade:		False
-fadeSeconds:	0:00:01
+fadeSeconds:	0:00:05
 fadeTicks:	20
 captureStderr:	True
 ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
 dpmsEnabled:	True
 dpmsQuickOff:	True
-dpmsStandby:	0:02:00
-dpmsSuspend:	0:02:00
+dpmsStandby:	0:04:00
+dpmsSuspend:	0:05:00
 dpmsOff:	0:05:00
 grabDesktopImages:  False
 grabVideoFrames:    False
@@ -280,6 +280,7 @@ programs:								      \
 - GL: 				peepers -root				    \n\
 - GL: 				razzledazzle -root			    \n\
 				vfeedback -root				    \n\
+- GL: 				handsy -root				    \n\
 
 
 pointerPollTime:    0:00:05

@@ -1,0 +1,7 @@
+
+xmonad.hs:153:1: warning: [-Wtabs]
+    Tab character found here, and in 10 further locations.
+    Please use spaces instead.
+    |
+153 |                 , className =? "Xmessage"       --> doCenterFloat 
+    | ^^^^^^^^

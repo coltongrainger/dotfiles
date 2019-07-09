@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-rsi'
+  Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-speeddating'
@@ -33,9 +34,10 @@ call plug#begin('~/.vim/plugged')
   " TODO Test these extensions. <ccg, 2019-04-21> "
   Plug 'lervag/vimtex', {'for': '*.tex'}
   Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+  Plug 'coltongrainger/vim-snippets'
   Plug 'Konfekt/FastFold'
   Plug 'mileszs/ack.vim'
+  " Plug 'davidhalter/jedi-vim'
   " TODO Here's a list of plugins to tentatively remove. <ccg, 2019-04-21> "
   " Plug 'fatih/vim-go'
   Plug 'goerz/ipynb_notedown.vim'
@@ -91,6 +93,7 @@ if has('autocmd')
     " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
     autocmd FileType tex syntax spell toplevel
     autocmd FileType tex let g:tex_flavor='latex'
+    autocmd FileType python let maplocalleader = "`"
   augroup END
 endif
 
@@ -107,16 +110,23 @@ let g:email='colton.grainger@colorado.edu'
 let g:username='Colton Grainger'
 let g:license='CC-0 Public Domain'
 
-let g:snips_author='Colton Grainger'
+let g:snips_author='ccg'
 let g:snips_email='colton.grainger@colorado.edu'
 let g:snips_github='https://github.com/coltongrainger'
 
 let g:UltiSnipsEditSplit="tabdo"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+" default trigger values
+"    g:UltiSnipsExpandTrigger               <tab>
+"    g:UltiSnipsListSnippets                <c-tab>
+"    g:UltiSnipsJumpForwardTrigger          <c-j>
+"    g:UltiSnipsJumpBackwardTrigger         <c-k>
+inoremap <c-x><c-k> <c-x><c-k>
 
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+ 
 let g:tex_fast = "mM"
 let g:vimtex_indent_enabled=0
 let g:vimtex_matchparen_enabled=0
@@ -165,8 +175,11 @@ noremap <F4> :UltiSnipsEdit<CR>
 " Give suggestions for last misspelled word.
 map <C-S> [sz=
 
-" pandoc
-nmap \pz ZoteroCite()<CR>
+noremap <F12> :JupyterSendRange<CR>
+
+" pandoc tools
+" cite
+nmap \pz :ZoteroCite()<CR>
 " compile .pdf and watch
 nmap \pc :Start pc.sh %<CR>
 " view available .pdf
@@ -213,6 +226,9 @@ endfunction
 function! AddEmptyLineBelow()
     call append(line("."), "")
 endfunction
+
+" https://stackoverflow.com/questions/7845671/executing-base64-decode-on-a-selection-in-vim
+vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
 
 " Remap arrow keys to 'useful' things.
 noremap <Left> <<

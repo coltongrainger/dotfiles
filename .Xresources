@@ -7,7 +7,7 @@ URxvt*skipScroll: true
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*scrollBar_floating: false
-/* URxvt*fading: 30 */
+URxvt*fading: 10
 URxvt*utmpInhibit: false
 URxvt*urgentOnBell: false
 URxvt*visualBell: true
@@ -182,3 +182,11 @@ URxvt*boldItalicFont: -uw-*-bold-i-*-*-18-*-*-*-*-*-*-*
 /* URxvt.font: 		xft:Iosevka Term-10:Medium */
 /* URxvt.boldFont: 	xft:Iosevka Term-10:Bold */
 /* URxvt.italicFont: 	xft:Iosevka Term-10:Italic */
+
+Xft.antialias:  1
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.hinting:    0
+Xft.hintstyle:  hintnone
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
