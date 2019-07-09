@@ -8,7 +8,6 @@ import XMonad.Hooks.DynamicBars
 
 import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
-import XMonad.Layout.Roledex
 import XMonad.Layout.ResizableTile
 
 import XMonad.Actions.Warp         -- (18) warp the mouse pointer
@@ -49,7 +48,7 @@ main = do
     , modMask            = mod4Mask -- Use the "Win" key for the mod key
     , startupHook        = spawn "$HOME/.xmonad/autostart.sh" <+> dynStatusBarStartup barCreate barDestroy
     , manageHook         = myManageHook
-    , layoutHook         = myLayouts
+    , layoutHook         = myLayouts 
     , handleEventHook    = docksEventHook <+> dynStatusBarEventHook barCreate barDestroy
     , logHook            = dynamicLogString quamashPP >>= xmonadPropLog
     }
@@ -137,9 +136,7 @@ myXPConfig = def { position          = Top
                  , historyFilter = deleteConsecutive
                  }
 
-
-
-myLayouts = avoidStruts (resizableTile ||| Mirror resizableTile)
+myLayouts = toggleLayouts Full (avoidStruts (resizableTile ||| Mirror resizableTile))
      where
         resizableTile = ResizableTall nmaster delta ratio []
         nmaster = 1
