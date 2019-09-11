@@ -1,21 +1,46 @@
-#! /bin/sh
+#! /bin/bash
 #
-# two-sided-scan.sh
-# 2018-08-22
-# CC0 Public Domain
+# sketch.sh
+# 2019-09-09
+# CC-0 Public Domain
 
+pushd $HOME/tmp
+
+bundle="$(date +%Y%m%d)T$(date +%H%M)"
 scanimage\
     -d imagescan:esci:usb:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0\
-    --resolution 300\
+    --resolution 200\
     --blank-threshold 10\
-    --scan-area Letter/Portrait\
-    --mode Monochrome\
-    --batch=$(date +%Y%m%d_%H%M%S)_p%04d.tiff\
+    --scan-area "Auto Detect"\
+    --mode Grayscale\
+    --batch=${bundle}_p%03d.jpg\
     --duplex\
+    &
 
-mv --backup=t *.tiff $HOME/sketch
 
-feh --auto-zoom --scale-down $HOME/raw/$(date +%Y-%m-%d)*.tiff &
+read -p "View images (y/n)? " view
+case ${view:0:1} in
+    y|Y )
+    feh --auto-zoom --scale-down $PWD/$bundle*.jpg &
+
+    read -p "Accept images (y/n)? " accept
+    case ${accept:0:1} in
+        y|Y )
+            mkdir $HOME/sketch/$bundle
+            mv --backup=t $bundle*.jpg $HOME/sketch/$bundle
+        ;;
+        * )
+            rm $HOME/tmp/$bundle*.jpg
+            echo "Delete and abort!"
+        ;;
+    esac
+    ;;
+    * )
+        rm $HOME/tmp/$bundle*.jpg
+        echo "Delete and abort!"
+    ;;
+esac
+popd
 
 # Options specific to device `imagescan:esci:usb:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0':
 #   General:
