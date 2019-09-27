@@ -1,0 +1,11 @@
+../.Xsession
+../.bashrc
+../.gitignore
+bin/scripts/sketch.sh
+../.mutt/common.muttrc
+../.mutt/offlineimap.py
+../.tmux.conf
+../.vimrc
+../.xmonad/xmonad.errors
+../.xmonad/xmonad.hs
+../texmf/tex/latex/humanist.cls
