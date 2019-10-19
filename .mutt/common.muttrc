@@ -7,7 +7,7 @@ set edit_headers= yes
 # strip headers and eval mimes before searching
 set thorough_search 
 # strip headers and eval mimes when piping
-set pipe_decode 
+set pipe_decode = no
 # bell on new mails
 set beep_new 
 # read/new is good enough for me
@@ -90,9 +90,9 @@ set index_format        = "[%Z]  %D  %-20.20F  %s"
 set date_format         = "%F"                                   
 
 # sidebar
-set sidebar_visible = yes
+# set sidebar_visible = yes
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-set sidebar_width   = 8
+# set sidebar_width = 8
 
 # In the pager, don't display + at the beginning of wrapped lines; it's distracting
 unset markers                                                          
@@ -234,9 +234,13 @@ folder-hook notmuch 'macro index \CF \
 <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
 "notmuch: reconstruct thread"'
 
+# https://unix.stackexchange.com/questions/37218/
+# how-to-really-easily-save-all-tagged-attachments-in-mutt
+macro index,pager X "<pipe-message>ripmime -i - -d "
+
 #  fakesection: personal # 
-set from = "grainger@ucar.edu"
-alternates ^colton.grainger@gmail.com$ ^colton.grainger@colorado.edu$
+set from = "colton.grainger@colorado.edu"
+alternates ^colton.grainger@gmail.com$
 set realname = "Colton Grainger"
 set signature = ~/.mutt/signature
 

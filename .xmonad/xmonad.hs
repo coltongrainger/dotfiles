@@ -45,6 +45,7 @@ main = do
     , workspaces         = map show [1..9]
     , borderWidth        = 2
     , focusedBorderColor = "#dc322f"
+    , focusFollowsMouse  = True -- https://github.com/xmonad/xmonad/issues/108
     , modMask            = mod4Mask -- Use the "Win" key for the mod key
     , startupHook        = spawn "$HOME/.xmonad/autostart.sh" <+> dynStatusBarStartup barCreate barDestroy
     , manageHook         = myManageHook
@@ -58,6 +59,8 @@ main = do
 
     `additionalKeysP`
       [ ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess))
+      -- TODO , ("M-S-<Return>", spawn "urxvtc -e $HOME/.local/bin/tmux-new-terminal")
+      -- https://tmuxguide.readthedocs.io/en/latest/tmux/tmux.html#sessions
       -- center the pointer, banish the pointer
       , ("M-'", warpToWindow (1/2) (1/2))
       , ("M-S-'", banishScreen LowerRight)                          -- (18)
@@ -75,6 +78,7 @@ main = do
       , ("M-S-p", prompt "urxvt -e" myXPConfig)
       -- audio controls
       , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
+      , ("M-<F2>", spawn "xscreensaver-command -lock")
       , ("<XF86AudioMicMute>", spawn "pavucontrol")
       , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
       , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")

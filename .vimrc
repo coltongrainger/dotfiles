@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'coltongrainger/vim-snippets'
   Plug 'Konfekt/FastFold'
   Plug 'mileszs/ack.vim'
-  " Plug 'davidhalter/jedi-vim'
+  Plug 'davidhalter/jedi-vim'
   " TODO Here's a list of plugins to tentatively remove. <ccg, 2019-04-21> "
   " Plug 'fatih/vim-go'
   Plug 'goerz/ipynb_notedown.vim'
@@ -60,7 +60,8 @@ set noerrorbells visualbell t_vb=
 set noshowmatch scrolljump=5 " scrolloff=5
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 set formatprg=par\ -w80qes0
-
+set fillchars=fold:\ 
+set foldmethod=marker
 nnoremap Y y$
 
 if has('autocmd')
@@ -84,11 +85,12 @@ if has('autocmd')
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
     autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    autocmd FileType tex setlocal noai nocin nosi inde=
     autocmd FileType text setlocal filetype=markdown
     autocmd FileType make setlocal noexpandtab
     autocmd FileType cls setlocal filetype=tex
+    " autocmd FileType tex setlocal foldmethod=manual
     autocmd FileType tex let g:tex_fold_enabled=1
-    autocmd FileType tex setlocal fillchars=fold:\ 
     " More aggressively check spelling in LaTeX; see
     " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
     autocmd FileType tex syntax spell toplevel

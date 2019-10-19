@@ -14,6 +14,7 @@ export VIMRUNTIME=/usr/share/vim/vim81
 export PYTHONPATH=/.local/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=/.local/lib/python3.6/site-packages:$PYTHONPATH
 export PYTHONPATH=/.local/lib/python3.7/site-packages:$PYTHONPATH
+export PYTHONPATH=$HOME/fy/20/rda-image-archive/script:$PYTHONPATH
 export WEBWORK_ROOT=/opt/webwork/webwork2
 export PG_ROOT=/opt/webwork/pg
 # Perl automagic
@@ -23,6 +24,10 @@ PERL_LOCAL_LIB_ROOT="/home/colton/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/colton/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/colton/perl5"; export PERL_MM_OPT;
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+# export JUPYTER_PATH=$HOME/fy/20/rda-image-archive/script:$JUPYTER_PATH
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export LESS="-R"
 
 function margs {
    echo $(gpg -dq /home/colton/.ssh/mysql-args.txt.gpg)

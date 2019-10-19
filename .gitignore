@@ -1,3 +1,4 @@
 *.mbox.stripped
 duplicity/*.log
 .my.cnf
+~/tmp

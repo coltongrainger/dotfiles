@@ -2,4 +2,4 @@
 from subprocess import check_output
 
 def get_pass():
-        return check_output("gpg -dq ~/.mutt/password.gpg", shell=True).strip("\n")
+        return check_output("cat ~/.gmail-app-pass", shell=True).strip("\n")
