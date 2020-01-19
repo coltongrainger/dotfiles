@@ -1,5 +1,10 @@
 {
   "load_extensions": {
     "cite2c/main": true
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": false
+    }
   }
 }

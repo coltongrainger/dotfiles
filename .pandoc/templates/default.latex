@@ -4,12 +4,12 @@ $else$
 \documentclass[10pt]{amsart}
 $endif$
 $if(geometry)$
-\usepackage{geometry}
+\usepackage[$geometry$]{geometry}
 $else$
 \usepackage{fullpage}
 $endif$
 % https://tex.stackexchange.com/questions/174073
-\usepackage{parskip}
+% \usepackage{parskip}
 
 % macros
 \usepackage{ccg-macros}
@@ -18,7 +18,11 @@ $endif$
 
 % pandoc is utf8 native
 \usepackage[utf8]{inputenc}
+
+% font
+\usepackage[varg]{txfonts}
 \usepackage[T1]{fontenc}
+
 
 % extra macros
 $for(header-includes)$

@@ -65,8 +65,8 @@ main = do
       , ("M-'", warpToWindow (1/2) (1/2))
       , ("M-S-'", banishScreen LowerRight)                          -- (18)
       -- window movements 
-      , ("M-<Esc>", sendMessage (Toggle "Full"))
-      , ("M-b", sendMessage ToggleStruts)
+      -- , ("M-<Esc>", sendMessage (Toggle "Full"))
+      -- , ("M-<Esc>", sendMessage ToggleStruts)
       , ("<XF86Forward>" , rotAllDown)
       , ("<XF86Back>" , rotAllUp)
       -- kill windows
@@ -95,7 +95,7 @@ main = do
       -- run named software
       , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
-      , ("M-0", spawn "google-chrome 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/Y1hx2qJD' 'https://trello.com/b/4qjGOH0n' 'https://trello.com/b/hYv2GTFI' 'https://trello.com/b/2KJTUe0h' 'https://trello.com/c/4hRMEd4Q'")
+      , ("M-0", spawn "google-chrome 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/Y1hx2qJD' 'https://trello.com/b/4qjGOH0n' 'https://trello.com/b/hYv2GTFI' 'https://trello.com/b/2KJTUe0h' 'https://trello.com/b/gl7DxL1j'")
       , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne
