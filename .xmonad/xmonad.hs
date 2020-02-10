@@ -95,7 +95,7 @@ main = do
       -- run named software
       , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
-      , ("M-0", spawn "google-chrome 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/Y1hx2qJD' 'https://trello.com/b/4qjGOH0n' 'https://trello.com/b/hYv2GTFI' 'https://trello.com/b/2KJTUe0h' 'https://trello.com/b/gl7DxL1j'")
+      , ("M-0", spawn "google-chrome 'https://trello.com/b/PED34jRh/' 'https://trello.com/b/Y1hx2qJD/tom' 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/hx6L7Y9V' 'https://trello.com/b/gl7DxL1j'")
       , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne

@@ -239,9 +239,9 @@ folder-hook notmuch 'macro index \CF \
 macro index,pager X "<pipe-message>ripmime -i - -d "
 
 #  fakesection: personal # 
-set from = "grainger@ucar.edu"
-alternates ^colton.grainger@gmail.com$
+set from = "colton.grainger@gmail.com"
 alternates ^colton.grainger@colorado.edu$
+alternates ^grainger@ucar.edu$
 set realname = "Colton Grainger"
 set signature = ~/.mutt/signature
 
