@@ -55,7 +55,7 @@ runtime! plugin/sleuth.vim
 " Override ttimeoutlen later
 runtime! plugin/sensible.vim
 
-set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces number
+set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces number nowrap
 set noerrorbells visualbell t_vb= 
 set noshowmatch scrolljump=5 " scrolloff=5
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
@@ -84,24 +84,33 @@ if has('autocmd')
     " we set a buffer-local variable to track if we have already run the autocmd so it
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
-    autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
+    autocmd FileType python,mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     autocmd FileType tex setlocal noai nocin nosi inde=
     autocmd FileType text setlocal filetype=markdown
     autocmd FileType make setlocal noexpandtab
     autocmd FileType cls setlocal filetype=tex
     " autocmd FileType tex setlocal foldmethod=manual
-    autocmd FileType tex let g:tex_fold_enabled=1
+    autocmd FileType tex setlocal g:tex_fold_enabled=1
     " More aggressively check spelling in LaTeX; see
     " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
     autocmd FileType tex syntax spell toplevel
-    autocmd FileType tex let g:tex_flavor='latex'
-    autocmd FileType python let maplocalleader = "`"
+    autocmd FileType tex setlocal g:tex_flavor='latex'
+    " autocmd FileType python let maplocalleader = "`"
+    autocmd FileType python nnoremap <buffer> <silent> <leader>x :JupyterSendCell<CR>
+    autocmd FileType python vmap     <buffer> <silent> <leader>x <Plug>JupyterRunVisual
+    autocmd FileType python nnoremap <buffer> <silent> <leader>r :JupyterRunFile -i %:p<CR>
+    " pdb debugging needs to be run local to the jupyter qt console, not [remote]
+    autocmd FileType python nnoremap <buffer> <silent> <leader>R :Start python3 %<CR>
+    autocmd FileType python nnoremap <buffer> <silent> <F12> :JupyterConnect<CR> :JupyterCd %:p:h<CR>
+    autocmd FileType python setlocal noshowmode
   augroup END
 endif
+
 
 colorscheme solarized
 set background=light
 
+let mapleader = ","
 let g:dispatch_terminal_exec='urxvt -e'
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'yaml']
@@ -116,6 +125,7 @@ let g:snips_author='ccg'
 let g:snips_email='colton.grainger@colorado.edu'
 let g:snips_github='https://github.com/coltongrainger'
 
+
 let g:UltiSnipsEditSplit="tabdo"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 " default trigger values
@@ -125,10 +135,17 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 "    g:UltiSnipsJumpBackwardTrigger         <c-k>
 inoremap <c-x><c-k> <c-x><c-k>
 
+let g:ultisnips_python_style='jedi'
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
- 
+
+let g:jupyter_mapkeys=0
+let g:jedi#popup_on_dot=2
+let g:jedi#show_call_signatures=2
+let g:jedi#show_call_signatures_delay=0
+let g:jedi#use_splits_not_buffers='winwidth'
+
 let g:tex_fast = "mM"
 let g:vimtex_indent_enabled=0
 let g:vimtex_matchparen_enabled=0
@@ -177,15 +194,11 @@ noremap <F4> :UltiSnipsEdit<CR>
 " Give suggestions for last misspelled word.
 map <C-S> [sz=
 
-noremap <F12> :JupyterSendRange<CR>
-
 " pandoc tools
-" cite
-nmap \pz :ZoteroCite()<CR>
 " compile .pdf and watch
-nmap \pc :Start pc.sh %<CR>
+nmap <leader>pc :Start pc.sh %<CR>
 " view available .pdf
-nmap \pv :Dispatch! pv.sh %<CR>
+nmap <leader>pv :Dispatch! pv.sh %<CR>
 
 " https://github.com/vEnhance/dotfiles/blob/master/vimrc
 function! DelEmptyLineAbove()
