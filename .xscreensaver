@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.42 for colton on Thu Dec 26 18:55:18 2019.
+# Written by xscreensaver-demo 5.42 for colton on Fri May  1 09:20:07 2020.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:05:00
-cycle:		0:05:00
+cycle:		0:00:00
 lock:		False
-lockTimeout:	0:10:00
+lockTimeout:	0:05:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -26,15 +26,15 @@ ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
 dpmsEnabled:	True
 dpmsQuickOff:	True
-dpmsStandby:	0:04:00
-dpmsSuspend:	0:05:00
-dpmsOff:	0:05:00
+dpmsStandby:	0:05:00
+dpmsSuspend:	0:10:00
+dpmsOff:	0:10:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	/home/colton/.xmonad
 
-mode:		blank
+mode:		one
 selected:	37
 
 textMode:	url
@@ -81,8 +81,8 @@ programs:								      \
 - GL: 				morph3d -root				    \n\
 				mountain -root				    \n\
 				munch -root				    \n\
-  Best: 			penrose -root -delay 80531 -ncolors 210	      \
-				  -size 82				    \n\
+  Best: 			penrose -root -delay 80000 -ncolors 163	      \
+				  -size 33 -ammann			    \n\
 - GL: 				pipes -root				    \n\
 				rd-bomb -root				    \n\
 - GL: 				rubik -root				    \n\

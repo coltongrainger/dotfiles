@@ -6,7 +6,10 @@ $endif$
 %
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{letter}
 $if(fontfamily)$
+% Fira Sans, Euler Math, Inconsolata
+\usepackage[T1]{fontenc}
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+\usepackage{inconsolata}
 $else$
 \usepackage{lmodern}
 $endif$

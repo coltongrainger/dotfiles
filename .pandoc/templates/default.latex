@@ -1,80 +1,52 @@
-$if(fontsize)$
-\documentclass[$fontsize$]{amsart}
-$else$
-\documentclass[10pt]{amsart}
-$endif$
-$if(geometry)$
-\usepackage[$geometry$]{geometry}
-$else$
-\usepackage{fullpage}
-$endif$
-% https://tex.stackexchange.com/questions/174073
-% \usepackage{parskip}
-
-% macros
+\documentclass{humanist}
 \usepackage{ccg-macros}
-\usepackage{amscd, amssymb}
-\usepackage{physics}
-
 % pandoc is utf8 native
 \usepackage[utf8]{inputenc}
-
-% font
-\usepackage[varg]{txfonts}
-\usepackage[T1]{fontenc}
-
-
-% extra macros
-$for(header-includes)$
-$header-includes$
-
-$endfor$
-
 % pandoc transfers h2 to subsections, I prefer h2 for sections
 \let\subsubsection\subsection
 \let\subsection\section
 \let\section\chapter
 \let\chapter\part
-
-% pandoc section numbering
+% section numbering
 $if(nonumbering)$
 \setcounter{secnumdepth}{0}
 $else$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $endif$
-
-% pandoc urls as footnotes
+% urls as footnotes
 \usepackage[unicode=true]{hyperref}
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
-
+% fix: parskip mangles ams table of contents
+$if(indent)$
+$else$
+\usepackage{parskip}
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
+$endif$
 $if(linestretch)$
-% pandoc linespacing
+% linespacing
 \usepackage{setspace}
 $endif$
 
-% pandoc for upquote if available
+$if(tikz)$
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz, tikz-3dplot, pgfplots}
+\usepackage{tkz-graph}
+\usetikzlibrary[positioning,patterns]
+$endif$
+
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-
-% tables, pandoc manges export
-$if(tables)$
-\usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
-$endif$
-
-$if(strikeout)$
-\usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-$endif$
-
+\usepackage{booktabs,longtable}
+% code blocks
 $if(highlighting-macros)$
-% pandoc code blocks
 $highlighting-macros$
 $endif$
-
+% graphics
 $if(graphics)$
-% pandoc graphics
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -85,24 +57,10 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
-
-$if(tikz)$
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{tikz, tikz-3dplot, pgfplots}
-\usepackage{tkz-graph}
-\usetikzlibrary[positioning,patterns]
-$endif$
-
-$if(xy)$
-\usepackage[all]{xy}
-$endif$
-
-% pandoc prevent overfull lines
-\setlength{\emergencystretch}{3em}  
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% pandoc default figure placement to htbp
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
@@ -116,22 +74,22 @@ $endif$
 $if(date)$
 \date{$date$}
 $endif$
-$if(note)$
-\thanks{$note$}
+$if(repo)$
+\thanks{\textit{Git Repo:} \url{$repo$}}
 $endif$
 
 \begin{document}
-
 $if(title)$
 \maketitle
 $endif$
-
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
 $endif$
-
+$if(toc)$
+\tableofcontents
+$endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$

@@ -77,14 +77,14 @@ main = do
       -- run process in terminal
       , ("M-S-p", prompt "urxvt -e" myXPConfig)
       -- audio controls
-      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-")
+      , ("<XF86AudioLowerVolume>", spawn "amixer set Master 10%-")
       , ("M-<F2>", spawn "xscreensaver-command -lock")
       , ("<XF86AudioMicMute>", spawn "pavucontrol")
       , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
-      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+")
+      , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 10%+")
       -- display controls
       , ("M-<End>", spawn "xrandr -s 1")
-      , ("M-<Home>", spawn "arandr")
+      , ("M-<Home>", spawn "bash ~/.screenlayout/math-201.sh")
       , ("<XF86Launch1>", spawn "xcalib -invert -alter")
       -- open man page
       , ("M-;", manPrompt myXPConfig)                           -- (24)
@@ -95,7 +95,7 @@ main = do
       -- run named software
       , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
-      , ("M-0", spawn "google-chrome 'https://trello.com/b/PED34jRh/' 'https://trello.com/b/Y1hx2qJD/tom' 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/hx6L7Y9V' 'https://trello.com/b/gl7DxL1j'")
+      , ("M-0", spawn "firefox 'https://trello.com/b/PED34jRh/' 'https://trello.com/b/Y1hx2qJD/tom' 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/hx6L7Y9V' 'https://trello.com/b/gl7DxL1j'")
       , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne
@@ -144,7 +144,7 @@ myLayouts = toggleLayouts Full (avoidStruts (resizableTile ||| Mirror resizableT
      where
         resizableTile = ResizableTall nmaster delta ratio []
         nmaster = 1
-        ratio = toRational (2/(1+sqrt(5)::Double))
+        ratio = toRational (2/(1+sqrt(5)::Double) - (3/50))
         delta = 1/100
 
 myManageHook :: ManageHook

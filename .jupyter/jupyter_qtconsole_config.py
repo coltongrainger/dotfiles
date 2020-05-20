@@ -42,7 +42,7 @@
 
 ## Set to display confirmation dialog on exit. You can always use 'exit' or
 #  'quit', to force a direct exit without any confirmation.
-#c.JupyterConsoleApp.confirm_exit = True
+# c.JupyterConsoleApp.confirm_exit = True
 
 ## Connect to an already running kernel
 #c.JupyterConsoleApp.existing = ''
@@ -103,7 +103,7 @@ c.JupyterQtConsoleApp.hide_menubar = True
 c.JupyterQtConsoleApp.maximize = False
 
 ## Use a plaintext widget instead of rich text (plain can't print/save).
-c.JupyterQtConsoleApp.plain = True
+# c.JupyterQtConsoleApp.plain = True
 
 ## path to a custom CSS stylesheet
 #c.JupyterQtConsoleApp.stylesheet = ''
@@ -129,7 +129,7 @@ c.JupyterQtConsoleApp.plain = True
 
 ## The maximum number of lines of text before truncation. Specifying a non-
 #  positive number disables text truncation (not recommended).
-c.ConsoleWidget.buffer_size = 10000
+c.ConsoleWidget.buffer_size = 0
 
 ## The height of the console at start time in number of characters (will double
 #  with `vsplit` paging)
@@ -179,7 +179,7 @@ c.ConsoleWidget.include_other_output = True
 ## Prefix to add to outputs coming from clients other than this one.
 #  
 #  Only relevant if include_other_output is True.
-#c.ConsoleWidget.other_output_prefix = '[remote] '
+c.ConsoleWidget.other_output_prefix = ''
 
 ## The type of paging to use. Valid values are:
 #  
@@ -195,7 +195,7 @@ c.ConsoleWidget.include_other_output = True
 #     'custom_page_requested(str)' signal.
 #  'none'
 #     The text is written directly to the console.
-#c.ConsoleWidget.paging = 'inside'
+c.ConsoleWidget.paging = 'none'
 
 #------------------------------------------------------------------------------
 # HistoryConsoleWidget(ConsoleWidget) configuration
