@@ -24,6 +24,7 @@ PERL_LOCAL_LIB_ROOT="/home/colton/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/colton/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/colton/perl5"; export PERL_MM_OPT;
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export ECLIPSE_HOME=$HOME/.local/eclipse/java-2019-12/eclipse
 # export JUPYTER_PATH=$HOME/fy/20/rda-image-archive/script:$JUPYTER_PATH
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -40,6 +41,7 @@ function margs {
 alias dropbox='python $HOME/.local/dropbox.py start &'
 alias vpn='/opt/cisco/anyconnect/bin/vpn'
 alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
+alias eclimd='$ECLIPSE_HOME/eclimd'
 
 # https://www.jefftk.com/p/you-should-be-logging-shell-history
 promptFunc() {

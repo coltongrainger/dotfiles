@@ -85,7 +85,8 @@ if has('autocmd')
     " only runs once. Otherwise if we leave the buffer and come back, the
     " autocmd would run again.
     autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
-    autocmd FileType python if !exists('b:did_vimrc_python_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 | let b:did_vimrc_python_textwidth_autocmd = 1 | endif
+    " indentation defaults for code
+    autocmd FileType python,java if !exists('b:did_vimrc_python_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 | let b:did_vimrc_python_textwidth_autocmd = 1 | endif
     autocmd FileType tex setlocal noai nocin nosi inde=
     autocmd FileType text setlocal filetype=markdown
     autocmd FileType make setlocal noexpandtab
@@ -94,14 +95,20 @@ if has('autocmd')
     " More aggressively check spelling in LaTeX; see
     " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
     autocmd FileType tex syntax spell toplevel
-    autocmd FileType python let mapleader = ","
-    autocmd FileType python nnoremap <buffer> <silent> <leader>x :JupyterSendCell<CR>
-    autocmd FileType python vmap     <buffer> <silent> <leader>x <Plug>JupyterRunVisual
-    autocmd FileType python nnoremap <buffer> <silent> <leader>R :JupyterRunFile -i %:p<CR>
+    autocmd FileType python,java let maplocalleader = "`"
+    autocmd FileType python nnoremap <buffer> <silent> <localleader>x :JupyterSendCell<CR>
+    autocmd FileType python vmap     <buffer> <silent> <localleader>x <Plug>JupyterRunVisual
+    autocmd FileType python nnoremap <buffer> <silent> <localleader>R :JupyterRunFile -i %:p<CR>
     " pdb debugging needs to be run local to the jupyter qt console, not [remote]
     " autocmd FileType python nnoremap <buffer> <silent> <leader>R :Dispatch python3 %<CR>
     autocmd FileType python nnoremap <buffer> <silent> <F12> :JupyterConnect<CR> :JupyterCd %:p:h<CR>
     autocmd FileType python setlocal noshowmode nowrap
+    " cf http://eclim.org/vim/java/index.html#suggested-mappings
+    " Import the class under the cursor with <leader>i (:h mapleader):
+    autocmd FileType java nnoremap <buffer> <silent> <localleader>i :JavaImport<CR>
+    " Search for the javadocs of the element under the cursor with <leader>d.
+    autocmd FileType java nnoremap <buffer> <silent> <localleader>d :JavaDocSearch -x declarations<cr>
+    " Perform a context sensitive search of the element under the cursor with <enter>.
   augroup END
 endif
 

@@ -1,8 +1,8 @@
 Config { font = "-uw-*-medium-i-*-*-14-*-*-*-*-*-*-*"
-       , borderColor = ""
+       , borderColor = "#eee8d5"
        , border = TopB
-       , bgColor = "#002b36"
-       , fgColor = "#839496"
+       , bgColor = "#eee8d5"
+       , fgColor = "#6c71c4"
        , alpha = 255
        , position = Top
        , textOffset = -1
@@ -15,7 +15,7 @@ Config { font = "-uw-*-medium-i-*-*-14-*-*-*-*-*-*-*"
        , allDesktops = True
        , overrideRedirect = True
        , commands = [ Run XMonadLog
-                    , Run Cpu ["-L","3","-H","50", "--normal","#6c71c4","--high","#6c71c4"] 10
+                    , Run Cpu [] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%F %H:%M" "date" 10
                     ]

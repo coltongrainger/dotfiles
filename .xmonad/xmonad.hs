@@ -95,7 +95,7 @@ main = do
       -- run named software
       , ("M-i", runOrRaise "firefox" (className =? "Firefox")) -- f(i)refox
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
-      , ("M-0", spawn "firefox 'https://trello.com/b/PED34jRh/' 'https://trello.com/b/Y1hx2qJD/tom' 'https://trello.com/b/ynVgFrfd' 'https://trello.com/b/hx6L7Y9V' 'https://trello.com/b/gl7DxL1j'")
+      , ("M-0", spawn "firefox 'https://trello.com/b/PED34jRh/inbox' 'https://trello.com/b/hx6L7Y9V/personal' 'https://trello.com/b/3U9qMHUe/study' 'https://trello.com/b/hbjlCdSP/jobs' 'https://toggl.com/app'")
       , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne
@@ -133,8 +133,8 @@ myXPConfig = def { position          = Top
                  , alwaysHighlight   = True
                  , promptBorderWidth = 0
                  , font    = "-uw-*-medium-i-*-*-14-*-*-*-*-*-*-*"
-                 , fgColor = "#839496"
-                 , bgColor = "#002b36"
+                 , fgColor = "#6c71c4"
+                 , bgColor = "#eee8d5"
                  , historySize = 512
                  , showCompletionOnTab = True
                  , historyFilter = deleteConsecutive
@@ -161,13 +161,13 @@ myManageHook = composeAll
 -- customLogHook to show windows in xmobar
 quamashPP :: PP
 quamashPP = def { ppCurrent = xmobarColor "#dc322f" "" . wrap "[" "]"
-                , ppVisible = xmobarColor "#b58900" "" . wrap "(" ")"
+                , ppVisible = xmobarColor "#6c71c4" "" . wrap "(" ")"
                 -- , ppSort    = getSortByXineramaRule
                 , ppTitle = xmobarColor "#dc322f" "" . shorten 25
                 , ppSep = " + "
                 , ppLayout = const "" -- to disable the layout info on xmobar
                 , ppExtras = [logTitles]
-                , ppOrder  = \(ws:l:t:ts:_) -> ws : t : [xmobarColor "#839496" "" ts]
+                , ppOrder  = \(ws:l:t:ts:_) -> ws : t : [xmobarColor "#6c71c4" "" ts]
                 }
 
 -- https://stackoverflow.com/questions/22838932/
