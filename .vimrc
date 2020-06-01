@@ -86,7 +86,8 @@ if has('autocmd')
     " autocmd would run again.
     autocmd FileType mail,tex,markdown if !exists('b:did_vimrc_markdown_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=0 | let b:did_vimrc_markdown_textwidth_autocmd = 1 | endif
     " indentation defaults for code
-    autocmd FileType python,java if !exists('b:did_vimrc_python_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 | let b:did_vimrc_python_textwidth_autocmd = 1 | endif
+    autocmd FileType python if !exists('b:did_vimrc_python_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 | let b:did_vimrc_python_textwidth_autocmd = 1 | endif
+    autocmd FileType java if !exists('b:did_vimrc_java_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=80 | let b:did_vimrc_java_textwidth_autocmd = 1 | endif
     autocmd FileType tex setlocal noai nocin nosi inde=
     autocmd FileType text setlocal filetype=markdown
     autocmd FileType make setlocal noexpandtab

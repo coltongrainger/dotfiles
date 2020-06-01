@@ -5,6 +5,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicBars
+import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
@@ -47,7 +48,7 @@ main = do
     , focusedBorderColor = "#dc322f"
     , focusFollowsMouse  = True -- https://github.com/xmonad/xmonad/issues/108
     , modMask            = mod4Mask -- Use the "Win" key for the mod key
-    , startupHook        = spawn "$HOME/.xmonad/autostart.sh" <+> dynStatusBarStartup barCreate barDestroy
+    , startupHook        = spawn "$HOME/.xmonad/autostart.sh" <+> dynStatusBarStartup barCreate barDestroy <+> setWMName "LG3D"
     , manageHook         = myManageHook
     , layoutHook         = myLayouts 
     , handleEventHook    = docksEventHook <+> dynStatusBarEventHook barCreate barDestroy
