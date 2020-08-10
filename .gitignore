@@ -2,3 +2,5 @@
 duplicity/*.log
 .my.cnf
 ~/tmp
+.local/bin/scripts/tumblr-photoset-from-pwd.py
+

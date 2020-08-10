@@ -44,8 +44,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'aperezdc/vim-template'
   " Plug 'coltongrainger/vim-markdown'
   Plug 'altercation/vim-colors-solarized'
-  Plug 'pandysong/ghost-text.vim'
   Plug 'wmvanvliet/jupyter-vim'
+  Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Workaround for https://github.com/tpope/vim-sleuth/issues/29.
@@ -88,6 +88,7 @@ if has('autocmd')
     " indentation defaults for code
     autocmd FileType python if !exists('b:did_vimrc_python_textwidth_autocmd') | setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 | let b:did_vimrc_python_textwidth_autocmd = 1 | endif
     autocmd FileType java if !exists('b:did_vimrc_java_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=80 | let b:did_vimrc_java_textwidth_autocmd = 1 | endif
+    autocmd FileType javascript if !exists('b:did_vimrc_javascript_textwidth_autocmd') | setlocal expandtab shiftwidth=2 tabstop=2 textwidth=80 | let b:did_vimrc_java_textwidth_autocmd = 1 | endif
     autocmd FileType tex setlocal noai nocin nosi inde=
     autocmd FileType text setlocal filetype=markdown
     autocmd FileType make setlocal noexpandtab

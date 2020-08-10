@@ -19,7 +19,7 @@ echo "LOCATION $location"
 
 options="--pdf-engine=latexmk \
 	--pdf-engine-opt=-pdf \
-	--template=letter.latex
+	--template=default.latex \
 	--filter pandoc-citeproc \
 	--bibliography=$HOME/coltongrainger.bib \
 	--fail-if-warnings"

@@ -98,6 +98,7 @@ main = do
       , ("M-u", raiseMaybe (spawn "jupyter-qtconsole") (className =? "jupyter-qtconsole"))
       , ("M-0", spawn "firefox 'https://trello.com/b/PED34jRh/inbox' 'https://trello.com/b/hx6L7Y9V/personal' 'https://trello.com/b/3U9qMHUe/study' 'https://trello.com/b/hbjlCdSP/jobs' 'https://toggl.com/app'")
       , ("M-c c", raiseMaybe (spawn "google-chrome 'https://calendar.google.com/calendar/r'") (title=? "Google Calendar - Google Chrome")) -- (c)alendar
+      , ("M-c e", raiseMaybe (spawn "google-chrome 'https://www.evernote.com/client/web?login=true'") (title=? "All Notes - Evernote - Google Chrome")) -- (e)vernote
       , ("M-m", raiseMaybe (runInTerm "-title mutt" "bash -c mutt") (title =? "mutt")) -- (m)utt
       , ("M-n", runOrRaise "mnemosyne" (className =? "mnemosyne")) -- m(n)emosyne
       , ("M-o", raiseMaybe (spawn "wine start /unix '/opt/oed/swhx.exe'") (title =? "Oxford English Dictionary")) -- (o)ed

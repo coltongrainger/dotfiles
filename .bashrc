@@ -200,3 +200,4 @@ function githelp {
     echo "git fetch origin ; git remote prune origin"
     echo ""
 }
+export ANDROID_HOME=~/Android/sdk

@@ -13,7 +13,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[sfdefault,scaled=0.85]{FiraSans}
 \RequirePackage[small,euler-digits]{eulervm}
-\RequirePackage{inconsolata}
+\RequirePackage[scaled=0.95]{inconsolata}
 \RequirePackage{textcomp}
 
 %\RequirePackage{fourier}
