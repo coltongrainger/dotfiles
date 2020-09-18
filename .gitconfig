@@ -1,59 +1,53 @@
 [user]
-name = Colton Grainger
-email = colton.grainger@colorado.edu
+	name = Colton Grainger
+	email = colton.grainger@gmail.com
+
 [core]
-editor = vim
-pager = less -+S
-excludesfile = ~/.cvsignore
-attributesfile = ~/.gitattributes_global
-[pager]
-# needs https://github.com/git/git/tree/master/contrib/diff-highlight
+	editor = vim
+	pager = less -+S
+	excludesfile = ~/.cvsignore
+	attributesfile = ~/.gitattributes_global
+
 [color]
-ui = auto
+	ui = auto
+
 [alias]
-# From https://git.wiki.kernel.org/index.php/Aliases#What.27s_new.3F
-new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-pushall = "!for i in `git remote`; do git push $i; done;"
-pullall = "!for i in `git remote`; do git pull $i; done;"
-# See https://gist.github.com/mwhite/6887990 for where a lot of
-# these came from
-a = add
-# list branches sorted by last modified
-b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-br = branch
-cm = commit -m
-co = checkout
-diff = diff --color
-d = diff
-d1 = diff HEAD~1 HEAD
-d2 = diff HEAD~2 HEAD
-d21 = diff HEAD~2 HEAD~1
-dc = diff --cached
-ds = diff --stat
-# list aliases
-la = "!git config -l | grep alias | cut -c 7-"
-ln = log --name-only
-logn = log --name-only
-tree = log --graph --oneline --all
-st = status
-wd = diff --color-words
-wdiff = diff --color-words
-wd1 = diff --color-words HEAD~1 HEAD
-wd2 = diff --color-words HEAD~2 HEAD
-wd21 = diff --color-words HEAD~2 HEAD~1
-# From http://stackoverflow.com/a/15316602
-up = "!git remote update -p; git merge --ff-only @{u}"
+	# https://gist.github.com/mwhite/6887990
+	la = "!git config -l | grep alias | cut -c 7-"
+	cm = commit -m
+	diff = diff --color
+	dc = diff --cached
+	ds = diff --stat
+	pushall = "!for i in `git remote`; do git push $i; done;"
+	pullall = "!for i in `git remote`; do git pull $i; done;"
+	co = checkout
+	br = branch
+	# list aliases
+	tree = log --graph --oneline --all
+	root = rev-list --max-parents=0 HEAD
+	st = status
+	# From http://stackoverflow.com/a/15316602
+	up = "!git remote update -p; git merge --ff-only @{u}"
+
 [push]
-default = simple
+	default = simple
+
 [status]
-showUntrackedFiles = no
-[filter "nbstrip_full"]
-clean = "jq --indent 1 \
-'(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
-| (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
-| .cells[].metadata = {} \
-'"
-smudge = cat
-required = true
+	showUntrackedFiles = no
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[diff]
+# https://stackoverflow.com/a/28017534/8475967
+# git diff compares the (i)ndex and the (w)ork tree;
+; git diff HEAD compares a (c)ommit and the (w)ork tree;
+; git diff --cached compares a (c)ommit and the (i)ndex;
+; git diff HEAD:file1 file2 compares an (o)bject and a (w)ork tree entity;
+; git diff --no-index a b compares two non-git things (1) and (2).
+	mnemonicprefix = true
+
+[fetch]
+# Automatically prune stale branches from the remote on every
+# fetch (hence pull). https://stackoverflow.com/a/18718936/8475967
+	prune = true

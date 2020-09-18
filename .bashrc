@@ -1,8 +1,10 @@
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/node-v12.18.2-linux-x64/bin
 export PATH=$PATH:$HOME/.local/bin/scripts
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:/usr/local/apache-jmeter-5.3/bin
 export PATH=$PATH:/opt/webwork/webwork2/bin
 export PATH=$PATH:/home/colton/fy/20/mathbook/script
 # export GOROOT=/usr/local/go

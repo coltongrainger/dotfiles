@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.42 for colton on Fri Jul 17 16:38:41 2020.
+# Written by xscreensaver-demo 5.42 for colton on Tue Aug 11 10:22:54 2020.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:03:00
 cycle:		0:00:00
 lock:		True
-lockTimeout:	0:05:00
+lockTimeout:	0:30:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -82,7 +82,7 @@ programs:								      \
 				mountain -root				    \n\
 				munch -root				    \n\
   GrayScale: 			penrose -root -delay 80000 -ncolors 255	      \
-				  -size 100 -ammann			    \n\
+				  -size 47 -ammann			    \n\
 - GL: 				pipes -root				    \n\
 				rd-bomb -root				    \n\
 - GL: 				rubik -root				    \n\
