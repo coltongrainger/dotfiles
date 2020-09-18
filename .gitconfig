@@ -13,21 +13,17 @@
 
 [alias]
 	# https://gist.github.com/mwhite/6887990
-	la = "!git config -l | grep alias | cut -c 7-"
-	cm = commit -m
+	tree = log --graph --oneline --all
+	root = rev-list --max-parents=0 HEAD
 	diff = diff --color
 	dc = diff --cached
 	ds = diff --stat
 	pushall = "!for i in `git remote`; do git push $i; done;"
 	pullall = "!for i in `git remote`; do git pull $i; done;"
+	cm = commit -m
 	co = checkout
 	br = branch
-	# list aliases
-	tree = log --graph --oneline --all
-	root = rev-list --max-parents=0 HEAD
-	st = status
-	# From http://stackoverflow.com/a/15316602
-	up = "!git remote update -p; git merge --ff-only @{u}"
+	la = "!git config -l | grep alias | cut -c 7-"
 
 [push]
 	default = simple
@@ -44,7 +40,6 @@
 ; git diff HEAD compares a (c)ommit and the (w)ork tree;
 ; git diff --cached compares a (c)ommit and the (i)ndex;
 ; git diff HEAD:file1 file2 compares an (o)bject and a (w)ork tree entity;
-; git diff --no-index a b compares two non-git things (1) and (2).
 	mnemonicprefix = true
 
 [fetch]
