@@ -85,7 +85,8 @@ main = do
       , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 10%+")
       -- display controls
       , ("M-<End>", spawn "xrandr -s 1")
-      , ("M-<Home>", spawn "bash ~/.screenlayout/math-201.sh")
+      , ("M-<Home>", spawn "$HOME/.screenlayout/home.sh")
+      , ("M-S-<Home>", spawn "$HOME/.screenlayout/work.sh")
       , ("<XF86Launch1>", spawn "xcalib -invert -alter")
       -- open man page
       , ("M-;", manPrompt myXPConfig)                           -- (24)

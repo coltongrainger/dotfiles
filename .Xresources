@@ -29,13 +29,6 @@ URxvt*boldFont: -uw-*-bold-r-*-*-18-*-*-*-*-*-*-*
 URxvt*italicFont: -uw-*-medium-i-*-*-18-*-*-*-*-*-*-*
 URxvt*boldItalicFont: -uw-*-bold-i-*-*-18-*-*-*-*-*-*-*
 
-/* URxvt.keysym.C-S-plus: font-size:increase */
-/* URxvt.keysym.C-KP_Add: font-size:increase */
-/* URxvt.keysym.C-S-underscore: font-size:decrease */
-/* URxvt.keysym.C-KP_Subtract: font-size:decrease */
-/* URxvt.keysym.C-0: font-size:reset */
-/* URxvt.keysym.C-KP_0: font-size:reset */
-
 ! solarized light
 
 #define S_base03        #002b36
@@ -152,41 +145,3 @@ URxvt*boldItalicFont: -uw-*-bold-i-*-*-18-*-*-*-*-*-*-*
 /* !! white dark/light */
 /* *color7:                s_base2 */
 /* *color15:               s_base3 */
-
-/* ! free up these chords */
-/* URxvt.keysym.C-M-c: builtin-string: */
-/* URxvt.keysym.C-M-v: builtin-string: */
-/* URxvt.keysym.M-s: builtin-string: */
-
-/* ! utilities */
-/* URxvt.perl-ext-common: default,clipboard,matcher */
-/* URxvt.url-launcher: xdg-open */
-/* URxvt.matcher.button: 1 */
-/* URxvt.keysym.C-C: perl:clipboard:copy */
-/* URxvt.keysym.C-V: perl:clipboard:paste */
-/* URxvt.clipboard.copycmd:  xclip -i -selection clipboard */
-/* URxvt.clipboard.pastecmd: xclip -o -selection clipboard */
-
-! scroll
-/* URxvt.keysym.S-Up:    string:\033[1;2A */
-/* URxvt.keysym.S-Down:  string:\033[1;2B */
-/* URxvt.keysym.S-Right: string:\033[1;2C */
-/* URxvt.keysym.S-Left:  string:\033[1;2D */
-/* URxvt.scrollBar: false */
-
-/* URxvt*font: -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12 */
-/* URxvt*boldFont: -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12 */
-/* URxvt*italicFont: xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12 */
-/* URxvt*boldItalicFont: xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12 */
-
-/* URxvt.font: 		xft:Iosevka Term-10:Medium */
-/* URxvt.boldFont: 	xft:Iosevka Term-10:Bold */
-/* URxvt.italicFont: 	xft:Iosevka Term-10:Italic */
-
-Xft.antialias:  1
-Xft.autohint:   0
-Xft.dpi:        96
-Xft.hinting:    0
-Xft.hintstyle:  hintnone
-Xft.lcdfilter:  lcddefault
-Xft.rgba:       rgb

@@ -56,7 +56,7 @@ runtime! plugin/sleuth.vim
 runtime! plugin/sensible.vim
 
 set nomodeline ignorecase smartcase showcmd noequalalways nojoinspaces number wrap
-set noerrorbells visualbell t_vb= 
+set noerrorbells visualbell 
 set noshowmatch scrolljump=5 " scrolloff=5
 set spellfile=~/.spell.en.utf-8.add wildmode=list:longest,full sidescroll=1
 set formatprg=par\ -w80qes0
